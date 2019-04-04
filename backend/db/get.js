@@ -29,9 +29,10 @@ function getAllDrops(req, res, next) {
 }
 
 function signup(req, res, next) {
+  console.log(req.body)
   db.none(
-    "INSERT INTO users (name, password) VALUES (${username}, ${password})",
-    { username: req.body.username, password: req.body.password }
+    "INSERT INTO users (username, password_digest) VALUES (${username}, ${password})",
+    {username: req.body.username, password: req.body.password}
   )
     .then(() => {
       res.status(200).json({
