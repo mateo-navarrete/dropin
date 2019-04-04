@@ -5,40 +5,33 @@ import {
   GoogleMap,
   Marker
 } from "react-google-maps";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
+import '../../../styles/map.css';
+
 
 const Map = () => {
   const MyMapComponent = withScriptjs(
     withGoogleMap(props => (
       <GoogleMap
-        defaultZoom={7}
-        defaultCenter={{ lat: 40.730610, lng: -73.935242 }}
+        defaultZoom={12}
+        defaultCenter={{ lat: 40.73061, lng: -73.935242 }}
       >
-        ///// Map for multiple markers //////
-        // {markers.map(marker => {
-        //   return (
-            <Marker
-              position={{ lat: 40.730610, lng: -73.935242 }}
-              key=1
-              clickable="true"
-            />
-        //   );
-        // })}
+        <Marker position={{ lat: 40.73061, lng: -73.935242 }} key={1} />
       </GoogleMap>
     ))
   );
-
-  // let time = new Date(Date.now());
-  // time = time.toString();
+  let time = new Date(Date.now());
+  time = time.toString();
 
   return (
     <div className="map-container">
-    <MyMapComponent
-      googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5uKfMriNA73mQgW_ZRelAixBLEdqT-Xg&v=3.exp&libraries=geometry,drawing,places"
-      loadingElement={<div style={{ height: `300px` }} />}
-      containerElement={<div style={{ height: `300px`, width: '300px' }} />}
-      mapElement={<div style={{ height: `300px` }} />}
-    />
+      <MyMapComponent
+        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5uKfMriNA73mQgW_ZRelAixBLEdqT-Xg&v=3.exp&libraries=geometry,drawing,places"
+        loadingElement={<div style={{ height: `100%` }} />}
+        containerElement={<div style={{ height: `400px`, width: "100%" }} />}
+        mapElement={<div style={{ height: `100%` }} />}
+      />
+      <p>{time}</p>
     </div>
   );
 };
