@@ -30,15 +30,15 @@ CREATE TABLE events (
 
 BEGIN;
 
-INSERT INTO drops (type) VALUES ('Music')
-INSERT INTO drops (type) VALUES ('Sports')
-INSERT INTO drops (type) VALUES ('Religious')
-INSERT INTO drops (type) VALUES ('Gaming')
-INSERT INTO drops (type) VALUES ('Education')
-INSERT INTO drops (type) VALUES ('Entertainment')
-INSERT INTO drops (type) VALUES ('Humanitarian')
-INSERT INTO drops (type) VALUES ('Party')
-INSERT INTO drops (type) VALUES ('Food')
-INSERT INTO drops (type) VALUES ('Family')
+INSERT INTO drops (type) VALUES ('Music');
+INSERT INTO drops (type) VALUES ('Sports');
+INSERT INTO drops (type) VALUES ('Religious');
+INSERT INTO drops (type) VALUES ('Gaming');
+INSERT INTO drops (type) VALUES ('Education');
+INSERT INTO drops (type) VALUES ('Entertainment');
+INSERT INTO drops (type) VALUES ('Humanitarian');
+INSERT INTO drops (type) VALUES ('Party');
+INSERT INTO drops (type) VALUES ('Food');
+INSERT INTO drops (type) VALUES ('Family');
 
 COMMIT;
