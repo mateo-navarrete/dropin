@@ -34,7 +34,7 @@ TBD
 
 TODO:  
 FrontEnd Route URL: `/`  
-BackEnd API Endpoint: `/events/:id`  
+BackEnd API Endpoint: `TBD`  
 State: `{ dropType, name, duration, endTime, dropIcon, linkTo }`  
 Actions: `TBD`  
 Components:
@@ -49,8 +49,23 @@ TBD
 ## ![pin-details](../docs/v1_wireframes/pin-details.png)
 
 TODO:  
-FrontEnd Route URL: `/signin`  
-BackEnd API Endpoint: `/users`  
+FrontEnd Route URL: `/events/`  
+BackEnd API Endpoint: `/events/:id`  
+State: `{ user, loggedIn }`  
+Actions: `TBD`  
+Components:
+
+```
+TBD
+```
+
+---
+
+## ![stepper](../docs/v1_wireframes/stepper.png)
+
+TODO:  
+FrontEnd Route URL: `/users/:id`  
+BackEnd API Endpoint: `/events/:id`  
 State: `{ user, loggedIn }`  
 Actions: `TBD`  
 Components:
