@@ -90,3 +90,18 @@ TBD
 ```
 
 ---
+
+## ![stepper-4](../docs/v1_wireframes/stepper-4.png)
+
+TODO:  
+FrontEnd Route URL: `/users/:id`  
+BackEnd API Endpoint: `/events/:id`  
+State: `{ user, loggedIn }`  
+Actions: `TBD`  
+Components:
+
+```
+TBD
+```
+
+---
