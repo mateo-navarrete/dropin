@@ -1,14 +1,78 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:100|Oswald:300");
+
 body {
-  margin: 0;
+  background: rgba(78, 78, 78, 1);
+  color: rgba(255, 255, 255, 1);
+  font-family: sans-serif;
+  margin: 0 auto;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.lato {
+  font-family: Lato;
+}
+
+.oswald {
+  font-family: Oswald;
+}
+
+.primary {
+  /* background: #621389; */
+}
+
+.secondary {
+  /* background: #d1d1d1; */
+}
+
+.accent {
+  /* background: #00f281; */
+}
+
+.text-blk {
+  color: #000;
+}
+
+/* .text-gry {
+  color: #d1d1d1;
+} */
+
+.text-wht {
+  color: #fff;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.content {
+  padding: 15px 0 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.center {
+  justify-content: center;
+}
+
+.align {
+  align-items: center;
+}
+
+.margin-small {
+  margin: 5px;
+}
+
+.padding-small {
+  padding: 5px;
 }
