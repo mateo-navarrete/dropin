@@ -1,5 +1,5 @@
 import React from "react";
-import { DropBtnArea, NavBar } from ".";
+import { DropBtnArea } from ".";
 import Map from "../map/Map.js";
 
 export const LandingPage = props => {
