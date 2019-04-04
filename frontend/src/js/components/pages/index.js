@@ -1,5 +1,7 @@
 import { AuthUser } from './AuthUser';
-import { DropRoutes } from './DropRoutes';
+import { DropBtn } from './DropBtn';
+import { DropBtnArea } from './DropBtnArea';
+import { DropBtnList } from './DropBtnList';
 import { EventsPage } from './EventsPage';
 import { LandingPage } from './LandingPage';
 import { NavBar } from './NavBar';
@@ -8,7 +10,9 @@ import { SwitchRouter } from './SwitchRouter';
 
 export {
   AuthUser,
-  DropRoutes,
+  DropBtn,
+  DropBtnArea,
+  DropBtnList,
   EventsPage,
   LandingPage,
   NavBar,
