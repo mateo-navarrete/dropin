@@ -1,4 +1,4 @@
 const pgp = require("pg-promise")({});
-const db = pgp("postgres://localhost:5432/dropin_data")
+const db = pgp("postgres://postgres:codenode@localhost/dropin_data")
 
 module.exports = { db }
