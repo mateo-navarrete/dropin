@@ -1,7 +1,7 @@
 import { AuthUser, DroppersArea, UserCoords } from './droppers';
 import { DropsArea } from './drops';
-// import { Map } from './map';
-// import { MapsRouter } from './maps';
+import { Map } from './map';
+import { MapsRouter } from './maps';
 import { PinsArea } from './pins';
 import {
   EducationIcon,
@@ -25,8 +25,8 @@ export {
   UserCoords,
   DropsArea,
   PinsArea,
-  // Map,
-  // MapsRouter,
+  Map,
+  MapsRouter,
   EducationIcon,
   EntertainmentIcon,
   FamilyIcon,
