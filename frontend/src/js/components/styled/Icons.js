@@ -1,3 +1,4 @@
+import React from 'react';
 import EducationIcon from '@material-ui/icons/School';
 import EntertainmentIcon from '@material-ui/icons/Star';
 import FamilyIcon from '@material-ui/icons/Favorite';
@@ -20,4 +21,22 @@ export {
   PartyIcon,
   ReligiousIcon,
   SportsIcon
+};
+
+const ICONS = {
+  Education: EducationIcon,
+  Entertainment: EntertainmentIcon,
+  Family: FamilyIcon,
+  Food: FoodIcon,
+  Gaming: GamingIcon,
+  Humanitarian: HumanitarianIcon,
+  Music: MusicIcon,
+  Party: PartyIcon,
+  Religious: ReligiousIcon,
+  Sports: SportsIcon,
+};
+
+export const IconHOC = ({ type }) => {
+  const HOC = ICONS[type] || 'div';
+  return <HOC />;
 };

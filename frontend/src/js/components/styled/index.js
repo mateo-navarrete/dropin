@@ -8,9 +8,11 @@ import {
   MusicIcon,
   PartyIcon,
   ReligiousIcon,
-  SportsIcon
+  SportsIcon,
+  IconHOC
 } from './Icons';
 import StyledDropArea from './StyledDropArea';
+import { StyledDropList } from './StyledDropList';
 import StyledPinDropButton from './StyledPinDropButton';
 
 export {
@@ -24,6 +26,8 @@ export {
   PartyIcon,
   ReligiousIcon,
   SportsIcon,
+  IconHOC,
   StyledDropArea,
+  StyledDropList,
   StyledPinDropButton
 };

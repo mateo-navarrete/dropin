@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { getMusicPins } from '../actions';
+// import { getSportsPins } from '../actions';
 
-const mapStateToProps = ({ musicReducer }) => {
+const mapStateToProps = ({ sportsReducer }) => {
   return {
-    drop: musicReducer.drop,
-    coords: musicReducer.coords,
+    drop: sportsReducer.drop,
+    coords: sportsReducer.coords,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    // getMusicPins: userCoords => dispatch(getMusicPins(userCoords)),
+    // getSportsPins: userCoords => dispatch(getSportsPins(userCoords)),
   };
 };
 
-const withMusicDrops = (WrappedComponent, api) => {
+const withSportsDrops = (WrappedComponent, api) => {
   class HOC extends Component {
     componentDidMount() {
-      //getMusicPins based on userCoords here
+      //getSportsPins based on userCoords here
     }
 
     render() {
@@ -31,4 +31,4 @@ const withMusicDrops = (WrappedComponent, api) => {
   )(HOC);
 };
 
-export default withMusicDrops;
+export default withSportsDrops;

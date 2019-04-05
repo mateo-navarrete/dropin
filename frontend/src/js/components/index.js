@@ -14,6 +14,7 @@ import {
   PartyIcon,
   ReligiousIcon,
   SportsIcon,
+  IconHOC,
   StyledDropArea,
   StyledPinDropButton
 } from './styled';
@@ -37,6 +38,7 @@ export {
   PartyIcon,
   ReligiousIcon,
   SportsIcon,
+  IconHOC,
   StyledDropArea,
   StyledPinDropButton,
   LandingPage,
