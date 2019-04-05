@@ -1,10 +1,10 @@
 import React from "react";
-import { withMusicDrops } from "../../containers";
+import { withFoodDrops } from "../../containers";
 import { Map } from "..";
 
-const MusicMap = ({ drop, coords, ...props }) => {
-  console.log("@musicMapArea", props);
-  const renderMusicPins = coords.map((coord, i) => {
+const FoodMap = ({ drop, coords, ...props }) => {
+  console.log("@foodMapArea", props);
+  const renderFoodPins = coords.map((coord, i) => {
     return (
       <div key={"pin" + i}>
         <div>{drop + i}</div>
@@ -16,9 +16,9 @@ const MusicMap = ({ drop, coords, ...props }) => {
   return (
     <>
       <Map />
-      {renderMusicPins}
+      {renderFoodPins}
     </>
   );
 };
 
-export const MusicMapArea = withMusicDrops(MusicMap);
+export const FoodMapArea = withFoodDrops(FoodMap);
