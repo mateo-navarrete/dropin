@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyledPinDropButton } from '..';
 
-export const PinDropBtnArea = props => {
+export const DroppersArea = props => {
   return (
     <div className="flex center">
       <div className="">

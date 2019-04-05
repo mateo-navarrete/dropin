@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 // import { DropBtnList } from '.';
 import { StyledDropArea } from '..';
 
-export const DropBtnArea = props => {
+export const DropsArea = props => {
   return (
     <div className="flex center">
       <div className="">
