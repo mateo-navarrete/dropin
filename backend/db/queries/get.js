@@ -1,4 +1,4 @@
-const { db } = require('./index.js');
+const { db } = require('../index.js');
 
 function getAllUsers(req, res, next) {
   db.any('select username from users')
