@@ -7,5 +7,6 @@ var db = require('../db/queries/pins');
 router.get('/', db.getAllPins);
 router.post('/one', db.getOnePin);
 router.post('/user', db.getAllUserPins);
+router.post('/pinsindrop', db.getAllDropPins);
 
 module.exports = router;
