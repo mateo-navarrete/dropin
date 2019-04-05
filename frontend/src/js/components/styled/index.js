@@ -8,14 +8,12 @@ import {
   MusicIcon,
   PartyIcon,
   ReligiousIcon,
-  SportsIcon,
-  StyledDropArea,
-  StyledPinDropButton
-} from './styled';
-import { AuthUser, NavBar, SwitchRouter } from './pages';
+  SportsIcon
+} from './Icons';
+import StyledDropArea from './StyledDropArea';
+import StyledPinDropButton from './StyledPinDropButton';
 
 export {
-  AuthUser,
   EducationIcon,
   EntertainmentIcon,
   FamilyIcon,
@@ -27,7 +25,5 @@ export {
   ReligiousIcon,
   SportsIcon,
   StyledDropArea,
-  StyledPinDropButton,
-  NavBar,
-  SwitchRouter
+  StyledPinDropButton
 };

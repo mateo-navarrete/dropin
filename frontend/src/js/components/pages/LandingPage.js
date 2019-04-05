@@ -1,5 +1,5 @@
 import React from "react";
-import { DropBtnArea } from ".";
+import { DropBtnArea, PinDropBtnArea } from ".";
 import Map from "../map/Map.js";
 
 export const LandingPage = props => {
@@ -7,6 +7,7 @@ export const LandingPage = props => {
     <>
       <Map />
       <DropBtnArea />
+      <PinDropBtnArea />
     </>
   );
 };

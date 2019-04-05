@@ -5,6 +5,7 @@ import { DropBtnList } from './DropBtnList';
 import { EventsPage } from './EventsPage';
 import { LandingPage } from './LandingPage';
 import { NavBar } from './NavBar';
+import { PinDropBtnArea } from './PinDropBtnArea';
 import { SigninPage } from './SigninPage';
 import { SwitchRouter } from './SwitchRouter';
 
@@ -16,6 +17,7 @@ export {
   EventsPage,
   LandingPage,
   NavBar,
+  PinDropBtnArea,
   SigninPage,
   SwitchRouter
 };
