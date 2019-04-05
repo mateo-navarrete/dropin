@@ -10,6 +10,7 @@ import { NavBar } from './NavBar';
 import { NavBarArea } from './NavBarArea';
 import { PinDropBtnArea } from './PinDropBtnArea';
 import { SigninPage } from './SigninPage';
+import { UserCoords } from './UserCoords';
 import { SwitchRouter } from './SwitchRouter';
 
 export {
@@ -25,5 +26,6 @@ export {
   NavBarArea,
   PinDropBtnArea,
   SigninPage,
+  UserCoords,
   SwitchRouter
 };

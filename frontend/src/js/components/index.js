@@ -12,7 +12,7 @@ import {
   StyledDropArea,
   StyledPinDropButton
 } from './styled';
-import { AuthUser, NavBar, SwitchRouter } from './pages';
+import { AuthUser, UserCoords, NavBar, SwitchRouter } from './pages';
 
 export {
   AuthUser,
@@ -28,6 +28,7 @@ export {
   SportsIcon,
   StyledDropArea,
   StyledPinDropButton,
+  UserCoords,
   NavBar,
   SwitchRouter
 };

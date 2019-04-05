@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { AuthUser, SwitchRouter } from "./components";
+import { AuthUser, UserCoords, SwitchRouter } from "./components";
 
 export default class App extends Component {
   render() {
     return (
       <>
         <AuthUser />
+        <UserCoords />
         <SwitchRouter />
       </>
     );
