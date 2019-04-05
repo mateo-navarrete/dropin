@@ -34,6 +34,7 @@ function signup(req, res, next) {
     });
 }
 
+
 module.exports = {
   getAllUsers,
   signup,
