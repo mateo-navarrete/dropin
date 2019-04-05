@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:100|Oswald:300");
+@import url("https://fonts.googleapis.com/css?family=Lato:100|Oswald:300|Roboto:300,400,500");
 
 body {
   background: rgba(78, 78, 78, 1);
@@ -15,6 +15,14 @@ body {
 
 .oswald {
   font-family: Oswald;
+}
+
+.oswald {
+  font-family: Oswald;
+}
+
+.roboto {
+  font-family: Roboto;
 }
 
 .primary {
@@ -75,4 +83,18 @@ body {
 
 .padding-small {
   padding: 5px;
+}
+
+.logo-square {
+  background: url('./assets/dropin-logo-square.png') no-repeat center;
+  background-size: contain;
+  height: 64px;
+  width: 512px;
+}
+
+.logo-wide {
+  background: url('./assets/dropin-logo-wide.png') no-repeat center;
+  background-size: contain;
+  height: 64px;
+  width: 512px;
 }
