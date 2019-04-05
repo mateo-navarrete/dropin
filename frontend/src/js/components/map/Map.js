@@ -18,11 +18,11 @@ const Map = (props) => {
         defaultZoom={15}
         defaultCenter={{ lat: 40.742935, lng: -73.941707 }}
       >
-      {coords.map(coord => {
+      {coords.map((coord, i) => {
         return (
           <Marker
             position={{ lat: coord.latitude, lng: coord.longitude }}
-            key={coord.id}
+            key={coord.i}
           />
         );
       })}
