@@ -28,10 +28,3 @@ nav a:hover {
 nav a:active {
   color: #d1d1d1;
 }
-
-.logo {
-  background: url('../assets/dropin-logo.png') no-repeat center;
-  background-size: contain;
-  height: 64px;
-  width: 64px;
-}
