@@ -34,7 +34,36 @@ function signup(req, res, next) {
     });
 }
 
+function deleteUser(req, res, next) {
+  db.any(`delete from users where id = ${req.body.id}`)
+    .then(function (data) {
+      res.send({
+        status: 'success',
+        message: 'deleted user' + req.body.id
+      });
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+}
+
+function editUser(req, res, next) {
+  db.any("update users set username = ${username}, password_digest = ${password} where id = ${id}", req.body)
+    .then(function (data) {
+      res.send({
+        status: 'success',
+        data: data,
+        message: 'edited user'
+      });
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+}
+
 module.exports = {
   getAllUsers,
   signup,
+  deleteUser,
+  editUser
 };
