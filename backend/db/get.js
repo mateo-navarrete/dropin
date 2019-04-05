@@ -65,5 +65,6 @@ function signup(req, res, next) {
 module.exports ={
     getAllUsers,
     getAllDrops,
-    signup
+    signup,
+    getOneDrop
 }
