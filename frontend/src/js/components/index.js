@@ -1,3 +1,8 @@
+import { AuthUser, DroppersArea, UserCoords } from './droppers';
+import { DropsArea } from './drops';
+// import { Map } from './map';
+// import { MapsRouter } from './maps';
+import { PinsArea } from './pins';
 import {
   EducationIcon,
   EntertainmentIcon,
@@ -12,10 +17,16 @@ import {
   StyledDropArea,
   StyledPinDropButton
 } from './styled';
-import { AuthUser, UserCoords, NavBar, SwitchRouter } from './pages';
+import { LandingPage, SwitchRouter } from './utils';
 
 export {
   AuthUser,
+  DroppersArea,
+  UserCoords,
+  DropsArea,
+  PinsArea,
+  // Map,
+  // MapsRouter,
   EducationIcon,
   EntertainmentIcon,
   FamilyIcon,
@@ -28,7 +39,6 @@ export {
   SportsIcon,
   StyledDropArea,
   StyledPinDropButton,
-  UserCoords,
-  NavBar,
+  LandingPage,
   SwitchRouter
 };
