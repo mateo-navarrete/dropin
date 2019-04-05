@@ -9,19 +9,28 @@ import { Link } from "react-router-dom";
 import '../../../styles/map.css';
 
 
-const Map = () => {
+const Map = (props) => {
+  console.log(props.coords)
+  const {coords} = props
   const MyMapComponent = withScriptjs(
     withGoogleMap(props => (
       <GoogleMap
-        defaultZoom={12}
-        defaultCenter={{ lat: 40.73061, lng: -73.935242 }}
+        defaultZoom={15}
+        defaultCenter={{ lat: 40.742935, lng: -73.941707 }}
       >
-        <Marker position={{ lat: 40.73061, lng: -73.935242 }} key={1} />
+      {coords.map((coord, i) => {
+        return (
+          <Marker
+            position={{ lat: coord.latitude, lng: coord.longitude }}
+            key={coord.i}
+          />
+        );
+      })}
       </GoogleMap>
     ))
   );
-  let time = new Date(Date.now());
-  time = time.toString();
+  // let time = new Date(Date.now());
+  // time = time.toString();
 
   return (
     <div className="map-container">
@@ -31,7 +40,6 @@ const Map = () => {
         containerElement={<div style={{ height: `400px`, width: "100%" }} />}
         mapElement={<div style={{ height: `100%` }} />}
       />
-      <p>{time}</p>
     </div>
   );
 };
