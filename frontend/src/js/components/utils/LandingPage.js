@@ -1,5 +1,5 @@
 import React from "react";
-import { PinsArea, DropsArea, DroppersArea } from "..";
+import { DroppersArea, DropsArea, PinsArea } from "..";
 
 export const LandingPage = props => {
   return (
