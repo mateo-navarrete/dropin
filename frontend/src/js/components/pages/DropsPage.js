@@ -1,12 +1,18 @@
 import React from "react";
-import { MapArea, NavBarArea, DropBtnArea } from ".";
+import {
+  // MapArea,
+  NavBarArea,
+  DropBtnArea
+} from ".";
+import { MapsRouter } from "..";
 
 export const DropsPage = props => {
   return (
     <>
-      <MapArea />
+      <MapsRouter />
       <NavBarArea />
       <DropBtnArea />
     </>
   );
 };
+// <MapArea />

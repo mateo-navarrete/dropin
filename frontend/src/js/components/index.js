@@ -12,7 +12,8 @@ import {
   StyledDropArea,
   StyledPinDropButton
 } from './styled';
-import { AuthUser, UserCoords, NavBar, SwitchRouter } from './pages';
+import { MapsRouter } from './maps';
+import { AuthUser, UserCoords, MapArea, NavBar, SwitchRouter } from './pages';
 
 export {
   AuthUser,
@@ -28,7 +29,9 @@ export {
   SportsIcon,
   StyledDropArea,
   StyledPinDropButton,
+  MapsRouter,
   UserCoords,
+  MapArea,
   NavBar,
   SwitchRouter
 };

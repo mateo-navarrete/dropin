@@ -13,8 +13,12 @@
 const initState = {
   drop: 'Humanitarian',
   coords: [
-    { latitude: 40.743431, longitude: -73.93877 },
-    { latitude: 41.543431, longitude: -72.53877 },
+    { latitude: 40.742878, longitude: -73.941538 },
+    { latitude: 40.743203, longitude: -73.942879 },
+    { latitude: 40.74317, longitude: -73.943458 },
+    { latitude: 40.743487, longitude: -73.939252 },
+    { latitude: 40.743665, longitude: -73.940997 },
+    { latitude: 40.744681, longitude: -73.939323 },
   ],
 };
 
