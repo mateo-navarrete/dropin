@@ -2,23 +2,23 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { getAuthUser } from '../actions';
 
-const mapStateToProps = ({ musicReducer }) => {
+const mapStateToProps = ({ foodReducer }) => {
   return {
-    drop: musicReducer.drop,
-    coords: musicReducer.coords,
+    drop: foodReducer.drop,
+    coords: foodReducer.coords,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    // getMusicPins: userCoords => dispatch(getMusicPins(userCoords)),
+    // getFoodPins: userCoords => dispatch(getFoodPins(userCoords)),
   };
 };
 
-const withMusicDrops = (WrappedComponent, api) => {
+const withFoodDrops = (WrappedComponent, api) => {
   class HOC extends Component {
     componentDidMount() {
-      //getMusicPins based on userCoords here
+      //getFoodPins based on userCoords here
     }
 
     render() {
@@ -31,4 +31,4 @@ const withMusicDrops = (WrappedComponent, api) => {
   )(HOC);
 };
 
-export default withMusicDrops;
+export default withFoodDrops;

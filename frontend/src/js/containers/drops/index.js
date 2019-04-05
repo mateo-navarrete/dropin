@@ -1,3 +1,4 @@
+import withFoodDrops from './withFoodDrops';
 import withMusicDrops from './withMusicDrops';
 
-export { withMusicDrops };
+export { withFoodDrops, withMusicDrops };
