@@ -11,14 +11,14 @@
 // 40.744681, -73.939323
 
 const initState = {
-  drop: 'Education',
+  drop: 'Food',
   coords: [
     { latitude: 40.743431, longitude: -73.93877 },
     { latitude: 41.543431, longitude: -72.53877 },
   ],
 };
 
-export const educationReducer = (state = initState, action) => {
+export const foodReducer = (state = initState, action) => {
   // let nextState;
   switch (action.type) {
     default:
