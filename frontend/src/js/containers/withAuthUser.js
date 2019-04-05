@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => {
 const withAuthUser = (WrappedComponent, api) => {
   class HOC extends Component {
     componentDidMount() {
-      if (api) this.props.getAuthUser(api);
+      // if (api) this.props.getAuthUser(api);
     }
 
     render() {
