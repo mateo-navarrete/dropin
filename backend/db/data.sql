@@ -28,8 +28,6 @@ CREATE TABLE events (
   time_stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-BEGIN;
-
 INSERT INTO drops (type) VALUES ('Music');
 INSERT INTO drops (type) VALUES ('Sports');
 INSERT INTO drops (type) VALUES ('Religious');
@@ -40,5 +38,3 @@ INSERT INTO drops (type) VALUES ('Humanitarian');
 INSERT INTO drops (type) VALUES ('Party');
 INSERT INTO drops (type) VALUES ('Food');
 INSERT INTO drops (type) VALUES ('Family');
-
-COMMIT;
