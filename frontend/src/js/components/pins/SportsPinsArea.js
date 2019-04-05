@@ -1,5 +1,5 @@
 import React from "react";
-import { withMusicDrops } from "../../containers";
+import { withSportsDrops } from "../../containers";
 import { Map } from "..";
 
 const SportsPins = ({ drop, coords, ...props }) => {
@@ -9,6 +9,5 @@ const SportsPins = ({ drop, coords, ...props }) => {
     </>
 )
 };
-// <Map />
 
-export const SportsPinsArea = withMusicDrops(SportsPins);
+export const SportsPinsArea = withSportsDrops(SportsPins);
