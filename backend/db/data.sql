@@ -28,17 +28,6 @@ CREATE TABLE events (
   time_stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-BEGIN;
-
-INSERT INTO drops (type) VALUES ('Music');
-INSERT INTO drops (type) VALUES ('Sports');
-INSERT INTO drops (type) VALUES ('Religious');
-INSERT INTO drops (type) VALUES ('Gaming');
-INSERT INTO drops (type) VALUES ('Education');
-INSERT INTO drops (type) VALUES ('Entertainment');
-INSERT INTO drops (type) VALUES ('Humanitarian');
-INSERT INTO drops (type) VALUES ('Party');
-INSERT INTO drops (type) VALUES ('Food');
-INSERT INTO drops (type) VALUES ('Family');
-
-COMMIT;
+INSERT INTO drops (type) VALUES ('Music'), ('Sports'), ('Religious'),('Gaming'), ('Education'), ('Entertainment'), ('Humanitarian'), ('Party'), ('Food'), ('Family');
+INSERT INTO users (username, password_digest, profile_photo, birthdate) VALUES ('JRJMuzik', '12345678', '', '1990-01-01'), ('GoodSamaritan123', '12345678', '1980-01-01'), ('BallIsLife', '12345678', '1989-01-01'), ('user1', '12345678', '1988-01-01');
+INSERT INTO events (drop_id, user_id, longitude, latitude, zip, description, duration) VALUES ((SELECT id FROM drops WHERE id='2'), (SELECT id FROM users WHERE id='1'), -73.938770, 40.743431, 11101, 'Sample Description', 15 ), ((SELECT id FROM drops WHERE id='3'), (SELECT id FROM users WHERE id='2'), -73.941538, 40.742878, 11101, 'Sample Description1', 30 ), ((SELECT id FROM drops WHERE id='4'), (SELECT id FROM users WHERE id='3'), -73.938770, 40.743431, 11101, 'Sample Description', 15 ), ((SELECT id FROM drops WHERE id='5'), (SELECT id FROM users WHERE id='1'), -73.942879, 40.743203, 11101, 'Sample Description', 15 );
