@@ -4,8 +4,8 @@ var router = express.Router();
 var db = require('../db/get');
 
 /* GET users listing. */
-router.get('/', db.getAllUsers);
-router.post('/signup', db.signup);
+router.get('/', db.getAllDrops);
+router.post('/one', db.getOneDrop)
 
 
 module.exports = router;
