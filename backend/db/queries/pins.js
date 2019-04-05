@@ -1,7 +1,7 @@
 const { db } = require('../index.js');
   
 function getAllPins(req, res, next) {
-    db.any('select * from events')
+    db.any('select * from pins')
       .then(function (data) {
         res.send({
           status: 'success',
@@ -15,7 +15,7 @@ function getAllPins(req, res, next) {
 }
   
 function getOnePin(req, res, next) {
-    db.any(`select * from events where id = ${req.body.id}`)
+    db.any(`select * from pins where id = ${req.body.id}`)
       .then(function (data) {
         res.send({
           status: 'success',
@@ -29,7 +29,7 @@ function getOnePin(req, res, next) {
 }
 
 function getAllUserPins(req, res, next) {
-    db.any(`select * from events where user_id = ${req.body.userId}`)
+    db.any(`select * from pins where user_id = ${req.body.userId}`)
       .then(function (data) {
         res.send({
           status: 'success',
@@ -42,9 +42,24 @@ function getAllUserPins(req, res, next) {
       });
 }
 
+function getAllDropPins(req, res, next) {
+    db.any(`select * from pins where drop_id = ${req.body.dropId}`)
+      .then(function (data) {
+        res.send({
+          status: 'success',
+          data: data,
+          message: 'Here are the all the pins in the drop/category you selected'
+        });
+      })
+      .catch(function (err) {
+        console.log(err)
+      });
+}
+
 
 module.exports ={
     getAllPins,
     getOnePin,
-    getAllUserPins
+    getAllUserPins,
+    getAllDropPins
 }
