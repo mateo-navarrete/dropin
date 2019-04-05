@@ -1,5 +1,5 @@
 import React from "react";
-import { withMusicDrops } from "../../containers";
+import { withReligiousDrops } from "../../containers";
 import { Map } from "..";
 
 const ReligiousPins = ({ drop, coords, ...props }) => {
@@ -11,4 +11,4 @@ const ReligiousPins = ({ drop, coords, ...props }) => {
 };
 // <Map />
 
-export const ReligiousPinsArea = withMusicDrops(ReligiousPins);
+export const ReligiousPinsArea = withReligiousDrops(ReligiousPins);
