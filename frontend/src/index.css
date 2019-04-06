@@ -86,15 +86,55 @@ body {
 }
 
 .logo-square {
-  background: url('./assets/dropin-logo-square.png') no-repeat center;
+  background: url("./assets/dropin-logo-square.png") no-repeat center;
   background-size: contain;
   height: 64px;
   width: 512px;
 }
 
 .logo-wide {
-  background: url('./assets/dropin-logo-wide.png') no-repeat center;
+  background: url("./assets/dropin-logo-wide.png") no-repeat center;
   background-size: contain;
   height: 64px;
   width: 512px;
+}
+
+.MuiBottomNavigationAction-root-3.MuiBottomNavigationAction-selected-4.style-Education {
+  color: rgba(0, 0, 200, 1) !important;
+}
+
+.MuiBottomNavigationAction-root-3.MuiBottomNavigationAction-selected-4.style-Entertainment {
+  color: rgba(255, 0, 200, 1) !important;
+}
+
+.MuiBottomNavigationAction-root-3.MuiBottomNavigationAction-selected-4.style-Family {
+  color: rgba(255, 0, 0, 1) !important;
+}
+
+.MuiBottomNavigationAction-root-3.MuiBottomNavigationAction-selected-4.style-Food {
+  color: rgba(0, 150, 0, 1) !important;
+}
+
+.MuiBottomNavigationAction-root-3.MuiBottomNavigationAction-selected-4.style-Gaming {
+  color: rgba(0, 150, 150, 1) !important;
+}
+
+.MuiBottomNavigationAction-root-3.MuiBottomNavigationAction-selected-4.style-Humanitarian {
+  color: rgba(0, 0, 200, 1) !important;
+}
+
+.MuiBottomNavigationAction-root-3.MuiBottomNavigationAction-selected-4.style-Music {
+  color: rgba(255, 0, 200, 1) !important;
+}
+
+.MuiBottomNavigationAction-root-3.MuiBottomNavigationAction-selected-4.style-Party {
+  color: rgba(255, 0, 0, 1) !important;
+}
+
+.MuiBottomNavigationAction-root-3.MuiBottomNavigationAction-selected-4.style-Religious {
+  color: rgba(0, 150, 0, 1) !important;
+}
+
+.MuiBottomNavigationAction-root-3.MuiBottomNavigationAction-selected-4.style-Sports {
+  color: rgba(0, 150, 150, 1) !important;
 }
