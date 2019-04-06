@@ -43,6 +43,7 @@ class LabelBottomNavigation extends React.Component {
                 icon={<IconHOC type={type} />}
                 component={Link}
                 to={link}
+                className={"style-" + type}
               />
             );
           })
@@ -73,6 +74,7 @@ class LabelBottomNavigation extends React.Component {
                 icon={<IconHOC type={type} />}
                 component={Link}
                 to={link}
+                className={"style-" + type}
               />
             );
           })
