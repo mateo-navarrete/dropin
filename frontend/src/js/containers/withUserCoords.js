@@ -18,7 +18,6 @@ const mapDispatchToProps = dispatch => {
 const withUserCoords = WrappedComponent => {
   class HOC extends Component {
     componentDidMount() {
-      // console.log('@', this.props);
       this.props.getUserCoords();
       // function successFunction(position) {
       //   let lat = position.coords.latitude;
