@@ -7,10 +7,10 @@ import {
 } from "react-google-maps";
 import { Link } from "react-router-dom";
 import '../../../styles/map.css';
-
+import { withRouter } from "react-router";
 
 const Map = (props) => {
-  console.log(props.coords)
+  // console.log("Maps", props.match.path.slice(1, ))
   const {coords} = props
   const MyMapComponent = withScriptjs(
     withGoogleMap(props => (
@@ -23,6 +23,7 @@ const Map = (props) => {
           <Marker
             position={{ lat: coord.latitude, lng: coord.longitude }}
             key={coord.i}
+            icon="https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
           />
         );
       })}
@@ -46,4 +47,4 @@ const Map = (props) => {
   );
 };
 
-export default Map;
+export default withRouter(Map);
