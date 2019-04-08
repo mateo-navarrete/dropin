@@ -33,7 +33,8 @@ function signup(req, res, next) {
       });
     });
 }
-//please test, not confirmed working
+
+// deletes user and corresponding pins as well
 function deleteUser(req, res, next) {
   db.any(`delete from users where id = ${req.body.id}`)
     .then(function (data) {
