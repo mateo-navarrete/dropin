@@ -1,5 +1,5 @@
-import { AUTH_ERROR, AUTH_USER, AUTHORIZE_USER } from '../constants';
-import { getData } from '../utils';
+import { AUTH_ERROR, AUTH_USER, AUTHORIZE_USER } from '../../constants';
+import { getData } from '../../utils';
 
 const authError = err => {
   return { type: AUTH_ERROR, payload: err };
