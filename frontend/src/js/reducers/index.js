@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import { authReducer } from './authReducer';
-import { dropsReducer } from './dropsReducer';
+import { authReducer, userCoordsReducer } from './droppers';
 import {
+  dropsReducer,
   educationReducer,
   entertainmentReducer,
   familyReducer,
@@ -11,12 +11,12 @@ import {
   musicReducer,
   partyReducer,
   religiousReducer,
-  sportsReducer,
-  userCoordsReducer
+  sportsReducer
 } from './drops';
 
 export const rootReducer = combineReducers({
   authReducer,
+  userCoordsReducer,
   dropsReducer,
   educationReducer,
   entertainmentReducer,
@@ -28,5 +28,4 @@ export const rootReducer = combineReducers({
   partyReducer,
   religiousReducer,
   sportsReducer,
-  userCoordsReducer,
 });

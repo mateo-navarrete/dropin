@@ -1,4 +1,4 @@
-import { AUTH_ERROR, AUTH_USER, AUTHORIZE_USER } from '../constants';
+import { AUTH_ERROR, AUTH_USER, AUTHORIZE_USER } from '../../constants';
 
 const initState = {
   auid: 0,

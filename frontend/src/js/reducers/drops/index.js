@@ -1,3 +1,4 @@
+import { dropsReducer } from './dropsReducer';
 import { educationReducer } from './educationReducer';
 import { entertainmentReducer } from './entertainmentReducer';
 import { familyReducer } from './familyReducer';
@@ -8,9 +9,9 @@ import { musicReducer } from './musicReducer';
 import { partyReducer } from './partyReducer';
 import { religiousReducer } from './religiousReducer';
 import { sportsReducer } from './sportsReducer';
-import { userCoordsReducer } from './userCoordsReducer';
 
 export {
+  dropsReducer,
   educationReducer,
   entertainmentReducer,
   familyReducer,
@@ -20,6 +21,5 @@ export {
   musicReducer,
   partyReducer,
   religiousReducer,
-  sportsReducer,
-  userCoordsReducer
+  sportsReducer
 };

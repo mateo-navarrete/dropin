@@ -2,7 +2,7 @@
 import { withUserCoords } from '../../containers';
 
 const UserCoord = props => {
-  console.log('@userCoords:', props.userCoords);
+  // console.log('@userCoords:', props.userCoords);
   return null;
 };
 

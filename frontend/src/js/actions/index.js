@@ -1,3 +1,3 @@
-import { getAuthUser } from './authActions';
+import { getAuthUser, getUserCoords } from './droppers';
 
-export { getAuthUser };
+export { getAuthUser, getUserCoords };
