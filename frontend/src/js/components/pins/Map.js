@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import "../../../styles/map.css";
 import { withRouter } from "react-router";
 import { withUserCoords } from "../../containers";
+import { withPinModal } from "../../containers";
 
 const Map = props => {
   let path;
@@ -52,14 +53,16 @@ const Map = props => {
       path = "http://maps.google.com/mapfiles/kml/paddle/red-circle.png";
       break;
   }
-  const handleClick = event => {
-    console.log("handle click triggered");
-    console.log("event!!", event);
-    window.alert("event clicked");
-  };
 
+  // const handleClick = event => {
+  //   console.log("handle click triggered");
+  //   console.log("event!!", event);
+  //   window.alert("event clicked");
+  // };
+
+  console.log("MAP props", props)
   const MyMapComponent = withScriptjs(
-    withGoogleMap(props => (
+    withGoogleMap(() => (
       <GoogleMap
         defaultZoom={15}
         defaultCenter={{ lat: userLatitude, lng: userLongitude }}
@@ -70,7 +73,7 @@ const Map = props => {
               position={{ lat: coord.latitude, lng: coord.longitude }}
               key={i}
               icon={path}
-              onClick={handleClick}
+              onClick={props.openPinModal}
             />
           );
         })}
@@ -92,4 +95,4 @@ const Map = props => {
   );
 };
 
-export default withUserCoords(withRouter(Map));
+export default withPinModal(withUserCoords(withRouter(Map)));
