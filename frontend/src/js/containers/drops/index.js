@@ -1,3 +1,4 @@
+import withDrops from './withDrops';
 import withEducationDrops from './withEducationDrops';
 import withEntertainmentDrops from './withEntertainmentDrops';
 import withFamilyDrops from './withFamilyDrops';
@@ -10,6 +11,7 @@ import withReligiousDrops from './withReligiousDrops';
 import withSportsDrops from './withSportsDrops';
 
 export {
+  withDrops,
   withEducationDrops,
   withEntertainmentDrops,
   withFamilyDrops,

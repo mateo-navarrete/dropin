@@ -1,7 +1,6 @@
-import withAuthUser from './withAuthUser';
-import withDrops from './withDrops';
-import withUserCoords from './withUserCoords';
+import { withAuthUser, withUserCoords } from './droppers';
 import {
+  withDrops,
   withEducationDrops,
   withEntertainmentDrops,
   withFamilyDrops,
@@ -13,11 +12,12 @@ import {
   withReligiousDrops,
   withSportsDrops
 } from './drops';
+import { withPinModal } from './modals';
 
 export {
   withAuthUser,
-  withDrops,
   withUserCoords,
+  withDrops,
   withEducationDrops,
   withEntertainmentDrops,
   withFamilyDrops,
@@ -27,5 +27,6 @@ export {
   withMusicDrops,
   withPartyDrops,
   withReligiousDrops,
-  withSportsDrops
+  withSportsDrops,
+  withPinModal
 };
