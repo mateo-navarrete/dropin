@@ -3,12 +3,15 @@ import {
   withScriptjs,
   withGoogleMap,
   GoogleMap,
-  Marker
+  Marker,
+  Circle,
+  InfoWindow
 } from "react-google-maps";
 import { Link } from "react-router-dom";
 import "../../../styles/map.css";
 import { withRouter } from "react-router";
 import { withUserCoords } from "../../containers";
+import { withPinModal } from "../../containers";
 
 const Map = props => {
   let path;
@@ -51,8 +54,15 @@ const Map = props => {
       break;
   }
 
+  // const handleClick = event => {
+  //   console.log("handle click triggered");
+  //   console.log("event!!", event);
+  //   window.alert("event clicked");
+  // };
+
+  console.log("MAP props", props)
   const MyMapComponent = withScriptjs(
-    withGoogleMap(props => (
+    withGoogleMap(() => (
       <GoogleMap
         defaultZoom={15}
         defaultCenter={{ lat: userLatitude, lng: userLongitude }}
@@ -63,6 +73,7 @@ const Map = props => {
               position={{ lat: coord.latitude, lng: coord.longitude }}
               key={i}
               icon={path}
+              onClick={props.openPinModal}
             />
           );
         })}
@@ -75,13 +86,13 @@ const Map = props => {
       <div className="map_component">
         <MyMapComponent
           googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5uKfMriNA73mQgW_ZRelAixBLEdqT-Xg&v=3.exp&libraries=geometry,drawing,places"
-          loadingElement={<div style={{ height: `100%` }} />}
+          loadingElement={<div style={{ height: `100%`, width: "100%" }} />}
           containerElement={<div style={{ height: `100%`, width: "100%" }} />}
-          mapElement={<div style={{ height: `100%` }} />}
+          mapElement={<div style={{ height: `100%`, width: "100%" }} />}
         />
       </div>
     </div>
   );
 };
 
-export default withUserCoords(withRouter(Map));
+export default withPinModal(withUserCoords(withRouter(Map)));
