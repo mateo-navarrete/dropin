@@ -18,7 +18,7 @@ class LabelBottomNavigation extends React.Component {
   };
 
   handleChange = (e, value) => {
-    console.log(e);
+    // console.log(e);
     this.setState({ value });
   };
 

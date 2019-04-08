@@ -1,13 +1,15 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-var db = require('../db/queries/pins');
+const { getPins } = require('../db/queries/pins');
+
+router.get('/:id', getPins);
 
 /* GET users listing. */
-router.get('/', db.getAllPins);
-router.post('/one', db.getOnePin);
-router.post('/user', db.getAllUserPins);
-router.post('/pinsindrop', db.getAllDropPins);
+// router.get('/', db.getAllPins);
+// router.post('/one', db.getOnePin);
+// router.post('/user', db.getAllUserPins);
+// router.post('/pinsindrop', db.getAllDropPins);
 
 // router.get('/api/drops/byType/:id/?latitude=1234&?longitude=1234')
 //OR
