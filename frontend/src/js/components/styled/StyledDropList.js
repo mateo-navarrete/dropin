@@ -10,14 +10,14 @@ export const StyledDropList = props => {
   const renderNavBtns = drops.map((drop, i) => {
     const { type } = drop;
     let link = "/" + type;
+    let DropLink = props => <Link to={link} {...props} />;
     return (
       <BottomNavigationAction
         key={"drop" + i}
         label={type.toLowerCase()}
         value={type}
         icon={<IconHOC type={type} />}
-        component={Link}
-        to={link}
+        component={DropLink}
       />
     );
   });

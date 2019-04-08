@@ -5,6 +5,7 @@ import { FoodPinsArea, MusicPinsArea, SportsPinsArea, ReligiousPinsArea, GamingP
 export const PinsRouter = props => {
   return (
     <Switch>
+      <Route exact path="/" render={withRouter(MusicPinsArea)} />
       <Route path="/music" render={withRouter(MusicPinsArea)} />
       <Route path="/food" render={withRouter(FoodPinsArea)} />
       <Route path="/sports" render={withRouter(SportsPinsArea)} />
