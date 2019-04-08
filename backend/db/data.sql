@@ -20,14 +20,43 @@ CREATE TABLE pins (
   id SERIAL PRIMARY KEY,
   drop_id INT REFERENCES drops(id) ON DELETE CASCADE,
   user_id INT REFERENCES users(id) ON DELETE CASCADE,
-  longitude FLOAT NOT NULL,
   latitude FLOAT NOT NULL,
-  zip INT,
+  longitude FLOAT NOT NULL,
+  timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  dropper_visibile VARCHAR NOT NULL,
+  name VARCHAR NOT NULL,
   description TEXT NOT NULL,
-  duration INT NOT NULL,
-  time_stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  ending TIMESTAMP
 );
 
-INSERT INTO drops (type) VALUES ('Music'), ('Sports'), ('Religious'),('Gaming'), ('Education'), ('Entertainment'), ('Humanitarian'), ('Party'), ('Food'), ('Family');
-INSERT INTO users (username, password_digest, profile_photo, birthdate) VALUES ('JRJMuzik', '12345678', '', '1990-01-01'), ('GoodSamaritan123', '12345678', '', '1980-01-01'), ('BallIsLife', '12345678', '', '1989-01-01'), ('user1', '12345678', '', '1988-01-01');
-INSERT INTO pins (drop_id, user_id, longitude, latitude, zip, description, duration) VALUES ((SELECT id FROM drops WHERE id='2'), (SELECT id FROM users WHERE id='1'), -73.938770, 40.743431, 11101, 'Sample Description2', 15 ), ((SELECT id FROM drops WHERE id='3'), (SELECT id FROM users WHERE id='2'), -73.941538, 40.742878, 11101, 'Sample Description21', 30 ), ((SELECT id FROM drops WHERE id='4'), (SELECT id FROM users WHERE id='3'), -73.938770, 40.743431, 11101, 'Sample Description2', 15 ), ((SELECT id FROM drops WHERE id='5'), (SELECT id FROM users WHERE id='1'), -73.942879, 40.743203, 11101, 'Sample Description2', 15);
+INSERT INTO drops (type)
+VALUES ('Education'),
+('Entertainment'),
+('Family'),
+('Food'),
+('Gaming'),
+('Humanitarian'),
+('Music'),
+('Party'),
+('Religious'),
+('Sports');
+
+
+INSERT INTO users (username, password_digest, profile_photo, birthdate) VALUES ('JRJMuzik', '12345678', '', '1990-01-01'),
+('GoodSamaritan123', '12345678', '', '1980-01-01'),
+('BallIsLife', '12345678', '', '1989-01-01'),
+('user1', '12345678', '', '1988-01-01');
+
+INSERT INTO pins (drop_id, user_id, latitude, longitude, dropper_visibile, name, description)
+VALUES ( 1, 1, 40.743431, -73.938770, 'true',  'pin name 1', 'pin description 1' ),
+( 2, 2, 40.743431, -73.938770, 'true',  'pin name 2', 'pin description 2' ),
+( 3, 3, 40.743431, -73.938780, 'true',  'pin name 3', 'pin description 3' ),
+( 4, 1, 40.743431, -73.938790, 'true',  'pin name 4', 'pin description 4' ),
+( 5, 2, 40.743441, -73.938770, 'true',  'pin name 5', 'pin description 5' ),
+( 6, 3, 40.743451, -73.938770, 'true',  'pin name 6', 'pin description 6' ),
+( 7, 1, 40.743461, -73.938770, 'true',  'pin name 7', 'pin description 7' ),
+( 8, 2, 40.743471, -73.938770, 'true',  'pin name 8', 'pin description 8' ),
+( 9, 3, 40.743481, -73.938770, 'true',  'pin name 9', 'pin description 9' ),
+( 10, 1, 40.743491, -73.938770, 'true',  'pin name 10', 'pin description 10' );
+
+UPDATE pins SET ending = timestamp + INTERVAL '3' HOUR;
