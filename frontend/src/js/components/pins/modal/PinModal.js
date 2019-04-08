@@ -4,7 +4,12 @@ import "../../../../styles/pinModal.css";
 
 const PinsModal = props => {
   console.log("@@@", props);
-  return <>{props.visible ? <div className="pin-modal">pin Modal</div> : ""}</>;
+  return <>
+  {props.visible ? <div className="pin-modal">pin Modal</div> : ""}
+  <br />
+  {props.visible ? <div className="pin-modal">Lorem Ipsum Something something</div> : ""}
+  {props.visible ? <div className="pin-modal"><button onClick={props.closePinModal}>Close</button></div> : ""}
+  </>;
 };
 
 // <>
