@@ -10,6 +10,7 @@ import { EntertainmentPinsArea } from "./EntertainmentPinsArea";
 import { HumanitarianPinsArea } from "./HumanitarianPinsArea";
 import { PartyPinsArea } from "./PartyPinsArea";
 import { FamilyPinsArea } from "./FamilyPinsArea";
+import Map from "./Map";
 
 export {
   FoodPinsArea,
@@ -23,5 +24,6 @@ export {
   EntertainmentPinsArea,
   HumanitarianPinsArea,
   PartyPinsArea,
-  FamilyPinsArea
+  FamilyPinsArea,
+  Map
 };

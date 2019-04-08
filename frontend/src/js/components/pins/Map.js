@@ -47,7 +47,7 @@ const Map = props => {
       path = "http://maps.google.com/mapfiles/kml/shapes/golf.png";
       break;
     default:
-      path = "home";
+      path = "http://maps.google.com/mapfiles/kml/paddle/red-circle.png";
       break;
   }
 
