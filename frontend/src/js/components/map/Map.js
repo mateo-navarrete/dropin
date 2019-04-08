@@ -12,58 +12,57 @@ import { withUserCoords } from "../../containers";
 
 const Map = props => {
   let path;
-  const { coords } = props;
+  const { coords, userCoords } = props;
+  let userLatitude = userCoords.latitude;
+  let userLongitude = userCoords.longitude;
   switch (props.match.path.slice(1)) {
     case "education":
-      path = "education";
+      path = "http://maps.google.com/mapfiles/kml/shapes/schools.png";
       break;
     case "entertainment":
-      path = "entertainment";
+      path = "http://maps.google.com/mapfiles/kml/shapes/arts.png";
       break;
     case "family":
-      path = "family";
+      path = "http://maps.google.com/mapfiles/kml/shapes/hiker.png";
       break;
     case "food":
-      path = "food";
+      path = "http://maps.google.com/mapfiles/kml/shapes/snack_bar.png";
       break;
     case "gaming":
-      path = "gaming";
+      path = "http://maps.google.com/mapfiles/kml/shapes/motorcycling.png";
       break;
     case "humanitarian":
-      path = "humanitarian";
+      path = "http://maps.google.com/mapfiles/kml/shapes/hospitals.png";
       break;
     case "music":
-      path = "music";
+      path = "http://maps.google.com/mapfiles/kml/shapes/movies.png";
       break;
     case "party":
-      path = "party";
+      path = "http://maps.google.com/mapfiles/kml/shapes/bars.png";
       break;
     case "religious":
-      path = "religious";
+      path = "http://maps.google.com/mapfiles/kml/shapes/church.png";
       break;
     case "sports":
-      path = "sports";
+      path = "http://maps.google.com/mapfiles/kml/shapes/golf.png";
       break;
     default:
-    path = "home"
-    break;
+      path = "home";
+      break;
   }
-
-  console.log("Path!!!", path)
-  console.log("Map props!!", props)
 
   const MyMapComponent = withScriptjs(
     withGoogleMap(props => (
       <GoogleMap
         defaultZoom={15}
-        defaultCenter={{ lat: 40.742935, lng: -73.941707 }}
+        defaultCenter={{ lat: userLatitude, lng: userLongitude }}
       >
         {coords.map((coord, i) => {
           return (
             <Marker
               position={{ lat: coord.latitude, lng: coord.longitude }}
-              key={coord.i}
-              icon="https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
+              key={i}
+              icon={path}
             />
           );
         })}
