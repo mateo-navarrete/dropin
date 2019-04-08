@@ -1,4 +1,4 @@
-import { OPEN_PIN_MODAL, CLOSE_PIN_MODAL } from '../constants';
+import { OPEN_PIN_MODAL, CLOSE_PIN_MODAL } from '../../constants';
 
 export const openPinModal = () => {
   return { type: OPEN_PIN_MODAL };
