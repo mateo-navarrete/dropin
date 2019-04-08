@@ -130,21 +130,21 @@ function getAllUserPins(req, res, next) {
         message: 'Here are the drops from the user you requested',
       });
     })
-    .catch(function(err) {
+    .catch(function (err) {
       console.log(err);
     });
 }
 
 function getAllDropPins(req, res, next) {
   db.any(`select * from pins where drop_id = ${req.body.dropId}`)
-    .then(function(data) {
+    .then(function (data) {
       res.send({
-        status: "success",
+        status: 'success',
         data: data,
-        message: "Here are the all the pins in the drop/category you selected"
+        message: 'Here are the all the pins in the drop/category you selected',
       });
     })
-    .catch(function(err) {
+    .catch(function (err) {
       console.log(err);
     });
 }
@@ -153,5 +153,14 @@ module.exports = {
   getAllUsers,
   signup,
   deleteUser,
-  editUser
+  editUser,
 };
+
+/*
+TODO:
+addUser
+deleteUser
+editUser
+loginUser
+logoutUser
+*/
