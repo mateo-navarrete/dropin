@@ -33,13 +33,13 @@ function signup(req, res, next) {
       });
     });
 }
-
+//please test, not confirmed working
 function deleteUser(req, res, next) {
   db.any(`delete from users where id = ${req.body.id}`)
     .then(function (data) {
       res.send({
         status: 'success',
-        message: 'deleted user' + req.body.id
+        message: 'deleted user'
       });
     })
     .catch(function (err) {

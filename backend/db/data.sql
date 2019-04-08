@@ -18,8 +18,8 @@ CREATE TABLE drops (
 
 CREATE TABLE pins (
   id SERIAL PRIMARY KEY,
-  drop_id INT REFERENCES drops(id),
-  user_id INT REFERENCES users(id),
+  drop_id INT REFERENCES drops(id) ON DELETE CASCADE,
+  user_id INT REFERENCES users(id) ON DELETE CASCADE,
   longitude FLOAT NOT NULL,
   latitude FLOAT NOT NULL,
   zip INT,
