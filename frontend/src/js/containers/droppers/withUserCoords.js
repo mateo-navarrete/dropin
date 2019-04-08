@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getUserCoords } from '../actions';
+import { getUserCoords } from '../../actions';
 
 const mapStateToProps = ({ userCoordsReducer }) => {
   return {

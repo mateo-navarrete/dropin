@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getAuthUser } from '../actions';
+import { getAuthUser } from '../../actions';
 
 const mapStateToProps = ({ authReducer }) => {
   return {

@@ -13,6 +13,7 @@ import {
   religiousReducer,
   sportsReducer
 } from './drops';
+import { pinModalReducer } from './modals';
 
 export const rootReducer = combineReducers({
   authReducer,
@@ -28,4 +29,5 @@ export const rootReducer = combineReducers({
   partyReducer,
   religiousReducer,
   sportsReducer,
+  pinModalReducer,
 });
