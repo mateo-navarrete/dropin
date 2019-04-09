@@ -3,13 +3,14 @@ import { withPinModal } from "../../../containers";
 import "../../../../styles/pinModal.css";
 import { withRouter } from "react-router";
 
-const PinsModal = props => {
-  console.log("@pinsModal", props);
+const PinsModal = ({ event_id, ...props }) => {
+  console.log("@pinsModal", event_id, props);
   return (
     <>
       {props.visible ? (
         <div className="pin-modal">
           pin Modal
+          {"event_id is:" + event_id}
           <button
             className="pin-modal-close-button"
             onClick={props.closePinModal}
