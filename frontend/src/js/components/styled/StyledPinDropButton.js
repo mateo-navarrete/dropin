@@ -15,7 +15,7 @@ const styles = theme => ({
 
 const ContainedButtons = props => {
   const { classes, openStepperModal } = props;
-  console.log('##', props);
+  // console.log('##', props);
   return (
     <div>
       <Button
