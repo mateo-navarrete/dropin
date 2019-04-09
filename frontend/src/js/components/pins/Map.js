@@ -60,7 +60,7 @@ const Map = props => {
   //   window.alert("event clicked");
   // };
 
-  console.log("MAP props", props)
+  // console.log('MAP props', props);
   const MyMapComponent = withScriptjs(
     withGoogleMap(() => (
       <GoogleMap
@@ -74,8 +74,7 @@ const Map = props => {
               key={i}
               icon={path}
               id={coord.id}
-              value={coord.id}
-              onClick={e => props.openPinModal(e)}
+              onClick={() => props.openPinModal(coord.id)}
             />
           );
         })}
@@ -97,4 +96,5 @@ const Map = props => {
   );
 };
 
-export default withPinModal(withUserCoords(withRouter(Map)));
+// export default withPinModal(withUserCoords(withRouter(Map)));
+export default withRouter(withPinModal(withUserCoords(Map)));
