@@ -60,7 +60,7 @@ const Map = props => {
   //   window.alert("event clicked");
   // };
 
-  // console.log("MAP props", props)
+  console.log("MAP props", props)
   const MyMapComponent = withScriptjs(
     withGoogleMap(() => (
       <GoogleMap
