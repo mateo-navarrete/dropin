@@ -5,7 +5,7 @@ import {
   withPartyDrops,
   withSportsDrops
 } from './drops';
-import { withPinModal } from './modals';
+import { withPinModal, withStepperModal } from './modals';
 import { withScreenSize } from './utils';
 
 export {
@@ -16,5 +16,6 @@ export {
   withPartyDrops,
   withSportsDrops,
   withPinModal,
+  withStepperModal,
   withScreenSize
 };
