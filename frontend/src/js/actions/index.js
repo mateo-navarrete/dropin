@@ -3,14 +3,14 @@ import { openPinModal, closePinModal } from './modals';
 import {
   getEducationPins,
   getEntertainmentPins,
-  getFamilyPins,
+  getFamilyEvents,
   getFoodPins,
   getGamingPins,
   getHumanitarianPins,
   getMusicPins,
-  getPartyPins,
+  getPartyEvents,
   getReligiousPins,
-  getSportsPins
+  getSportsEvents
 } from './drops';
 import { getSize } from './utils';
 
@@ -21,13 +21,13 @@ export {
   closePinModal,
   getEducationPins,
   getEntertainmentPins,
-  getFamilyPins,
+  getFamilyEvents,
   getFoodPins,
   getGamingPins,
   getHumanitarianPins,
   getMusicPins,
-  getPartyPins,
+  getPartyEvents,
   getReligiousPins,
-  getSportsPins,
+  getSportsEvents,
   getSize
 };

@@ -17,9 +17,9 @@ const gettingFamilyPins = () => {
   return { type: GETTING_FAMILY_PINS };
 };
 
-export const getFamilyPins = api => dispatch => {
+export const getFamilyEvents = api => dispatch => {
   dispatch(gettingFamilyPins());
-  getData('/api/pins/' + (api || ''), res => {
+  getData('/api/events/' + (api || ''), res => {
     res.data.length
       ? dispatch(gotFamilyPins(res.data))
       : dispatch(gotFamilyError(res.data));

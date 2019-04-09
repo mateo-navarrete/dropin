@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { getPartyPins } from '../actions';
+import { getPartyEvents } from '../../actions';
 
 const mapStateToProps = ({ partyReducer }) => {
   return {
@@ -11,14 +11,16 @@ const mapStateToProps = ({ partyReducer }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    // getPartyPins: userCoords => dispatch(getPartyPins(userCoords)),
+    getPartyEvents: userCoords => dispatch(getPartyEvents(userCoords)),
   };
 };
 
 const withPartyDrops = (WrappedComponent, api) => {
   class HOC extends Component {
     componentDidMount() {
-      //getPartyPins based on userCoords here
+      this.props.getPartyEvents(2);
+      //TODO: { category_id, latitude, longitude}
+      // based on userCoords here
     }
 
     render() {
