@@ -4,15 +4,15 @@ const db = require('..');
 
 module.exports = () => {
   passport.serializeUser((user, done) => {
-    done(null, user.username);
+    done(null, user.user_name);
   });
 
-  passport.deserializeUser((username, done) => {
-    db.one("SELECT * FROM users WHERE username = ${username}", {
-      username: username
+  passport.deserializeUser((user_name, done) => {
+    db.one("SELECT * FROM users WHERE user_name = ${user_name}", {
+      username: user_name
     })
       .then(user => {
-        done(null, user.username);
+        done(null, user.user_name);
       })
       .catch(err => {
         done(err, null);
