@@ -25,13 +25,14 @@ class LabelBottomNavigation extends React.Component {
   render() {
     const { classes, drops } = this.props;
     const { value } = this.state;
-    const dropTops = drops.slice(0, 5);
-    const dropBtms = drops.slice(5);
+    // console.log(drops)
+    // const dropTops = drops.slice(0, 5);
+    // const dropBtms = drops.slice(5);
     // console.log(dropTops, dropBtms);
-    const renderNavBtnsTop =
+    const renderNavBtns =
       drops && drops.length
         ? // <StyledDropList drops={dropTops} />
-          dropTops.map((drop, i) => {
+      drops.map((drop, i) => {
             const { type } = drop;
             let link = "/" + type;
             // let DropLink = props => <Link to={link} {...props} />;
@@ -60,25 +61,25 @@ class LabelBottomNavigation extends React.Component {
     //     );
     //   })
 
-    const renderNavBtnsBtm =
-      drops && drops.length //<StyledDropList drops={dropBtms} />
-        ? dropBtms.map((drop, i) => {
-            const { type } = drop;
-            let link = "/" + type;
-            // let DropLink = props => <Link to={link} {...props} />;
-            return (
-              <BottomNavigationAction
-                key={"drop" + i}
-                label={type.toLowerCase()}
-                value={type}
-                icon={<IconHOC type={type} />}
-                component={Link}
-                to={link}
-                className={"style-" + type}
-              />
-            );
-          })
-        : "";
+    // const renderNavBtnsBtm =
+    //   drops && drops.length //<StyledDropList drops={dropBtms} />
+    //     ? dropBtms.map((drop, i) => {
+    //         const { type } = drop;
+    //         let link = "/" + type;
+    //         // let DropLink = props => <Link to={link} {...props} />;
+    //         return (
+    //           <BottomNavigationAction
+    //             key={"drop" + i}
+    //             label={type.toLowerCase()}
+    //             value={type}
+    //             icon={<IconHOC type={type} />}
+    //             component={Link}
+    //             to={link}
+    //             className={"style-" + type}
+    //           />
+    //         );
+    //       })
+    //     : "";
 
     // dropBtms.map((drop, i) => {
     //     const { type } = drop;
@@ -99,19 +100,21 @@ class LabelBottomNavigation extends React.Component {
           onChange={this.handleChange}
           className={classes.root}
         >
-          {renderNavBtnsTop}
+          {renderNavBtns}
         </BottomNavigation>
 
-        <BottomNavigation
-          value={value}
-          onChange={this.handleChange}
-          className={classes.root}
-        >
-          {renderNavBtnsBtm}
-        </BottomNavigation>
+
       </>
     );
   }
 }
+
+// <BottomNavigation
+//   value={value}
+//   onChange={this.handleChange}
+//   className={classes.root}
+// >
+//   {renderNavBtnsBtm}
+// </BottomNavigation>
 
 export default withDrops(withStyles(styles)(LabelBottomNavigation));

@@ -2,15 +2,15 @@
 
 const initState = {
   drops: [
-    { type: 'Education' },
-    { type: 'Entertainment' },
+    // { type: 'Education' },
+    // { type: 'Entertainment' },
     { type: 'Family' },
-    { type: 'Food' },
-    { type: 'Gaming' },
-    { type: 'Humanitarian' },
-    { type: 'Music' },
+    // { type: 'Food' },
+    // { type: 'Gaming' },
+    // { type: 'Humanitarian' },
+    // { type: 'Music' },
     { type: 'Party' },
-    { type: 'Religious' },
+    // { type: 'Religious' },
     { type: 'Sports' },
   ], //[],
   types: [],

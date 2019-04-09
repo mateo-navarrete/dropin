@@ -24,15 +24,15 @@ export {
 };
 
 const ICONS = {
-  Education: EducationIcon,
-  Entertainment: EntertainmentIcon,
+  // Education: EducationIcon,
+  // Entertainment: EntertainmentIcon,
   Family: FamilyIcon,
-  Food: FoodIcon,
-  Gaming: GamingIcon,
-  Humanitarian: HumanitarianIcon,
-  Music: MusicIcon,
+  // Food: FoodIcon,
+  // Gaming: GamingIcon,
+  // Humanitarian: HumanitarianIcon,
+  // Music: MusicIcon,
   Party: PartyIcon,
-  Religious: ReligiousIcon,
+  // Religious: ReligiousIcon,
   Sports: SportsIcon,
 };
 
