@@ -12,6 +12,7 @@ import '../../../styles/map.css';
 import { withRouter } from 'react-router';
 import { withUserCoords } from '../../containers';
 import { withPinModal } from '../../containers';
+import family_marker from "../../../assets/family_marker.png"
 
 const Map = props => {
   let path;
@@ -19,38 +20,38 @@ const Map = props => {
   let userLatitude = userCoords.latitude;
   let userLongitude = userCoords.longitude;
   switch (props.match.path.slice(1)) {
-    case 'education':
-      path = 'http://maps.google.com/mapfiles/kml/shapes/schools.png';
-      break;
-    case 'entertainment':
-      path = 'http://maps.google.com/mapfiles/kml/shapes/arts.png';
-      break;
+    // case 'education':
+    //   path = 'http://maps.google.com/mapfiles/kml/shapes/schools.png';
+    //   break;
+    // case 'entertainment':
+    //   path = 'http://maps.google.com/mapfiles/kml/shapes/arts.png';
+    //   break;
     case 'family':
       path = 'http://maps.google.com/mapfiles/kml/shapes/hiker.png';
       break;
-    case 'food':
-      path = 'http://maps.google.com/mapfiles/kml/shapes/snack_bar.png';
-      break;
-    case 'gaming':
-      path = 'http://maps.google.com/mapfiles/kml/shapes/motorcycling.png';
-      break;
-    case 'humanitarian':
-      path = 'http://maps.google.com/mapfiles/kml/shapes/hospitals.png';
-      break;
-    case 'music':
-      path = 'http://maps.google.com/mapfiles/kml/shapes/movies.png';
-      break;
+    // case 'food':
+    //   path = 'http://maps.google.com/mapfiles/kml/shapes/snack_bar.png';
+    //   break;
+    // case 'gaming':
+    //   path = 'http://maps.google.com/mapfiles/kml/shapes/motorcycling.png';
+    //   break;
+    // case 'humanitarian':
+    //   path = 'http://maps.google.com/mapfiles/kml/shapes/hospitals.png';
+    //   break;
+    // case 'music':
+    //   path = 'http://maps.google.com/mapfiles/kml/shapes/movies.png';
+    //   break;
     case 'party':
       path = 'http://maps.google.com/mapfiles/kml/shapes/bars.png';
       break;
-    case 'religious':
-      path = 'http://maps.google.com/mapfiles/kml/shapes/church.png';
-      break;
+    // case 'religious':
+    //   path = 'http://maps.google.com/mapfiles/kml/shapes/church.png';
+    //   break;
     case 'sports':
       path = 'http://maps.google.com/mapfiles/kml/shapes/golf.png';
       break;
     default:
-      path = 'http://maps.google.com/mapfiles/kml/paddle/red-circle.png';
+      path = 'http://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png';
       break;
   }
 
