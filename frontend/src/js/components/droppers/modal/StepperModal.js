@@ -5,7 +5,7 @@ import "../../../../styles/stepperModal.css";
 import { withRouter } from "react-router";
 
 const StepModal = ({ ...props }) => {
-  console.log("@stepperModal", props);
+  // console.log("@stepperModal", props);
   return (
     <>
       {props.visible ? (
