@@ -3,7 +3,7 @@ import { withPinModal } from "../../../containers";
 import "../../../../styles/pinModal.css";
 
 const PinsModal = props => {
-  console.log("@@@", props);
+  // console.log("@@@", props);
   return <>
   {props.visible ? <div className="pin-modal">pin Modal</div> : ""}
   <br />
