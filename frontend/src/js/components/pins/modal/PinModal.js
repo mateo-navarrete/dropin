@@ -1,15 +1,28 @@
 import React from "react";
 import { withPinModal } from "../../../containers";
 import "../../../../styles/pinModal.css";
+import { withRouter } from "react-router";
 
 const PinsModal = props => {
   console.log("@pinsModal", props);
-  return <>
-  {props.visible ? <div className="pin-modal">pin Modal</div> : ""}
-  <br />
-  {props.visible ? <div className="pin-modal">Lorem Ipsum Something something</div> : ""}
-  {props.visible ? <div className="pin-modal"><button onClick={props.closePinModal}>Close</button></div> : ""}
-  </>;
+  return (
+    <>
+      {props.visible ? (
+        <div className="pin-modal">
+          pin Modal
+          <button
+            className="pin-modal-close-button"
+            onClick={props.closePinModal}
+          >
+            Close
+          </button>
+        </div>
+      ) : (
+        ""
+      )}
+      <br />
+    </>
+  );
 };
 
 // <>
@@ -18,4 +31,4 @@ const PinsModal = props => {
 //     <p>latitude: {props.longitude}</p>
 //   </>
 
-export const PinModal = withPinModal(PinsModal);
+export const PinModal = withRouter(withPinModal(PinsModal));
