@@ -60,11 +60,11 @@ const Map = props => {
   //   window.alert("event clicked");
   // };
 
-  // console.log("MAP props", props)
+  console.log("MAP props", props)
   const MyMapComponent = withScriptjs(
     withGoogleMap(() => (
       <GoogleMap
-        defaultZoom={16}
+        defaultZoom={15}
         defaultCenter={{ lat: userLatitude, lng: userLongitude }}
       >
         {coords.map((coord, i) => {
@@ -73,7 +73,9 @@ const Map = props => {
               position={{ lat: coord.latitude, lng: coord.longitude }}
               key={i}
               icon={path}
-              onClick={props.openPinModal}
+              id={coord.id}
+              value={coord.id}
+              onClick={e => props.openPinModal(e)}
             />
           );
         })}

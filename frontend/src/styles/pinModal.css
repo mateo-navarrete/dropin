@@ -1,7 +1,15 @@
 .pin-modal {
-  background: rgba(46, 49, 49, 0.8);
+  background: rgba(46, 49, 49, 0.3);
   position: absolute;
-  width: 100%;
-  height: 100%;
+  color: red;
+  width: 50%;
+  height: 450px;
   z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.pin-modal-close-button {
+  color: red;
 }

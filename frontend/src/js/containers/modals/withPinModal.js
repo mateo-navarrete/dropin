@@ -10,13 +10,16 @@ const mapStateToProps = ({ pinModalReducer }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    openPinModal: () => dispatch(openPinModal()),
+    openPinModal: (e) => dispatch(openPinModal(e)),
     closePinModal: () => dispatch(closePinModal()),
   };
 };
 
 const withPinModal = WrappedComponent => {
   class HOC extends Component {
+    openPinModal = (e)=>{
+      console.log('@@@',e, e.target.value)
+    }
     render() {
       return <WrappedComponent {...this.props} />;
     }
