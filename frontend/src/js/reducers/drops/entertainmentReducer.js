@@ -1,4 +1,8 @@
-// import { AUTH_ERROR, AUTH_USER, AUTHORIZE_USER } from '../constants';
+import {
+  GOT_ENTERTAINMENT_ERROR,
+  GOT_ENTERTAINMENT_PINS,
+  GETTING_ENTERTAINMENT_PINS
+} from '../../constants';
 
 // Latitude, Longitude
 // 40.743431, -73.938770
@@ -13,17 +17,28 @@
 const initState = {
   drop: 'Entertainment',
   coords: [
-    { latitude: 40.743203, longitude: -73.942879 },
-    { latitude: 40.74317, longitude: -73.943458 },
-    { latitude: 40.743487, longitude: -73.939252 },
-    { latitude: 40.742633, longitude: -73.940853 },
-    { latitude: 40.743665, longitude: -73.940997 },
+    // { latitude: 40.743203, longitude: -73.942879 },
+    // { latitude: 40.74317, longitude: -73.943458 },
+    // { latitude: 40.743487, longitude: -73.939252 },
+    // { latitude: 40.742633, longitude: -73.940853 },
+    // { latitude: 40.743665, longitude: -73.940997 },
   ],
+  loading: false,
 };
 
 export const entertainmentReducer = (state = initState, action) => {
-  // let nextState;
+  let nextState;
   switch (action.type) {
+    case GOT_ENTERTAINMENT_ERROR:
+      nextState = { ...state, loading: true };
+      return nextState;
+    case GOT_ENTERTAINMENT_PINS:
+      nextState = { ...state, loading: false };
+      return nextState;
+    case GETTING_ENTERTAINMENT_PINS:
+      // console.log('@', action.payload);
+      nextState = { ...state, loading: false, coords: action.payload };
+      return nextState;
     default:
       return state;
   }

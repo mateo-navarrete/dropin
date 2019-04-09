@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { getEntertainmentPins } from '../actions';
+import { getEntertainmentPins } from '../../actions';
 
 const mapStateToProps = ({ entertainmentReducer }) => {
   return {
@@ -12,13 +12,15 @@ const mapStateToProps = ({ entertainmentReducer }) => {
 const mapDispatchToProps = dispatch => {
   return {
     // getEntertainmentPins: userCoords => dispatch(getEntertainmentPins(userCoords)),
+    getEntertainmentPins: type => dispatch(getEntertainmentPins(type)),
   };
 };
 
-const withEntertainmentDrops = (WrappedComponent, api) => {
+const withEntertainmentDrops = WrappedComponent => {
   class HOC extends Component {
     componentDidMount() {
-      //getEntertainmentPins based on userCoords here
+      this.props.getEntertainmentPins(2);
+      // based on userCoords here    }
     }
 
     render() {

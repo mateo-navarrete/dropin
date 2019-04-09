@@ -13,6 +13,7 @@ import {
   withSportsDrops
 } from './drops';
 import { withPinModal } from './modals';
+import { withScreenSize } from './utils';
 
 export {
   withAuthUser,
@@ -28,5 +29,6 @@ export {
   withPartyDrops,
   withReligiousDrops,
   withSportsDrops,
-  withPinModal
+  withPinModal,
+  withScreenSize
 };
