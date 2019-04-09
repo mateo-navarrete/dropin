@@ -17,9 +17,9 @@ const gettingPartyPins = () => {
   return { type: GETTING_PARTY_PINS };
 };
 
-export const getPartyPins = api => dispatch => {
+export const getPartyEvents = api => dispatch => {
   dispatch(gettingPartyPins());
-  getData('/api/pins/' + (api || ''), res => {
+  getData('/api/events/' + (api || ''), res => {
     res.data.length
       ? dispatch(gotPartyPins(res.data))
       : dispatch(gotPartyError(res.data));

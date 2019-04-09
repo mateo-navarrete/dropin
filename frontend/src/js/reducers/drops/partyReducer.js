@@ -1,5 +1,8 @@
-// import { AUTH_ERROR, AUTH_USER, AUTHORIZE_USER } from '../constants';
-
+import {
+  GOT_PARTY_ERROR,
+  GOT_PARTY_PINS,
+  GETTING_PARTY_PINS
+} from '../../constants';
 // Latitude, Longitude
 // 40.743431, -73.938770
 // 40.742878, -73.941538
@@ -20,11 +23,22 @@ const initState = {
     { latitude: 40.743665, longitude: -73.940997 },
     { latitude: 40.744681, longitude: -73.939323 },
   ],
+  loading: false,
 };
 
 export const partyReducer = (state = initState, action) => {
-  // let nextState;
+  let nextState;
   switch (action.type) {
+    case GETTING_PARTY_PINS:
+      nextState = { ...state, loading: true };
+      return nextState;
+    case GOT_PARTY_ERROR:
+      nextState = { ...state, loading: false };
+      return nextState;
+    case GOT_PARTY_PINS:
+      // console.log('@', action.payload);
+      nextState = { ...state, loading: false, coords: action.payload };
+      return nextState;
     default:
       return state;
   }
