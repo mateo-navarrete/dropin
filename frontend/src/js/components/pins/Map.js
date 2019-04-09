@@ -73,7 +73,9 @@ const Map = props => {
               position={{ lat: coord.latitude, lng: coord.longitude }}
               key={i}
               icon={path}
-              onClick={props.openPinModal}
+              id={coord.id}
+              value={coord.id}
+              onClick={e => props.openPinModal(e)}
             />
           );
         })}
