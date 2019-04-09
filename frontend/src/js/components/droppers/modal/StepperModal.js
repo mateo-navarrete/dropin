@@ -1,6 +1,7 @@
 import React from "react";
 import { withStepperModal } from "../../../containers";
-import "../../../../styles/pinModal.css";
+import { StyledDropPinStepper } from "../../";
+import "../../../../styles/stepperModal.css";
 import { withRouter } from "react-router";
 
 const StepModal = ({ ...props }) => {
@@ -8,10 +9,13 @@ const StepModal = ({ ...props }) => {
   return (
     <>
       {props.visible ? (
-        <div className="pin-modal">
-          pin Modal
+        <div className="stepper-modal">
+          stepper Modal
+          <br />
+          <StyledDropPinStepper />
+          <br />
           <button
-            className="pin-modal-close-button"
+            className="stepper-modal-close-button"
             onClick={props.closeStepperModal}
           >
             Close
