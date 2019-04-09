@@ -21,8 +21,8 @@ export const getSizes = () => {
     updatedSizes.marginLeft = (updatedSizes.adjWidth * 0.5) >> 0;
   }
 
-  updatedSizes.pinsH = (updatedSizes.height * 0.7) >> 0;
-  updatedSizes.dropsH = (updatedSizes.height * 0.2) >> 0;
+  updatedSizes.pinsH = (updatedSizes.height * 0.8) >> 0;
+  updatedSizes.dropsH = (updatedSizes.height * 0.1) >> 0;
   updatedSizes.droppersH = h - updatedSizes.pinsH - updatedSizes.dropsH;
 
   return updatedSizes;
