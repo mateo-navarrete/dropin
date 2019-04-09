@@ -1,4 +1,7 @@
-const pinsApi = require('./pins');
-const usersApi = require('./users');
+const eventsApi = require('./eventsRoutes');
+const usersApi = require('./usersRoutes');
 
-module.exports = { pinsApi, usersApi };
+module.exports = {
+  eventsApi,
+  usersApi,
+};

@@ -1,14 +1,20 @@
 import React from "react";
-import { DroppersArea, DropsArea, PinsArea } from "..";
+import { AreaWrapper, DroppersArea, DropsArea, PinsArea } from "..";
 import { PinModal } from "../pins/modal/PinModal";
 
 export const LandingPage = props => {
   return (
     <>
-      <PinModal />
-      <PinsArea />
-      <DropsArea />
-      <DroppersArea />
+      <AreaWrapper wrapperH={"pinsH"} wrapperW={"width"} mL={false}>
+        <PinModal />
+        <PinsArea />
+      </AreaWrapper>
+      <AreaWrapper wrapperH={"dropsH"} wrapperW={"adjWidth"} mL={true}>
+        <DropsArea/>
+      </AreaWrapper>
+      <AreaWrapper wrapperH={"droppersH"} wrapperW={"adjWidth"} mL={true}>
+        <DroppersArea />
+      </AreaWrapper>
     </>
   );
 };

@@ -1,4 +1,7 @@
 import axios from 'axios';
+import { getSizes } from './getSizes';
+
+export { getSizes };
 
 export const getTime = str => {
   let d = new Date(str);

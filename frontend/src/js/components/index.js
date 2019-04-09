@@ -17,7 +17,7 @@ import {
   StyledDropArea,
   StyledPinDropButton
 } from './styled';
-import { LandingPage, SwitchRouter } from './utils';
+import { AreaWrapper, LandingPage, SwitchRouter } from './utils';
 
 export {
   AuthUser,
@@ -39,6 +39,7 @@ export {
   IconHOC,
   StyledDropArea,
   StyledPinDropButton,
+  AreaWrapper,
   LandingPage,
   SwitchRouter
 };
