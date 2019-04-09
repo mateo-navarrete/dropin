@@ -4,7 +4,7 @@ import "../../../../styles/pinModal.css";
 import { withRouter } from "react-router";
 
 const PinsModal = ({ event_id, coords, ...props }) => {
-  console.log("@pinsModal", coords);
+  // console.log("@pinsModal", coords);
   let pinInfo;
   if (coords) {
     pinInfo = coords.map(pin => {
