@@ -22,22 +22,26 @@ const styles = theme => ({
 
 function getSteps() {
   return [
-    'Select master blaster campaign settings',
-    'Create an ad group',
-    'Create an ad',
+    'drop_category',
+    'event_name',
+    'description',
+    'expiration_date',
+    'display_user',
+    'drop_pin',
   ];
 }
 
 function getStepContent(stepIndex) {
   switch (stepIndex) {
     case 0:
-      return 'Select campaign settings...';
+      return '[ CANCEL ]  [ NEXT ]';
     case 1:
-      return 'What is an ad group anyways?';
     case 2:
-      return 'This is the bit I really care about!';
+    case 3:
+    case 4:
+      return '[ BACK ]  [ NEXT ]';
     default:
-      return 'Unknown stepIndex';
+      return '[ BACK ]  [ FINISH ]';
   }
 }
 
