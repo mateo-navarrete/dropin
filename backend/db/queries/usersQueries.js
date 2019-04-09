@@ -1,15 +1,20 @@
 const db = require('..');
 
+const authHelpers = require("../auth/helpers");
+
+
 const createUser = (req, res, next) => {
   const rb = req.body;
+  const hash = authHelpers.createHash(rb.password_digest);
   const userObj = {
     user_name: rb.user_name,
-    password_digest: rb.password_digest,
+    password_digest: hash,
     birth_date: rb.birth_date,
     profile_photo: rb.profile_photo || '',
     instagram_id: rb.instagram_id || '',
     linkedin_id: rb.linkedin_id || '',
   };
+
   db.none(
     'INSERT INTO users (user_name, password_digest, birth_date, profile_photo, instagram_id, linkedin_id) VALUES (${user_name}, ${password_digest}, ${birth_date}, ${profile_photo}, ${instagram_id}, ${linkedin_id})',
     userObj
