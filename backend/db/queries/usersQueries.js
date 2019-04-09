@@ -84,11 +84,28 @@ const deleteUser = (req, res, next) => {
     .catch(err => next(err));
 };
 
+function logoutUser(req, res, next) {
+  req.logout();
+  res.status(200).send("log out success");
+}
+
+function loginUser(req, res) {
+  res.json({message: req.user_name + ' has been logged in!'});
+}
+
+function isLoggedIn(req, res) {
+  if (req.user_name) {
+    res.json({ message: req.user_name + ' is currently logged in.' });
+  } else {
+    res.json({ message: 'No one is currently logged in.' });
+  }
+}
+
 module.exports = {
   createUser,
-  // loginUser,
-  // isLoggedIn,
-  // logoutUser,
+  loginUser,
+  isLoggedIn,
+  logoutUser,
   getUser,
   getUsers,
   updateUser,
