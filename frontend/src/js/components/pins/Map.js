@@ -13,6 +13,7 @@ import { withRouter } from 'react-router';
 import { withUserCoords } from '../../containers';
 import { withPinModal } from '../../containers';
 import family_marker from "../../../assets/family_marker.png"
+const { MarkerClusterer } = require("react-google-maps/lib/components/addons/MarkerClusterer");
 
 const Map = props => {
   let path;
@@ -68,6 +69,12 @@ const Map = props => {
         defaultZoom={15}
         defaultCenter={{ lat: userLatitude, lng: userLongitude }}
       >
+      <MarkerClusterer
+  onClick={props.onMarkerClustererClick}
+  averageCenter
+  enableRetinaIcons
+  gridSize={60}
+>
         {coords.map((coord, i) => {
           return (
             <Marker
@@ -79,6 +86,7 @@ const Map = props => {
             />
           );
         })}
+        </MarkerClusterer>
       </GoogleMap>
     ))
   );
