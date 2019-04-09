@@ -1,3 +1,4 @@
 import withPinModal from './withPinModal';
+import withStepperModal from './withStepperModal';
 
-export { withPinModal };
+export { withPinModal, withStepperModal };
