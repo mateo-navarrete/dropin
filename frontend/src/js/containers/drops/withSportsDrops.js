@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { getSportsPins } from '../actions';
+import { getSportsEvents } from '../../actions';
 
 const mapStateToProps = ({ sportsReducer }) => {
   return {
@@ -11,14 +11,16 @@ const mapStateToProps = ({ sportsReducer }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    // getSportsPins: userCoords => dispatch(getSportsPins(userCoords)),
+    getSportsEvents: userCoords => dispatch(getSportsEvents(userCoords)),
   };
 };
 
 const withSportsDrops = (WrappedComponent, api) => {
   class HOC extends Component {
     componentDidMount() {
-      //getSportsPins based on userCoords here
+      this.props.getSportsEvents(3);
+      //TODO: { category_id, latitude, longitude}
+      // based on userCoords here
     }
 
     render() {

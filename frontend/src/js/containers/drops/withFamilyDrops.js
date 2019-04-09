@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { getFamilyPins } from '../actions';
+import { getFamilyEvents } from '../../actions';
 
 const mapStateToProps = ({ familyReducer }) => {
   return {
@@ -11,14 +11,16 @@ const mapStateToProps = ({ familyReducer }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    // getFamilyPins: userCoords => dispatch(getFamilyPins(userCoords)),
+    getFamilyEvents: userCoords => dispatch(getFamilyEvents(userCoords)),
   };
 };
 
 const withFamilyDrops = (WrappedComponent, api) => {
   class HOC extends Component {
     componentDidMount() {
-      //getFamilyPins based on userCoords here
+      this.props.getFamilyEvents(1);
+      //TODO: { category_id, latitude, longitude}
+      // based on userCoords here
     }
 
     render() {

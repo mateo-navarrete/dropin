@@ -17,9 +17,9 @@ const gettingSportsPins = () => {
   return { type: GETTING_SPORTS_PINS };
 };
 
-export const getSportsPins = api => dispatch => {
+export const getSportsEvents = api => dispatch => {
   dispatch(gettingSportsPins());
-  getData('/api/pins/' + (api || ''), res => {
+  getData('/api/events/' + (api || ''), res => {
     res.data.length
       ? dispatch(gotSportsPins(res.data))
       : dispatch(gotSportsError(res.data));
