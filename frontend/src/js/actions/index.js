@@ -1,5 +1,10 @@
 import { getAuthUser, getUserCoords } from './droppers';
-import { openPinModal, closePinModal } from './modals';
+import {
+  openPinModal,
+  closePinModal,
+  openStepperModal,
+  closeStepperModal
+} from './modals';
 import { getFamilyEvents, getPartyEvents, getSportsEvents } from './drops';
 import { getSize } from './utils';
 
@@ -8,6 +13,8 @@ export {
   getUserCoords,
   openPinModal,
   closePinModal,
+  openStepperModal,
+  closeStepperModal,
   getFamilyEvents,
   getPartyEvents,
   getSportsEvents,

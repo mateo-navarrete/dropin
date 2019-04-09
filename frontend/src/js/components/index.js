@@ -1,7 +1,6 @@
-import { AuthUser, DroppersArea, UserCoords } from './droppers';
+import { AuthUser, DroppersArea, StepperModal, UserCoords } from './droppers';
 import { DropsArea } from './drops';
-import { Map } from './pins';
-import { PinsArea } from './pins';
+import { Map, PinsArea, PinModal } from './pins';
 import {
   EducationIcon,
   EntertainmentIcon,
@@ -15,17 +14,20 @@ import {
   SportsIcon,
   IconHOC,
   StyledDropArea,
-  StyledPinDropButton
+  StyledPinDropButton,
+  StyledDropPinStepper
 } from './styled';
 import { AreaWrapper, LandingPage, SwitchRouter } from './utils';
 
 export {
   AuthUser,
   DroppersArea,
+  StepperModal,
   UserCoords,
   DropsArea,
-  PinsArea,
   Map,
+  PinsArea,
+  PinModal,
   EducationIcon,
   EntertainmentIcon,
   FamilyIcon,
@@ -39,6 +41,7 @@ export {
   IconHOC,
   StyledDropArea,
   StyledPinDropButton,
+  StyledDropPinStepper,
   AreaWrapper,
   LandingPage,
   SwitchRouter

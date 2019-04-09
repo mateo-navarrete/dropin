@@ -1,3 +1,4 @@
 import { pinModalReducer } from './pinModalReducer';
+import { stepperModalReducer } from './stepperModalReducer';
 
-export { pinModalReducer };
+export { pinModalReducer, stepperModalReducer };
