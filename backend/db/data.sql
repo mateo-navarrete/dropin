@@ -36,7 +36,7 @@ CREATE TABLE events (
 CREATE TABLE sessions (
   id SERIAL PRIMARY KEY,
   session_key VARCHAR NOT NULL,
-  user_id INT REFERENCES users(id) NOT NULL,
+  user_id INT REFERENCES users(id) ON DELETE CASCADE NOT NULL,
   created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   expiration_date TIMESTAMP
 );
