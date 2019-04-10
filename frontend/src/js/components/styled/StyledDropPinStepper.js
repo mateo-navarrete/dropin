@@ -21,27 +21,47 @@ const styles = theme => ({
 });
 
 function getSteps() {
-  return [
-    'drop_category',
-    'event_name',
-    'description',
-    'expiration_date',
-    'display_user',
-    'drop_pin',
-  ];
+  return ['', '', '', '', '', ''];
 }
 
 function getStepContent(stepIndex) {
   switch (stepIndex) {
     case 0:
-      return '[ CANCEL ]  [ NEXT ]';
+      return (
+        <div>
+          drop_category <br />[ CANCEL ] [ NEXT ]
+        </div>
+      );
     case 1:
+      return (
+        <div>
+          event_name <br />[ BACK ] [ NEXT ]
+        </div>
+      );
     case 2:
+      return (
+        <div>
+          description <br />[ BACK ] [ NEXT ]
+        </div>
+      );
     case 3:
+      return (
+        <div>
+          expiration_date <br />[ BACK ] [ NEXT ]
+        </div>
+      );
     case 4:
-      return '[ BACK ]  [ NEXT ]';
+      return (
+        <div>
+          display_user <br />[ BACK ] [ NEXT ]
+        </div>
+      );
     default:
-      return '[ BACK ]  [ FINISH ]';
+      return (
+        <div>
+          drop_pin <br />[ BACK ] [ FINISH ]
+        </div>
+      );
   }
 }
 
@@ -92,9 +112,7 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
             </div>
           ) : (
             <div>
-              <Typography className={classes.instructions}>
-                {getStepContent(activeStep)}
-              </Typography>
+              {getStepContent(activeStep)}
               <div>
                 <Button
                   disabled={activeStep === 0}
@@ -118,6 +136,10 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
     );
   }
 }
+
+// <Typography className={classes.instructions}>
+//   {getStepContent(activeStep)}
+// </Typography>
 
 HorizontalLabelPositionBelowStepper.propTypes = {
   classes: PropTypes.object,
