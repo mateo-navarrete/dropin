@@ -73,11 +73,11 @@ const Map = props => {
       >
         <MarkerClusterer
           onClick={props.onMarkerClustererClick}
-          averageCenter
+          averageCenter={true}
           enableRetinaIcons={true}
           zoomOnClick={true}
           minimumClusterSize={3}
-          gridSize={100}
+          gridSize={80}
         >
           {coords.map((coord, i) => {
             return (
