@@ -17,26 +17,26 @@ const mapStateToProps = ({ sizeReducer }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getSize: size => dispatch(getSize(size)),
+    // getSize: size => dispatch(getSize(size)),
   };
 };
 
 const withScreenSize = WrappedComponent => {
   class HOC extends Component {
-    componentDidMount() {
-      if (!this.props.height) {
-        this.getSize();
-        window.addEventListener('resize', this.getSize);
-      }
-    }
+    // componentDidMount() {
+    //   if (!this.props.height) {
+    //     this.getSize();
+    //     window.addEventListener('resize', this.getSize);
+    //   }
+    // }
 
-    getSize = () => {
-      this.props.getSize();
-    };
-
-    componentWillUnmount() {
-      window.removeEventListener('resize', this.updateSize);
-    }
+    // getSize = () => {
+    //   this.props.getSize();
+    // };
+    //
+    // componentWillUnmount() {
+    //   window.removeEventListener('resize', this.updateSize);
+    // }
 
     render() {
       return <WrappedComponent {...this.props} />;

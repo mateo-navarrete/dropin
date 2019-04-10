@@ -21,23 +21,47 @@ const styles = theme => ({
 });
 
 function getSteps() {
-  return [
-    'Select master blaster campaign settings',
-    'Create an ad group',
-    'Create an ad',
-  ];
+  return ['', '', '', '', '', ''];
 }
 
 function getStepContent(stepIndex) {
   switch (stepIndex) {
     case 0:
-      return 'Select campaign settings...';
+      return (
+        <div>
+          drop_category <br />[ CANCEL ] [ NEXT ]
+        </div>
+      );
     case 1:
-      return 'What is an ad group anyways?';
+      return (
+        <div>
+          event_name <br />[ BACK ] [ NEXT ]
+        </div>
+      );
     case 2:
-      return 'This is the bit I really care about!';
+      return (
+        <div>
+          description <br />[ BACK ] [ NEXT ]
+        </div>
+      );
+    case 3:
+      return (
+        <div>
+          expiration_date <br />[ BACK ] [ NEXT ]
+        </div>
+      );
+    case 4:
+      return (
+        <div>
+          display_user <br />[ BACK ] [ NEXT ]
+        </div>
+      );
     default:
-      return 'Unknown stepIndex';
+      return (
+        <div>
+          drop_pin <br />[ BACK ] [ FINISH ]
+        </div>
+      );
   }
 }
 
@@ -88,9 +112,7 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
             </div>
           ) : (
             <div>
-              <Typography className={classes.instructions}>
-                {getStepContent(activeStep)}
-              </Typography>
+              {getStepContent(activeStep)}
               <div>
                 <Button
                   disabled={activeStep === 0}
@@ -114,6 +136,10 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
     );
   }
 }
+
+// <Typography className={classes.instructions}>
+//   {getStepContent(activeStep)}
+// </Typography>
 
 HorizontalLabelPositionBelowStepper.propTypes = {
   classes: PropTypes.object,

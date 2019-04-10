@@ -1,3 +1,4 @@
 import withScreenSize from './withScreenSize';
+import withResize from './withResize';
 
-export { withScreenSize };
+export { withScreenSize, withResize };

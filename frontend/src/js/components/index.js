@@ -1,4 +1,10 @@
-import { AuthUser, DroppersArea, StepperModal, UserCoords } from './droppers';
+import {
+  AuthUser,
+  DroppersArea,
+  StepperModal,
+  UserCoords,
+  UserCoordsListener
+} from './droppers';
 import { DropsArea } from './drops';
 import { Map, PinsArea, PinModal } from './pins';
 import {
@@ -15,15 +21,23 @@ import {
   IconHOC,
   StyledDropArea,
   StyledPinDropButton,
-  StyledDropPinStepper
+  StyledDropPinStepper,
+  StyledDrawer,
+  StyledBottomDrawer
 } from './styled';
-import { AreaWrapper, LandingPage, SwitchRouter } from './utils';
+import {
+  AreaWrapper,
+  LandingPage,
+  ResizeListener,
+  SwitchRouter
+} from './utils';
 
 export {
   AuthUser,
   DroppersArea,
   StepperModal,
   UserCoords,
+  UserCoordsListener,
   DropsArea,
   Map,
   PinsArea,
@@ -42,7 +56,10 @@ export {
   StyledDropArea,
   StyledPinDropButton,
   StyledDropPinStepper,
+  StyledDrawer,
+  StyledBottomDrawer,
   AreaWrapper,
   LandingPage,
+  ResizeListener,
   SwitchRouter
 };

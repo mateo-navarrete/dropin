@@ -1,4 +1,4 @@
-import { withAuthUser, withUserCoords } from './droppers';
+import { withAuthUser, withUserCoords, withUserCoordsLoader } from './droppers';
 import {
   withDrops,
   withFamilyDrops,
@@ -6,16 +6,18 @@ import {
   withSportsDrops
 } from './drops';
 import { withPinModal, withStepperModal } from './modals';
-import { withScreenSize } from './utils';
+import { withScreenSize, withResize } from './utils';
 
 export {
   withAuthUser,
   withUserCoords,
+  withUserCoordsLoader,
   withDrops,
   withFamilyDrops,
   withPartyDrops,
   withSportsDrops,
   withPinModal,
   withStepperModal,
-  withScreenSize
+  withScreenSize,
+  withResize
 };
