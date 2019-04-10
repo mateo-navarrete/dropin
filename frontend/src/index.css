@@ -26,6 +26,7 @@ body {
 }
 
 .primary {
+  color: rgba(251, 54, 74, 1);
   /* background: #621389; */
 }
 
@@ -99,7 +100,7 @@ body {
   width: 512px;
 }
 
-.MuiBottomNavigationAction-root-3.MuiBottomNavigationAction-selected-4.style-Education {
+/* .MuiBottomNavigationAction-root-3.MuiBottomNavigationAction-selected-4.style-Education {
   color: rgba(0, 0, 200, 1) !important;
 }
 
@@ -137,4 +138,4 @@ body {
 
 .MuiBottomNavigationAction-root-3.MuiBottomNavigationAction-selected-4.style-Sports {
   color: rgba(0, 150, 150, 1) !important;
-}
+} */

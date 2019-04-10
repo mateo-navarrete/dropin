@@ -9,6 +9,14 @@ const initState = {
   pinsH: 0,
   dropsH: 0,
   droppersH: 0,
+  overlayHeight: 0,
+  overlayWidth: 0,
+  mainHeight: 0,
+  mainWidth: 0,
+  navBarHeight: 0,
+  navBarWidth: 0,
+  actionBarHeight: 0,
+  actionBarWidth: 0,
 };
 
 export const sizeReducer = (state = initState, action) => {
@@ -24,6 +32,14 @@ export const sizeReducer = (state = initState, action) => {
         pinsH,
         dropsH,
         droppersH,
+        overlayHeight,
+        overlayWidth,
+        mainHeight,
+        mainWidth,
+        navBarHeight,
+        navBarWidth,
+        actionBarHeight,
+        actionBarWidth,
       } = action.payload;
       // console.log('@', action.payload);
       nextState = {
@@ -36,6 +52,14 @@ export const sizeReducer = (state = initState, action) => {
         pinsH: pinsH,
         dropsH: dropsH,
         droppersH: droppersH,
+        overlayHeight: overlayHeight,
+        overlayWidth: overlayWidth,
+        mainHeight: mainHeight,
+        mainWidth: mainWidth,
+        navBarHeight: navBarHeight,
+        navBarWidth: navBarWidth,
+        actionBarHeight: actionBarHeight,
+        actionBarWidth: actionBarWidth,
       };
       return nextState;
     default:

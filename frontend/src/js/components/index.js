@@ -23,7 +23,9 @@ import {
   StyledPinDropButton,
   StyledDropPinStepper,
   StyledDrawer,
-  StyledBottomDrawer
+  StyledBottomDrawer,
+  StyledNavBar,
+  StyledActionBar
 } from './styled';
 import {
   AreaWrapper,
@@ -58,6 +60,8 @@ export {
   StyledDropPinStepper,
   StyledDrawer,
   StyledBottomDrawer,
+  StyledNavBar,
+  StyledActionBar,
   AreaWrapper,
   LandingPage,
   ResizeListener,
