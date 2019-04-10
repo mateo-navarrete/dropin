@@ -5,7 +5,7 @@ const { createEvent, getEvents, updateEvent, deleteEvent } = require('../db/quer
 
 router.post('/', createEvent);
 router.get('/:id', getEvents);
-router.put('/', updateEvent)
+router.put('/', updateEvent);
 router.delete('/:id', deleteEvent);
 
 module.exports = router;
