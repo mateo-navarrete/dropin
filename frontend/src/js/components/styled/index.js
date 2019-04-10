@@ -15,6 +15,8 @@ import StyledDropArea from './StyledDropArea';
 import { StyledDropList } from './StyledDropList';
 import StyledPinDropButton from './StyledPinDropButton';
 import StyledDropPinStepper from './StyledDropPinStepper';
+import StyledDrawer from './StyledDrawer';
+import StyledBottomDrawer from './StyledBottomDrawer';
 
 export {
   EducationIcon,
@@ -31,5 +33,7 @@ export {
   StyledDropArea,
   StyledDropList,
   StyledPinDropButton,
-  StyledDropPinStepper
+  StyledDropPinStepper,
+  StyledDrawer,
+  StyledBottomDrawer
 };

@@ -5,7 +5,8 @@ import {
   DropsArea,
   PinsArea,
   PinModal,
-  StepperModal
+  // StepperModal,
+  StyledBottomDrawer
 } from "..";
 
 export const LandingPage = props => {
@@ -13,7 +14,7 @@ export const LandingPage = props => {
     <>
       <AreaWrapper wrapperH={"pinsH"} wrapperW={"width"} mL={false}>
         <PinModal />
-        <StepperModal />
+        <StyledBottomDrawer />
         <PinsArea />
       </AreaWrapper>
       <AreaWrapper wrapperH={"dropsH"} wrapperW={"adjWidth"} mL={true}>
