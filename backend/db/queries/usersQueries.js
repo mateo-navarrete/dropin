@@ -90,12 +90,14 @@ function logoutUser(req, res, next) {
 }
 
 function loginUser(req, res) {
-  res.json({message: req.user_name + ' is now logged in.'});
+  res.json({message: req.user.user_name + ' is now logged in.'});
 }
 
 function isLoggedIn(req, res) {
-  if (req.user_name) {
-    res.json({ message: req.user_name + ' is already logged in.' });
+  console.log(req);
+  
+  if (req.user) {
+    res.json({ message: req.user + ' is already logged in.' });
   } else {
     res.json({ message: 'No one is logged in.'});
   }

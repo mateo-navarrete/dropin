@@ -13,7 +13,9 @@ const PinsModal = ({ event_id, coords, ...props }) => {
           <div className="pin-modal-info" key={pin.id}>
             <h1>{pin.event_name}</h1>
             <p>Desription: {pin.description}</p>
-            <p>Location: {pin.latitude}, {pin.longitude}</p>
+            <p>
+              Location: {pin.latitude}, {pin.longitude}
+            </p>
           </div>
         );
     });
@@ -25,20 +27,21 @@ const PinsModal = ({ event_id, coords, ...props }) => {
     <>
       {props.visible ? (
         <div className="pin-modal">
-        <div className="pin-modal-close-button-container">
-          <button
-            className="pin-modal-close-button"
-            onClick={props.closePinModal}
-          >
-            Close
-          </button>
+          <div className="pin-modal-button-container">
+            <button className="pin-modal-edit-button">Edit</button>
+            <button className="pin-modal-remove-button">Remove</button>
+            <button
+              className="pin-modal-close-button"
+              onClick={props.closePinModal}
+            >
+              Close
+            </button>
           </div>
           {pinInfo}
         </div>
       ) : (
         ""
       )}
-      <br />
     </>
   );
 };
@@ -48,5 +51,6 @@ const PinsModal = ({ event_id, coords, ...props }) => {
 //     <p>latitude: {props.latitude}</p>
 //     <p>latitude: {props.longitude}</p>
 //   </>
+let routerInfo = withRouter(withPinModal(PinsModal));
 
-export const PinModal = withRouter(withPinModal(PinsModal));
+export const PinModal = routerInfo;

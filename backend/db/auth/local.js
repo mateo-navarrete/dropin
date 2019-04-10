@@ -6,9 +6,10 @@ const helpers = require("./helpers");
 const db = require('..');
 
 passport.use(
-  new LocalStrategy((user_name, password_digest, done) => {
+  new LocalStrategy({usernameField: 'user_name', passwordField: 'password_digest'}, (user_name, password_digest, done) => {
+    console.log(user_name);
     db.one("SELECT * FROM users WHERE user_name = ${user_name}", {
-      user: user_name
+      user_name: user_name
     })
       .then(user => {
         if (!helpers.comparePass(password_digest, user.password_digest)) {
