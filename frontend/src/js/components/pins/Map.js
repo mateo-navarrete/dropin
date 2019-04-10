@@ -30,7 +30,7 @@ const Map = props => {
     //   path = 'http://maps.google.com/mapfiles/kml/shapes/arts.png';
     //   break;
     case "family":
-      path = "http://maps.google.com/mapfiles/kml/shapes/hiker.png";
+      path = "http://maps.google.com/mapfiles/kml/pal2/icon10.png";
       break;
     // case 'food':
     //   path = 'http://maps.google.com/mapfiles/kml/shapes/snack_bar.png';
@@ -45,13 +45,13 @@ const Map = props => {
     //   path = 'http://maps.google.com/mapfiles/kml/shapes/movies.png';
     //   break;
     case "party":
-      path = "http://maps.google.com/mapfiles/kml/shapes/bars.png";
+      path = "http://maps.google.com/mapfiles/kml/pal2/icon27.png";
       break;
     // case 'religious':
     //   path = 'http://maps.google.com/mapfiles/kml/shapes/church.png';
     //   break;
     case "sports":
-      path = "http://maps.google.com/mapfiles/kml/shapes/golf.png";
+      path = "http://maps.google.com/mapfiles/kml/pal2/icon57.png";
       break;
     default:
       path = "http://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png";
@@ -71,6 +71,12 @@ const Map = props => {
         defaultZoom={15}
         defaultCenter={{ lat: userLatitude, lng: userLongitude }}
       >
+      <Marker
+        position={{ lat: userLatitude, lng: userLongitude}}
+        key="user"
+        icon="http://maps.google.com/mapfiles/kml/pal3/icon40.png"
+        id="user"
+      />
         <MarkerClusterer
           onClick={props.onMarkerClustererClick}
           averageCenter={true}
