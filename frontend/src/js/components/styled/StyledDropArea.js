@@ -96,6 +96,7 @@ class LabelBottomNavigation extends React.Component {
     return (
       <>
         <BottomNavigation
+          showLabels
           value={value}
           onChange={this.handleChange}
           className={classes.root}
