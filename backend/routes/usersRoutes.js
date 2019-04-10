@@ -15,7 +15,7 @@ const {
 
 router.post('/new', createUser);
 router.post("/login", passport.authenticate("local", {}), loginUser);
-router.get("/isLoggedIn", isLoggedIn);
+router.get("/isloggedin", isLoggedIn);
 router.post("/logout", loginRequired, logoutUser);
 router.get('/:id', getUser);
 router.get('/', getUsers);
