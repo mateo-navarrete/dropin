@@ -3,6 +3,7 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import { SportsPinsArea, PartyPinsArea, FamilyPinsArea, PinsArea } from '.';
 
 export const PinsRouter = props => {
+  // console.log(props);
   return (
     <Switch>
       <Route exact path="/" render={withRouter(FamilyPinsArea)} />

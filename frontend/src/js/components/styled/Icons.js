@@ -38,5 +38,5 @@ const ICONS = {
 
 export const IconHOC = ({ type }) => {
   const HOC = ICONS[type] || 'div';
-  return <HOC />;
+  return <HOC fontSize="large" />;
 };

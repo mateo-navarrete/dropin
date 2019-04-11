@@ -6,7 +6,7 @@ import {
   UserCoordsListener
 } from './droppers';
 import { DropsArea } from './drops';
-import { Map, PinsArea, PinModal } from './pins';
+import { Map, PinsArea, PinModal, PinsRouter } from './pins';
 import {
   EducationIcon,
   EntertainmentIcon,
@@ -23,7 +23,9 @@ import {
   StyledPinDropButton,
   StyledDropPinStepper,
   StyledDrawer,
-  StyledBottomDrawer
+  StyledBottomDrawer,
+  StyledNavBar,
+  StyledActionBar
 } from './styled';
 import {
   AreaWrapper,
@@ -42,6 +44,7 @@ export {
   Map,
   PinsArea,
   PinModal,
+  PinsRouter,
   EducationIcon,
   EntertainmentIcon,
   FamilyIcon,
@@ -58,6 +61,8 @@ export {
   StyledDropPinStepper,
   StyledDrawer,
   StyledBottomDrawer,
+  StyledNavBar,
+  StyledActionBar,
   AreaWrapper,
   LandingPage,
   ResizeListener,

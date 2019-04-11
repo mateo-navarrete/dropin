@@ -1,0 +1,26 @@
+h1 {
+  margin: 0 auto;
+}
+
+.actionBar-area {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.main-area {
+  /* background: rgba(0, 0, 0, 0.1); */
+}
+
+.navBar-area {
+  /* background: rgba(0, 0, 0, 1); */
+}
+
+/* .navBar-area .style-Family {
+  color: rgba(251, 54, 74, 1);
+} */
+
+/* .MuiBottomNavigationAction-root-4 */
+/* .MuiBottomNavigationAction-selected-5  */
+.MuiBottomNavigationAction-selected-3 {
+  color: rgba(251, 54, 74, 1) !important;
+  /* color: rgba(255, 255, 255, 1) !important; */
+}
