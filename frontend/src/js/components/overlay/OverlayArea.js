@@ -2,6 +2,7 @@ import React from 'react';
 import { withScreenSize, withStepperModal } from '../../containers';
 import StyledBottomDrawer from '../styled/StyledBottomDrawer';
 import { StyledDropPinStepper } from '../';
+import {SigninForm, SignupForm, SigninPage} from "../droppers"
 const Overlay = props => {
   console.log('@@@', props, props.height);
   return (
@@ -27,7 +28,7 @@ const Overlay = props => {
             </div>
           ) : (
             <div className="stepper-modal">
-              LOGIN COMPONENT GOES HERE
+              <SigninPage />
               <button
                 className="stepper-modal-close-button"
                 onClick={props.closeStepperModal}
