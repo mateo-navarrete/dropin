@@ -2,6 +2,7 @@ import React from "react";
 import { withStepperModal } from "../../../containers";
 import { StyledDropPinStepper } from "../../";
 import "../../../../styles/stepperModal.css";
+import {SigninPage} from ".."
 import { withRouter } from "react-router";
 
 const StepModal = ({ ...props }) => {
@@ -20,6 +21,7 @@ const StepModal = ({ ...props }) => {
           >
             Close
           </button>
+          <SigninPage />
         </div>
       ) : (
         ""
