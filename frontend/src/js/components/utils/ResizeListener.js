@@ -1,7 +1,6 @@
 import { withResize } from '../../containers';
 
 const Resizer = props => {
-  console.log('@RL', props);
   return null;
 };
 

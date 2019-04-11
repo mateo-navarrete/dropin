@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getUserCoords } from '../../actions';
 
+const mapStateToProps = ({ userCoordsReducer }) => {
+  return {
+    userCoords: userCoordsReducer.userCoords,
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     getUserCoords: () => dispatch(getUserCoords()),
@@ -11,7 +17,10 @@ const mapDispatchToProps = dispatch => {
 const withUserCoordsLoader = WrappedComponent => {
   class HOC extends Component {
     componentDidMount() {
-      this.props.getUserCoords();
+      const { userCoords, getUserCoords } = this.props;
+      if (!userCoords.latitude) {
+        getUserCoords();
+      }
     }
 
     render() {
@@ -19,7 +28,7 @@ const withUserCoordsLoader = WrappedComponent => {
     }
   }
   return connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
   )(HOC);
 };

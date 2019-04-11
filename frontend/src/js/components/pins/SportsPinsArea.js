@@ -1,15 +1,16 @@
 import React from "react";
 import { withSportsDrops } from "../../containers";
-import { Map } from "..";
-import {PinModal} from "./modal/PinModal"
+import MainMap from "../main/MainMap";
+// import { Map } from "..";
+import { PinModal } from "./modal/PinModal";
 
-const SportsPins = ({ drop, coords, ...props }) => {
+const SportsPins = props => {
   return (
     <>
-    <Map coords={coords}/>
-    <PinModal coords={coords} />
+      <MainMap {...props} />
+      <PinModal {...props} />
     </>
-)
+  );
 };
 
 export const SportsPinsArea = withSportsDrops(SportsPins);

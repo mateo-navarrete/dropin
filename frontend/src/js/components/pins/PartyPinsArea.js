@@ -1,16 +1,17 @@
 import React from "react";
 import { withPartyDrops } from "../../containers";
-import { Map } from "..";
-import {PinModal} from "./modal/PinModal"
+// import { Map } from "..";
+import MainMap from "../main/MainMap";
 
+import { PinModal } from "./modal/PinModal";
 
-const PartyPins = ({ drop, coords, ...props }) => {
+const PartyPins = props => {
   return (
     <>
-    <Map coords={coords}/>
-    <PinModal coords={coords} />
+      <MainMap {...props} />
+      <PinModal {...props} />
     </>
-)
+  );
 };
 // <Map />
 
