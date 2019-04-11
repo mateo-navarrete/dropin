@@ -16,10 +16,10 @@ import "../../../styles/landing.css";
 
 // <OverlayArea />
 
-
 export const LandingPage = props => {
   return (
     <>
+      <OverlayArea />
       <MainArea />
       <NavBarArea />
       <ActionBarArea />

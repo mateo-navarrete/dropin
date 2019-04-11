@@ -11,10 +11,7 @@ const StepModal = ({ ...props }) => {
     <>
       {props.visible ? (
         <div className="stepper-modal">
-          stepper Modal
-          <br />
           <StyledDropPinStepper />
-          <br />
           <button
             className="stepper-modal-close-button"
             onClick={props.closeStepperModal}

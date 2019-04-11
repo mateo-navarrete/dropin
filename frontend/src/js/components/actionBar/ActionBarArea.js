@@ -19,7 +19,6 @@ const ActionBar = ({
         // marginLeft: marginLeft,
       }}
     >
-      <StepperModal {...props} />
       <StyledActionBar
         height={actionBarHeight}
         width={actionBarWidth}
@@ -28,5 +27,7 @@ const ActionBar = ({
     </div>
   );
 };
+
+// <StepperModal {...props} />
 
 export const ActionBarArea = withScreenSize(ActionBar);

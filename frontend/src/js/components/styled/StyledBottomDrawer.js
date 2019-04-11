@@ -100,7 +100,7 @@ class TemporaryDrawer extends React.Component {
 
     return (
       <div>
-        <Button onClick={this.toggleDrawer('bottom', true)}>Open Bottom</Button>
+
         <Drawer
           anchor="bottom"
           open={this.state.bottom}
@@ -115,6 +115,20 @@ class TemporaryDrawer extends React.Component {
     );
   }
 }
+
+// <div>
+//   <Button onClick={this.toggleDrawer('bottom', true)}>Open Bottom</Button>
+//   <Drawer
+//     anchor="bottom"
+//     open={this.state.bottom}
+//     onClose={this.toggleDrawer('bottom', false)}
+//   >
+//     <Button onClick={this.toggleDrawer('bottom', false)}>
+//       Open Bottom Test
+//     </Button>
+//     <SigninForm />
+//   </Drawer>
+// </div>
 
 TemporaryDrawer.propTypes = {
   classes: PropTypes.object.isRequired,
