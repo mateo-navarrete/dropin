@@ -77,7 +77,7 @@ function SignUp(props) {
             <InputLabel htmlFor="birthdate">Date of Birth</InputLabel>
             <Input
               name="birthdate"
-              defaultValue="2017-05-24"
+              defaultValue="2019-01-01"
               type="date"
               id="birthdate"
               autoComplete="current-birthdate"
