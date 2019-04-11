@@ -19,6 +19,7 @@ import StyledDrawer from './StyledDrawer';
 import StyledBottomDrawer from './StyledBottomDrawer';
 import StyledNavBar from './StyledNavBar';
 import StyledActionBar from './StyledActionBar';
+import StyledEventStepper from './StyledEventStepper';
 
 export {
   EducationIcon,
@@ -39,5 +40,6 @@ export {
   StyledDrawer,
   StyledBottomDrawer,
   StyledNavBar,
-  StyledActionBar
+  StyledActionBar,
+  StyledEventStepper
 };

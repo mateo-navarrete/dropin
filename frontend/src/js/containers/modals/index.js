@@ -1,4 +1,5 @@
+import withEvent from './withEvent';
 import withPinModal from './withPinModal';
 import withStepperModal from './withStepperModal';
 
-export { withPinModal, withStepperModal };
+export { withEvent, withPinModal, withStepperModal };

@@ -6,7 +6,7 @@ import {
   partyReducer,
   sportsReducer
 } from './drops';
-import { pinModalReducer, stepperModalReducer } from './modals';
+import { eventReducer, pinModalReducer, stepperModalReducer } from './modals';
 import { sizeReducer } from './utils';
 
 export const rootReducer = combineReducers({
@@ -16,6 +16,7 @@ export const rootReducer = combineReducers({
   familyReducer,
   partyReducer,
   sportsReducer,
+  eventReducer,
   pinModalReducer,
   stepperModalReducer,
   sizeReducer,
