@@ -16,7 +16,7 @@ const Overlay = props => {
   );
 };
 
-export const OverlayArea = withScreenSize(withStepperModal(Overlay));
+export const OverlayAreaCopy = withScreenSize(withStepperModal(Overlay));
 
 // <StyledBottomDrawer />
 
