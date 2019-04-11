@@ -45,6 +45,11 @@ const styles = theme => ({
   },
 });
 
+const handleSubmit = (event) => {
+  event.preventDefault()
+  console.log("submitted user login!!!!")
+}
+
 function SignIn(props) {
   const { classes } = props;
 
@@ -58,7 +63,7 @@ function SignIn(props) {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form}>
+        <form className={classes.form} onSubmit={handleSubmit}>
           <FormControl margin="normal" required fullWidth>
             <InputLabel htmlFor="email">Email Address</InputLabel>
             <Input id="email" name="email" autoComplete="email" autoFocus />
