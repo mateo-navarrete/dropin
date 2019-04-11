@@ -9,6 +9,7 @@ import React from "react";
 //   // StyledBottomDrawer
 // } from "..";
 import { OverlayArea } from "../overlay";
+import { OverlayAreaCopy } from "../overlay";
 import { MainArea } from "../main";
 import { NavBarArea } from "../navBar";
 import { ActionBarArea } from "../actionBar";
