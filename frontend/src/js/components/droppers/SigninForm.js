@@ -39,6 +39,7 @@ class SigninForm extends React.Component {
             value={this.state.password}
             onChange={this.handleChange}
           />
+          <button type="submit">Log Me In!</button>
         </form>
       </div>
     );
