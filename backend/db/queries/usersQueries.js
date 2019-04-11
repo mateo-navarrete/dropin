@@ -94,7 +94,7 @@ function loginUser(req, res) {
 }
 
 function isLoggedIn(req, res) {
-  console.log(req);
+  console.log(req.user);
 
   if (req.user) {
     res.json({ message: req.user + ' is already logged in.' });
