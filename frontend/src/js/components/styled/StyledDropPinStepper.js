@@ -20,49 +20,66 @@ const styles = theme => ({
   },
 });
 
+const STEPobj = {
+  0: (
+    <div>
+      drop_category <br />[ CANCEL ] [ NEXT ]
+      <select>
+        <option>Family</option>
+        <option>Party</option>
+        <option>Sports</option>
+      </select>
+    </div>
+  ),
+  1: (
+    <div>
+      event_name <br />[ BACK ] [ NEXT ]
+      <form>
+        <input type="text" placeholder="event_name" />
+      </form>
+    </div>
+  ),
+  2: (
+    <div>
+      description <br />[ BACK ] [ NEXT ]
+      <form>
+        <input type="text" placeholder="description" />
+      </form>
+    </div>
+  ),
+  3: (
+    <div>
+      expiration_date, expires in... <br />[ BACK ] [ NEXT ]
+      <select>
+        <option>15 minutes</option>
+        <option>30 minutes</option>
+        <option>1 hour</option>
+        <option>3 hour</option>
+      </select>
+    </div>
+  ),
+  4: (
+    <div>
+      display_user <br />[ BACK ] [ NEXT ]
+      <select>
+        <option>NO</option>
+        <option>YES</option>
+      </select>
+    </div>
+  ),
+  5: (
+    <div>
+      review event & drop_pin <br />[ BACK ] [ FINISH ]
+    </div>
+  ),
+};
+
 function getSteps() {
   return ['', '', '', '', '', ''];
 }
 
 function getStepContent(stepIndex) {
-  switch (stepIndex) {
-    case 0:
-      return (
-        <div>
-          drop_category <br />[ CANCEL ] [ NEXT ]
-        </div>
-      );
-    case 1:
-      return (
-        <div>
-          event_name <br />[ BACK ] [ NEXT ]
-        </div>
-      );
-    case 2:
-      return (
-        <div>
-          description <br />[ BACK ] [ NEXT ]
-        </div>
-      );
-    case 3:
-      return (
-        <div>
-          expiration_date <br />[ BACK ] [ NEXT ]
-        </div>
-      );
-    case 4:
-      return (
-        <div>
-          display_user <br />[ BACK ] [ NEXT ]
-        </div>
-      );
-    default:
-      return (
-        <div>
-          drop_pin <br />[ BACK ] [ FINISH ]
-        </div>
-      );
-  }
+  return STEPobj[stepIndex];
 }
 
 class HorizontalLabelPositionBelowStepper extends React.Component {
