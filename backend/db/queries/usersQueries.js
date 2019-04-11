@@ -1,7 +1,6 @@
 const db = require('..');
 
-const authHelpers = require("../auth/helpers");
-
+const authHelpers = require('../auth/helpers');
 
 const createUser = (req, res, next) => {
   const rb = req.body;
@@ -74,7 +73,7 @@ const updateUser = (req, res, next) => {
 };
 
 const deleteUser = (req, res, next) => {
-  db.none('DELETE FROM users WHERE id=$1', + req.params.id)
+  db.none('DELETE FROM users WHERE id=$1', +req.params.id)
     .then(() => {
       res.status(200).json({
         status: 'success',
@@ -86,11 +85,11 @@ const deleteUser = (req, res, next) => {
 
 function logoutUser(req, res, next) {
   req.logout();
-  res.status(200).send("log out success");
+  res.status(200).send('log out success');
 }
 
 function loginUser(req, res) {
-  res.json({message: req.user.user_name + ' is now logged in.'});
+  res.json({ message: req.user.user_name + ' is now logged in.' });
 }
 
 function isLoggedIn(req, res) {
@@ -99,9 +98,10 @@ function isLoggedIn(req, res) {
   if (req.user) {
     res.json({ message: req.user + ' is already logged in.' });
   } else {
-    res.json({ message: 'No one is logged in.'});
+    res.json({ message: 'No one is logged in.' });
   }
 }
+
 module.exports = {
   createUser,
   loginUser,

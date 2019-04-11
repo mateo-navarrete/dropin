@@ -4,7 +4,7 @@ import { openStepperModal, closeStepperModal } from '../../actions';
 
 const mapStateToProps = ({ stepperModalReducer }) => {
   return {
-    visible: stepperModalReducer.visible,
+    // visible: stepperModalReducer.visible,
     event_id: stepperModalReducer.event_id,
     category_id: stepperModalReducer.category_id,
     user_id: stepperModalReducer.user_id,

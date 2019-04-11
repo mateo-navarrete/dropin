@@ -2,8 +2,10 @@ import {
   GOT_USER_COORDS,
   CREATING_EVENT,
   CREATE_EVENT_ERROR,
-  CREATED_EVENT
-  //   SET_CAT,
+  CREATED_EVENT,
+  SET_CATEGORY,
+  SET_PRIVACY,
+  SET_EXPIRATION
   //   SET_PRIVACY,
   //   SET_NAME,
   //   SET_DESC,
@@ -60,6 +62,15 @@ export const eventReducer = (state = initState, action) => {
     case CREATED_EVENT:
       console.log('@cEred', action.payload);
       nextState = { ...state, creating: false };
+      return nextState;
+    case SET_CATEGORY:
+      nextState = { ...state, category_id: action.payload };
+      return nextState;
+    case SET_PRIVACY:
+      nextState = { ...state, display_user: action.payload };
+      return nextState;
+    case SET_EXPIRATION:
+      nextState = { ...state, expiration_date: action.payload };
       return nextState;
     default:
       return state;

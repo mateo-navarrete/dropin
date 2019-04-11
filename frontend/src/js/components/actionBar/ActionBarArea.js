@@ -1,7 +1,7 @@
 import React from 'react';
 import { withScreenSize } from '../../containers';
 import { StyledActionBar } from '..';
-import { StepperModal } from '../droppers/modal/StepperModal';
+// import { StepperModal } from '../droppers/modal/StepperModal';
 
 const ActionBar = ({
   actionBarHeight,

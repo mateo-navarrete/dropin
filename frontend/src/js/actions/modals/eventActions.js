@@ -1,7 +1,10 @@
 import {
   CREATING_EVENT,
   CREATED_EVENT,
-  CREATE_EVENT_ERROR
+  CREATE_EVENT_ERROR,
+  SET_CATEGORY,
+  SET_PRIVACY,
+  SET_EXPIRATION
 } from '../../constants';
 import { postData } from '../../utils';
 
@@ -13,9 +16,17 @@ import { postData } from '../../utils';
 //   return { type: GOT_USER_COORDS, payload: coords };
 // };
 
-// const gotUserCoords = position => {
-//   return { type: GOT_USER_COORDS, payload: position };
-// };
+export const setCategory = category_id => {
+  return { type: SET_CATEGORY, payload: category_id };
+};
+
+export const setPrivacy = display_user => {
+  return { type: SET_PRIVACY, payload: display_user };
+};
+
+export const setExpiration = expiration_date => {
+  return { type: SET_EXPIRATION, payload: expiration_date };
+};
 
 const creatingEvent = () => {
   return { type: CREATING_EVENT };
@@ -32,6 +43,7 @@ const createEventError = err => {
 export const createEvent = eventObj => dispatch => {
   // dispatch(authorizeUser({ auid: api }));
   dispatch(creatingEvent());
+  console.log(eventObj);
   postData('/api/events/', eventObj, res => {
     res.status === 'success'
       ? dispatch(createdEvent(res))
