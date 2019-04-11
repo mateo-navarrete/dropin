@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyledPinDropButton } from '..';
+import {SigninPage} from "."
 
 export const DroppersArea = ({ height, width, ...props }) => {
   // console.log(height, width);
