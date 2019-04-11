@@ -1,13 +1,47 @@
 import React from 'react';
-import { withScreenSize } from '../../containers';
-
+import { withScreenSize, withStepperModal } from '../../containers';
+import StyledBottomDrawer from '../styled/StyledBottomDrawer';
+import { StyledDropPinStepper } from '../';
 const Overlay = props => {
-  console.log(props);
+  console.log('@@@', props, props.height);
   return (
-    <div className="overlay-area">
-      <h1>Overlay</h1>
+    <div>
+      {
+        <div
+          className="overlay-area"
+          style={{
+            // left: props.visible ? 0 : -+`${props.width}`,
+            bottom: props.visible ? 0 : -+`${props.height}`,
+            opacity: props.visible ? 1 : 0,
+          }}
+        >
+          {props.isLoggedIn ? (
+            <div className="stepper-modal">
+              <StyledDropPinStepper />
+              <button
+                className="stepper-modal-close-button"
+                onClick={props.closeStepperModal}
+              >
+                Close
+              </button>
+            </div>
+          ) : (
+            <div className="stepper-modal">
+              LOGIN COMPONENT GOES HERE
+              <button
+                className="stepper-modal-close-button"
+                onClick={props.closeStepperModal}
+              >
+                Close
+              </button>
+            </div>
+          )}
+        </div>
+      }
     </div>
   );
 };
 
-export const OverlayArea = withScreenSize(Overlay);
+export const OverlayArea = withScreenSize(withStepperModal(Overlay));
+
+// <StyledBottomDrawer />
