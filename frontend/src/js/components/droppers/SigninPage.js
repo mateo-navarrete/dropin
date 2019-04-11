@@ -1,9 +1,13 @@
 import React from "react";
+import SigninForm from "./SigninForm"
+import SignupForm from "./SignupForm"
+import {Router} from "react-dom"
 
 export const SigninPage = props => {
   return (
-    <>
-      <h1>SigninPage</h1>
-    </>
+    <div>
+      <SigninForm />
+      <SignupForm />
+    </div>
   );
 };

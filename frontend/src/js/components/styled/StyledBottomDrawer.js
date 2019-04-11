@@ -11,7 +11,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import { StyledDropPinStepper, StyledPinDropButton } from '..';
-import SigninForm from '../droppers/SigninForm';
+import {SigninForm, SignupForm, SigninPage} from "../droppers"
 const styles = {
   list: {
     width: 250,
@@ -106,8 +106,10 @@ class TemporaryDrawer extends React.Component {
           open={this.state.bottom}
           onClose={this.toggleDrawer('bottom', false)}
         >
-
-          <SigninForm />
+          <Button onClick={this.toggleDrawer('bottom', false)}>
+            Open Bottom Test
+          </Button>
+          <SigninPage />
         </Drawer>
       </div>
     );
