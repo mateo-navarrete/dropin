@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createEvent } from '../../actions';
+import {
+  createEvent,
+  setCategory,
+  setPrivacy,
+  setExpiration
+} from '../../actions';
 
 const mapStateToProps = ({ userCoordsReducer, eventReducer }) => {
   return {
-    visible: eventReducer.visible,
+    // visible: eventReducer.visible,
     event_id: eventReducer.event_id,
     category_id: eventReducer.category_id,
     user_id: eventReducer.user_id,
@@ -22,7 +27,9 @@ const mapStateToProps = ({ userCoordsReducer, eventReducer }) => {
 const mapDispatchToProps = dispatch => {
   return {
     createEvent: eventObj => dispatch(createEvent(eventObj)),
-    // closeStepperModal: () => dispatch(closeStepperModal()),
+    setCategory: category_id => dispatch(setCategory(category_id)),
+    setPrivacy: display_user => dispatch(setPrivacy(display_user)),
+    setExpiration: expiration_date => dispatch(setExpiration(expiration_date)),
   };
 };
 

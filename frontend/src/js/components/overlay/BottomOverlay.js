@@ -15,7 +15,15 @@ const config = {
 };
 
 export const BottomOverlay = props => {
-  // console.log('@bo', props);
+  const myButton = (
+    <button
+      className="stepper-modal-close-button"
+      onClick={props.closeBottomOverlay}
+    >
+      Close Me
+    </button>
+  );
+  console.log('@bo', props);
   return (
     <div style={{ position: 'relative' }}>
       <div
@@ -32,12 +40,7 @@ export const BottomOverlay = props => {
         >
           Create Event
         </button>
-        <button
-          className="stepper-modal-close-button"
-          onClick={props.closeStepperModal}
-        >
-          Close
-        </button>
+        {myButton}
         <StyledEventStepper />
       </div>
     </div>
