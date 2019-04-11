@@ -83,7 +83,7 @@ const Map = props => {
           enableRetinaIcons={true}
           zoomOnClick={true}
           minimumClusterSize={3}
-          gridSize={80}
+          gridSize={120}
         >
           {coords.map((coord, i) => {
             return (
