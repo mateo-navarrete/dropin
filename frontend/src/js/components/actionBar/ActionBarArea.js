@@ -1,10 +1,12 @@
 import React from 'react';
 import { withScreenSize } from '../../containers';
 import { StyledActionBar } from '..';
+import { StepperModal } from '../droppers/modal/StepperModal';
 
 const ActionBar = ({
   actionBarHeight,
   actionBarWidth,
+  mainWidth,
   marginLeft,
   ...props,
 }) => {
@@ -12,11 +14,12 @@ const ActionBar = ({
     <div
       className="actionBar-area"
       style={{
-    // actionBarHeight: actionBarHeight,
-    // actionBarwidth: actionBarWidth,
-    // marginLeft: marginLeft,
-  }}
+        // actionBarHeight: actionBarHeight,
+        width: mainWidth,
+        // marginLeft: marginLeft,
+      }}
     >
+      <StepperModal {...props} />
       <StyledActionBar
         height={actionBarHeight}
         width={actionBarWidth}

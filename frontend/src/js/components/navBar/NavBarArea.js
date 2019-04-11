@@ -12,18 +12,13 @@ const NavBar = ({
   return (
     <div
       className="navBar-area"
-      style={
-        {
-    // height: navBarHeight,
-    // width: navBarWidth,
-    // marginLeft: marginLeft,
-  }
-      }
+      style={{
+        // height: navBarHeight,
+        width: mainWidth,
+        // marginLeft: marginLeft,
+      }}
     >
-      <StyledNavBar
-        height={navBarHeight}
-        width={mainWidth}
-      />
+      <StyledNavBar height={navBarHeight} width={mainWidth} />
     </div>
   );
 };

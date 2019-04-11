@@ -28,7 +28,7 @@ class LabelBottomNavigation extends React.Component {
   render() {
     const { classes, drops, ...props } = this.props;
     const { value } = this.state;
-    console.log(this.props);
+    // console.log(this.props);
     // console.log(drops)
     // const dropTops = drops.slice(0, 5);
     // const dropBtms = drops.slice(5);
@@ -105,7 +105,7 @@ class LabelBottomNavigation extends React.Component {
           onChange={this.handleChange}
           className={classes}
           style={{
-            backgroundColor: "rgba(255,255,255,0.9)",
+            // backgroundColor: "rgba(0,0,0,0.1)",
             // backgroundColor: "rgba(251, 54, 74, 0.8)",
             // background: "linear-gradient(360deg, #1C1C1C 10%, #494949 360%)",
             width: this.props.width,

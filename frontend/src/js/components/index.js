@@ -6,7 +6,7 @@ import {
   UserCoordsListener
 } from './droppers';
 import { DropsArea } from './drops';
-import { Map, PinsArea, PinModal } from './pins';
+import { Map, PinsArea, PinModal, PinsRouter } from './pins';
 import {
   EducationIcon,
   EntertainmentIcon,
@@ -44,6 +44,7 @@ export {
   Map,
   PinsArea,
   PinModal,
+  PinsRouter,
   EducationIcon,
   EntertainmentIcon,
   FamilyIcon,

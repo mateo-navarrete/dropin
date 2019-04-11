@@ -10,54 +10,37 @@ import {
 import { Link } from 'react-router-dom';
 import '../../../styles/map.css';
 import { withRouter } from 'react-router';
-import { withUserCoords } from '../../containers';
-import { withPinModal } from '../../containers';
+import { withUserCoords, withPinModal, withScreenSize } from '../../containers';
 import family_marker from '../../../assets/family_marker.png';
 const {
   MarkerClusterer,
 } = require('react-google-maps/lib/components/addons/MarkerClusterer');
-
-const MainMaps = props => {
-  let path;
-  const { coords, userCoords, height, width } = props;
-  let userLatitude = userCoords.latitude;
-  let userLongitude = userCoords.longitude;
-  switch (props.match.path.slice(1)) {
-    // case 'education':
-    //   path = 'http://maps.google.com/mapfiles/kml/shapes/schools.png';
-    //   break;
-    // case 'entertainment':
-    //   path = 'http://maps.google.com/mapfiles/kml/shapes/arts.png';
-    //   break;
-    case 'family':
-      path = 'http://maps.google.com/mapfiles/kml/shapes/hiker.png';
-      break;
-    // case 'food':
-    //   path = 'http://maps.google.com/mapfiles/kml/shapes/snack_bar.png';
-    //   break;
-    // case 'gaming':
-    //   path = 'http://maps.google.com/mapfiles/kml/shapes/motorcycling.png';
-    //   break;
-    // case 'humanitarian':
-    //   path = 'http://maps.google.com/mapfiles/kml/shapes/hospitals.png';
-    //   break;
-    // case 'music':
-    //   path = 'http://maps.google.com/mapfiles/kml/shapes/movies.png';
-    //   break;
-    case 'party':
-      path = 'http://maps.google.com/mapfiles/kml/shapes/bars.png';
-      break;
-    // case 'religious':
-    //   path = 'http://maps.google.com/mapfiles/kml/shapes/church.png';
-    //   break;
-    case 'sports':
-      path = 'http://maps.google.com/mapfiles/kml/shapes/golf.png';
-      break;
+const defaultMapOptions = {
+  fullscreenControl: false,
+};
+const getPath = (path, lat, long) => {
+  // let path;
+  // let userLat = userCoords.latitude;
+  // let userLong = userCoords.longitude;
+  switch (path) {
+    case '/family':
+      return 'http://maps.google.com/mapfiles/kml/shapes/hiker.png';
+    case '/party':
+      return 'http://maps.google.com/mapfiles/kml/shapes/bars.png';
+    case '/sports':
+      return 'http://maps.google.com/mapfiles/kml/shapes/golf.png';
     default:
-      path = 'http://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png';
-      break;
+      return 'http://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png';
   }
+};
 
+const MainMaps = ({ coords, userCoords, mainHeight, width, ...props }) => {
+  // console.log('@@', props);
+  // props.match.path
+  let userLat = userCoords.latitude;
+  let userLong = userCoords.longitude;
+  let path = getPath(props.match.path, userLat, userLong);
+  const openPinModal = props.openPinModal;
   // const handleClick = event => {
   //   console.log("handle click triggered");
   //   console.log("event!!", event);
@@ -66,43 +49,68 @@ const MainMaps = props => {
 
   // console.log('MAP props', props);
   const MyMapComponent = withScriptjs(
-    withGoogleMap(() => (
-      <GoogleMap
-        defaultZoom={15}
-        defaultCenter={{ lat: userLatitude, lng: userLongitude }}
-      >
-        <MarkerClusterer
-          onClick={props.onMarkerClustererClick}
-          averageCenter
-          enableRetinaIcons
-          gridSize={60}
+    withGoogleMap(props => {
+      // console.log('@', props);
+      return (
+        <GoogleMap
+          defaultZoom={15}
+          defaultCenter={{ lat: userLat, lng: userLong }}
+          defaultOptions={defaultMapOptions}
         >
-          {coords && coords.length
-            ? coords.map((coord, i) => {
-                return (
-                  <Marker
-                    position={{ lat: coord.latitude, lng: coord.longitude }}
-                    key={i}
-                    icon={path}
-                    id={coord.id}
-                    onClick={() => props.openPinModal(coord.id)}
-                  />
-                );
-              })
-            : ''}
-        </MarkerClusterer>
-      </GoogleMap>
-    ))
+          <MarkerClusterer
+            onClick={props.onMarkerClustererClick}
+            averageCenter
+            enableRetinaIcons
+            gridSize={60}
+          >
+            {coords && coords.length
+              ? coords.map((coord, i) => {
+                  return (
+                    <Marker
+                      position={{ lat: coord.latitude, lng: coord.longitude }}
+                      key={i}
+                      icon={path}
+                      id={coord.id}
+                      onClick={() => openPinModal(coord.id)}
+                    />
+                  );
+                })
+              : ''}
+          </MarkerClusterer>
+        </GoogleMap>
+      );
+    })
   );
-
+  // console.log(width, height);
   return (
     <div className="map-container">
       <div className="map_component">
         <MyMapComponent
           googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5uKfMriNA73mQgW_ZRelAixBLEdqT-Xg&v=3.exp&libraries=geometry,drawing,places"
-          loadingElement={<div style={{ height: height, width: width }} />}
-          containerElement={<div style={{ height: height, width: width }} />}
-          mapElement={<div style={{ height: height, width: width }} />}
+          loadingElement={
+            <div
+              style={{
+                height: mainHeight,
+                width: width,
+              }}
+            />
+          }
+          containerElement={
+            <div
+              style={{
+                height: mainHeight,
+                width: width,
+              }}
+            />
+          }
+          mapElement={
+            <div
+              style={{
+                height: mainHeight,
+                width: width,
+              }}
+            />
+          }
         />
       </div>
     </div>
@@ -114,4 +122,6 @@ const MainMaps = props => {
 // mapElement={<div style={{ height: `100%`, width: '100%' }} />}
 
 // export default withPinModal(withUserCoords(withRouter(Map)));
-export default withRouter(withPinModal(withUserCoords(MainMaps)));
+export default withRouter(
+  withPinModal(withUserCoords(withScreenSize(MainMaps)))
+);
