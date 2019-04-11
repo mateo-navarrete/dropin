@@ -20,7 +20,7 @@ import "../../../styles/landing.css";
 export const LandingPage = props => {
   return (
     <>
-      <OverlayArea />
+      <OverlayAreaCopy />
       <MainArea />
       <NavBarArea />
       <ActionBarArea />
