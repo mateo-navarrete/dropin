@@ -25,7 +25,8 @@ import {
   StyledDrawer,
   StyledBottomDrawer,
   StyledNavBar,
-  StyledActionBar
+  StyledActionBar,
+  StyledEventStepper
 } from './styled';
 import {
   AreaWrapper,
@@ -63,6 +64,7 @@ export {
   StyledBottomDrawer,
   StyledNavBar,
   StyledActionBar,
+  StyledEventStepper,
   AreaWrapper,
   LandingPage,
   ResizeListener,

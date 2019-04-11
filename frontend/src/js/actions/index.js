@@ -1,5 +1,6 @@
 import { getAuthUser, getUserCoords } from './droppers';
 import {
+  createEvent,
   openPinModal,
   closePinModal,
   openStepperModal,
@@ -11,6 +12,7 @@ import { getSize } from './utils';
 export {
   getAuthUser,
   getUserCoords,
+  createEvent,
   openPinModal,
   closePinModal,
   openStepperModal,

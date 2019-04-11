@@ -7,7 +7,7 @@ import { BottomOverlay } from './BottomOverlay';
 import { TopOverlay } from './TopOverlay';
 
 const Overlay = props => {
-  console.log('@@@', props, props.height, props.visible);
+  // console.log('@@@', props, props.height, props.visible);
   return (
     <div>
       <TopOverlay {...props} />
