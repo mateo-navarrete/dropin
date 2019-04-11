@@ -74,7 +74,7 @@ const updateUser = (req, res, next) => {
 };
 
 const deleteUser = (req, res, next) => {
-  db.none('DELETE FROM users WHERE id=$1', +req.params.id)
+  db.none('DELETE FROM users WHERE id=$1', + req.params.id)
     .then(() => {
       res.status(200).json({
         status: 'success',
@@ -95,7 +95,7 @@ function loginUser(req, res) {
 
 function isLoggedIn(req, res) {
   console.log(req);
-  
+
   if (req.user) {
     res.json({ message: req.user + ' is already logged in.' });
   } else {
