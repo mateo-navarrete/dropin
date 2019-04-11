@@ -3,11 +3,27 @@ import SigninForm from "./SigninForm"
 import SignupForm from "./SignupForm"
 import {Router} from "react-dom"
 
-export const SigninPage = props => {
-  return (
-    <div>
-      <SigninForm />
-      <SignupForm />
-    </div>
-  );
-};
+export class SigninPage extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      signupFormVisible: false
+    }
+  }
+
+  toggleSignupForm = () => {
+    this.setState({
+      signupFormVisible: !this.state.signupFormVisible
+    })
+  }
+
+  render() {
+    const {signupFormVisible} = this.state
+    return (
+      <div>
+      {signupFormVisible ? <SignupForm /> : <SigninForm />}
+<button onClick={this.toggleSignupForm}>{!signupFormVisible ? "Not a member? Sign up now!" : "Back to Login"}</button>
+      </div>
+    )
+  }
+}
