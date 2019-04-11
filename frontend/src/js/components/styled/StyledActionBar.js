@@ -2,17 +2,18 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 // import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import { withStepperModal } from '../../containers';
+// import { withStepperModal } from '../../containers';
+import { withBottomOverlay } from '../../containers';
 
 const ContainedButtons = props => {
-  const { classes, openStepperModal, height, width, marginLeft } = props;
+  const { classes, openBottomOverlay, height, width, marginLeft } = props;
   // console.log('##', props);
   return (
     <div className="styled-actionBar" style={{ height: height, width: width }}>
       <Button
         variant="contained"
         className={classes}
-        onClick={() => openStepperModal()}
+        onClick={() => openBottomOverlay()}
         style={{
           backgroundColor: 'rgba(255,255,255,1)',
           height: height - 10,
@@ -33,4 +34,5 @@ const ContainedButtons = props => {
 // };
 
 // export default withStepperModal(withStyles(styles)(ContainedButtons));
-export default withStepperModal(ContainedButtons);
+// export default withStepperModal(ContainedButtons);
+export default withBottomOverlay(ContainedButtons);

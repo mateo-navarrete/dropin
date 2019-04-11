@@ -5,7 +5,12 @@ import {
   withPartyDrops,
   withSportsDrops
 } from './drops';
-import { withEvent, withPinModal, withStepperModal } from './modals';
+import {
+  withEvent,
+  withPinModal,
+  withStepperModal,
+  withBottomOverlay
+} from './modals';
 import { withScreenSize, withResize } from './utils';
 
 export {
@@ -18,6 +23,7 @@ export {
   withSportsDrops,
   withEvent,
   withPinModal,
+  withBottomOverlay,
   withStepperModal,
   withScreenSize,
   withResize
