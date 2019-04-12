@@ -6,6 +6,12 @@ const mapStateToProps = ({ authReducer }) => {
   return {
     auid: authReducer.auid,
     authname: authReducer.authname,
+    waiting: authReducer.waiting,
+    showSignupForm: authReducer.showSignupForm,
+    username: authReducer.username,
+    password_digest: authReducer.password_digest,
+    birth_date: authReducer.birth_date, //format ?
+    userObj: authReducer.userObj,
   };
 };
 
