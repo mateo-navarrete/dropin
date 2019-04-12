@@ -13,7 +13,7 @@ import { TopOverlay } from './TopOverlay';
 const Overlay = props => {
   console.log('@@@', props);
   return (
-    <div>
+    <div>      
       <TopOverlay {...props} />
       <BottomOverlay {...props} />
     </div>
