@@ -14,7 +14,7 @@ const initState = {
   showSignupForm: true,
   username: '',
   password_digest: '',
-  birthdate: '', //format ?
+  birth_date: '', //format ?
   userObj: {},
 };
 

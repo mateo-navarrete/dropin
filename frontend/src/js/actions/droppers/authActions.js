@@ -16,8 +16,8 @@ const setPasswordDigest = passwordDigest => {
   return { type: SET_PASSWORD_DIGEST, payload: passwordDigest };
 };
 
-const setBirthdate = birthdate => {
-  return { type: SET_BIRTHDATE, payload: birthdate };
+const setBirthdate = birth_date => {
+  return { type: SET_BIRTHDATE, payload: birth_date };
 };
 
 const showSignupForm = formStatus => {
@@ -29,13 +29,14 @@ const creatingUser = userObj => {
 };
 
 export const createUser = userObj => dispatch => {
-  dispatch(creatingUser);
-  console.log('@creatingUser', userObj);
-  getData('/api/users/new', res => {
+  // dispatch(creatingUser);
+  userObj.birthdate = '1990-01-01';
+  postData('/api/users/new', userObj, res => {
     // res.data; //.username
-    console.log(res.data);
+    console.log('@createUser res.data', res.data);
     // ? dispatch(authUser(res.data))
     // : dispatch(authError(res.data));
+    //NOTE: dispatch(toggleSignUpFormVisible)
   });
 };
 

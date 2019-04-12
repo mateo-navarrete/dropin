@@ -1,7 +1,7 @@
 import React from 'react';
 import { postData } from '../../utils';
 import { StyledEventStepper } from '..';
-import { SigninPage } from '../droppers';
+// import { SigninPage } from '../droppers';
 import { OverlayArea } from '.';
 const api = '/api/events';
 const config = {
