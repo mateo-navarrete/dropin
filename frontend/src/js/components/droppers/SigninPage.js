@@ -21,10 +21,10 @@ export class SigninPage extends React.Component {
     const { signupFormVisible } = this.state;
     return (
       <div>
-        {signupFormVisible ? <SignupForm /> : <SigninForm />}
         <button onClick={this.toggleSignupForm}>
           {!signupFormVisible ? "Not a member? Sign up now!" : "Back to Login"}
         </button>
+        {signupFormVisible ? <SignupForm /> : <SigninForm />}
       </div>
     );
   }
