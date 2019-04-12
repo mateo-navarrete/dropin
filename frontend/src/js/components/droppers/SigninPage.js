@@ -1,19 +1,20 @@
-import React from "react";
-import SigninForm from "./SigninForm";
-import SignupForm from "./SignupForm";
-import { Router } from "react-dom";
+import React from 'react';
+import SigninForm from './SigninForm';
+import SignupForm from './SignupForm';
+import { Router } from 'react-dom';
+import Button from '@material-ui/core/Button';
 
 export class SigninPage extends React.Component {
   constructor() {
     super();
     this.state = {
-      signupFormVisible: false
+      signupFormVisible: false,
     };
   }
 
   toggleSignupForm = () => {
     this.setState({
-      signupFormVisible: !this.state.signupFormVisible
+      signupFormVisible: !this.state.signupFormVisible,
     });
   };
 
@@ -22,9 +23,14 @@ export class SigninPage extends React.Component {
     return (
       <div>
         {signupFormVisible ? <SignupForm /> : <SigninForm />}
-        <button onClick={this.toggleSignupForm}>
-          {!signupFormVisible ? "Not a member? Sign up now!" : "Back to Login"}
-        </button>
+        <br />
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={this.toggleSignupForm}
+        >
+          {!signupFormVisible ? 'Not a member? Sign up now!' : 'Back to Login'}
+        </Button>
       </div>
     );
   }
