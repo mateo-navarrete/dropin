@@ -24,11 +24,11 @@ const getPath = (path, lat, long) => {
   // let userLong = userCoords.longitude;
   switch (path) {
     case '/family':
-      return 'http://maps.google.com/mapfiles/kml/shapes/hiker.png';
+      return 'http://maps.google.com/mapfiles/kml/pal2/icon10.png';
     case '/party':
-      return 'http://maps.google.com/mapfiles/kml/shapes/bars.png';
+      return 'http://maps.google.com/mapfiles/kml/pal2/icon27.png';
     case '/sports':
-      return 'http://maps.google.com/mapfiles/kml/shapes/golf.png';
+      return 'http://maps.google.com/mapfiles/kml/pal2/icon57.png';
     default:
       return 'http://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png';
   }
@@ -57,6 +57,12 @@ const MainMaps = ({ coords, userCoords, mainHeight, width, ...props }) => {
           defaultCenter={{ lat: userLat, lng: userLong }}
           defaultOptions={defaultMapOptions}
         >
+        <Marker
+          position={{ lat: userLat, lng: userLong }}
+          key="userCoordsMarker"
+          icon="http://maps.google.com/mapfiles/kml/pal3/icon40.png"
+          id="userCoordsMarker"
+        />
           <MarkerClusterer
             onClick={props.onMarkerClustererClick}
             averageCenter
