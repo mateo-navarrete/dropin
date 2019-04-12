@@ -8,7 +8,7 @@ import React from "react";
 //   // StepperModal,
 //   // StyledBottomDrawer
 // } from "..";
-import { OverlayArea } from "../overlay";
+// import { OverlayArea } from "../overlay";
 import { OverlayAreaCopy } from "../overlay";
 import { MainArea } from "../main";
 import { NavBarArea } from "../navBar";
@@ -20,7 +20,7 @@ import "../../../styles/landing.css";
 export const LandingPage = props => {
   return (
     <>
-      <OverlayArea />
+      <OverlayAreaCopy />
       <MainArea />
       <NavBarArea />
       <ActionBarArea />

@@ -1,4 +1,7 @@
-import { getAuthUser } from './authActions';
-import { getUserCoords } from './userCoordsActions';
+import { createUser } from './authActions';
+import { getUserCoords, create } from './userCoordsActions';
 
-export { getAuthUser, getUserCoords };
+export {
+  createUser,
+  getUserCoords
+};
