@@ -10,7 +10,8 @@ import {
   eventReducer,
   pinModalReducer,
   stepperModalReducer,
-  bottomOverlayReducer
+  bottomOverlayReducer,
+  topOverlayReducer
 } from './modals';
 import { sizeReducer } from './utils';
 
@@ -25,5 +26,6 @@ export const rootReducer = combineReducers({
   pinModalReducer,
   stepperModalReducer,
   bottomOverlayReducer,
+  topOverlayReducer,
   sizeReducer,
 });

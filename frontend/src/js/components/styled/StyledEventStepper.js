@@ -68,10 +68,10 @@ const styles = theme => ({
     marginBottom: theme.spacing.unit,
   },
   icon: {
-    color: 'red !important',
+    color: theme.primary, //'red !important',
   },
   iconed: {
-    color: 'green !important',
+    color: 'rgba(251, 54, 74, 1) !important', //"green !important"
   },
   selectEmpty: {
     marginTop: theme.spacing.unit * 2,
@@ -350,7 +350,17 @@ class HorizontalLabelPositionBelowStepper extends Component {
       ),
       5: (
         <div>
-          review event & drop_pin <br />[ BACK ] [ FINISH ]
+          <br />
+          {`drop type:  ${this.props.category_id}`}
+          <br />
+          {`event name: ${this.state.event_name}`}
+          <br />
+          {`drop details: ${this.state.description}`}
+          <br />
+          {`duration: ${this.props.expiration_date}`}
+          <br />
+          {`private: ${this.props.display_user}`}
+          <br />
         </div>
       ),
     };

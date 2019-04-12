@@ -37,7 +37,7 @@ export const BottomOverlay = props => {
       <div
         className="bottom-overlay"
         style={{
-          bottom: props.visible ? 0 : -+`${props.height}`,
+          bottom: props.bottomOverlayVisible ? 0 : -+`${props.height}`,
           // display: props.visible ? 'block' : 'none',
         }}
       >

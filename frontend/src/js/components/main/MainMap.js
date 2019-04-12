@@ -10,7 +10,12 @@ import {
 import { Link } from 'react-router-dom';
 import '../../../styles/map.css';
 import { withRouter } from 'react-router';
-import { withUserCoords, withPinModal, withScreenSize } from '../../containers';
+import {
+  withUserCoords,
+  withPinModal,
+  withScreenSize,
+  withTopOverlay
+} from '../../containers';
 import family_marker from '../../../assets/family_marker.png';
 const {
   MarkerClusterer,
@@ -40,7 +45,8 @@ const MainMaps = ({ coords, userCoords, mainHeight, width, ...props }) => {
   let userLat = userCoords.latitude;
   let userLong = userCoords.longitude;
   let path = getPath(props.match.path, userLat, userLong);
-  const openPinModal = props.openPinModal;
+  // const openPinModal = props.openPinModal;
+  const openTopOverlay = props.openTopOverlay;
   // const handleClick = event => {
   //   console.log("handle click triggered");
   //   console.log("event!!", event);
@@ -71,7 +77,7 @@ const MainMaps = ({ coords, userCoords, mainHeight, width, ...props }) => {
                       key={i}
                       icon={path}
                       id={coord.id}
-                      onClick={() => openPinModal(coord.id)}
+                      onClick={() => openTopOverlay(coord.id)}
                     />
                   );
                 })
@@ -123,5 +129,5 @@ const MainMaps = ({ coords, userCoords, mainHeight, width, ...props }) => {
 
 // export default withPinModal(withUserCoords(withRouter(Map)));
 export default withRouter(
-  withPinModal(withUserCoords(withScreenSize(MainMaps)))
+  withTopOverlay(withUserCoords(withScreenSize(MainMaps)))
 );

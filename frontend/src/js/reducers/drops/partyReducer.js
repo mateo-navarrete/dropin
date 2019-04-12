@@ -16,12 +16,12 @@ import {
 const initState = {
   drop: 'Party',
   coords: [
-    { latitude: 40.742878, longitude: -73.941538 },
-    { latitude: 40.743203, longitude: -73.942879 },
-    { latitude: 40.743487, longitude: -73.939252 },
-    { latitude: 40.742633, longitude: -73.940853 },
-    { latitude: 40.743665, longitude: -73.940997 },
-    { latitude: 40.744681, longitude: -73.939323 },
+    // { latitude: 40.742878, longitude: -73.941538 },
+    // { latitude: 40.743203, longitude: -73.942879 },
+    // { latitude: 40.743487, longitude: -73.939252 },
+    // { latitude: 40.742633, longitude: -73.940853 },
+    // { latitude: 40.743665, longitude: -73.940997 },
+    // { latitude: 40.744681, longitude: -73.939323 },
   ],
   loading: false,
 };

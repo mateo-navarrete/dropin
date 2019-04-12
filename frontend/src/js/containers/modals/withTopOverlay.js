@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { openBottomOverlay, closeBottomOverlay } from '../../actions';
+import { openTopOverlay, closeTopOverlay } from '../../actions';
 
-const mapStateToProps = ({ bottomOverlayReducer }) => {
+const mapStateToProps = ({
+  topOverlayReducer,
+  dropsReducer,
+  familyReducer,
+  partyReducer,
+  sportsReducer,
+}) => {
   return {
-    bottomOverlayVisible: bottomOverlayReducer.bottomOverlayVisible,
-    // event_id: stepperModalReducer.event_id,
+    topOverlayVisible: topOverlayReducer.topOverlayVisible,
+    coordsId: topOverlayReducer.coordsId,
+    eventId: dropsReducer.eventId,
+    drop: dropsReducer.drop,
+    family: familyReducer.coords,
+    party: partyReducer.coords,
+    sports: sportsReducer.coords,
     // category_id: stepperModalReducer.category_id,
     // user_id: stepperModalReducer.user_id,
     // latitude: stepperModalReducer.latitude,
@@ -19,12 +30,12 @@ const mapStateToProps = ({ bottomOverlayReducer }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    openBottomOverlay: value => dispatch(openBottomOverlay(value)),
-    closeBottomOverlay: () => dispatch(closeBottomOverlay()),
+    openTopOverlay: coordsId => dispatch(openTopOverlay(coordsId)),
+    closeTopOverlay: () => dispatch(closeTopOverlay()),
   };
 };
 
-const withBottomOverlay = WrappedComponent => {
+const withTopOverlay = WrappedComponent => {
   class HOC extends Component {
     render() {
       return <WrappedComponent {...this.props} />;
@@ -36,4 +47,4 @@ const withBottomOverlay = WrappedComponent => {
   )(HOC);
 };
 
-export default withBottomOverlay;
+export default withTopOverlay;

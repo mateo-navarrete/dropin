@@ -1,7 +1,13 @@
-import { setCategory, setPrivacy, setExpiration, createEvent } from './eventActions';
+import {
+  setCategory,
+  setPrivacy,
+  setExpiration,
+  createEvent
+} from './eventActions';
 import { openPinModal, closePinModal } from './pinModalActions';
 import { openStepperModal, closeStepperModal } from './stepperModalActions';
 import { openBottomOverlay, closeBottomOverlay } from './bottomOverlayActions';
+import { openTopOverlay, closeTopOverlay } from './topOverlayActions';
 
 export {
   setCategory,
@@ -13,5 +19,7 @@ export {
   openStepperModal,
   closeStepperModal,
   openBottomOverlay,
-  closeBottomOverlay
+  closeBottomOverlay,
+  openTopOverlay,
+  closeTopOverlay
 };
