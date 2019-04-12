@@ -4,7 +4,7 @@ const createEvent = (req, res, next) => {
   const rb = req.body;
   const eventObj = {
     category_id: rb.category_id,
-    user_id: rb.user_id,
+    user_name: rb.user_name,
     latitude: rb.latitude,
     longitude: rb.longitude,
     display_user: rb.display_user,
@@ -13,7 +13,7 @@ const createEvent = (req, res, next) => {
     expiration_date: rb.expiration_date,
   };
   db.none(
-    'INSERT INTO events (category_id, user_id, latitude, longitude, display_user, event_name, description, expiration_date) VALUES (${category_id}, ${user_id}, ${latitude}, ${longitude}, ${display_user}, ${event_name}, ${description}, ${expiration_date})',
+    'INSERT INTO events (category_id, user_id, latitude, longitude, display_user, event_name, description, expiration_date) VALUES (${category_id}, (SELECT id FROM users WHERE user_name = ${user_name}), ${latitude}, ${longitude}, ${display_user}, ${event_name}, ${description}, ${expiration_date})',
     eventObj
   )
     .then(() => {

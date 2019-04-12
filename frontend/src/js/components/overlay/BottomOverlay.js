@@ -1,7 +1,7 @@
 import React from 'react';
 import { postData } from '../../utils';
 import { StyledEventStepper } from '..';
-
+import {SigninPage} from "../droppers";
 const api = '/api/events';
 const config = {
   category_id: 1,
