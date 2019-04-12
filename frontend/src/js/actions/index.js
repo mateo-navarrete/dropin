@@ -9,7 +9,9 @@ import {
   openStepperModal,
   closeStepperModal,
   openBottomOverlay,
-  closeBottomOverlay
+  closeBottomOverlay,
+  openTopOverlay,
+  closeTopOverlay
 } from './modals';
 import { getFamilyEvents, getPartyEvents, getSportsEvents } from './drops';
 import { getSize } from './utils';
@@ -27,6 +29,8 @@ export {
   closeStepperModal,
   openBottomOverlay,
   closeBottomOverlay,
+  openTopOverlay,
+  closeTopOverlay,
   getFamilyEvents,
   getPartyEvents,
   getSportsEvents,

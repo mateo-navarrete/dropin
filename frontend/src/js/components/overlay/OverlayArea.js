@@ -1,11 +1,18 @@
 import React from 'react';
-import { withScreenSize, withStepperModal } from '../../containers';
+import {
+  withScreenSize,
+  withStepperModal,
+  withBottomOverlay
+} from '../../containers';
 import StyledBottomDrawer from '../styled/StyledBottomDrawer';
 import { StyledDropPinStepper } from '../';
 import { SigninForm, SignupForm, SigninPage } from '../droppers';
+import Button from '@material-ui/core/Button';
+
 const Overlay = props => {
-  console.log('@@@', props, props.height, props.visible);
-  return (
+  console.log('@@@overlay', props, props.height, props.visible);
+
+  let myComp = (
     <div>
       {
         <div
@@ -41,9 +48,36 @@ const Overlay = props => {
       }
     </div>
   );
+  return (
+    <div style={{ position: 'relative' }}>
+      <div
+        className="bottom-overlay"
+        style={{
+          bottom: props.bottomOverlayVisible ? 0 : -+`${props.height}`,
+          // display: props.visible ? 'block' : 'none',
+        }}
+      >
+        login test
+        <SigninPage />
+        <br />
+        <Button
+          variant="outlined"
+          color="secondary"
+          onClick={props.closeBottomOverlay}
+        >
+          Close
+        </Button>
+      </div>
+    </div>
+  );
 };
+// className="stepper-modal-close-button"
 
-export const OverlayArea = withScreenSize(withStepperModal(Overlay));
+// <StyledEventStepper closeBottomOverlay={props.closeBottomOverlay} />
+
+export const OverlayArea =
+  // withScreenSize(withStepperModal(Overlay));
+  withScreenSize(withBottomOverlay(Overlay));
 
 // <StyledBottomDrawer />
 

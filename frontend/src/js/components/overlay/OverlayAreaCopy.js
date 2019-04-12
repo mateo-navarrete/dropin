@@ -2,7 +2,8 @@ import React from 'react';
 import {
   withScreenSize,
   withStepperModal,
-  withBottomOverlay
+  withBottomOverlay,
+  withTopOverlay
 } from '../../containers';
 import StyledBottomDrawer from '../styled/StyledBottomDrawer';
 import { StyledDropPinStepper } from '../';
@@ -10,17 +11,17 @@ import { BottomOverlay } from './BottomOverlay';
 import { TopOverlay } from './TopOverlay';
 
 const Overlay = props => {
-  // console.log('@@@', props, props.height, props.visible);
+  console.log('@@@', props);
   return (
     <div>
+      <TopOverlay {...props} />
       <BottomOverlay {...props} />
     </div>
   );
 };
-// <TopOverlay {...props} />
 
 export const OverlayAreaCopy = withScreenSize(
-  withBottomOverlay(withStepperModal(Overlay))
+  withTopOverlay(withBottomOverlay(withStepperModal(Overlay)))
 );
 
 // <StyledBottomDrawer />

@@ -15,12 +15,20 @@ const config = {
 };
 
 export const BottomOverlay = props => {
-  const myButton = (
+  const closeButton = (
     <button
       className="stepper-modal-close-button"
       onClick={props.closeBottomOverlay}
     >
       Close Me
+    </button>
+  );
+  const eventButton = (
+    <button
+      className="stepper-modal-close-button"
+      onClick={() => postData(api, config, console.log)}
+    >
+      Create Event
     </button>
   );
   console.log('@bo', props);
@@ -29,22 +37,15 @@ export const BottomOverlay = props => {
       <div
         className="bottom-overlay"
         style={{
-          bottom: props.visible ? 0 : -+`${props.height}`,
+          bottom: props.bottomOverlayVisible ? 0 : -+`${props.height}`,
           // display: props.visible ? 'block' : 'none',
         }}
       >
-        BottomOverlay
-        <button
-          className="stepper-modal-close-button"
-          onClick={() => postData(api, config, console.log)}
-        >
-          Create Event
-        </button>
-        {myButton}
-        <SigninPage />
+
+        <StyledEventStepper closeBottomOverlay={props.closeBottomOverlay} />
       </div>
     </div>
   );
 };
 
-//<StyledEventStepper />
+// {eventButton}// {closeButton}

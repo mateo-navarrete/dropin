@@ -9,7 +9,8 @@ import {
   withEvent,
   withPinModal,
   withStepperModal,
-  withBottomOverlay
+  withBottomOverlay,
+  withTopOverlay
 } from './modals';
 import { withScreenSize, withResize } from './utils';
 
@@ -24,6 +25,7 @@ export {
   withEvent,
   withPinModal,
   withBottomOverlay,
+  withTopOverlay,
   withStepperModal,
   withScreenSize,
   withResize
