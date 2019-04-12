@@ -2,6 +2,12 @@
 // export const GOT_USER_ERROR = 'GOT_USER_ERROR';
 export const UPDATE_SIZE = 'UPDATE_SIZE';
 
+export const SET_USERNAME = 'SET_USERNAME';
+export const SET_PASSWORD_DIGEST = 'SET_PASSWORD_DIGEST';
+export const SET_BIRTHDATE = 'SET_BIRTHDATE';
+export const SHOW_SIGNUP_FORM = 'SHOW_SIGNUP_FORM';
+export const CREATING_USER = 'CREATING_USER';
+
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const AUTH_USER = 'AUTH_USER';
 export const AUTHORIZE_USER = 'AUTHORIZE_USER';

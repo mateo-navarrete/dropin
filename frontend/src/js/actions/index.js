@@ -1,4 +1,7 @@
-import { getAuthUser, getUserCoords } from './droppers';
+import {
+  createUser,
+  getUserCoords
+} from './droppers';
 import {
   setCategory,
   setPrivacy,
@@ -17,7 +20,7 @@ import { getFamilyEvents, getPartyEvents, getSportsEvents } from './drops';
 import { getSize } from './utils';
 
 export {
-  getAuthUser,
+  createUser,
   getUserCoords,
   setCategory,
   setExpiration,

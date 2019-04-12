@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getAuthUser } from '../../actions';
+import { createUser } from '../../actions';
 
 const mapStateToProps = ({ authReducer }) => {
   return {
@@ -11,14 +11,15 @@ const mapStateToProps = ({ authReducer }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getAuthUser: api => dispatch(getAuthUser(api)),
+    createUser: userObj => dispatch(createUser(userObj)),
   };
 };
 
-const withAuthUser = (WrappedComponent, api) => {
+// const withAuthUser = (WrappedComponent, api) => {
+const withAuthUser = WrappedComponent => {
   class HOC extends Component {
     componentDidMount() {
-      // if (api) this.props.getAuthUser(api);
+      // if (api) this.props.createUser(api);
     }
 
     render() {
