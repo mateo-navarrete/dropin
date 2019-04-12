@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createUser } from '../../actions';
+import { createUser, checkAuthStatus } from '../../actions';
 
 const mapStateToProps = ({ authReducer }) => {
   return {
@@ -12,12 +12,14 @@ const mapStateToProps = ({ authReducer }) => {
     password_digest: authReducer.password_digest,
     birth_date: authReducer.birth_date, //format ?
     userObj: authReducer.userObj,
+    authStatus: authReducer.authStatus,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     createUser: userObj => dispatch(createUser(userObj)),
+    checkAuthStatus: () => dispatch(checkAuthStatus()),
   };
 };
 

@@ -3,7 +3,9 @@ import {
   SET_PASSWORD_DIGEST,
   SET_BIRTHDATE,
   SHOW_SIGNUP_FORM,
-  CREATING_USER
+  CREATING_USER,
+  GET_AUTH_STATUS,
+  SET_AUTH_STATUS
   // AUTH_ERROR, AUTH_USER, AUTHORIZE_USER
 } from '../../constants';
 
@@ -16,6 +18,7 @@ const initState = {
   password_digest: '',
   birth_date: '', //format ?
   userObj: {},
+  authStatus: {},
 };
 
 export const authReducer = (state = initState, action) => {
@@ -49,6 +52,18 @@ export const authReducer = (state = initState, action) => {
       nextState = {
         ...state,
         userObj: action.payload,
+      };
+      return nextState;
+    case SET_AUTH_STATUS:
+      nextState = {
+        ...state,
+        authStatus: action.payload,
+      };
+      return nextState;
+    case GET_AUTH_STATUS:
+      nextState = {
+        ...state,
+        authStatus: action.payload,
       };
       return nextState;
     // case AUTHORIZE_USER:
