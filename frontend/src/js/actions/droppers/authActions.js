@@ -4,6 +4,7 @@ import {
   SET_BIRTHDATE,
   SHOW_SIGNUP_FORM,
   CREATING_USER,
+  SET_LOGIN,
   GET_AUTH_STATUS,
   SET_AUTH_STATUS
   // AUTH_ERROR, AUTH_USER, AUTHORIZE_USER
@@ -39,17 +40,24 @@ const setAuthStatus = authStatus => {
   return { type: SET_AUTH_STATUS, payload: authStatus };
 };
 
-const userLogin = ({ user_name, password_digest }) => dispatch => {
-  Auth.authenticateUser(user_name);
-  postData('/api/users/login', { user_name, password_digest }, () => {
+const setLogin = loginObj => {
+  return { type: SET_LOGIN, payload: loginObj };
+};
+
+// const userLogin = ({ user_name, password }) => dispatch => {
+export const loginUser = ({ user_name, password }) => dispatch => {
+  // Auth.authenticateUser(user_name);
+  postData('/api/users/login', { user_name, password }, () => {
+    Auth.authenticateUser(user_name);
     dispatch(checkAuthStatus());
     dispatch(
       setAuthStatus({
         isLoggedIn: Auth.isUserAuthenticated(), // format ?
         user_name: user_name, //user_name
-        password_digest: password_digest, //password_digest
+        password: password, //password
       })
     );
+    if (Auth.isUserAuthenticated()) dispatch(setLogin({ user_name, password }));
   });
 };
 
@@ -58,8 +66,10 @@ export const createUser = userObj => dispatch => {
   userObj.birthdate = '1990-01-01';
   postData('/api/users/new', userObj, res => {
     // res.data; //.username
-    console.log('@createUser res.data', res);
-    dispatch(userLogin(userObj));
+    console.log('@frontend createUser res', res);
+    // dispatch(userLogin(userObj));
+    //TODO: LOGIN USER HERE
+    dispatch(loginUser(userObj));
     // ? dispatch(authUser(res.data))
     // : dispatch(authError(res.data));
     //NOTE: dispatch(toggleSignUpFormVisible)
@@ -67,13 +77,14 @@ export const createUser = userObj => dispatch => {
 };
 
 export const logoutUser = () => dispatch => {
-  // dispatch(logginoutUser);
-
-  postData('/api/users/logout', null, res => {
-    console.log('@logoutUser', res.data);
-    dispatch(Auth.deauthenticateUser()).then(() => {
-      dispatch(checkAuthStatus());
-    });
+  postData('/api/users/logout', null, () => {
+    console.log('@frontend logoutUser');
+    //NOTE handle this dispatch
+    // dispatch(Auth.deauthenticateUser()).then(() => {
+    //   dispatch(checkAuthStatus());
+    // });
+    Auth.deauthenticateUser();
+    dispatch(checkAuthStatus());
   });
 };
 
@@ -81,7 +92,7 @@ export const checkAuthStatus = () => dispatch => {
   dispatch(getAuthStatus);
 
   getData('/api/users/isLoggedIn', res => {
-    console.log('cas@@@', res);
+    console.log('cas@@@', res, res.user_name);
     // if (res.data.user_name === Auth.getToken()) {
     if (res.user_name === Auth.getToken()) {
       dispatch(
@@ -93,6 +104,7 @@ export const checkAuthStatus = () => dispatch => {
     } else {
       // if (res.data.user_name) {
       if (res.user_name) {
+        console.log('@res.user_name');
         dispatch(logoutUser());
       } else {
         Auth.deauthenticateUser();

@@ -14,7 +14,7 @@ import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { withAuthUser } from '../../containers';
 
-console.log(withAuthUser);
+// console.log(withAuthUser);
 
 const styles = theme => ({
   main: {
@@ -54,7 +54,7 @@ class SignUp extends React.Component {
     super(props);
     this.state = {
       user_name: '',
-      password_digest: '',
+      password: '',
       birth_date: '2019-01-01',
       profile_photo: '',
       instagram_id: '',
@@ -106,14 +106,14 @@ class SignUp extends React.Component {
               />
             </FormControl>
             <FormControl margin="normal" required fullWidth>
-              <InputLabel htmlFor="password_digest">Password</InputLabel>
+              <InputLabel htmlFor="password">Password</InputLabel>
               <Input
                 onChange={this.handleChange}
-                value={this.state.password_digest}
-                name="password_digest"
-                type="password_digest"
-                id="password_digest"
-                autoComplete="current-password_digest"
+                value={this.state.password}
+                name="password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
               />
             </FormControl>
             <FormControl margin="normal" required fullWidth>

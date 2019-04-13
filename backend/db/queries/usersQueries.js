@@ -3,19 +3,24 @@ const db = require('..');
 const authHelpers = require('../auth/helpers');
 
 const createUser = (req, res, next) => {
+  console.log('@backend createUser', req.body);
   const rb = req.body;
-  const hash = authHelpers.createHash(rb.password_digest);
+  const hash = authHelpers.createHash(rb.password);
+  console.log(hash);
   const userObj = {
     user_name: rb.user_name,
-    password_digest: hash,
+    password: hash,
+    // password_digest: hash,
     birth_date: rb.birth_date,
     profile_photo: rb.profile_photo || '',
     instagram_id: rb.instagram_id || '',
     linkedin_id: rb.linkedin_id || '',
   };
 
+  // 'INSERT INTO users (user_name, password_digest, birth_date, profile_photo, instagram_id, linkedin_id) VALUES (${user_name}, ${password_digest}, ${birth_date}, ${profile_photo}, ${instagram_id}, ${linkedin_id})',
+
   db.none(
-    'INSERT INTO users (user_name, password_digest, birth_date, profile_photo, instagram_id, linkedin_id) VALUES (${user_name}, ${password_digest}, ${birth_date}, ${profile_photo}, ${instagram_id}, ${linkedin_id})',
+    'INSERT INTO users (user_name, password_digest, birth_date, profile_photo, instagram_id, linkedin_id) VALUES (${user_name}, ${password}, ${birth_date}, ${profile_photo}, ${instagram_id}, ${linkedin_id})',
     userObj
   )
     .then(() => {
@@ -83,23 +88,29 @@ const deleteUser = (req, res, next) => {
     .catch(err => next(err));
 };
 
-function logoutUser(req, res, next) {
+const logoutUser = (req, res, next) => {
+  console.log('@backend logoutUser', req.user);
   req.logout();
   res.status(200).send('log out success');
-}
+};
 
-function loginUser(req, res) {
-  res.json({ message: req.user.user_name + ' is now logged in.' });
-}
+const loginUser = (req, res) => {
+  console.log('@backend loginUser', req.user);
+  // res.json({ message: req.user.user_name + ' is now logged in.' });
+  //TODO: REMOVE ^^ ?
+  res.json(req.user);
+};
 
-function isLoggedIn(req, res) {
-  console.log(req.user);
-  if (req.user) {
-    res.json({ user_name: req.user });
-  } else {
-    res.json({ user_name: null });
-  }
-}
+const isLoggedIn = (req, res) => {
+  console.log('@backend isLoggedIn', req.user);
+  res.json({ user_name: req.user || null });
+
+  // if (req.user) {
+  //   res.json({ user_name: req.user });
+  // } else {
+  //   res.json({ user_name: null });
+  // }
+};
 
 module.exports = {
   createUser,
@@ -111,10 +122,3 @@ module.exports = {
   updateUser,
   deleteUser,
 };
-
-/*
-TODO:
-loginUser
-isLoggedIn
-logoutUser
-*/

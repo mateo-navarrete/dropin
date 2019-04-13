@@ -9,6 +9,7 @@ export const SHOW_SIGNUP_FORM = 'SHOW_SIGNUP_FORM';
 export const CREATING_USER = 'CREATING_USER';
 export const GET_AUTH_STATUS = 'GET_AUTH_STATUS';
 export const SET_AUTH_STATUS = 'SET_AUTH_STATUS';
+export const SET_LOGIN = 'SET_LOGIN';
 
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const AUTH_USER = 'AUTH_USER';

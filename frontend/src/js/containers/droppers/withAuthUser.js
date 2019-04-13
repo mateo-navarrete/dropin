@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createUser, checkAuthStatus } from '../../actions';
+import { createUser, checkAuthStatus, loginUser, logoutUser } from '../../actions';
 
 const mapStateToProps = ({ authReducer }) => {
   return {
@@ -8,10 +8,11 @@ const mapStateToProps = ({ authReducer }) => {
     authname: authReducer.authname,
     waiting: authReducer.waiting,
     showSignupForm: authReducer.showSignupForm,
-    username: authReducer.username,
-    password_digest: authReducer.password_digest,
+    user_name: authReducer.user_name,
+    password: authReducer.password,
     birth_date: authReducer.birth_date, //format ?
     userObj: authReducer.userObj,
+    loginObj: authReducer.loginObj,
     authStatus: authReducer.authStatus,
   };
 };
@@ -20,6 +21,8 @@ const mapDispatchToProps = dispatch => {
   return {
     createUser: userObj => dispatch(createUser(userObj)),
     checkAuthStatus: () => dispatch(checkAuthStatus()),
+    loginUser: loginObj => dispatch(loginUser(loginObj)),
+    logoutUser: () => dispatch(logoutUser()),
   };
 };
 
