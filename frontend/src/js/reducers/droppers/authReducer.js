@@ -3,7 +3,10 @@ import {
   SET_PASSWORD_DIGEST,
   SET_BIRTHDATE,
   SHOW_SIGNUP_FORM,
-  CREATING_USER
+  CREATING_USER,
+  SET_LOGIN,
+  GET_AUTH_STATUS,
+  SET_AUTH_STATUS
   // AUTH_ERROR, AUTH_USER, AUTHORIZE_USER
 } from '../../constants';
 
@@ -12,10 +15,12 @@ const initState = {
   authname: '',
   waiting: false,
   showSignupForm: true,
-  username: '',
-  password_digest: '',
+  user_name: '',
+  password: '',
   birth_date: '', //format ?
   userObj: {},
+  loginObj: {},
+  authStatus: {},
 };
 
 export const authReducer = (state = initState, action) => {
@@ -24,13 +29,13 @@ export const authReducer = (state = initState, action) => {
     case SET_USERNAME:
       nextState = {
         ...state,
-        username: action.payload,
+        user_name: action.payload,
       };
       return nextState;
     case SET_PASSWORD_DIGEST:
       nextState = {
         ...state,
-        password_digest: action.payload,
+        password: action.payload,
       };
       return nextState;
     case SET_BIRTHDATE:
@@ -51,6 +56,24 @@ export const authReducer = (state = initState, action) => {
         userObj: action.payload,
       };
       return nextState;
+    case SET_LOGIN:
+      nextState = {
+        ...state,
+        loginObj: action.payload,
+      };
+      return nextState;
+    case SET_AUTH_STATUS:
+      nextState = {
+        ...state,
+        authStatus: action.payload,
+      };
+      return nextState;
+    case GET_AUTH_STATUS:
+      nextState = {
+        ...state,
+        authStatus: action.payload,
+      };
+      return nextState;
     // case AUTHORIZE_USER:
     //   nextState = {
     //     ...state,
@@ -66,7 +89,7 @@ export const authReducer = (state = initState, action) => {
     //   nextState = {
     //     ...state,
     //     waiting: false,
-    //     authname: action.payload.username,
+    //     authname: action.payload.user_name,
     //   };
     //   return nextState;
     default:

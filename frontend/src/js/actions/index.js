@@ -1,5 +1,8 @@
 import {
   createUser,
+  checkAuthStatus,
+  loginUser,
+  logoutUser,
   getUserCoords
 } from './droppers';
 import {
@@ -21,6 +24,9 @@ import { getSize } from './utils';
 
 export {
   createUser,
+  checkAuthStatus,
+  loginUser,
+  logoutUser,
   getUserCoords,
   setCategory,
   setExpiration,
