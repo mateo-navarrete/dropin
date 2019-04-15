@@ -1,32 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getSize } from '../../actions';
-
-const mapStateToProps = ({ sizeReducer }) => {
-  return {
-    height: sizeReducer.height,
-  };
-};
+import { getResize } from '../../actions';
 
 const mapDispatchToProps = dispatch => {
   return {
-    getSize: size => dispatch(getSize(size)),
+    getResize: size => dispatch(getResize(size)),
   };
 };
 
-const withResize = WrappedComponent => {
+export const withResize = WrappedComponent => {
   class HOC extends Component {
     componentDidMount() {
-      const { height, getSize } = this.props;
-      if (!height) {
-        getSize();
-        window.addEventListener('resize', getSize);
-      }
+      const { getResize } = this.props;
+      getResize();
+      window.addEventListener('resize', getResize);
     }
 
     componentWillUnmount() {
-      const { getSize } = this.props;
-      window.removeEventListener('resize', getSize);
+      const { getResize } = this.props;
+      window.removeEventListener('resize', getResize);
     }
 
     render() {
@@ -34,9 +26,7 @@ const withResize = WrappedComponent => {
     }
   }
   return connect(
-    mapStateToProps,
+    null,
     mapDispatchToProps
   )(HOC);
 };
-
-export default withResize;

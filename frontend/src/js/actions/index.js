@@ -1,47 +1,29 @@
+import { getEvents } from './events';
 import {
-  createUser,
   checkAuthStatus,
+  createUser,
   loginUser,
   logoutUser,
   getUserCoords
-} from './droppers';
+} from './users';
 import {
-  setCategory,
-  setPrivacy,
-  setExpiration,
-  createEvent,
-  openPinModal,
-  closePinModal,
-  openStepperModal,
-  closeStepperModal,
-  openBottomOverlay,
-  closeBottomOverlay,
-  openTopOverlay,
-  closeTopOverlay
-} from './modals';
-import { getFamilyEvents, getPartyEvents, getSportsEvents } from './drops';
-import { getSize } from './utils';
+  hideBottomOverlay,
+  hideTopOverlay,
+  showBottomOverlay,
+  showTopOverlay,
+  getResize
+} from './utils';
 
 export {
-  createUser,
+  getEvents,
   checkAuthStatus,
+  createUser,
   loginUser,
   logoutUser,
   getUserCoords,
-  setCategory,
-  setExpiration,
-  setPrivacy,
-  createEvent,
-  openPinModal,
-  closePinModal,
-  openStepperModal,
-  closeStepperModal,
-  openBottomOverlay,
-  closeBottomOverlay,
-  openTopOverlay,
-  closeTopOverlay,
-  getFamilyEvents,
-  getPartyEvents,
-  getSportsEvents,
-  getSize
+  hideBottomOverlay,
+  hideTopOverlay,
+  showBottomOverlay,
+  showTopOverlay,
+  getResize
 };

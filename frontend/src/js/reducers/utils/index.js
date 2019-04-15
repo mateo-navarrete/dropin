@@ -1,3 +1,4 @@
-import { sizeReducer } from './sizeReducer';
+import { areaSizeReducer } from './areaSizeReducer';
+import { overlayReducer } from './overlayReducer';
 
-export { sizeReducer };
+export { areaSizeReducer, overlayReducer };

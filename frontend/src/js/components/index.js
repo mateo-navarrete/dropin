@@ -1,72 +1,50 @@
 import {
-  AuthUser,
-  DroppersArea,
-  StepperModal,
-  UserCoords,
-  UserCoordsListener
-} from './droppers';
-import { DropsArea } from './drops';
-import { Map, PinsArea, PinModal, PinsRouter } from './pins';
-import {
-  EducationIcon,
-  EntertainmentIcon,
+  BottomNavigation,
+  BottomNavigationAction,
+  Button,
+  Paper,
   FamilyIcon,
-  FoodIcon,
-  GamingIcon,
-  HumanitarianIcon,
-  MusicIcon,
   PartyIcon,
-  ReligiousIcon,
   SportsIcon,
-  IconHOC,
-  StyledDropArea,
-  StyledPinDropButton,
-  StyledDropPinStepper,
-  StyledDrawer,
-  StyledBottomDrawer,
-  StyledNavBar,
-  StyledActionBar,
-  StyledEventStepper
-} from './styled';
+  IconWrapper
+} from './material';
 import {
-  AreaWrapper,
-  LandingPage,
-  ResizeListener,
-  SwitchRouter
-} from './utils';
+  EventDetails,
+  EventMarker,
+  EventMarkers,
+  EventsMap,
+  EventsRouter,
+  PartyEvents,
+  SportsEvents,
+  FamilyEvents
+} from './events';
+import { ActionBarArea, MainArea, NavBarArea, OverlayArea } from './layout';
+
+import { UserCoordsListener, UserEvents } from './users';
+import { ResizeListener } from './utils';
 
 export {
-  AuthUser,
-  DroppersArea,
-  StepperModal,
-  UserCoords,
-  UserCoordsListener,
-  DropsArea,
-  Map,
-  PinsArea,
-  PinModal,
-  PinsRouter,
-  EducationIcon,
-  EntertainmentIcon,
+  BottomNavigation,
+  BottomNavigationAction,
+  Button,
+  Paper,
   FamilyIcon,
-  FoodIcon,
-  GamingIcon,
-  HumanitarianIcon,
-  MusicIcon,
   PartyIcon,
-  ReligiousIcon,
   SportsIcon,
-  IconHOC,
-  StyledDropArea,
-  StyledPinDropButton,
-  StyledDropPinStepper,
-  StyledDrawer,
-  StyledBottomDrawer,
-  StyledNavBar,
-  StyledActionBar,
-  StyledEventStepper,
-  AreaWrapper,
-  LandingPage,
-  ResizeListener,
-  SwitchRouter
+  IconWrapper,
+  EventDetails,
+  EventMarker,
+  EventMarkers,
+  EventsMap,
+  EventsRouter,
+  PartyEvents,
+  SportsEvents,
+  FamilyEvents,
+  ActionBarArea,
+  MainArea,
+  NavBarArea,
+  OverlayArea,
+  UserCoordsListener,
+  UserEvents,
+  ResizeListener
 };

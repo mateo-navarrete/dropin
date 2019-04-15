@@ -1,30 +1,21 @@
-import axios from 'axios';
-import { getSizes } from './getSizes';
+import MarkerClusterer from 'react-google-maps/lib/components/addons/MarkerClusterer';
+import {
+  withScriptjs,
+  withGoogleMap,
+  GoogleMap,
+  Marker
+} from 'react-google-maps';
+import { deleteData, getData, postData } from './api';
+import { getAreaSizes } from './getAreaSizes';
 
-export { getSizes };
-
-export const getTime = str => {
-  let d = new Date(str);
-  return d.toString();
-};
-
-export const getData = (url, cb) => {
-  axios
-    .get(url)
-    .then(res => cb(res.data))
-    .catch(err => console.error(err));
-};
-
-export const postData = (url, options, cb) => {
-  axios
-    .post(url, options)
-    .then(res => cb(res.data))
-    .catch(err => console.error(err));
-};
-
-export const deleteData = (url, config, cb) => {
-  axios
-    .delete(url, config)
-    .then(res => cb(res.data))
-    .catch(err => console.error(err));
+export {
+  MarkerClusterer,
+  withScriptjs,
+  withGoogleMap,
+  GoogleMap,
+  Marker,
+  deleteData,
+  getData,
+  postData,
+  getAreaSizes
 };

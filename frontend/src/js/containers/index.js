@@ -1,32 +1,25 @@
-import { withAuthUser, withUserCoords, withUserCoordsLoader } from './droppers';
+import { withStyles } from '@material-ui/core/styles';
+import { withTheme } from '@material-ui/core/styles';
 import {
-  withDrops,
-  withFamilyDrops,
-  withPartyDrops,
-  withSportsDrops
-} from './drops';
-import {
-  withEvent,
-  withPinModal,
-  withStepperModal,
-  withBottomOverlay,
-  withTopOverlay
-} from './modals';
-import { withScreenSize, withResize } from './utils';
+  withEvents,
+  withFamilyEvents,
+  withPartyEvents,
+  withSportsEvents
+} from './events';
+import { withAuthUser, withUserCoords, withUserCoordsListener } from './users';
+import { withAreaSizes, withOverlay, withResize } from './utils';
 
 export {
+  withStyles,
+  withTheme,
+  withEvents,
+  withFamilyEvents,
+  withPartyEvents,
+  withSportsEvents,
   withAuthUser,
   withUserCoords,
-  withUserCoordsLoader,
-  withDrops,
-  withFamilyDrops,
-  withPartyDrops,
-  withSportsDrops,
-  withEvent,
-  withPinModal,
-  withBottomOverlay,
-  withTopOverlay,
-  withStepperModal,
-  withScreenSize,
+  withUserCoordsListener,
+  withAreaSizes,
+  withOverlay,
   withResize
 };
