@@ -13,14 +13,16 @@ export const UserStatus = props => {
       ) : (
         <UserStatusOptions {...props} />
       )}
+      <br />
       <Button
         variant="outlined"
         color="secondary"
         onClick={props.hideBottomOverlay}
-        style={{ marginTop: props.theme.spacing.unit * 1 }}
       >
         RETURN
       </Button>
     </>
   );
 };
+
+// style={{ marginTop: props.theme.spacing.unit * 1 }}

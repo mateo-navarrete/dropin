@@ -9,18 +9,16 @@ export const UserStatusOptions = props => {
         variant="contained"
         color="secondary"
         onClick={props.showSignup}
-        style={{
-          marginTop: ((props.height - props.theme.spacing.unit * 8) * 0.5) >> 0
-        }}
+
       >
         SIGN UP
       </Button>
       <div className="flex align">
-        <div className="divider-line" style={{ width: props.width * 0.3 }} />
-        <div className="divider-space" style={{ width: props.width * 0.1 }} />
+        <div className="divider-line" style={{ width: props.width * 0.09 }} />
+        <div className="divider-space" style={{ width: props.width * 0.01 }} />
         <div> or </div>
-        <div className="divider-space" style={{ width: props.width * 0.1 }} />
-        <div className="divider-line" style={{ width: props.width * 0.3 }} />
+        <div className="divider-space" style={{ width: props.width * 0.01 }} />
+        <div className="divider-line" style={{ width: props.width * 0.09 }} />
       </div>
       <Button
         fullWidth
@@ -33,3 +31,7 @@ export const UserStatusOptions = props => {
     </>
   );
 };
+
+// style={{
+//   marginTop: ((props.height - props.theme.spacing.unit * 8) * 0.5) >> 0
+// }}
