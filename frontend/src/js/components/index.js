@@ -20,7 +20,12 @@ import {
 } from './events';
 import { ActionBarArea, MainArea, NavBarArea, OverlayArea } from './layout';
 
-import { UserCoordsListener, UserEvents } from './users';
+import {
+  UserCoordsListener,
+  UserEvents,
+  UserStatus,
+  UserStatusOptions
+} from './users';
 import { ResizeListener } from './utils';
 
 export {
@@ -46,5 +51,7 @@ export {
   OverlayArea,
   UserCoordsListener,
   UserEvents,
+  UserStatus,
+  UserStatusOptions,
   ResizeListener
 };
