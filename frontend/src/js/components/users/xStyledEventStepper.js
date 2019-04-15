@@ -152,7 +152,7 @@ class HorizontalLabelPositionBelowStepper extends Component {
       description: this.state.description || 'defualt description of my event',
       expiration_date: this.props.expiration_date || '2019-04-09 8:30:29.247613',
     };
-    const { classes, closeBottomOverlay } = this.props;
+    const { classes, hideBottomOverlay } = this.props;
     const steps = getSteps();
     const { activeStep } = this.state;
     const { family, party, sports, drop, labelWidth } = this.state;
@@ -371,14 +371,6 @@ class HorizontalLabelPositionBelowStepper extends Component {
         <CssBaseline />
         <Paper className={classes.paper}>
           <div className={classes.root}>
-            <Button
-              variant="outlined"
-              color="secondary"
-              onClick={closeBottomOverlay}
-            >
-              RETURN
-            </Button>
-
             <Stepper activeStep={activeStep} alternativeLabel>
               {steps.map(label => (
                 <Step key={label}>
@@ -474,11 +466,19 @@ class HorizontalLabelPositionBelowStepper extends Component {
               )}
             </div>
           </div>
+          <Button
+            variant="outlined"
+            color="secondary"
+            onClick={hideBottomOverlay}
+          >
+            RETURN
+          </Button>
         </Paper>
       </main>
     );
   }
 }
+// style={{ marginTop: height - theme.spacing.unit * 30 }}
 
 // value={config.category_id}
 // onChange={e => this.props.setCategory(e.target.value)}

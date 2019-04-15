@@ -4,7 +4,11 @@ import {
   createUser,
   checkAuthStatus,
   loginUser,
-  logoutUser
+  logoutUser,
+  hideSignin,
+  hideSignup,
+  showSignin,
+  showSignup
 } from '../../actions';
 
 const mapStateToProps = ({ authReducer }) => {
@@ -19,6 +23,9 @@ const mapStateToProps = ({ authReducer }) => {
     userObj: authReducer.userObj,
     loginObj: authReducer.loginObj,
     authStatus: authReducer.authStatus,
+    isLoggedIn: authReducer.isLoggedIn,
+    signin: authReducer.signin,
+    signup: authReducer.signup,
   };
 };
 
@@ -28,15 +35,20 @@ const mapDispatchToProps = dispatch => {
     checkAuthStatus: () => dispatch(checkAuthStatus()),
     loginUser: loginObj => dispatch(loginUser(loginObj)),
     logoutUser: () => dispatch(logoutUser()),
+    hideSignin: () => dispatch(hideSignin()),
+    hideSignup: () => dispatch(hideSignup()),
+    showSignin: () => dispatch(showSignin()),
+    showSignup: () => dispatch(showSignup()),
   };
 };
 
 // const withAuthUser = (WrappedComponent, api) => {
 export const withAuthUser = WrappedComponent => {
   class HOC extends Component {
-    // componentDidMount() {
-    // if (api) this.props.createUser(api);
-    // }
+    componentDidMount() {
+      // if (api) this.props.createUser(api);
+      this.props.checkAuthStatus();
+    }
 
     render() {
       return <WrappedComponent {...this.props} />;

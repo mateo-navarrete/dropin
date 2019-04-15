@@ -8,7 +8,11 @@ import {
   CREATING_USER,
   SET_LOGIN,
   GET_AUTH_STATUS,
-  SET_AUTH_STATUS
+  SET_AUTH_STATUS,
+  HIDE_SIGNIN,
+  HIDE_SIGNUP,
+  SHOW_SIGNIN,
+  SHOW_SIGNUP
   // AUTH_ERROR, AUTH_USER, AUTHORIZE_USER
 } from '../../constants';
 import { getData, postData } from '../../utils';
@@ -46,6 +50,22 @@ const setLogin = loginObj => {
   return { type: SET_LOGIN, payload: loginObj };
 };
 
+export const hideSignin = () => {
+  return { type: HIDE_SIGNIN };
+};
+
+export const hideSignup = () => {
+  return { type: HIDE_SIGNUP };
+};
+
+export const showSignin = () => {
+  return { type: SHOW_SIGNIN };
+};
+
+export const showSignup = () => {
+  return { type: SHOW_SIGNUP };
+};
+
 // const userLogin = ({ user_name, password }) => dispatch => {
 export const loginUser = ({ user_name, password }) => dispatch => {
   // Auth.authenticateUser(user_name);
@@ -68,7 +88,7 @@ export const createUser = userObj => dispatch => {
   userObj.birthdate = '1990-01-01';
   postData('/api/users/new', userObj, res => {
     // res.data; //.username
-    console.log('@frontend createUser res', res);
+    // console.log('@frontend createUser res', res);
     // dispatch(userLogin(userObj));
     //TODO: LOGIN USER HERE
     dispatch(loginUser(userObj));
@@ -80,7 +100,7 @@ export const createUser = userObj => dispatch => {
 
 export const logoutUser = () => dispatch => {
   postData('/api/users/logout', null, () => {
-    console.log('@frontend logoutUser');
+    // console.log('@frontend logoutUser');
     //NOTE handle this dispatch
     // dispatch(Auth.deauthenticateUser()).then(() => {
     //   dispatch(checkAuthStatus());
@@ -94,7 +114,7 @@ export const checkAuthStatus = () => dispatch => {
   dispatch(getAuthStatus);
 
   getData('/api/users/isLoggedIn', res => {
-    console.log('cas@@@', res, res.user_name);
+    // console.log('cas@@@', res, res.user_name);
     // if (res.data.user_name === Auth.getToken()) {
     if (res.user_name === Auth.getToken()) {
       dispatch(
@@ -106,7 +126,7 @@ export const checkAuthStatus = () => dispatch => {
     } else {
       // if (res.data.user_name) {
       if (res.user_name) {
-        console.log('@res.user_name');
+        // console.log('@res.user_name');
         dispatch(logoutUser());
       } else {
         Auth.deauthenticateUser();
