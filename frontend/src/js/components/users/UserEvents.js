@@ -7,8 +7,20 @@ const styles = theme => ({
   main: {
     width: 'auto',
     display: 'block', // Fix IE 11 issue.
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
+    // marginLeft: theme.spacing.unit * 3,
+    // marginRight: theme.spacing.unit * 3,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    [theme.breakpoints.up('310')]: {
+      width: 310,
+      // marginLeft: 'auto',
+      // marginRight: 'auto',
+    },
+    [theme.breakpoints.up('370')]: {
+      width: 360,
+      // marginLeft: 'auto',
+      // marginRight: 'auto',
+    },
     [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
       width: 400,
       marginLeft: 'auto',
@@ -81,16 +93,30 @@ const UsersEvents = props => {
     // marginTop: (props.height * 0.25) >> 0,
     justifyContent: 'center',
   };
+  // console.log(
+  //   [props.theme.breakpoints.up('xs')],
+  //   [props.theme.breakpoints.up('sm')],
+  //   props.theme.breakpoints.up(400 + props.theme.spacing.unit * 3 * 2),
+  //   [props.theme.breakpoints.up('375')]
+  // );
+
   return (
-    <main className={props.classes.main} style={paperStyle}>
-      <Paper className={props.classes.paper} style={paperStyle}>
-        {props.isLoggedIn ? (
-          <StyledEventStepper hideBottomOverlay={props.hideBottomOverlay} />
-        ) : (
-          <UserStatus {...props} />
-        )}
-      </Paper>
-    </main>
+    <div
+      className="flex wrap"
+      style={{ bottom: props.bottomOverlay ? 0 : -+`${props.height}` }}
+    >
+      <div className="centered">
+        <main className={props.classes.main} style={paperStyle}>
+          <Paper className={props.classes.paper} style={paperStyle}>
+            {props.isLoggedIn ? (
+              <StyledEventStepper hideBottomOverlay={props.hideBottomOverlay} />
+            ) : (
+              <UserStatus {...props} />
+            )}
+          </Paper>
+        </main>
+      </div>
+    </div>
   );
 };
 // <div className="flex center">
