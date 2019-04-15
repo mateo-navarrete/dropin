@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import CssBaseline from '@material-ui/core/CssBaseline';
 import {
   OverlayArea,
   ActionBarArea,
@@ -15,6 +16,7 @@ export default class App extends Component {
       <>
         <ResizeListener />
         <UserCoordsListener />
+        <CssBaseline />
         <OverlayArea />
         <MainArea />
         <NavBarArea />
