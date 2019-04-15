@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {
-  OverlayAreaCopy,
+  OverlayArea,
   ActionBarArea,
   MainArea,
   NavBarArea,
@@ -15,7 +15,7 @@ export default class App extends Component {
       <>
         <ResizeListener />
         <UserCoordsListener />
-        <OverlayAreaCopy />
+        <OverlayArea />
         <MainArea />
         <NavBarArea />
         <ActionBarArea />

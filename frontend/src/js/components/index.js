@@ -2,12 +2,14 @@ import {
   BottomNavigation,
   BottomNavigationAction,
   Button,
+  Paper,
   FamilyIcon,
   PartyIcon,
   SportsIcon,
   IconWrapper
 } from './material';
 import {
+  EventDetails,
   EventMarker,
   EventMarkers,
   EventsMap,
@@ -16,29 +18,21 @@ import {
   SportsEvents,
   FamilyEvents
 } from './events';
-import {
-  ActionBarArea,
-  BottomOverlayArea,
-  MainArea,
-  NavBarArea,
-  OverlayAreaCopy,
-  TopOverlayArea
-} from './layout';
+import { ActionBarArea, MainArea, NavBarArea, OverlayArea } from './layout';
 
-import { UserCoordsListener } from './users';
+import { UserCoordsListener, UserEvents } from './users';
 import { ResizeListener } from './utils';
 
 export {
   BottomNavigation,
   BottomNavigationAction,
   Button,
-  NavBarArea,
-  OverlayAreaCopy,
-  TopOverlayArea,
+  Paper,
   FamilyIcon,
   PartyIcon,
   SportsIcon,
   IconWrapper,
+  EventDetails,
   EventMarker,
   EventMarkers,
   EventsMap,
@@ -47,8 +41,10 @@ export {
   SportsEvents,
   FamilyEvents,
   ActionBarArea,
-  BottomOverlayArea,
   MainArea,
+  NavBarArea,
+  OverlayArea,
   UserCoordsListener,
+  UserEvents,
   ResizeListener
 };

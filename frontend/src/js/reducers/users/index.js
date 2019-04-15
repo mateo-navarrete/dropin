@@ -1,3 +1,4 @@
+import { authReducer } from './authReducer';
 import { userCoordsReducer } from './userCoordsReducer';
 
-export { userCoordsReducer };
+export { authReducer, userCoordsReducer };

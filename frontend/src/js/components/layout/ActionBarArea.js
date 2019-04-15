@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '..';
-import { withAreaSizes, withStyles } from '../../containers';
+import { withAreaSizes, withOverlay, withStyles } from '../../containers';
 
 const styles = theme => ({
   // button: {
@@ -11,10 +11,10 @@ const styles = theme => ({
   },
 });
 
-const ActionBar = ({ actionBarHeight, classes }) => {
+const ActionBar = ({ actionBarHeight, classes, showBottomOverlay }) => {
   return (
     <div style={{ height: actionBarHeight }} className="flex center">
-      <Button variant="contained" classes={classes}>
+      <Button variant="contained" classes={classes} onClick={showBottomOverlay}>
         <img
           src={require('../../../assets/dropin-logo-wide.png')}
           alt="dropin"
@@ -27,4 +27,6 @@ const ActionBar = ({ actionBarHeight, classes }) => {
 };
 // onClick={() => openStepperModal()}
 
-export const ActionBarArea = withAreaSizes(withStyles(styles)(ActionBar));
+export const ActionBarArea = withAreaSizes(
+  withOverlay(withStyles(styles)(ActionBar))
+);

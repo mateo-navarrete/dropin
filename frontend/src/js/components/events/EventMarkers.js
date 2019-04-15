@@ -1,5 +1,6 @@
 import React from 'react';
 import { Marker, MarkerClusterer } from '../../utils';
+import { withOverlay } from '../../containers';
 
 const eventsMarker = {
   family: 'pal2/icon10.png',
@@ -13,6 +14,10 @@ export const EventMarker = props => {
   const { latitude, longitude } = props;
   return (
     <Marker
+      onClick={
+        //TODO
+        props.onMarkerClustererClick
+      }
       position={{ lat: latitude, lng: longitude }}
       key="userCoordsMarker"
       icon={markerURL + eventsMarker.user}
@@ -21,27 +26,26 @@ export const EventMarker = props => {
   );
 };
 
-export const EventMarkers = props => {
-  const { category, eventCoords } = props;
+const EventsMarkers = props => {
+  const { category, eventCoords, showTopOverlay } = props;
   const eventMarker =
     markerURL + (eventsMarker[category.name] || 'pushpin/red-pushpin.png');
   return (
-    <MarkerClusterer
-      onClick={props.onMarkerClustererClick}
-      averageCenter
-      enableRetinaIcons
-      gridSize={60}
-    >
-      {eventCoords.map((coord, i) => {
+    <MarkerClusterer averageCenter enableRetinaIcons gridSize={60}>
+      {eventCoords.map(coord => {
+        const { id, latitude, longitude } = coord;
         return (
           <Marker
-            position={{ lat: coord.latitude, lng: coord.longitude }}
-            key={i}
+            onClick={() => showTopOverlay(id)}
+            position={{ lat: latitude, lng: longitude }}
+            key={id}
             icon={eventMarker}
-            id={coord.id}
+            id={id}
           />
         );
       })}
     </MarkerClusterer>
   );
 };
+
+export const EventMarkers = withOverlay(EventsMarkers);

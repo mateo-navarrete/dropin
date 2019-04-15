@@ -3,8 +3,12 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = ({ eventsReducer }) => {
   return {
+    eventID: eventsReducer.eventID,
     category: eventsReducer.category,
     categories: eventsReducer.categories,
+    familyEvents: eventsReducer.familyEvents,
+    partyEvents: eventsReducer.partyEvents,
+    sportsEvents: eventsReducer.sportsEvents,
     // loading: eventsReducer.loading,
   };
 };

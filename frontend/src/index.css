@@ -10,6 +10,10 @@ body {
   text-align: center;
 }
 
+h1 {
+  margin: 0 auto;
+}
+
 .lato {
   font-family: Lato;
 }
@@ -86,6 +90,10 @@ body {
 .padding-small {
   padding: 5px;
 }
+
+/* .area-wrapper{
+  background: rgba(0, 0, 0, 0.5);
+} */
 
 /* .logo-square {
   background: url("./assets/dropin-logo-square.png") no-repeat center;

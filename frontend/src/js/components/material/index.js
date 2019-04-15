@@ -2,6 +2,7 @@ import {
   BottomNavigation,
   BottomNavigationAction,
   Button,
+  Paper,
   FamilyIcon,
   PartyIcon,
   SportsIcon
@@ -12,6 +13,7 @@ export {
   BottomNavigation,
   BottomNavigationAction,
   Button,
+  Paper,
   FamilyIcon,
   PartyIcon,
   SportsIcon,

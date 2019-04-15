@@ -2,7 +2,7 @@ import { UPDATE_SIZES } from '../../constants';
 
 const initState = {
   height: 0,
-  // width: 0,
+  width: 0,
   mainHeight: 0,
   navBarHeight: 0,
   actionBarHeight: 0,
@@ -14,7 +14,7 @@ export const areaSizeReducer = (state = initState, action) => {
     case UPDATE_SIZES:
       const {
         height,
-        // width,
+        width,
         mainHeight,
         navBarHeight,
         actionBarHeight,
@@ -22,7 +22,7 @@ export const areaSizeReducer = (state = initState, action) => {
       nextState = {
         ...state,
         height: height,
-        // width: width,
+        width: width,
         mainHeight: mainHeight,
         navBarHeight: navBarHeight,
         actionBarHeight: actionBarHeight,
