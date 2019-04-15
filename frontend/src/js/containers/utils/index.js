@@ -1,4 +1,6 @@
-import withScreenSize from './withScreenSize';
-import withResize from './withResize';
+import { withAreaSizes } from './withAreaSizes';
+import { withBottomOverlay } from './withBottomOverlay';
+import { withResize } from './withResize';
+import { withTopOverlay } from './withTopOverlay';
 
-export { withScreenSize, withResize };
+export { withAreaSizes, withBottomOverlay, withResize, withTopOverlay };

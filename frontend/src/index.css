@@ -2,6 +2,7 @@
 
 body {
   /* background: rgba(78, 78, 78, 1); */
+  background: rgba(230, 230, 230, 1);
   /* color: rgba(255, 255, 255, 1); */
   font-family: sans-serif;
   margin: 0 auto;
@@ -86,10 +87,10 @@ body {
   padding: 5px;
 }
 
-.logo-square {
+/* .logo-square {
   background: url("./assets/dropin-logo-square.png") no-repeat center;
   background-size: contain;
-  height: 64px;
+  height: 512px;
   width: 512px;
 }
 
@@ -98,49 +99,9 @@ body {
   background-size: contain;
   height: 64px;
   width: 512px;
-}
+} */
 
 /* Red: 251, 54, 74 fb364a
 Blue: 41, 128, 185 2980b9
 Yellow: 241, 196, 15 f1c40f
 Green: 39, 174, 96 27ae60 */
-
-/* .MuiBottomNavigationAction-root-3.MuiBottomNavigationAction-selected-4.style-Education {
-  color: rgba(0, 0, 200, 1) !important;
-}
-
-.MuiBottomNavigationAction-root-3.MuiBottomNavigationAction-selected-4.style-Entertainment {
-  color: rgba(255, 0, 200, 1) !important;
-}
-
-.MuiBottomNavigationAction-root-3.MuiBottomNavigationAction-selected-4.style-Family {
-  color: rgba(255, 0, 0, 1) !important;
-}
-
-.MuiBottomNavigationAction-root-3.MuiBottomNavigationAction-selected-4.style-Food {
-  color: rgba(0, 150, 0, 1) !important;
-}
-
-.MuiBottomNavigationAction-root-3.MuiBottomNavigationAction-selected-4.style-Gaming {
-  color: rgba(0, 150, 150, 1) !important;
-}
-
-.MuiBottomNavigationAction-root-3.MuiBottomNavigationAction-selected-4.style-Humanitarian {
-  color: rgba(0, 0, 200, 1) !important;
-}
-
-.MuiBottomNavigationAction-root-3.MuiBottomNavigationAction-selected-4.style-Music {
-  color: rgba(255, 0, 200, 1) !important;
-}
-
-.MuiBottomNavigationAction-root-3.MuiBottomNavigationAction-selected-4.style-Party {
-  color: rgba(255, 0, 0, 1) !important;
-}
-
-.MuiBottomNavigationAction-root-3.MuiBottomNavigationAction-selected-4.style-Religious {
-  color: rgba(0, 150, 0, 1) !important;
-}
-
-.MuiBottomNavigationAction-root-3.MuiBottomNavigationAction-selected-4.style-Sports {
-  color: rgba(0, 150, 150, 1) !important;
-} */

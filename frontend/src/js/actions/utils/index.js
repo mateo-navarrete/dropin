@@ -1,3 +1,3 @@
-import { getSize } from './sizeActions';
+import { getResize } from './resizeActions';
 
-export { getSize };
+export { getResize };

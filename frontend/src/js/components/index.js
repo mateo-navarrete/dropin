@@ -1,72 +1,54 @@
 import {
-  AuthUser,
-  DroppersArea,
-  StepperModal,
-  UserCoords,
-  UserCoordsListener
-} from './droppers';
-import { DropsArea } from './drops';
-import { Map, PinsArea, PinModal, PinsRouter } from './pins';
-import {
-  EducationIcon,
-  EntertainmentIcon,
+  BottomNavigation,
+  BottomNavigationAction,
+  Button,
   FamilyIcon,
-  FoodIcon,
-  GamingIcon,
-  HumanitarianIcon,
-  MusicIcon,
   PartyIcon,
-  ReligiousIcon,
   SportsIcon,
-  IconHOC,
-  StyledDropArea,
-  StyledPinDropButton,
-  StyledDropPinStepper,
-  StyledDrawer,
-  StyledBottomDrawer,
-  StyledNavBar,
-  StyledActionBar,
-  StyledEventStepper
-} from './styled';
+  IconWrapper
+} from './material';
 import {
-  AreaWrapper,
-  LandingPage,
-  ResizeListener,
-  SwitchRouter
-} from './utils';
+  EventMarker,
+  EventMarkers,
+  EventsMap,
+  EventsRouter,
+  PartyEvents,
+  SportsEvents,
+  FamilyEvents
+} from './events';
+import {
+  ActionBarArea,
+  BottomOverlayArea,
+  MainArea,
+  NavBarArea,
+  OverlayAreaCopy,
+  TopOverlayArea
+} from './layout';
+
+import { UserCoordsListener } from './users';
+import { ResizeListener } from './utils';
 
 export {
-  AuthUser,
-  DroppersArea,
-  StepperModal,
-  UserCoords,
-  UserCoordsListener,
-  DropsArea,
-  Map,
-  PinsArea,
-  PinModal,
-  PinsRouter,
-  EducationIcon,
-  EntertainmentIcon,
+  BottomNavigation,
+  BottomNavigationAction,
+  Button,
+  NavBarArea,
+  OverlayAreaCopy,
+  TopOverlayArea,
   FamilyIcon,
-  FoodIcon,
-  GamingIcon,
-  HumanitarianIcon,
-  MusicIcon,
   PartyIcon,
-  ReligiousIcon,
   SportsIcon,
-  IconHOC,
-  StyledDropArea,
-  StyledPinDropButton,
-  StyledDropPinStepper,
-  StyledDrawer,
-  StyledBottomDrawer,
-  StyledNavBar,
-  StyledActionBar,
-  StyledEventStepper,
-  AreaWrapper,
-  LandingPage,
-  ResizeListener,
-  SwitchRouter
+  IconWrapper,
+  EventMarker,
+  EventMarkers,
+  EventsMap,
+  EventsRouter,
+  PartyEvents,
+  SportsEvents,
+  FamilyEvents,
+  ActionBarArea,
+  BottomOverlayArea,
+  MainArea,
+  UserCoordsListener,
+  ResizeListener
 };

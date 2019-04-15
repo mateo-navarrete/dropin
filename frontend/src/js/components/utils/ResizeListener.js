@@ -1,7 +1,5 @@
 import { withResize } from '../../containers';
 
-const Resizer = props => {
-  return null;
-};
+const Resize = props => null;
 
-export const ResizeListener = withResize(Resizer);
+export const ResizeListener = withResize(Resize);

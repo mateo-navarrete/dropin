@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import {
-  AuthUser,
+  OverlayAreaCopy,
+  ActionBarArea,
+  MainArea,
+  NavBarArea,
+  // AuthUser,
   UserCoordsListener,
-  SwitchRouter,
   ResizeListener
 } from "./components";
 
@@ -12,8 +15,10 @@ export default class App extends Component {
       <>
         <ResizeListener />
         <UserCoordsListener />
-        <AuthUser />
-        <SwitchRouter />
+        <OverlayAreaCopy />
+        <MainArea />
+        <NavBarArea />
+        <ActionBarArea />
       </>
     );
   }

@@ -1,3 +1,3 @@
-import { sizeReducer } from './sizeReducer';
+import { areaSizeReducer } from './areaSizeReducer';
 
-export { sizeReducer };
+export { areaSizeReducer };
