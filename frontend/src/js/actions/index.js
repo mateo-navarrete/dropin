@@ -4,6 +4,10 @@ import {
   createUser,
   loginUser,
   logoutUser,
+  hideSignin,
+  hideSignup,
+  showSignin,
+  showSignup,
   getUserCoords
 } from './users';
 import {
@@ -20,6 +24,10 @@ export {
   createUser,
   loginUser,
   logoutUser,
+  hideSignin,
+  hideSignup,
+  showSignin,
+  showSignup,
   getUserCoords,
   hideBottomOverlay,
   hideTopOverlay,

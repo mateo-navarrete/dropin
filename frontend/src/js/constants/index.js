@@ -12,6 +12,10 @@ export const CREATING_USER = 'CREATING_USER';
 export const GET_AUTH_STATUS = 'GET_AUTH_STATUS';
 export const SET_AUTH_STATUS = 'SET_AUTH_STATUS';
 export const SET_LOGIN = 'SET_LOGIN';
+export const HIDE_SIGNIN = 'HIDE_SIGNIN';
+export const HIDE_SIGNUP = 'HIDE_SIGNUP';
+export const SHOW_SIGNIN = 'SHOW_SIGNIN';
+export const SHOW_SIGNUP = 'SHOW_SIGNUP';
 
 export const GET_CATEGORY_EVENTS = 'GET_CATEGORY_EVENTS';
 export const GOT_EVENTS_ERROR = 'GOT_EVENTS_ERROR';

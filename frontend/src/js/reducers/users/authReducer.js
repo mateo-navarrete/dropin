@@ -6,7 +6,12 @@ import {
   CREATING_USER,
   SET_LOGIN,
   GET_AUTH_STATUS,
-  SET_AUTH_STATUS
+  SET_AUTH_STATUS,
+  HIDE_SIGNIN,
+  HIDE_SIGNUP,
+  SHOW_SIGNIN,
+  SHOW_SIGNUP,
+  HIDE_BOTTOM_OVERLAY
   // AUTH_ERROR, AUTH_USER, AUTHORIZE_USER
 } from '../../constants';
 
@@ -15,12 +20,15 @@ const initState = {
   authname: '',
   waiting: false,
   showSignupForm: true,
-  user_name: '',
+  user_name: null,
   password: '',
   birth_date: '', //format ?
+  isLoggedIn: false,
   userObj: {},
   loginObj: {},
   authStatus: {},
+  signin: false,
+  signup: false,
 };
 
 export const authReducer = (state = initState, action) => {
@@ -63,15 +71,50 @@ export const authReducer = (state = initState, action) => {
       };
       return nextState;
     case SET_AUTH_STATUS:
+      const { isLoggedIn, user_name } = action.payload;
+      nextState = {
+        ...state,
+        isLoggedIn: isLoggedIn,
+        user_name: user_name,
+        // authStatus: action.payload,
+      };
+      return nextState;
+    case GET_AUTH_STATUS:
+      console.log('@getAuthStatus reducer');
       nextState = {
         ...state,
         authStatus: action.payload,
       };
       return nextState;
-    case GET_AUTH_STATUS:
+    // case HIDE_SIGNIN:
+    //   nextState = {
+    //     ...state,
+    //     signin: false,
+    //   };
+    //   return nextState;
+    // case HIDE_SIGNUP:
+    //   nextState = {
+    //     ...state,
+    //     signup: false,
+    //   };
+    //   return nextState;
+    case HIDE_BOTTOM_OVERLAY:
       nextState = {
         ...state,
-        authStatus: action.payload,
+        signin: false,
+        signup: false,
+      };
+      return nextState;
+    case SHOW_SIGNIN:
+      nextState = {
+        ...state,
+        signin: true,
+      };
+      return nextState;
+    case SHOW_SIGNUP:
+      nextState = {
+        ...state,
+        signup: true,
       };
       return nextState;
     // case AUTHORIZE_USER:
