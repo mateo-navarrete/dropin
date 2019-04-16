@@ -10,17 +10,14 @@ const createUser = (req, res, next) => {
   const userObj = {
     user_name: rb.user_name,
     password: hash,
+    email: rb.email
     // password_digest: hash,
-    birth_date: rb.birth_date,
-    profile_photo: rb.profile_photo || '',
-    instagram_id: rb.instagram_id || '',
-    linkedin_id: rb.linkedin_id || '',
   };
 
   // 'INSERT INTO users (user_name, password_digest, birth_date, profile_photo, instagram_id, linkedin_id) VALUES (${user_name}, ${password_digest}, ${birth_date}, ${profile_photo}, ${instagram_id}, ${linkedin_id})',
 
   db.none(
-    'INSERT INTO users (user_name, password_digest, birth_date, profile_photo, instagram_id, linkedin_id) VALUES (${user_name}, ${password}, ${birth_date}, ${profile_photo}, ${instagram_id}, ${linkedin_id})',
+    'INSERT INTO users (user_name, password_digest, email) VALUES (${user_name}, ${password}, ${email})',
     userObj
   )
     .then(() => {
@@ -58,20 +55,19 @@ const getUsers = (req, res, next) => {
 
 const updateUser = (req, res, next) => {
   const rb = req.body;
+  let hash = authHelpers.createHash(rb.new_password);
   const userObj = {
     user_id: rb.user_id,
-    profile_photo: rb.profile_photo || '',
-    instagram_id: rb.instagram_id || '',
-    linkedin_id: rb.linkedin_id || '',
+    new_password: hash
   };
   db.none(
-    'UPDATE users SET profile_photo=${profile_photo}, instagram_id=${instagram_id}, linkedin_id=${linkedin_id} WHERE id=${user_id}',
+    'UPDATE users SET password_digest=${new_password} WHERE id=${user_id}',
     userObj
   )
     .then(() => {
       res.send({
         status: 'success',
-        message: `updated user: ${JSON.stringify(userObj)}`,
+        message: `updated user: ${JSON.stringify(userObj)}`
       });
     })
     .catch(err => next(err));
