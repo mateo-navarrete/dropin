@@ -51,7 +51,7 @@ const UsersEvents = props => {
                   onClick={handleLogout}
                   className={props.classes.submit}
                 >
-                  Sign out
+                  Sign Out
                 </Button>
                 <StyledEventStepper
                   hideBottomOverlay={props.hideBottomOverlay}

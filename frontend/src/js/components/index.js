@@ -12,6 +12,8 @@ import {
   Visibility,
   VisibilityOff,
   InputAdornment,
+  FormControlLabel,
+  Checkbox,
   IconButton,
   FamilyIcon,
   PartyIcon,
@@ -29,10 +31,10 @@ import {
   FamilyEvents
 } from './events';
 import { ActionBarArea, MainArea, NavBarArea, OverlayArea } from './layout';
-
 import {
   UserCoordsListener,
   UserEvents,
+  UserSignInWrapper,
   UserSignUp,
   UserSignUpWrapper,
   UserStatus,
@@ -54,6 +56,8 @@ export {
   Visibility,
   VisibilityOff,
   InputAdornment,
+  FormControlLabel,
+  Checkbox,
   IconButton,
   FamilyIcon,
   PartyIcon,
@@ -73,6 +77,7 @@ export {
   OverlayArea,
   UserCoordsListener,
   UserEvents,
+  UserSignInWrapper,
   UserSignUp,
   UserSignUpWrapper,
   UserStatus,

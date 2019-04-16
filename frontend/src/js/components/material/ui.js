@@ -12,6 +12,8 @@ import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import IconButton from '@material-ui/core/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
 import FamilyIcon from '@material-ui/icons/Favorite';
 import PartyIcon from '@material-ui/icons/Whatshot';
 import SportsIcon from '@material-ui/icons/Flag';
@@ -30,6 +32,8 @@ export {
   Visibility,
   VisibilityOff,
   InputAdornment,
+  FormControlLabel,
+  Checkbox,
   IconButton,
   FamilyIcon,
   PartyIcon,

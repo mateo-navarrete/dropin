@@ -43,6 +43,13 @@ h1 {
   /* background: #00f281; */
 }
 
+/*
+Red: 251, 54, 74 fb364a
+Blue: 41, 128, 185 2980b9
+Yellow: 241, 196, 15 f1c40f
+Green: 39, 174, 96 27ae60
+*/
+
 .text-blk {
   color: #000;
 }
@@ -91,39 +98,8 @@ h1 {
   padding: 5px;
 }
 
-.divider-line {
-  background-color: rgba(0, 0, 0, 0.3);
-  height: 1px;
-}
-
-.divider-space {
-  background-color: rgba(0, 0, 0, 0);
-  height: 1px;
-}
-
-
-
-/* border-color: #000;
-border-style: solid;
-border-width: 0 0 1px;
-height: 10px;
-line-height: 20px;
-text-align:center;
-overflow: visible;
-*/
-/* .divider span {
-    background-color: #FFF;
-    display: inline-block;
-    padding: 0 10px;
-    min-height: 20px;
-    min-width: 10%;
-} */
-
-/* .area-wrapper{
-  background: rgba(0, 0, 0, 0.5);
-} */
-
-/* .logo-square {
+/*
+.logo-square {
   background: url("./assets/dropin-logo-square.png") no-repeat center;
   background-size: contain;
   height: 512px;
@@ -135,9 +111,5 @@ overflow: visible;
   background-size: contain;
   height: 64px;
   width: 512px;
-} */
-
-/* Red: 251, 54, 74 fb364a
-Blue: 41, 128, 185 2980b9
-Yellow: 241, 196, 15 f1c40f
-Green: 39, 174, 96 27ae60 */
+}
+*/

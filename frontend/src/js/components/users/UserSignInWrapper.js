@@ -2,6 +2,7 @@ import React from "react";
 import { withStyles } from "../../containers";
 import {
   Avatar,
+  Button,
   FormControl,
   Input,
   InputLabel,
@@ -11,7 +12,8 @@ import {
   VisibilityOff,
   InputAdornment,
   IconButton,
-  UserSignUp
+  FormControlLabel,
+  Checkbox
 } from "..";
 
 const styles = theme => ({
@@ -30,16 +32,12 @@ const styles = theme => ({
   }
 });
 
-class SignUp extends React.Component {
+class SignIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       user_name: "",
       password: "",
-      birth_date: "2019-01-01",
-      profile_photo: "",
-      instagram_id: "",
-      linkedin_id: "",
       showPassword: false
     };
   }
@@ -48,8 +46,9 @@ class SignUp extends React.Component {
   };
   handleSubmit = event => {
     event.preventDefault();
-    console.log("handleSubmit => createUser", this.state);
-    this.props.createUser(this.state);
+    const { user_name, password } = this.state;
+    console.log(user_name, password);
+    this.props.loginUser({ user_name, password });
   };
 
   handleChange = event => {
@@ -68,11 +67,10 @@ class SignUp extends React.Component {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign Up
+              Sign In
             </Typography>
           </>
         )}
-
         <form className={classes.form} onSubmit={this.handleSubmit}>
           <FormControl margin="normal" required fullWidth>
             <InputLabel htmlFor="user_name">User Name</InputLabel>
@@ -85,7 +83,6 @@ class SignUp extends React.Component {
               autoFocus
             />
           </FormControl>
-
           <FormControl margin="normal" required fullWidth>
             <InputLabel htmlFor="adornment-password">Password</InputLabel>
             <Input
@@ -110,15 +107,22 @@ class SignUp extends React.Component {
               }
             />
           </FormControl>
-          <UserSignUp
-            classes={classes}
-            {...this.props}
-            {...this.state}
-            handleChange={this.handleChange}
+          <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+            label="Remember me"
           />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
+            Sign In
+          </Button>
         </form>
       </>
     );
   }
 }
-export const UserSignUpWrapper = withStyles(styles)(SignUp);
+export const UserSignInWrapper = withStyles(styles)(SignIn);

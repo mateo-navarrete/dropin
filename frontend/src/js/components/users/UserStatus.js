@@ -1,6 +1,5 @@
 import React from "react";
-import { UserStatusOptions, UserSignUpWrapper } from "..";
-import StyledSignIn from "./xSigninForm";
+import { UserSignUpWrapper, UserSignInWrapper, UserStatusOptions } from "..";
 
 export const UserStatus = props => {
   return (
@@ -8,15 +7,10 @@ export const UserStatus = props => {
       {props.signup ? (
         <UserSignUpWrapper {...props} />
       ) : props.signin ? (
-        <StyledSignIn />
+        <UserSignInWrapper {...props} />
       ) : (
         <UserStatusOptions {...props} />
       )}
     </>
   );
 };
-
-// <br />
-// <Button variant="outlined" onClick={props.hideBottomOverlay}>
-//   CANCEL
-// </Button>
