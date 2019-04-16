@@ -7,11 +7,8 @@ CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   user_name VARCHAR UNIQUE NOT NULL,
   password_digest VARCHAR NOT NULL,
+  email VARCHAR NOT NULL,
   created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  birth_date DATE,
-  profile_photo TEXT,
-  instagram_id VARCHAR,
-  linkedin_id VARCHAR,
   last_login_date	DATE
 );
 
@@ -55,10 +52,10 @@ VALUES ('Family'),
 ('Sports');
 
 
-INSERT INTO users (user_name, password_digest, birth_date) VALUES ('JRJMuzik', '12345678', '1990-01-01'),
-('GoodSamaritan123', '12345678', '1980-01-01'),
-('BallIsLife', '12345678', '1989-01-01'),
-('user1', '12345678', '1988-01-01');
+INSERT INTO users (user_name, password_digest, email) VALUES ('JRJMuzik', '12345678', 'JRJMuzik@gmail.com'),
+('GoodSamaritan123', '12345678', 'GoodSamaritan123@gmail.com'),
+('BallIsLife', '12345678', 'BallIsLife@gmail.com'),
+('user1', '12345678', 'user1@gmail.com');
 
 INSERT INTO events (category_id, user_id, latitude, longitude, display_user, event_name, description)
 VALUES ( 1, 1, 40.743431, -73.938770, 'true',  'event name 1', 'event description 1' ),
