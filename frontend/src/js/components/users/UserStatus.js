@@ -1,5 +1,5 @@
 import React from "react";
-import { UserSignUpWrapper, UserSignInWrapper, UserStatusOptions } from "..";
+import { UserSignUpWrapper, UserSignIn, UserStatusOptions } from "..";
 
 export const UserStatus = props => {
   return (
@@ -7,7 +7,7 @@ export const UserStatus = props => {
       {props.signup ? (
         <UserSignUpWrapper {...props} />
       ) : props.signin ? (
-        <UserSignInWrapper {...props} />
+        <UserSignIn {...props} />
       ) : (
         <UserStatusOptions {...props} />
       )}

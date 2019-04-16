@@ -125,4 +125,4 @@ class SignIn extends React.Component {
     );
   }
 }
-export const UserSignInWrapper = withStyles(styles)(SignIn);
+export const UserSignIn = withStyles(styles)(SignIn);

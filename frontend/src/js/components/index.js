@@ -34,7 +34,7 @@ import { ActionBarArea, MainArea, NavBarArea, OverlayArea } from './layout';
 import {
   UserCoordsListener,
   UserEvents,
-  UserSignInWrapper,
+  UserSignIn,
   UserSignUp,
   UserSignUpWrapper,
   UserStatus,
@@ -77,7 +77,7 @@ export {
   OverlayArea,
   UserCoordsListener,
   UserEvents,
-  UserSignInWrapper,
+  UserSignIn,
   UserSignUp,
   UserSignUpWrapper,
   UserStatus,
