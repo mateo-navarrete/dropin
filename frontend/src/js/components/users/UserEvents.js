@@ -1,7 +1,7 @@
 import React from "react";
 import { withAuthUser, withStyles } from "../../containers";
 import { Button, Paper, UserStatus } from "..";
-import StyledEventStepper from "./xStyledEventStepper";
+import EventStepper from "../events/EventStepper";
 
 const styles = theme => ({
   main: {
@@ -53,7 +53,7 @@ const UsersEvents = props => {
                 >
                   Sign Out
                 </Button>
-                <StyledEventStepper
+                <EventStepper
                   hideBottomOverlay={props.hideBottomOverlay}
                 />
               </>
