@@ -46,6 +46,7 @@ class SignUp extends React.Component {
   handleShowPassword = () => {
     this.setState(state => ({ showPassword: !state.showPassword }));
   };
+
   handleSubmit = event => {
     event.preventDefault();
     console.log("handleSubmit => createUser", this.state);
