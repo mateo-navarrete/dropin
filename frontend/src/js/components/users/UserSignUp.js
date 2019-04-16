@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, FormControl, Input, InputLabel } from "..";
 import  GoogleLogin  from 'react-google-button'
+import {googleProvider, fire} from "../../../config/fire"
 
 
 export const UserSignUp = props => {
@@ -38,7 +39,7 @@ export const UserSignUp = props => {
       {renderTextFields}
       <GoogleLogin
         buttonText="Login"
-        onClick={this.handleGoogleLogin}
+        onClick={props.handleGoogleSignIn}
         type='dark'
         style={{width: '100%'}}
       />
