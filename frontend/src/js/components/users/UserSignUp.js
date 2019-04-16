@@ -27,8 +27,7 @@ export const UserSignUp = props => {
           name={id}
           value={props[id]}
           onChange={props.handleChange}
-          type={id === "birth_date" ? "date" : "text"}
-          autoComplete={id === "birth_date" ? "current-birth_date" : "off"}
+          type="text"
         />
       </FormControl>
     );
@@ -38,7 +37,6 @@ export const UserSignUp = props => {
     <>
       {renderTextFields}
       <GoogleLogin
-        buttonText="Login"
         onClick={props.handleGoogleSignIn}
         type='dark'
         style={{width: '100%'}}
@@ -55,3 +53,7 @@ export const UserSignUp = props => {
     </>
   );
 };
+////////////////////////////////////////////////////
+// type={id === "birth_date" ? "date" : "text"}
+//
+// autoComplete={id === "birth_date" ? "current-birth_date" : "off"}
