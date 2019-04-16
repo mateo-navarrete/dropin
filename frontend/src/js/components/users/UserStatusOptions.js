@@ -9,7 +9,6 @@ export const UserStatusOptions = props => {
         variant="contained"
         color="secondary"
         onClick={props.showSignup}
-
       >
         SIGN UP
       </Button>

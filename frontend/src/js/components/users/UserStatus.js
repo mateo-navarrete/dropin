@@ -16,10 +16,9 @@ export const UserStatus = props => {
       <br />
       <Button
         variant="outlined"
-        color="secondary"
         onClick={props.hideBottomOverlay}
       >
-        RETURN
+        CANCEL
       </Button>
     </>
   );
