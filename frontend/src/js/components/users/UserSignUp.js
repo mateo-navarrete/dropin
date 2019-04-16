@@ -1,12 +1,15 @@
 import React from "react";
 import { Button, FormControl, Input, InputLabel } from "..";
+import  GoogleLogin  from 'react-google-button'
+import {googleProvider, fire} from "../../../config/fire"
+
 
 export const UserSignUp = props => {
   const textFields = [
-    { id: "birth_date", label: "Date of Birth" },
-    { id: "profile_photo", label: "Profile Photo URL" },
-    { id: "instagram_id", label: "Instagram ID" },
-    { id: "linkedin_id", label: "LinkedIn ID" }
+    { id: "email", label: "Email" }
+  //   { id: "profile_photo", label: "Profile Photo URL" },
+  //   { id: "instagram_id", label: "Instagram ID" },
+  //   { id: "linkedin_id", label: "LinkedIn ID" }
   ];
 
   const renderTextFields = textFields.map(field => {
@@ -14,7 +17,7 @@ export const UserSignUp = props => {
     return (
       <FormControl
         margin="normal"
-        required={id === "birth_date"}
+        required={id === "email"}
         fullWidth
         key={id}
       >
@@ -24,8 +27,7 @@ export const UserSignUp = props => {
           name={id}
           value={props[id]}
           onChange={props.handleChange}
-          type={id === "birth_date" ? "date" : "text"}
-          autoComplete={id === "birth_date" ? "current-birth_date" : "off"}
+          type="text"
         />
       </FormControl>
     );
@@ -34,6 +36,11 @@ export const UserSignUp = props => {
   return (
     <>
       {renderTextFields}
+      <GoogleLogin
+        onClick={props.handleGoogleSignIn}
+        type='dark'
+        style={{width: '100%'}}
+      />
       <Button
         type="submit"
         fullWidth
@@ -46,3 +53,7 @@ export const UserSignUp = props => {
     </>
   );
 };
+////////////////////////////////////////////////////
+// type={id === "birth_date" ? "date" : "text"}
+//
+// autoComplete={id === "birth_date" ? "current-birth_date" : "off"}

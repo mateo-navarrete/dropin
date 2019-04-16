@@ -15,7 +15,7 @@ import {
   SHOW_SIGNUP
   // AUTH_ERROR, AUTH_USER, AUTHORIZE_USER
 } from '../../constants';
-import { getData, postData } from '../../utils';
+import { getData, postData, sendEmail } from '../../utils';
 import Auth from '../../utils/Auth';
 
 const setUsername = username => {
@@ -97,6 +97,7 @@ export const createUser = userObj => dispatch => {
     // : dispatch(authError(res.data));
     //NOTE: dispatch(toggleSignUpFormVisible)
   });
+  sendEmail("/api/send", {userObj})
 };
 
 export const logoutUser = () => dispatch => {

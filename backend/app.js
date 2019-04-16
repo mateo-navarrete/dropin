@@ -6,6 +6,7 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const session = require("express-session");
 const passport = require("./db/auth/local");
+const sendAPI = require("./routes/send")
 
 const indexRouter = require('./routes/index');
 const {
@@ -40,6 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/api/events', eventsApi);
 app.use('/api/users', usersApi);
+app.use('/api/send', sendAPI)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

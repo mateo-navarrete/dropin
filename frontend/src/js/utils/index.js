@@ -5,7 +5,7 @@ import {
   GoogleMap,
   Marker
 } from 'react-google-maps';
-import { deleteData, getData, postData } from './api';
+import { deleteData, getData, postData, sendEmail } from './api';
 import { getAreaSizes } from './getAreaSizes';
 
 export {
@@ -17,5 +17,6 @@ export {
   deleteData,
   getData,
   postData,
-  getAreaSizes
+  getAreaSizes,
+  sendEmail
 };
