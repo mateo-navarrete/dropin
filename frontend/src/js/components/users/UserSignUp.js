@@ -3,10 +3,10 @@ import { Button, FormControl, Input, InputLabel } from "..";
 
 export const UserSignUp = props => {
   const textFields = [
-    { id: "birth_date", label: "Date of Birth" },
-    { id: "profile_photo", label: "Profile Photo URL" },
-    { id: "instagram_id", label: "Instagram ID" },
-    { id: "linkedin_id", label: "LinkedIn ID" }
+    { id: "email", label: "Email" }
+  //   { id: "profile_photo", label: "Profile Photo URL" },
+  //   { id: "instagram_id", label: "Instagram ID" },
+  //   { id: "linkedin_id", label: "LinkedIn ID" }
   ];
 
   const renderTextFields = textFields.map(field => {
@@ -14,7 +14,7 @@ export const UserSignUp = props => {
     return (
       <FormControl
         margin="normal"
-        required={id === "birth_date"}
+        required={id === "email"}
         fullWidth
         key={id}
       >
