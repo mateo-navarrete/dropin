@@ -1,3 +1,9 @@
+import {
+  createEvent,
+  setCategory,
+  setPrivacy,
+  setExpiration
+} from './eventActions';
 import { getEvents } from './eventsActions';
 
-export { getEvents };
+export { createEvent, setCategory, setPrivacy, setExpiration, getEvents };
