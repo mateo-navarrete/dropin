@@ -97,7 +97,8 @@ export const createUser = userObj => dispatch => {
     // : dispatch(authError(res.data));
     //NOTE: dispatch(toggleSignUpFormVisible)
   });
-  sendEmail("/api/send", {userObj})
+  //NOTE
+  sendEmail('/api/send', { userObj });
 };
 
 export const logoutUser = () => dispatch => {

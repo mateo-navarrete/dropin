@@ -1,6 +1,6 @@
 import React from "react";
 import { withAuthUser, withStyles } from "../../containers";
-import { Button, Paper, UserLogout, UserStatus, EventStepper } from "..";
+import { Button, Paper, UserStatus, EventStepper } from "..";
 
 const styles = theme => ({
   main: {
@@ -42,7 +42,16 @@ const UsersEvents = props => {
           <Paper className={props.classes.paper}>
             {props.isLoggedIn ? (
               <>
-                <UserLogout classes={props.classes} />
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="text"
+                  color="secondary"
+                  onClick={handleLogout}
+                  className={props.classes.submit}
+                >
+                  Sign Out
+                </Button>
                 <EventStepper hideBottomOverlay={props.hideBottomOverlay} />
               </>
             ) : (
