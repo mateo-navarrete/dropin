@@ -1,28 +1,16 @@
 import React from "react";
-import { Button, UserStatusOptions } from "..";
-import StyledSignIn from "./xSigninForm";
-import UserSignUp from "./UserSignup";
+import { UserSignUpWrapper, UserSignIn, UserStatusOptions } from "..";
 
 export const UserStatus = props => {
   return (
     <>
       {props.signup ? (
-        <UserSignUp {...props} />
+        <UserSignUpWrapper {...props} />
       ) : props.signin ? (
-        <StyledSignIn />
+        <UserSignIn {...props} />
       ) : (
         <UserStatusOptions {...props} />
       )}
-      <br />
-      <Button
-        variant="outlined"
-        color="secondary"
-        onClick={props.hideBottomOverlay}
-      >
-        RETURN
-      </Button>
     </>
   );
 };
-
-// style={{ marginTop: props.theme.spacing.unit * 1 }}

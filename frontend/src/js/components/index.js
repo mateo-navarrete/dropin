@@ -3,6 +3,18 @@ import {
   BottomNavigationAction,
   Button,
   Paper,
+  Avatar,
+  FormControl,
+  Input,
+  InputLabel,
+  Typography,
+  LockOutlinedIcon,
+  Visibility,
+  VisibilityOff,
+  InputAdornment,
+  FormControlLabel,
+  Checkbox,
+  IconButton,
   FamilyIcon,
   PartyIcon,
   SportsIcon,
@@ -19,10 +31,12 @@ import {
   FamilyEvents
 } from './events';
 import { ActionBarArea, MainArea, NavBarArea, OverlayArea } from './layout';
-
 import {
   UserCoordsListener,
   UserEvents,
+  UserSignIn,
+  UserSignUp,
+  UserSignUpWrapper,
   UserStatus,
   UserStatusOptions
 } from './users';
@@ -33,6 +47,18 @@ export {
   BottomNavigationAction,
   Button,
   Paper,
+  Avatar,
+  FormControl,
+  Input,
+  InputLabel,
+  Typography,
+  LockOutlinedIcon,
+  Visibility,
+  VisibilityOff,
+  InputAdornment,
+  FormControlLabel,
+  Checkbox,
+  IconButton,
   FamilyIcon,
   PartyIcon,
   SportsIcon,
@@ -51,6 +77,9 @@ export {
   OverlayArea,
   UserCoordsListener,
   UserEvents,
+  UserSignIn,
+  UserSignUp,
+  UserSignUpWrapper,
   UserStatus,
   UserStatusOptions,
   ResizeListener

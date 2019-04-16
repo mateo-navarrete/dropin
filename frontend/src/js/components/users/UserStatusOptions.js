@@ -9,7 +9,6 @@ export const UserStatusOptions = props => {
         variant="contained"
         color="secondary"
         onClick={props.showSignup}
-
       >
         SIGN UP
       </Button>
@@ -31,7 +30,3 @@ export const UserStatusOptions = props => {
     </>
   );
 };
-
-// style={{
-//   marginTop: ((props.height - props.theme.spacing.unit * 8) * 0.5) >> 0
-// }}

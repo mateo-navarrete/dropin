@@ -12,6 +12,7 @@ const Overlay = props => {
     hideBottomOverlay,
     hideTopOverlay,
   } = props;
+
   return (
     <div>
       <div
@@ -39,7 +40,5 @@ const Overlay = props => {
     </div>
   );
 };
-
-// style={{ marginTop: height - theme.spacing.unit * 30 }}
 
 export const OverlayArea = withAreaSizes(withOverlay(Overlay));
