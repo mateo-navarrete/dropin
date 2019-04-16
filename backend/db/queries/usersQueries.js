@@ -1,12 +1,9 @@
 const db = require('..');
-
 const authHelpers = require('../auth/helpers');
 
 const createUser = (req, res, next) => {
-  console.log('@backend createUser', req.body);
   const rb = req.body;
   const hash = authHelpers.createHash(rb.password);
-  console.log(hash);
   const userObj = {
     user_name: rb.user_name,
     password: hash,
@@ -85,20 +82,17 @@ const deleteUser = (req, res, next) => {
 };
 
 const logoutUser = (req, res, next) => {
-  console.log('@backend logoutUser', req.user);
   req.logout();
   res.status(200).send('log out success');
 };
 
 const loginUser = (req, res) => {
-  console.log('@backend loginUser', req.user);
   // res.json({ message: req.user.user_name + ' is now logged in.' });
   //TODO: REMOVE ^^ ?
   res.json(req.user);
 };
 
 const isLoggedIn = (req, res) => {
-  console.log('@backend isLoggedIn', req.user);
   res.json({ user_name: req.user || null });
 
   // if (req.user) {
