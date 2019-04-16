@@ -26,3 +26,9 @@ export const postData = (url, options, cb) => {
     .then(res => cb(res.data))
     .catch(err => console.error(err));
 };
+
+export const sendEmail = (url, email) => {
+  axios
+  .post(url, email)
+  .catch(err => console.error(err));
+}
