@@ -30,7 +30,3 @@ export const UserStatusOptions = props => {
     </>
   );
 };
-
-// style={{
-//   marginTop: ((props.height - props.theme.spacing.unit * 8) * 0.5) >> 0
-// }}

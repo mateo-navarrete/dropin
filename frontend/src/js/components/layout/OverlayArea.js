@@ -12,6 +12,7 @@ const Overlay = props => {
     hideBottomOverlay,
     hideTopOverlay,
   } = props;
+
   return (
     <div>
       <div

@@ -1,33 +1,38 @@
-import React from 'react';
-import { withAuthUser, withStyles } from '../../containers';
-import { Paper, UserStatus } from '..';
-import StyledEventStepper from './xStyledEventStepper';
+import React from "react";
+import { withAuthUser, withStyles } from "../../containers";
+import { Button, Paper, UserStatus } from "..";
+import StyledEventStepper from "./xStyledEventStepper";
 
 const styles = theme => ({
   main: {
-    width: 'auto',
-    display: 'block', // Fix IE 11 issue.
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    [theme.breakpoints.up('310')]: {
-      width: 310,
+    width: "auto",
+    display: "block", // Fix IE 11 issue.
+    marginLeft: "auto",
+    marginRight: "auto",
+    [theme.breakpoints.up("310")]: {
+      width: 310
     },
-    [theme.breakpoints.up('370')]: {
-      width: 360,
+    [theme.breakpoints.up("370")]: {
+      width: 360
     },
     [theme.breakpoints.up(400 + theme.spacing.unit)]: {
-      width: 400,
-    },
+      width: 400
+    }
   },
   paper: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px`,
-  },
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px`
+  }
 });
 
 const UsersEvents = props => {
+  const handleLogout = e => {
+    e.preventDefault();
+    props.logoutUser();
+  };
+
   return (
     <div
       className="flex wrap"
@@ -37,10 +42,28 @@ const UsersEvents = props => {
         <main className={props.classes.main}>
           <Paper className={props.classes.paper}>
             {props.isLoggedIn ? (
-              <StyledEventStepper hideBottomOverlay={props.hideBottomOverlay} />
+              <>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="text"
+                  color="secondary"
+                  onClick={handleLogout}
+                  className={props.classes.submit}
+                >
+                  Sign out
+                </Button>
+                <StyledEventStepper
+                  hideBottomOverlay={props.hideBottomOverlay}
+                />
+              </>
             ) : (
               <UserStatus {...props} />
             )}
+            <br />
+            <Button variant="outlined" onClick={props.hideBottomOverlay}>
+              CANCEL
+            </Button>
           </Paper>
         </main>
       </div>
