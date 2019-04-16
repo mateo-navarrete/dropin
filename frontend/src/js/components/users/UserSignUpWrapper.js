@@ -13,7 +13,7 @@ import {
   IconButton,
   UserSignUp
 } from "..";
-
+import { fire, googleProvider } from "../../../config/fire";
 
 const styles = theme => ({
   main: {},
@@ -58,6 +58,20 @@ class SignUp extends React.Component {
     this.setState({
       [event.target.name]: event.target.value
     });
+  };
+
+  handleGoogleSignIn = event => {
+    const { user_name, password } = this.state;
+    event.preventDefault();
+    fire
+      .auth()
+      .signInWithPopup(googleProvider)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   render() {
@@ -117,6 +131,7 @@ class SignUp extends React.Component {
             {...this.props}
             {...this.state}
             handleChange={this.handleChange}
+            handleGoogleSignIn={this.handleGoogleSignIn}
           />
         </form>
       </>
