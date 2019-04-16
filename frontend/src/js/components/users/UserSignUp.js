@@ -1,5 +1,7 @@
 import React from "react";
 import { Button, FormControl, Input, InputLabel } from "..";
+import  GoogleLogin  from 'react-google-button'
+
 
 export const UserSignUp = props => {
   const textFields = [
@@ -34,6 +36,12 @@ export const UserSignUp = props => {
   return (
     <>
       {renderTextFields}
+      <GoogleLogin
+        buttonText="Login"
+        onClick={this.handleGoogleLogin}
+        type='dark'
+        style={{width: '100%'}}
+      />
       <Button
         type="submit"
         fullWidth
