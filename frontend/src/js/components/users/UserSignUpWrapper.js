@@ -41,7 +41,8 @@ class SignUp extends React.Component {
       profile_photo: "",
       instagram_id: "",
       linkedin_id: "",
-      showPassword: false
+      showPassword: false,
+      email: ""
     };
   }
   handleShowPassword = () => {
