@@ -19,7 +19,7 @@ router.get('/isloggedin', isLoggedIn);
 router.post('/logout', loginRequired, logoutUser);
 router.get('/:id', getUser);
 router.get('/', getUsers);
-router.put('/', updateUser);
+router.patch('/', updateUser);
 router.delete('/:id', deleteUser);
 
 module.exports = router;
