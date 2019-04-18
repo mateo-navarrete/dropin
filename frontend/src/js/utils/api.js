@@ -29,6 +29,7 @@ export const postData = (url, options, cb) => {
 
 export const sendEmail = (url, email) => {
   axios
-  .post(url, email)
-  .catch(err => console.error(err));
-}
+    .post(url, email)
+    .then(res => console.log('@googleCB', res))
+    .catch(err => console.error(err));
+};

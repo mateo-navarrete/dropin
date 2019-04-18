@@ -1,3 +1,4 @@
+import { eventReducer } from './eventReducer';
 import { eventsReducer } from './eventsReducer';
 
-export { eventsReducer };
+export { eventReducer, eventsReducer };

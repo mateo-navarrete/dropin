@@ -1,4 +1,10 @@
-import { getEvents } from './events';
+import {
+  createEvent,
+  setCategory,
+  setPrivacy,
+  setExpiration,
+  getEvents
+} from './events';
 import {
   checkAuthStatus,
   createUser,
@@ -19,6 +25,10 @@ import {
 } from './utils';
 
 export {
+  createEvent,
+  setCategory,
+  setPrivacy,
+  setExpiration,
   getEvents,
   checkAuthStatus,
   createUser,
