@@ -24,10 +24,12 @@ CREATE TABLE events (
   created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   latitude FLOAT NOT NULL,
   longitude FLOAT NOT NULL,
+  address VARCHAR NOT NULL,
   display_user VARCHAR NOT NULL,
   event_name VARCHAR NOT NULL,
   description TEXT NOT NULL,
-  expiration_date TIMESTAMP
+  expiration_date TIMESTAMP,
+  pic TEXT
 );
 
 CREATE TABLE sessions (
