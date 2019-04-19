@@ -6,11 +6,17 @@ import {
   GOT_EVENTS_ERROR,
   GOT_FAMILY_EVENTS,
   GOT_PARTY_EVENTS,
-  GOT_SPORTS_EVENTS
+  GOT_SPORTS_EVENTS,
+  SET_LOADED_TO_FALSE
 } from '../../constants';
 import { getData } from '../../utils';
 
+export const setLoadedToFalse = ()=>{
+  return {type: SET_LOADED_TO_FALSE}
+}
+
 const getCategoryEvents = category => {
+  console.log('@get',category)
   return { type: GET_CATEGORY_EVENTS, payload: category };
 };
 

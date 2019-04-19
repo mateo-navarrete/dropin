@@ -14,10 +14,11 @@ const append = "&v=3.exp&libraries=geometry,drawing,places";
 
 const EventWrapper = props => {
   console.log("Events Wrapper!!!!: props", props);
-  console.log("Events Wrapper!!!!: Props", props.eventCoords.length);
+  // console.log("Events Wrapper!!!!: Props", props.eventCoords.length);
+  // console.log("Events Wrapper!!", props.loaded);
   let style = { height: props.mainHeight };
   const mapURL = prepend + apiKey + append;
-  if (props.eventCoords.length !== 0) {
+  if (props.loaded && props.eventCoords.length !== 0) {
     return (
       <EventsMap
         isMarkerShown
@@ -29,17 +30,8 @@ const EventWrapper = props => {
       />
     );
   } else {
-    console.log("Events Wrapper Option 2");
-    return (
-      <EventsMap
-        isMarkerShown
-        googleMapURL={mapURL}
-        loadingElement={<div style={style} />}
-        containerElement={<div style={style} />}
-        mapElement={<div style={style} />}
-        {...props}
-      />
-    );
+
+    return null;
   }
 };
 

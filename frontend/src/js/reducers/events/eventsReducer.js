@@ -4,7 +4,8 @@ import {
   GOT_FAMILY_EVENTS,
   GOT_PARTY_EVENTS,
   GOT_SPORTS_EVENTS,
-  SHOW_TOP_OVERLAY
+  SHOW_TOP_OVERLAY,
+  SET_LOADED_TO_FALSE
 } from "../../constants";
 
 const initState = {
@@ -39,7 +40,7 @@ export const eventsReducer = (state = initState, action) => {
       };
       return nextState;
     case GOT_EVENTS_ERROR:
-      nextState = { ...state, loading: false, loaded: false };
+      nextState = { ...state, loading: false, loaded: true };
       return nextState;
     case GOT_FAMILY_EVENTS:
       nextState = {
@@ -73,6 +74,9 @@ export const eventsReducer = (state = initState, action) => {
       return nextState;
     case SHOW_TOP_OVERLAY:
       nextState = { ...state, eventID: action.payload };
+      return nextState;
+    case SET_LOADED_TO_FALSE:
+      nextState = { ...state, loaded: false };
       return nextState;
     default:
       return state;
