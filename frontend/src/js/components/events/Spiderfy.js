@@ -25,9 +25,7 @@ class Spiderfy extends React.Component {
 
   tempMarkerFn = ref => {
     const { showTopOverlay, eventCoords, loading } = this.props;
-    console.log("Spiderfy Ref State", ref.state);
     let marker;
-
     marker = ref.state[MARKER];
     this.oms.addMarker(marker);
     window.google.maps.event.addListener(marker, "spider_click", e => {
