@@ -33,9 +33,9 @@ const createEventError = err => {
 };
 
 export const createEvent = eventObj => dispatch => {
-  console.log('@config', eventObj);
+  // console.log('@config', eventObj);
   dispatch(creatingEvent());
-  console.log(eventObj);
+  // console.log(eventObj);
   postData('/api/events/', eventObj, res => {
     res.status === 'success'
       ? dispatch(createdEvent(res))

@@ -43,6 +43,50 @@ h1 {
   /* background: #00f281; */
 }
 
+.red-bg {
+  background-color: rgba(251, 54, 74, 1);
+}
+
+.red-color {
+  color: rgba(251, 54, 74, 1);
+}
+
+.red-color svg {
+  color: rgba(251, 54, 74, 1);
+}
+
+.blue-bg {
+  background-color: rgba(41, 128, 185, 1);
+}
+
+.blue-color {
+  color: rgba(41, 128, 185, 1);
+}
+
+.blue-color svg {
+  color: rgba(41, 128, 185, 1);
+}
+
+.green-bg {
+  background-color: rgba(39, 174, 96, 1);
+}
+
+.green-color {
+  color: rgba(39, 174, 96, 1);
+}
+
+.green-color svg {
+  color: rgba(39, 174, 96, 1);
+}
+
+.yellow-bg {
+  background-color: rgba(241, 196, 15, 1);
+}
+
+.yellow-color {
+  color: rgba(241, 196, 15, 1);
+}
+
 /*
 Red: 251, 54, 74 fb364a
 Blue: 41, 128, 185 2980b9

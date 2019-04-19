@@ -26,3 +26,9 @@
   background-color: rgba(0, 0, 0, 0);
   height: 1px;
 }
+
+.event-card {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  padding: 10px;
+}

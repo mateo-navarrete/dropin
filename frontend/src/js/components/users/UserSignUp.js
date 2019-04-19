@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, FormControl, Input, InputLabel } from "..";
 import  GoogleLogin  from 'react-google-button'
-import {googleProvider, fire} from "../../../config/fire"
+// import {googleProvider, fire} from "../../../config/fire"
 
 
 export const UserSignUp = props => {
