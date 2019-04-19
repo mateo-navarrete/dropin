@@ -12,7 +12,6 @@ const EventMap = props => {
     loaded,
     loading
   } = props;
-  console.log("!!!", props);
   return (
     <>
       {latitude && (
