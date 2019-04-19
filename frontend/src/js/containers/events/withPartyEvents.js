@@ -6,7 +6,8 @@ const mapStateToProps = ({ eventsReducer }) => {
   return {
     category: eventsReducer.party,
     eventCoords: eventsReducer.partyEvents,
-    // loading: eventsReducer.loading,
+    loading: eventsReducer.loading,
+    loaded: eventsReducer.loaded
   };
 };
 

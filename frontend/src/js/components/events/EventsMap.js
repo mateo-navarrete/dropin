@@ -1,14 +1,18 @@
 import React from "react";
 import { withScriptjs, withGoogleMap, GoogleMap } from "../../utils";
 import { EventMarker, EventMarkers } from "..";
+import Spiderfy from "./Spiderfy";
 
 const EventMap = props => {
   const {
     isMarkerShown,
     userCoords: { latitude, longitude },
     category,
-    eventCoords
+    eventCoords,
+    loaded,
+    loading
   } = props;
+  console.log("Event Map!!!", props);
   return (
     <>
       {latitude && (
@@ -16,11 +20,14 @@ const EventMap = props => {
           defaultZoom={15}
           defaultCenter={{ lat: latitude, lng: longitude }}
         >
-          {isMarkerShown && (
-            <EventMarker latitude={latitude} longitude={longitude} />
-          )}
-          {eventCoords && eventCoords.length && (
-            <EventMarkers category={category} eventCoords={eventCoords} />
+
+          {eventCoords.length && (
+            <EventMarkers
+              category={category}
+              eventCoords={eventCoords}
+              loaded={loaded}
+              loading={loading}
+            />
           )}
         </GoogleMap>
       )}
@@ -29,3 +36,12 @@ const EventMap = props => {
 };
 
 export const EventsMap = withScriptjs(withGoogleMap(EventMap));
+
+// {isMarkerShown && (
+//   <EventMarker
+//     latitude={latitude}
+//     longitude={longitude}
+//     loaded={loaded}
+//     loading={loading}
+//   />
+// )}

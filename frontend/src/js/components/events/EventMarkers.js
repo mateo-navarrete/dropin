@@ -1,14 +1,15 @@
-import React from 'react';
-import { Marker, MarkerClusterer } from '../../utils';
-import { withOverlay } from '../../containers';
+import React from "react";
+import { Marker, MarkerClusterer } from "../../utils";
+import { withOverlay } from "../../containers";
+import Spiderfy from "./Spiderfy";
 
 const eventsMarker = {
-  family: 'pal2/icon10.png',
-  party: 'pal2/icon27.png',
-  sports: 'pal2/icon57.png',
-  user: 'pal3/icon40.png',
+  family: "pal2/icon10.png",
+  party: "pal2/icon27.png",
+  sports: "pal2/icon57.png",
+  user: "pal3/icon40.png"
 };
-const markerURL = 'http://maps.google.com/mapfiles/kml/';
+const markerURL = "http://maps.google.com/mapfiles/kml/";
 
 export const EventMarker = props => {
   const { latitude, longitude } = props;
@@ -27,25 +28,70 @@ export const EventMarker = props => {
 };
 
 const EventsMarkers = props => {
-  const { category, eventCoords, showTopOverlay } = props;
+  console.log("Event Marker props", props);
+  const { category, eventCoords, showTopOverlay, loading, loaded } = props;
   const eventMarker =
-    markerURL + (eventsMarker[category.name] || 'pushpin/red-pushpin.png');
-  return (
-    <MarkerClusterer averageCenter enableRetinaIcons gridSize={60}>
-      {eventCoords.map(coord => {
-        const { id, latitude, longitude } = coord;
-        return (
-          <Marker
-            onClick={() => showTopOverlay(id)}
-            position={{ lat: latitude, lng: longitude }}
-            key={id}
-            icon={eventMarker}
-            id={id}
-          />
-        );
-      })}
-    </MarkerClusterer>
-  );
+    markerURL + (eventsMarker[category.name] || "pushpin/red-pushpin.png");
+    if(eventCoords.length) {
+      return (
+        <MarkerClusterer
+          averageCenter
+          enableRetinaIcons
+          minimumClusterSize={3}
+          zoomOnClick
+          gridSize={100}
+          defaultZoomOnClick
+        >
+          <Spiderfy eventCoords={eventCoords} loaded={loaded}>
+            {eventCoords.map(coord => {
+              const { id, latitude, longitude } = coord;
+              return (
+                <Marker
+                  onDblClick={() => showTopOverlay(id)}
+                  position={{ lat: latitude, lng: longitude }}
+                  key={id}
+                  icon={eventMarker}
+                  id={id}
+                  label={id.toString()}
+                />
+              );
+            })}
+          </Spiderfy>
+        </MarkerClusterer>
+      );
+    } else {
+      return (
+        <MarkerClusterer
+          averageCenter
+          enableRetinaIcons
+          minimumClusterSize={3}
+          zoomOnClick
+          gridSize={100}
+          defaultZoomOnClick
+        >
+          <Spiderfy eventCoords={eventCoords} loaded={loaded}>
+            {eventCoords.map(coord => {
+              const { id, latitude, longitude } = coord;
+              return (
+                <Marker
+                  onDblClick={() => showTopOverlay(id)}
+                  position={{ lat: latitude, lng: longitude }}
+                  key={id}
+                  icon={eventMarker}
+                  id={id}
+                  label={id.toString()}
+                />
+              );
+            })}
+          </Spiderfy>
+        </MarkerClusterer>
+      )
+    }
+
 };
 
 export const EventMarkers = withOverlay(EventsMarkers);
+// <MarkerClusterer averageCenter enableRetinaIcons minimumClusterSize={3} zoomOnClick gridSize={10} defaultZoomOnClick>
+// </MarkerClusterer>
+// <Spiderfy eventCoords={eventCoords} loaded={loaded}>
+// </Spiderfy>

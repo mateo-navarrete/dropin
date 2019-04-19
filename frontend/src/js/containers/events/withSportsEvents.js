@@ -6,8 +6,10 @@ const mapStateToProps = ({ eventsReducer }) => {
   return {
     category: eventsReducer.sports,
     eventCoords: eventsReducer.sportsEvents,
-    // loading: eventsReducer.loading,
+    loading: eventsReducer.loading,
+    loaded: eventsReducer.loaded
   };
+
 };
 
 const mapDispatchToProps = dispatch => {

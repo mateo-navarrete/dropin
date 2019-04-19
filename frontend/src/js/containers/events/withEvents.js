@@ -9,7 +9,8 @@ const mapStateToProps = ({ eventsReducer }) => {
     familyEvents: eventsReducer.familyEvents,
     partyEvents: eventsReducer.partyEvents,
     sportsEvents: eventsReducer.sportsEvents,
-    // loading: eventsReducer.loading,
+    loading: eventsReducer.loading,
+    loaded: eventsReducer.loaded
   };
 };
 

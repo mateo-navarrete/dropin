@@ -66,10 +66,7 @@ class SignUp extends React.Component {
     event.preventDefault();
     fire
       .auth()
-      .signInWithPopup(googleProvider)
-      .then(res => {
-        console.log(res);
-      })
+      .signInWithRedirect(googleProvider)
       .catch(err => {
         console.log(err);
       });
