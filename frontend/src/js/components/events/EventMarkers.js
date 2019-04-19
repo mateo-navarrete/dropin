@@ -37,10 +37,10 @@ export const EventMarker = props => {
 };
 
 const EventsMarkers = props => {
-  console.log("Event Marker props", props.eventCoords.length, props);
   const { category, eventCoords, showTopOverlay, loading, loaded } = props;
-  const eventMarker =
-    markerURL + (eventsMarker[category.name] || "pushpin/red-pushpin.png");
+  // const eventMarker =
+  // markerURL + (eventsMarker[category.name] || "pushpin/red-pushpin.png");
+  const eventMarker = eMarkers[category.name];
   if (eventCoords.length) {
     return (
       <MarkerClusterer
@@ -51,30 +51,29 @@ const EventsMarkers = props => {
         gridSize={100}
         defaultZoomOnClick
       >
-       {eventCoords.length &&
-         <Spiderfy >
-      {eventCoords.map(coord => {
-        const { id, latitude, longitude } = coord;
-        return (
-          <Marker
-            onDblClick={() => showTopOverlay(id)}
-            position={{ lat: latitude, lng: longitude }}
-            key={id}
-            icon={eventMarker}
-            id={id}
-            label={id.toString()}
-          />
-        );
-      })}
-
-        </Spiderfy>}
+        {eventCoords.length && (
+          <Spiderfy>
+            {eventCoords.map(coord => {
+              const { id, latitude, longitude } = coord;
+              return (
+                <Marker
+                  onDblClick={() => showTopOverlay(id)}
+                  position={{ lat: latitude, lng: longitude }}
+                  key={id}
+                  icon={eventMarker}
+                  id={id}
+                  label={id.toString()}
+                />
+              );
+            })}
+          </Spiderfy>
+        )}
       </MarkerClusterer>
     );
   } else {
     return null;
   }
 };
-
 
 export const EventMarkers = withOverlay(EventsMarkers);
 // <MarkerClusterer averageCenter enableRetinaIcons minimumClusterSize={3} zoomOnClick gridSize={10} defaultZoomOnClick>
