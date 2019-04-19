@@ -16,12 +16,10 @@ export const setLoadedToFalse = ()=>{
 }
 
 const getCategoryEvents = category => {
-  console.log('@get',category)
   return { type: GET_CATEGORY_EVENTS, payload: category };
 };
 
 const gotEventsError = err => {
-  console.log('@eventsErr', err);
   return { type: GOT_EVENTS_ERROR, payload: err };
 };
 
