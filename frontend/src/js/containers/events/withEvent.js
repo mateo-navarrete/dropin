@@ -44,7 +44,7 @@ const mapDispatchToProps = dispatch => {
 export const withEvent = WrappedComponent => {
   class HOC extends Component {
     componentDidMount() {
-      console.log('@@@', this, this.props);
+      // console.log('@@@', this, this.props);
     }
 
     render() {

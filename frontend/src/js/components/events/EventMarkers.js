@@ -1,6 +1,15 @@
 import React from 'react';
 import { Marker, MarkerClusterer } from '../../utils';
 import { withOverlay } from '../../containers';
+import family from '../../../svg-family.svg';
+import party from '../../../svg-party.svg';
+import sports from '../../../svg-sports.svg';
+
+const eMarkers = {
+  family: family,
+  party: party,
+  sports: sports,
+};
 
 const eventsMarker = {
   family: 'pal2/icon10.png',
@@ -28,8 +37,10 @@ export const EventMarker = props => {
 
 const EventsMarkers = props => {
   const { category, eventCoords, showTopOverlay } = props;
-  const eventMarker =
-    markerURL + (eventsMarker[category.name] || 'pushpin/red-pushpin.png');
+  // const eventMarker =
+  // markerURL + (eventsMarker[category.name] || 'pushpin/red-pushpin.png');
+  const eventMarker = eMarkers[category.name];
+  // console.log(category, eventMarker);
   return (
     <MarkerClusterer averageCenter enableRetinaIcons gridSize={60}>
       {eventCoords.map(coord => {

@@ -135,7 +135,6 @@ class HorizontalLabelPositionBelowStepper extends Component {
               aria-label="DropType"
               name="drops"
               className={classes.group}
-              row
             >
               <FormControlLabel
                 control={
@@ -148,6 +147,10 @@ class HorizontalLabelPositionBelowStepper extends Component {
                     aria-label="family"
                     icon={<FamilyIconBorder fontSize="large" />}
                     checkedIcon={<FamilyIcon fontSize="large" />}
+                    classes={{
+                      // root: classes.root,
+                      checked: "red-color"
+                    }}
                   />
                 }
                 label="FAMILY"
@@ -163,6 +166,10 @@ class HorizontalLabelPositionBelowStepper extends Component {
                     aria-label="party"
                     icon={<PartyIconBorder fontSize="large" />}
                     checkedIcon={<PartyIcon fontSize="large" />}
+                    classes={{
+                      // root: classes.root,
+                      checked: "blue-color"
+                    }}
                   />
                 }
                 label="PARTY"
@@ -178,6 +185,10 @@ class HorizontalLabelPositionBelowStepper extends Component {
                     aria-label="sports"
                     icon={<SportsIconBorder fontSize="large" />}
                     checkedIcon={<SportsIcon fontSize="large" />}
+                    classes={{
+                      // root: classes.root,
+                      checked: "green-color"
+                    }}
                   />
                 }
                 label="SPORTS"
@@ -238,9 +249,15 @@ class HorizontalLabelPositionBelowStepper extends Component {
         </FormGroup>
       ),
       5: (
-        <div>
+        <div style={{ textAlign: "left" }}>
           <br />
-          {`drop type:  ${this.props.category_id}`}
+          {`drop type:  ${
+            this.props.category_id === 1
+              ? "family"
+              : this.props.category_id === 2
+              ? "party"
+              : "sports"
+          }`}
           <br />
           {`event name: ${this.state.event_name}`}
           <br />
@@ -345,7 +362,7 @@ class HorizontalLabelPositionBelowStepper extends Component {
                     description: "test desc", //this.prosps.description,
                     expiration_date: this.props.expiration_date
                   }}
-                  s
+                  handleReset={this.handleReset}
                 />
               </div>
             )}

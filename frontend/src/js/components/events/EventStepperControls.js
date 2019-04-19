@@ -11,18 +11,26 @@ export const EventStepperControls = props => {
     handleBack,
     handleNext,
     createEvent,
+    handleReset,
   } = props;
   const steps = getSteps();
-  console.log('CONFIG', config);
+  // console.log('CONFIG', config);
 
   return (
-    <div>
+    <div className="flex center">
       <Button
         disabled={activeStep === 0}
         onClick={handleBack}
         className={classes.backButton}
       >
         Back
+      </Button>
+      <Button
+        color="secondary"
+        disabled={activeStep === 0}
+        onClick={handleReset}
+      >
+        Reset
       </Button>
       <Button
         variant="contained"
