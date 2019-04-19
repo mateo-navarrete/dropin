@@ -12,7 +12,7 @@ router.post("/", function(req, res, next) {
       host: "smtp.gmail.com",
       auth: {
         user: "jungraejang@pursuit.org",
-        pass: "wjdfo0124"
+        pass: ""
       }
     })
   );

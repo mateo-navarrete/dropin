@@ -4,26 +4,28 @@ import {
   GOT_FAMILY_EVENTS,
   GOT_PARTY_EVENTS,
   GOT_SPORTS_EVENTS,
-  SHOW_TOP_OVERLAY
-} from '../../constants';
+  SHOW_TOP_OVERLAY,
+  SET_LOADED_TO_FALSE
+} from "../../constants";
 
 const initState = {
-  category: 'family',
+  category: "family",
   //TODO
-  family: { id: 1, name: 'family' },
-  party: { id: 2, name: 'party' },
-  sports: { id: 3, name: 'sports' },
+  family: { id: 1, name: "family" },
+  party: { id: 2, name: "party" },
+  sports: { id: 3, name: "sports" },
   //TODO
   categories: [
-    { id: 1, name: 'family' },
-    { id: 2, name: 'party' },
-    { id: 3, name: 'sports' },
+    { id: 1, name: "family" },
+    { id: 2, name: "party" },
+    { id: 3, name: "sports" }
   ],
   eventID: 0,
   familyEvents: [],
   partyEvents: [],
   sportsEvents: [],
   loading: false,
+  loaded: false
 };
 
 export const eventsReducer = (state = initState, action) => {
@@ -33,17 +35,21 @@ export const eventsReducer = (state = initState, action) => {
       nextState = {
         ...state,
         loading: true,
-        category: action.payload,
+        loaded: false,
+        category: action.payload
       };
       return nextState;
     case GOT_EVENTS_ERROR:
-      nextState = { ...state, loading: false };
+      nextState = { ...state, loading: false, loaded: true };
       return nextState;
     case GOT_FAMILY_EVENTS:
       nextState = {
         ...state,
         loading: false,
         familyEvents: action.payload,
+        partyEvents: [],
+        sportsEvents: [],
+        loaded: true
       };
       return nextState;
     case GOT_PARTY_EVENTS:
@@ -51,17 +57,26 @@ export const eventsReducer = (state = initState, action) => {
         ...state,
         loading: false,
         partyEvents: action.payload,
+        sportsEvents: [],
+        familyEvents: [],
+        loaded: true
       };
       return nextState;
     case GOT_SPORTS_EVENTS:
       nextState = {
         ...state,
         loading: false,
+        partyEvents: [],
         sportsEvents: action.payload,
+        familyEvents: [],
+        loaded: true
       };
       return nextState;
     case SHOW_TOP_OVERLAY:
       nextState = { ...state, eventID: action.payload };
+      return nextState;
+    case SET_LOADED_TO_FALSE:
+      nextState = { ...state, loaded: false };
       return nextState;
     default:
       return state;

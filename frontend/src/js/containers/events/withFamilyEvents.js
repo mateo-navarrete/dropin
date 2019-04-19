@@ -1,18 +1,20 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { getEvents } from '../../actions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getEvents, setLoadedToFalse } from "../../actions";
 
 const mapStateToProps = ({ eventsReducer }) => {
   return {
     category: eventsReducer.family,
     eventCoords: eventsReducer.familyEvents,
-    // loading: eventsReducer.loading,
+    loading: eventsReducer.loading,
+    loaded: eventsReducer.loaded
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     getEvents: e => dispatch(getEvents(e)),
+    setLoadedToFalse: () => dispatch(setLoadedToFalse())
   };
 };
 
@@ -23,6 +25,10 @@ export const withFamilyEvents = WrappedComponent => {
       getEvents(category);
       //TODO: { api, category_id, latitude, longitude}
       // based on userCoords here
+    }
+    componentWillUnmount() {
+      const { setLoadedToFalse } = this.props;
+      setLoadedToFalse();
     }
 
     render() {

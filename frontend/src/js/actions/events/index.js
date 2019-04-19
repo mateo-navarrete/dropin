@@ -4,6 +4,6 @@ import {
   setPrivacy,
   setExpiration
 } from './eventActions';
-import { getEvents } from './eventsActions';
+import { getEvents, setLoadedToFalse } from './eventsActions';
 
-export { createEvent, setCategory, setPrivacy, setExpiration, getEvents };
+export { createEvent, setCategory, setPrivacy, setExpiration, getEvents, setLoadedToFalse };

@@ -3,7 +3,7 @@ import {
   setCategory,
   setPrivacy,
   setExpiration,
-  getEvents
+  getEvents,setLoadedToFalse
 } from './events';
 import {
   checkAuthStatus,
@@ -29,7 +29,7 @@ export {
   setCategory,
   setPrivacy,
   setExpiration,
-  getEvents,
+  getEvents,setLoadedToFalse,
   checkAuthStatus,
   createUser,
   loginUser,

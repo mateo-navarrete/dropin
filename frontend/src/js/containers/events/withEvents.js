@@ -9,12 +9,14 @@ const mapStateToProps = ({ eventsReducer }) => {
     familyEvents: eventsReducer.familyEvents,
     partyEvents: eventsReducer.partyEvents,
     sportsEvents: eventsReducer.sportsEvents,
-    // loading: eventsReducer.loading,
+    loading: eventsReducer.loading,
+    loaded: eventsReducer.loaded
   };
 };
 
 export const withEvents = WrappedComponent => {
   class HOC extends Component {
+    
     render() {
       return <WrappedComponent {...this.props} />;
     }

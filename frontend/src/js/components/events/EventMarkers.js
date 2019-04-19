@@ -1,23 +1,24 @@
-import React from 'react';
-import { Marker, MarkerClusterer } from '../../utils';
-import { withOverlay } from '../../containers';
-import family from '../../../svg-family.svg';
-import party from '../../../svg-party.svg';
-import sports from '../../../svg-sports.svg';
+import React from "react";
+import { Marker, MarkerClusterer } from "../../utils";
+import { withOverlay } from "../../containers";
+import family from "../../../svg-family.svg";
+import party from "../../../svg-party.svg";
+import sports from "../../../svg-sports.svg";
+import Spiderfy from "./Spiderfy";
 
 const eMarkers = {
   family: family,
   party: party,
-  sports: sports,
+  sports: sports
 };
 
 const eventsMarker = {
-  family: 'pal2/icon10.png',
-  party: 'pal2/icon27.png',
-  sports: 'pal2/icon57.png',
-  user: 'pal3/icon40.png',
+  family: "pal2/icon10.png",
+  party: "pal2/icon27.png",
+  sports: "pal2/icon57.png",
+  user: "pal3/icon40.png"
 };
-const markerURL = 'http://maps.google.com/mapfiles/kml/';
+const markerURL = "http://maps.google.com/mapfiles/kml/";
 
 export const EventMarker = props => {
   const { latitude, longitude } = props;
@@ -36,27 +37,47 @@ export const EventMarker = props => {
 };
 
 const EventsMarkers = props => {
-  const { category, eventCoords, showTopOverlay } = props;
-  // const eventMarker =
-  // markerURL + (eventsMarker[category.name] || 'pushpin/red-pushpin.png');
-  const eventMarker = eMarkers[category.name];
-  // console.log(category, eventMarker);
-  return (
-    <MarkerClusterer averageCenter enableRetinaIcons gridSize={60}>
+  console.log("Event Marker props", props.eventCoords.length, props);
+  const { category, eventCoords, showTopOverlay, loading, loaded } = props;
+  const eventMarker =
+    markerURL + (eventsMarker[category.name] || "pushpin/red-pushpin.png");
+  if (eventCoords.length) {
+    return (
+      <MarkerClusterer
+        averageCenter
+        enableRetinaIcons
+        minimumClusterSize={3}
+        zoomOnClick
+        gridSize={100}
+        defaultZoomOnClick
+      >
+       {eventCoords.length &&
+         <Spiderfy >
       {eventCoords.map(coord => {
         const { id, latitude, longitude } = coord;
         return (
           <Marker
-            onClick={() => showTopOverlay(id)}
+            onDblClick={() => showTopOverlay(id)}
             position={{ lat: latitude, lng: longitude }}
             key={id}
             icon={eventMarker}
             id={id}
+            label={id.toString()}
           />
         );
       })}
-    </MarkerClusterer>
-  );
+
+        </Spiderfy>}
+      </MarkerClusterer>
+    );
+  } else {
+    return null;
+  }
 };
 
+
 export const EventMarkers = withOverlay(EventsMarkers);
+// <MarkerClusterer averageCenter enableRetinaIcons minimumClusterSize={3} zoomOnClick gridSize={10} defaultZoomOnClick>
+// </MarkerClusterer>
+// <Spiderfy eventCoords={eventCoords} loaded={loaded}>
+// </Spiderfy>
