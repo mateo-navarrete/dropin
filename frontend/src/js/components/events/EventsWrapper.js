@@ -13,7 +13,6 @@ const apiKey = "AIzaSyB5uKfMriNA73mQgW_ZRelAixBLEdqT-Xg";
 const append = "&v=3.exp&libraries=geometry,drawing,places";
 
 const EventWrapper = props => {
-  console.log("Events Wrapper!!!!: props", props);
   // console.log("Events Wrapper!!!!: Props", props.eventCoords.length);
   // console.log("Events Wrapper!!", props.loaded);
   let style = { height: props.mainHeight };
