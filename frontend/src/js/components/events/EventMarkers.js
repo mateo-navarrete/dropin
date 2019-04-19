@@ -1,24 +1,24 @@
-import React from "react";
-import { Marker, MarkerClusterer } from "../../utils";
-import { withOverlay } from "../../containers";
-import family from "../../../svg-family.svg";
-import party from "../../../svg-party.svg";
-import sports from "../../../svg-sports.svg";
-import Spiderfy from "./Spiderfy";
+import React from 'react';
+import { Marker, MarkerClusterer } from '../../utils';
+import { withOverlay } from '../../containers';
+import family from '../../../svg-family.svg';
+import party from '../../../svg-party.svg';
+import sports from '../../../svg-sports.svg';
+import Spiderfy from './Spiderfy';
 
 const eMarkers = {
   family: family,
   party: party,
-  sports: sports
+  sports: sports,
 };
 
 const eventsMarker = {
-  family: "pal2/icon10.png",
-  party: "pal2/icon27.png",
-  sports: "pal2/icon57.png",
-  user: "pal3/icon40.png"
+  family: 'pal2/icon10.png',
+  party: 'pal2/icon27.png',
+  sports: 'pal2/icon57.png',
+  user: 'pal3/icon40.png',
 };
-const markerURL = "http://maps.google.com/mapfiles/kml/";
+const markerURL = 'http://maps.google.com/mapfiles/kml/';
 
 export const EventMarker = props => {
   const { latitude, longitude } = props;
