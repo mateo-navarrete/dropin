@@ -7,7 +7,7 @@ const ICONS = {
   sports: SportsIcon,
 };
 
-export const IconWrapper = ({ name }) => {
+export const IconWrapper = ({ name, ...props }) => {
   const HOC = ICONS[name] || 'div';
-  return <HOC fontSize="large" />;
+  return <HOC fontSize="large" {...props} />;
 };

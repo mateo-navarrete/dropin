@@ -1,7 +1,15 @@
-import React from "react";
-import { Marker, MarkerClusterer } from "../../utils";
-import { withOverlay } from "../../containers";
-import Spiderfy from "./Spiderfy";
+import React from 'react';
+import { Marker, MarkerClusterer } from '../../utils';
+import { withOverlay } from '../../containers';
+import family from '../../../svg-family.svg';
+import party from '../../../svg-party.svg';
+import sports from '../../../svg-sports.svg';
+
+const eMarkers = {
+  family: family,
+  party: party,
+  sports: sports,
+};
 
 const eventsMarker = {
   family: "pal2/icon10.png",

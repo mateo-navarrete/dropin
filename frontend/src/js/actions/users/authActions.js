@@ -85,7 +85,7 @@ export const loginUser = ({ user_name, password }) => dispatch => {
 
 export const createUser = userObj => dispatch => {
   dispatch(creatingUser(userObj));
-  console.log('@authActions', userObj);
+  // console.log('@authActions', userObj);
   // userObj.birthdate = '1990-01-01';
   postData('/api/users/new', userObj, res => {
     // res.data; //.username

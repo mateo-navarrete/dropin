@@ -66,8 +66,24 @@ class SignUp extends React.Component {
     event.preventDefault();
     fire
       .auth()
-      .signInWithRedirect(googleProvider)
+      // .getRedirectResult()
+      .signInWithPopup(googleProvider)
+      .then(res => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        let token = res.credential.accessToken;
+        // The signed-in user info.
+        let user = res.user;
+        console.log(token, user);
+        console.log(res);
+      })
       .catch(err => {
+        let errCode = err.code;
+        let errMsg = err.message;
+        // The email of the user's account used.
+        let email = err.email;
+        // The firebase.auth.AuthCredential type that was used.
+        let credential = err.credential;
+        console.log(errCode, errMsg, email, credential);
         console.log(err);
       });
   };
