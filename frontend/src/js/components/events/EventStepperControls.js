@@ -13,6 +13,8 @@ export const EventStepperControls = props => {
     createEvent,
     handleReset,
     hideBottomOverlay,
+    event_name,
+    event_description,
   } = props;
   const steps = getSteps();
   // console.log('CONFIG', config);
@@ -34,6 +36,12 @@ export const EventStepperControls = props => {
         Reset
       </Button>
       <Button
+        disabled={
+          (activeStep === 1 && !event_name) ||
+          (activeStep === 2 && !event_description)
+            ? true
+            : false
+        }
         variant="contained"
         color="primary"
         onClick={

@@ -333,10 +333,10 @@ class HorizontalLabelPositionBelowStepper extends Component {
                       }
                     >
                       <option value="" />
-                      <option value={"1"}>15 minutes</option>
-                      <option value={"2"}>30 minutes</option>
-                      <option value={"3"}>1 hour</option>
-                      <option value={"4"}>2 hour</option>
+                      <option value={"2019-04-21 15:32:47"}>15 minutes</option>
+                      <option value={"2019-04-21 15:32:47"}>30 minutes</option>
+                      <option value={"2019-04-21 15:32:47"}>1 hour</option>
+                      <option value={"2019-04-21 15:32:47"}>2 hour</option>
                     </Select>
                   </FormControl>
                 ) : (
@@ -359,12 +359,14 @@ class HorizontalLabelPositionBelowStepper extends Component {
                     latitude: this.props.latitude,
                     longitude: this.props.longitude,
                     display_user: this.state.display_user,
-                    event_name: "test name", //this.props.event_name,
-                    description: "test desc", //this.prosps.description,
+                    event_name: this.state.event_name,
+                    description: this.state.description,
                     expiration_date: this.props.expiration_date
                   }}
                   handleReset={this.handleReset}
                   hideBottomOverlay={hideBottomOverlay}
+                  event_name={this.state.event_name}
+                  event_description={this.state.description}
                 />
               </div>
             )}

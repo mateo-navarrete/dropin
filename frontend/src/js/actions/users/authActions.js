@@ -85,6 +85,7 @@ export const loginUser = ({ user_name, password }) => dispatch => {
         password: password, //password
       })
     );
+    //TODO => remove pw! & dispatch last login date!
     if (Auth.isUserAuthenticated()) dispatch(setLogin({ user_name, password }));
   });
 };
@@ -104,7 +105,7 @@ export const createUser = userObj => dispatch => {
     //NOTE: dispatch(toggleSignUpFormVisible)
   });
   //NOTE
-  sendEmail('/api/send', { userObj });
+  // sendEmail('/api/send', { userObj });
 };
 
 export const logoutUser = () => dispatch => {

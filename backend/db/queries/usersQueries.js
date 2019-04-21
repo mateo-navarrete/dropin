@@ -7,7 +7,7 @@ const createUser = (req, res, next) => {
   const userObj = {
     user_name: rb.user_name,
     password: hash,
-    email: rb.email
+    email: rb.email,
     // password_digest: hash,
   };
 
@@ -55,7 +55,7 @@ const updateUser = (req, res, next) => {
   let hash = authHelpers.createHash(rb.new_password);
   const userObj = {
     user_id: rb.user_id,
-    new_password: hash
+    new_password: hash,
   };
   db.none(
     'UPDATE users SET password_digest=${new_password} WHERE id=${user_id}',
@@ -64,7 +64,7 @@ const updateUser = (req, res, next) => {
     .then(() => {
       res.send({
         status: 'success',
-        message: `updated user: ${JSON.stringify(userObj)}`
+        message: `updated user: ${JSON.stringify(userObj)}`,
       });
     })
     .catch(err => next(err));
