@@ -1,3 +1,4 @@
+/* jscs:disable requireCamelCaseOrUpperCaseIdentifiers */
 /* eslint-disable no-unused-vars */
 
 import {
@@ -12,7 +13,8 @@ import {
   HIDE_SIGNIN,
   HIDE_SIGNUP,
   SHOW_SIGNIN,
-  SHOW_SIGNUP
+  SHOW_SIGNUP,
+  HIDE_MUST_BE_18
   // AUTH_ERROR, AUTH_USER, AUTHORIZE_USER
 } from '../../constants';
 import { getData, postData, sendEmail } from '../../utils';
@@ -64,6 +66,10 @@ export const showSignin = () => {
 
 export const showSignup = () => {
   return { type: SHOW_SIGNUP };
+};
+
+export const hideMustBe18 = () => {
+  return { type: HIDE_MUST_BE_18 };
 };
 
 // const userLogin = ({ user_name, password }) => dispatch => {

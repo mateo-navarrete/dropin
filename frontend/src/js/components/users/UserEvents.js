@@ -42,7 +42,6 @@ const UsersEvents = props => {
           <Paper className={props.classes.paper}>
             {props.isLoggedIn ? (
               <>
-                <UserLogout classes={props.classes} />
                 <EventStepper hideBottomOverlay={props.hideBottomOverlay} />
               </>
             ) : (

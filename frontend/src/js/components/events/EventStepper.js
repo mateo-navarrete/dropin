@@ -34,7 +34,7 @@ const styles = theme => ({
     marginTop: theme.spacing.unit
   },
   root: {
-    width: "90%"
+    // width: "90%"
   },
   backButton: {
     marginRight: theme.spacing.unit
@@ -74,7 +74,8 @@ class HorizontalLabelPositionBelowStepper extends Component {
     drop: "family",
     checkedA: true,
     checkedB: true,
-    labelWidth: 0
+    labelWidth: 0,
+    display_user: true
     // display_user: true
   };
 
@@ -130,8 +131,9 @@ class HorizontalLabelPositionBelowStepper extends Component {
       0: (
         <FormControl component="fieldset" className={classes.formControl}>
           <FormLabel component="legend">Type of Drop</FormLabel>
-          <FormGroup>
+          <FormGroup style={{ width: "101%" }}>
             <RadioGroup
+              row
               aria-label="DropType"
               name="drops"
               className={classes.group}
@@ -154,6 +156,7 @@ class HorizontalLabelPositionBelowStepper extends Component {
                   />
                 }
                 label="FAMILY"
+                labelPlacement="bottom"
               />
               <FormControlLabel
                 control={
@@ -173,6 +176,7 @@ class HorizontalLabelPositionBelowStepper extends Component {
                   />
                 }
                 label="PARTY"
+                labelPlacement="bottom"
               />
               <FormControlLabel
                 control={
@@ -192,6 +196,7 @@ class HorizontalLabelPositionBelowStepper extends Component {
                   />
                 }
                 label="SPORTS"
+                labelPlacement="bottom"
               />
             </RadioGroup>
           </FormGroup>
@@ -233,18 +238,20 @@ class HorizontalLabelPositionBelowStepper extends Component {
           <FormControlLabel
             control={
               <Switch
-                checked={!this.props.display_user}
-                value={this.props.display_user}
+                checked={this.state.display_user ? false : true}
+                value={this.state.display_user ? false : true}
                 id="display_user"
                 name="display_user"
                 onChange={e => {
-                  console.log("$", e.target.value);
-                  this.props.setPrivacy(e.target.value);
+                  let val = e.target.value === "true";
+                  this.setState({ display_user: val });
+                  // console.log("@setP", this.props);
+                  this.props.setPrivacy(val);
                   // this.setPrivacy()
                 }}
               />
             }
-            label="Make Public"
+            label="Hide My Profile"
           />
         </FormGroup>
       ),
@@ -326,18 +333,10 @@ class HorizontalLabelPositionBelowStepper extends Component {
                       }
                     >
                       <option value="" />
-                      <option value={"2019-04-09 8:30:29.247613"}>
-                        15 minutes
-                      </option>
-                      <option value={"2019-04-09 8:45:29.247613"}>
-                        30 minutes
-                      </option>
-                      <option value={"2019-04-09 9:30:29.247613"}>
-                        1 hour
-                      </option>
-                      <option value={"2019-04-09 11:30:29.247613"}>
-                        3 hour
-                      </option>
+                      <option value={"1"}>15 minutes</option>
+                      <option value={"2"}>30 minutes</option>
+                      <option value={"3"}>1 hour</option>
+                      <option value={"4"}>2 hour</option>
                     </Select>
                   </FormControl>
                 ) : (
@@ -345,6 +344,8 @@ class HorizontalLabelPositionBelowStepper extends Component {
                 )}
 
                 {getStepContent(STEPobj, activeStep)}
+                <br />
+                <br />
                 <EventStepperControls
                   classes={classes}
                   activeStep={activeStep}
@@ -363,6 +364,7 @@ class HorizontalLabelPositionBelowStepper extends Component {
                     expiration_date: this.props.expiration_date
                   }}
                   handleReset={this.handleReset}
+                  hideBottomOverlay={hideBottomOverlay}
                 />
               </div>
             )}

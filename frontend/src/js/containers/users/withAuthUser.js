@@ -8,7 +8,8 @@ import {
   hideSignin,
   hideSignup,
   showSignin,
-  showSignup
+  showSignup,
+  hideMustBe18
 } from '../../actions';
 
 const mapStateToProps = ({ authReducer }) => {
@@ -26,6 +27,7 @@ const mapStateToProps = ({ authReducer }) => {
     isLoggedIn: authReducer.isLoggedIn,
     signin: authReducer.signin,
     signup: authReducer.signup,
+    isUnder18: authReducer.isUnder18,
   };
 };
 
@@ -39,6 +41,7 @@ const mapDispatchToProps = dispatch => {
     hideSignup: () => dispatch(hideSignup()),
     showSignin: () => dispatch(showSignin()),
     showSignup: () => dispatch(showSignup()),
+    hideMustBe18: () => dispatch(hideMustBe18()),
   };
 };
 

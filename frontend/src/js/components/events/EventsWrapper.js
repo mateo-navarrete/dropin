@@ -1,21 +1,18 @@
-import React from "react";
-import { EventsMap } from "..";
+import React from 'react';
+import { EventsMap } from '..';
 import {
   withAreaSizes,
   withFamilyEvents,
   withPartyEvents,
   withSportsEvents,
   withUserCoords
-} from "../../containers";
+} from '../../containers';
 
-const prepend = "https://maps.googleapis.com/maps/api/js?key=";
-const apiKey = "AIzaSyB5uKfMriNA73mQgW_ZRelAixBLEdqT-Xg";
-const append = "&v=3.exp&libraries=geometry,drawing,places";
+const prepend = 'https://maps.googleapis.com/maps/api/js?key=';
+const apiKey = 'AIzaSyB5uKfMriNA73mQgW_ZRelAixBLEdqT-Xg';
+const append = '&v=3.exp&libraries=geometry,drawing,places';
 
 const EventWrapper = props => {
-  console.log("Events Wrapper!!!!: props", props);
-  // console.log("Events Wrapper!!!!: Props", props.eventCoords.length);
-  // console.log("Events Wrapper!!", props.loaded);
   let style = { height: props.mainHeight };
   const mapURL = prepend + apiKey + append;
   if (props.loaded && props.eventCoords.length !== 0) {
@@ -30,7 +27,6 @@ const EventWrapper = props => {
       />
     );
   } else {
-
     return null;
   }
 };

@@ -24,6 +24,7 @@ const initState = {
   latitude: 0, //userCoords
   longitude: 0, //userCoords
   display_user: true, //false,
+  // hide_user: true, //false,
   event_name: '',
   description: '',
   expiration_date: '', //2019-04-09 10:27:29.247613
@@ -68,8 +69,7 @@ export const eventReducer = (state = initState, action) => {
       nextState = { ...state, category_id: action.payload };
       return nextState;
     case SET_PRIVACY:
-      console.log('@eR sP', action.payload, state);
-      nextState = { ...state, display_user: !action.payload ? false : true };
+      nextState = { ...state, display_user: action.payload };
       return nextState;
     case SET_EXPIRATION:
       nextState = { ...state, expiration_date: action.payload };

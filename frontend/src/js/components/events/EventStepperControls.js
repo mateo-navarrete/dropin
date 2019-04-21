@@ -12,6 +12,7 @@ export const EventStepperControls = props => {
     handleNext,
     createEvent,
     handleReset,
+    hideBottomOverlay,
   } = props;
   const steps = getSteps();
   // console.log('CONFIG', config);
@@ -37,7 +38,12 @@ export const EventStepperControls = props => {
         color="primary"
         onClick={
           activeStep === steps.length - 1
-            ? () => createEvent(config)
+            ? () => {
+                createEvent(config);
+                handleReset();
+                hideBottomOverlay();
+              }
+
             : handleNext
         }
       >

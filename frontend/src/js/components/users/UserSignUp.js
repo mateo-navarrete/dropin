@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, FormControl, Input, InputLabel } from "..";
-import  GoogleLogin  from 'react-google-button'
+// import  GoogleLogin  from 'react-google-button'
 // import {googleProvider, fire} from "../../../config/fire"
 
 
@@ -36,11 +36,7 @@ export const UserSignUp = props => {
   return (
     <>
       {renderTextFields}
-      <GoogleLogin
-        onClick={props.handleGoogleSignIn}
-        type='dark'
-        style={{width: '100%'}}
-      />
+
       <Button
         type="submit"
         fullWidth
@@ -53,6 +49,14 @@ export const UserSignUp = props => {
     </>
   );
 };
+
+// <GoogleLogin
+//   onClick={props.handleGoogleSignIn}
+//   type='dark'
+//   style={{width: '100%'}}
+// />
+
+
 ////////////////////////////////////////////////////
 // type={id === "birth_date" ? "date" : "text"}
 //

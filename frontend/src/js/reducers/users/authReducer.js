@@ -7,11 +7,13 @@ import {
   SET_LOGIN,
   GET_AUTH_STATUS,
   SET_AUTH_STATUS,
-  HIDE_SIGNIN,
-  HIDE_SIGNUP,
+  // HIDE_SIGNIN,
+  // HIDE_SIGNUP,
   SHOW_SIGNIN,
   SHOW_SIGNUP,
-  HIDE_BOTTOM_OVERLAY
+  HIDE_BOTTOM_OVERLAY,
+  HIDE_MUST_BE_18,
+  // SHOW_MUST_BE_18
   // AUTH_ERROR, AUTH_USER, AUTHORIZE_USER
 } from '../../constants';
 
@@ -29,6 +31,7 @@ const initState = {
   authStatus: {},
   signin: false,
   signup: false,
+  isUnder18: true,
 };
 
 export const authReducer = (state = initState, action) => {
@@ -115,6 +118,18 @@ export const authReducer = (state = initState, action) => {
       nextState = {
         ...state,
         signup: true,
+      };
+      return nextState;
+    case SHOW_SIGNUP:
+      nextState = {
+        ...state,
+        signup: true,
+      };
+      return nextState;
+    case HIDE_MUST_BE_18:
+      nextState = {
+        ...state,
+        isUnder18: false,
       };
       return nextState;
     // case AUTHORIZE_USER:
