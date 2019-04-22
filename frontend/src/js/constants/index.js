@@ -16,6 +16,7 @@ export const HIDE_SIGNIN = 'HIDE_SIGNIN';
 export const HIDE_SIGNUP = 'HIDE_SIGNUP';
 export const SHOW_SIGNIN = 'SHOW_SIGNIN';
 export const SHOW_SIGNUP = 'SHOW_SIGNUP';
+export const HIDE_MUST_BE_18 = 'HIDE_MUST_BE_18';
 
 export const GET_CATEGORY_EVENTS = 'GET_CATEGORY_EVENTS';
 export const GOT_EVENTS_ERROR = 'GOT_EVENTS_ERROR';

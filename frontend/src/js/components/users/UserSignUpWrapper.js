@@ -13,7 +13,7 @@ import {
   IconButton,
   UserSignUp
 } from "..";
-import { fire, googleProvider } from "../../../config/fire";
+// import { fire, googleProvider } from "../../../config/fire";
 
 const styles = theme => ({
   main: {},
@@ -37,10 +37,10 @@ class SignUp extends React.Component {
     this.state = {
       user_name: "",
       password: "",
-      birth_date: "2019-01-01",
-      profile_photo: "",
-      instagram_id: "",
-      linkedin_id: "",
+      // birth_date: "2019-01-01",
+      // profile_photo: "",
+      // instagram_id: "",
+      // linkedin_id: "",
       showPassword: false,
       email: ""
     };
@@ -61,32 +61,32 @@ class SignUp extends React.Component {
     });
   };
 
-  handleGoogleSignIn = event => {
-    const { user_name, password } = this.state;
-    event.preventDefault();
-    fire
-      .auth()
-      // .getRedirectResult()
-      .signInWithPopup(googleProvider)
-      .then(res => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        let token = res.credential.accessToken;
-        // The signed-in user info.
-        let user = res.user;
-        console.log(token, user);
-        console.log(res);
-      })
-      .catch(err => {
-        let errCode = err.code;
-        let errMsg = err.message;
-        // The email of the user's account used.
-        let email = err.email;
-        // The firebase.auth.AuthCredential type that was used.
-        let credential = err.credential;
-        console.log(errCode, errMsg, email, credential);
-        console.log(err);
-      });
-  };
+  // handleGoogleSignIn = event => {
+  //   const { user_name, password } = this.state;
+  //   event.preventDefault();
+  //   fire
+  //     .auth()
+  //     // .getRedirectResult()
+  //     .signInWithPopup(googleProvider)
+  //     .then(res => {
+  //       // This gives you a Google Access Token. You can use it to access the Google API.
+  //       let token = res.credential.accessToken;
+  //       // The signed-in user info.
+  //       let user = res.user;
+  //       console.log(token, user);
+  //       console.log(res);
+  //     })
+  //     .catch(err => {
+  //       let errCode = err.code;
+  //       let errMsg = err.message;
+  //       // The email of the user's account used.
+  //       let email = err.email;
+  //       // The firebase.auth.AuthCredential type that was used.
+  //       let credential = err.credential;
+  //       console.log(errCode, errMsg, email, credential);
+  //       console.log(err);
+  //     });
+  // };
 
   render() {
     const { classes } = this.props;
@@ -145,11 +145,12 @@ class SignUp extends React.Component {
             {...this.props}
             {...this.state}
             handleChange={this.handleChange}
-            handleGoogleSignIn={this.handleGoogleSignIn}
           />
         </form>
       </>
     );
   }
 }
+// handleGoogleSignIn={this.handleGoogleSignIn}
+
 export const UserSignUpWrapper = withStyles(styles)(SignUp);

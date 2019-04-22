@@ -17,20 +17,26 @@ const EventWrapper = props => {
   const mapURL = prepend + apiKey + append;
   if (props.loaded && props.eventCoords.length !== 0) {
     return (
-      <EventsMap
-        isMarkerShown
-        googleMapURL={mapURL}
-        loadingElement={<div style={style} />}
-        containerElement={<div style={style} />}
-        mapElement={<div style={style} />}
-        {...props}
-      />
+      <>
+        <EventsMap
+          isMarkerShown
+          googleMapURL={mapURL}
+          loadingElement={
+            <div style={{ ...style, paddingTop: (props.mainHeight / 2) >> 0 }}>
+              Loading...
+            </div>
+          }
+          containerElement={<div style={style} />}
+          mapElement={<div style={style} />}
+          {...props}
+        />
+      </>
     );
   } else {
-
     return null;
   }
 };
+
 
 const EventsWrapper = withAreaSizes(withUserCoords(EventWrapper));
 export const FamilyEvents = withFamilyEvents(EventsWrapper);

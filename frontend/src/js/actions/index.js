@@ -15,6 +15,7 @@ import {
   hideSignup,
   showSignin,
   showSignup,
+  hideMustBe18,
   getUserCoords
 } from './users';
 import {
@@ -30,7 +31,8 @@ export {
   setCategory,
   setPrivacy,
   setExpiration,
-  getEvents,setLoadedToFalse,
+  getEvents,
+  setLoadedToFalse,
   checkAuthStatus,
   createUser,
   loginUser,
@@ -39,6 +41,7 @@ export {
   hideSignup,
   showSignin,
   showSignup,
+  hideMustBe18,
   getUserCoords,
   hideBottomOverlay,
   hideTopOverlay,

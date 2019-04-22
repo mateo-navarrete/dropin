@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '..';
+import { Button, UserLogout } from '..';
 import { withAreaSizes, withOverlay, withStyles } from '../../containers';
 
 const styles = theme => ({
@@ -13,7 +13,7 @@ const styles = theme => ({
 
 const ActionBar = ({ actionBarHeight, classes, showBottomOverlay }) => {
   return (
-    <div style={{ height: actionBarHeight }} className="flex center">
+    <div style={{ height: actionBarHeight }} className="flex space-around">
       <Button variant="contained" classes={classes} onClick={showBottomOverlay}>
         <img
           src={require('../../../assets/dropin-logo-wide.png')}
@@ -22,6 +22,7 @@ const ActionBar = ({ actionBarHeight, classes, showBottomOverlay }) => {
           width={actionBarHeight * 2 - 40}
         />
       </Button>
+      <UserLogout isLogoutBtn classes={classes} height={actionBarHeight - 20} />
     </div>
   );
 };

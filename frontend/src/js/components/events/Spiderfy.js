@@ -1,18 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { MAP, MARKER } from "react-google-maps/lib/constants";
-import { withOverlay } from "../../containers";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { MAP, MARKER } from 'react-google-maps/lib/constants';
+import { withOverlay } from '../../containers';
 
 class Spiderfy extends React.Component {
   static contextTypes = {
-    [MAP]: PropTypes.object
+    [MAP]: PropTypes.object,
   };
 
   constructor(props, context) {
     super(props, context);
     const oms = require(`npm-overlapping-marker-spiderfier/lib/oms.min`);
     this.oms = new oms.OverlappingMarkerSpiderfier(this.context[MAP], {
-      keepSpiderfied: true
+      keepSpiderfied: true,
     });
   }
 
@@ -24,11 +24,15 @@ class Spiderfy extends React.Component {
   };
 
   tempMarkerFn = ref => {
-    const { showTopOverlay, eventCoords, loading } = this.props;
+    const {
+      showTopOverlay,
+      // , eventCoords, loading
+    } = this.props;
+    // console.log("Spiderfy Ref State", ref.state);
     let marker;
     marker = ref.state[MARKER];
     this.oms.addMarker(marker);
-    window.google.maps.event.addListener(marker, "spider_click", e => {
+    window.google.maps.event.addListener(marker, 'spider_click', e => {
       if (this.props.onSpiderClick) {
         this.props.onSpiderClick(e);
       } else {
