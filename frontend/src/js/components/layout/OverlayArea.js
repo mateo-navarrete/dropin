@@ -13,7 +13,6 @@ const Overlay = props => {
     hideTopOverlay,
     getAddress
   } = props;
-  console.log("Overlay Area!!", props)
 
   return (
     <div>
