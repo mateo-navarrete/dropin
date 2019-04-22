@@ -51,7 +51,10 @@ const EventButton = ({
   getAddress,
   ...props
 }) => {
+<<<<<<< HEAD
   // console.log(props, category);
+=======
+>>>>>>> 39fb71bfc2a58372858fa84a3f1f3550fc5ec4b2
   return (
     <>
       <Button variant="outlined" onClick={hideTopOverlay}>
