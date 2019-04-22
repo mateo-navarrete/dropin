@@ -18,6 +18,7 @@ import OutlinedInput from '@material-ui/core/OutlinedInput';
 import Paper from '@material-ui/core/Paper';
 import PartyIcon from '@material-ui/icons/Whatshot';
 import PartyIconBorder from '@material-ui/icons/WhatshotOutlined';
+import PinIcon from '@material-ui/icons/Place';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import Select from '@material-ui/core/Select';
@@ -52,6 +53,7 @@ export {
   Paper,
   PartyIcon,
   PartyIconBorder,
+  PinIcon,
   Radio,
   RadioGroup,
   Select,
