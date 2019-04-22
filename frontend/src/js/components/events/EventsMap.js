@@ -22,7 +22,6 @@ const EventMap = props => {
     margin: auto;
     border-color: red;
   `;
-
   return (
     <>
       {latitude && (
@@ -38,14 +37,15 @@ const EventMap = props => {
               loading={loading}
             />
           )}
-          {eventCoords.length && (
+          {(eventCoords.length && (
             <EventMarkers
               category={category}
               eventCoords={eventCoords}
               loaded={loaded}
               loading={loading}
             />
-          )}
+          )) ||
+            null}
         </GoogleMap>
       )}
     </>
