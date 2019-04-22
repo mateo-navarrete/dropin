@@ -70,10 +70,14 @@ const EventsDetails = ({
               <Typography component="h1" variant="h5">
                 {e.event_name.toUpperCase()}
               </Typography>
+<<<<<<< HEAD
               <br />
               <EventButtons {...props}/>
               <br />
 
+=======
+              <EventButtons {...props} />
+>>>>>>> baf9408e57fb8a3286bb2a75caaa5acdee17beeb
               <Typography variant="subtitle1" gutterBottom>
                 {getTime(e.created_date).slice(0, 24)}
                 <br />
