@@ -103,9 +103,6 @@ const EventsDetails = ({
               <Typography component="h1" variant="h5">
                 {e.event_name.toUpperCase()}
               </Typography>
-              <br />
-              <EventButtons {...props} />
-              <br />
               <div
                 className={'progress-bg ' + barColor[category]}
                 style={{ width: maxWidth - theme.spacing.unit * 8 }}
