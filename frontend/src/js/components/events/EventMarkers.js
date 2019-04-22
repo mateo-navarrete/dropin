@@ -48,7 +48,7 @@ const EventsMarkers = props => {
         enableRetinaIcons
         minimumClusterSize={3}
         zoomOnClick
-        gridSize={60}
+        gridSize={70}
         defaultZoomOnClick
       >
         {eventCoords.length && (
