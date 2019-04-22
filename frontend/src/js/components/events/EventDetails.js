@@ -52,7 +52,6 @@ const EventsDetails = ({
   ...props,
 }) => {
   // console.log(props, category);
-  console.log("events details", props)
   const events = props[category + 'Events'];
   const renderEventDetails =
     topOverlay &&
