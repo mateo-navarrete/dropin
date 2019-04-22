@@ -13,8 +13,6 @@ const apiKey = "AIzaSyB5uKfMriNA73mQgW_ZRelAixBLEdqT-Xg";
 const append = "&v=3.exp&libraries=geometry,drawing,places";
 
 const EventWrapper = props => {
-  // console.log("Events Wrapper!!!!: Props", props.eventCoords.length);
-  console.log("Events Wrapper!!", props);
   let style = { height: props.mainHeight };
   const mapURL = prepend + apiKey + append;
   if (props.loaded && props.eventCoords.length !== 0) {
