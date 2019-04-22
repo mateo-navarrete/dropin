@@ -32,8 +32,31 @@ const createEventError = err => {
   return { type: CREATE_EVENT_ERROR, payload: err };
 };
 
+const pad = num => ('00' + num).slice(-2);
+
 export const createEvent = eventObj => dispatch => {
-  // console.log('@config', eventObj);
+  let date = new Date();
+  date =
+    date.getUTCFullYear() +
+    '-' +
+    pad(date.getUTCMonth() + 1) +
+    '-' +
+    pad(date.getUTCDate()) +
+    ' ' +
+    pad(date.getUTCHours()) +
+    ':' +
+    pad(date.getUTCMinutes()) +
+    ':' +
+    pad(date.getUTCSeconds());
+
+  let d = new Date()
+    .toISOString()
+    // .toLocaleString()
+    .slice(0, 19)
+    // .slice(0, 23)
+    .replace('T', ' ');
+
+  console.log('@config', eventObj, date, d);
   dispatch(creatingEvent());
   // console.log(eventObj);
   postData('/api/events/', eventObj, res => {

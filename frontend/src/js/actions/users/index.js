@@ -6,7 +6,8 @@ import {
   hideSignin,
   hideSignup,
   showSignin,
-  showSignup
+  showSignup,
+  hideMustBe18
 } from './authActions';
 import { getUserCoords } from './userCoordsActions';
 
@@ -19,5 +20,6 @@ export {
   hideSignup,
   showSignin,
   showSignup,
+  hideMustBe18,
   getUserCoords
 };

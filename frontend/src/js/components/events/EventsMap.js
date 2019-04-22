@@ -1,7 +1,7 @@
 import React from "react";
 import { withScriptjs, withGoogleMap, GoogleMap } from "../../utils";
 import { EventMarker, EventMarkers } from "..";
-import Spiderfy from "./Spiderfy";
+// import Spiderfy from "./Spiderfy";
 
 const EventMap = props => {
   const {
@@ -12,7 +12,7 @@ const EventMap = props => {
     loaded,
     loading
   } = props;
-  console.log("!!!", props);
+  // console.log("!!!", props);
   return (
     <>
       {latitude && (
@@ -20,7 +20,14 @@ const EventMap = props => {
           defaultZoom={15}
           defaultCenter={{ lat: latitude, lng: longitude }}
         >
-
+          {isMarkerShown && (
+            <EventMarker
+              latitude={latitude}
+              longitude={longitude}
+              loaded={loaded}
+              loading={loading}
+            />
+          )}
           {eventCoords.length && (
             <EventMarkers
               category={category}
@@ -36,12 +43,3 @@ const EventMap = props => {
 };
 
 export const EventsMap = withScriptjs(withGoogleMap(EventMap));
-
-// {isMarkerShown && (
-//   <EventMarker
-//     latitude={latitude}
-//     longitude={longitude}
-//     loaded={loaded}
-//     loading={loading}
-//   />
-// )}

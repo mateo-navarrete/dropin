@@ -1,3 +1,4 @@
+/* jscs:disable requireCamelCaseOrUpperCaseIdentifiers */
 /* eslint-disable no-unused-vars */
 
 import {
@@ -12,7 +13,8 @@ import {
   HIDE_SIGNIN,
   HIDE_SIGNUP,
   SHOW_SIGNIN,
-  SHOW_SIGNUP
+  SHOW_SIGNUP,
+  HIDE_MUST_BE_18
   // AUTH_ERROR, AUTH_USER, AUTHORIZE_USER
 } from '../../constants';
 import { getData, postData, sendEmail } from '../../utils';
@@ -66,6 +68,10 @@ export const showSignup = () => {
   return { type: SHOW_SIGNUP };
 };
 
+export const hideMustBe18 = () => {
+  return { type: HIDE_MUST_BE_18 };
+};
+
 // const userLogin = ({ user_name, password }) => dispatch => {
 export const loginUser = ({ user_name, password }) => dispatch => {
   // Auth.authenticateUser(user_name);
@@ -79,6 +85,7 @@ export const loginUser = ({ user_name, password }) => dispatch => {
         password: password, //password
       })
     );
+    //TODO => remove pw! & dispatch last login date!
     if (Auth.isUserAuthenticated()) dispatch(setLogin({ user_name, password }));
   });
 };
@@ -98,7 +105,7 @@ export const createUser = userObj => dispatch => {
     //NOTE: dispatch(toggleSignUpFormVisible)
   });
   //NOTE
-  sendEmail('/api/send', { userObj });
+  // sendEmail('/api/send', { userObj });
 };
 
 export const logoutUser = () => dispatch => {

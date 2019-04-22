@@ -7,25 +7,25 @@ const UsersLogout = props => {
     e.preventDefault();
     props.logoutUser();
   };
-
   return (
     <>
       {props.isLoggedIn && (
-        <>
+        <div style={{ position: "absolute", marginLeft: "40%" }}>
           <Button
             type="submit"
-            fullWidth
             variant="text"
             color="secondary"
+            height={props.height}
             onClick={handleLogout}
-            className={props.classes.submit}
           >
-            Log Out
+            LOG OUT
           </Button>
-        </>
+        </div>
       )}
     </>
   );
 };
+// fullWidth
+// className={props.classes.submit}
 
 export const UserLogout = withAuthUser(UsersLogout);

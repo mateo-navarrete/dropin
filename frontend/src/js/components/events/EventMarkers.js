@@ -37,8 +37,13 @@ export const EventMarker = props => {
 };
 
 const EventsMarkers = props => {
-  console.log('Event Marker props', props.eventCoords.length, props);
-  const { category, eventCoords, showTopOverlay, loading, loaded } = props;
+  // console.log('Event Marker props', props.eventCoords.length, props);
+  const {
+    category,
+    eventCoords,
+    showTopOverlay,
+    // loading, loaded
+  } = props;
   // const eventMarker =
   // markerURL + (eventsMarker[category.name] || "pushpin/red-pushpin.png");
   const eventMarker = eMarkers[category.name];
