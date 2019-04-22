@@ -34,6 +34,7 @@ import {
   IconWrapper
 } from './material';
 import {
+  EventButtons,
   EventDetails,
   EventMarker,
   EventMarkers,
@@ -93,6 +94,7 @@ export {
   Visibility,
   VisibilityOff,
   IconWrapper,
+  EventButtons,
   EventDetails,
   EventMarker,
   EventMarkers,
