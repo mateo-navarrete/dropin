@@ -14,7 +14,7 @@ const LoadingSpinner = props => {
     <img
       src={require('../../../assets/dropin-logo-wide.png')}
       alt="dropin"
-      style={{height: "150px", width: "auto", marginTop: '8%'}}
+      style={{height: "150px", width: "auto", paddingTop: '15%'}}
     />
       <GridLoader
         css={override}
