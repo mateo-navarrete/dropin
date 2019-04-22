@@ -27,6 +27,20 @@ export const UserStatusOptions = props => {
       >
         SIGN IN
       </Button>
+      <div className="flex align">
+        <div className="divider-line" style={{ width: props.width * 0.09 }} />
+        <div className="divider-space" style={{ width: props.width * 0.01 }} />
+        <div> or </div>
+        <div className="divider-space" style={{ width: props.width * 0.01 }} />
+        <div className="divider-line" style={{ width: props.width * 0.09 }} />
+      </div>
+      <Button
+        fullWidth
+        variant="contained"
+        onClick={props.loginDemoUser}
+      >
+        SIGN IN AS DEMO USER
+      </Button>
     </>
   );
 };
