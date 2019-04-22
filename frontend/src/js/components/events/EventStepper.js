@@ -361,7 +361,7 @@ class HorizontalLabelPositionBelowStepper extends Component {
                     display_user: this.state.display_user,
                     event_name: this.state.event_name,
                     description: this.state.description,
-                    expiration_date: this.props.expiration_date
+                    expiration_date: this.props.expiration_date || 1
                   }}
                   handleReset={this.handleReset}
                   hideBottomOverlay={hideBottomOverlay}

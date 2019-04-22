@@ -23,7 +23,7 @@ const LoadingSpinner = props => {
         color={"#FB354A"}
         loading={!props.latitude}
       />
-      <p>Graphing Whale Migration...</p>
+    <p>Loading Locale Events Around You...</p>
     </>
   );
 };

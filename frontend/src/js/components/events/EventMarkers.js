@@ -70,9 +70,10 @@ const EventsMarkers = props => {
         )}
       </MarkerClusterer>
     );
-  } else {
-    return null;
   }
+  // else {
+  //   return null;
+  // }
 };
 
 export const EventMarkers = withOverlay(EventsMarkers);
