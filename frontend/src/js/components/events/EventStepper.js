@@ -333,10 +333,10 @@ class HorizontalLabelPositionBelowStepper extends Component {
                       }
                     >
                       <option value="" />
-                      <option value={"2019-04-21 15:32:47"}>15 minutes</option>
-                      <option value={"2019-04-21 15:32:47"}>30 minutes</option>
-                      <option value={"2019-04-21 15:32:47"}>1 hour</option>
-                      <option value={"2019-04-21 15:32:47"}>2 hour</option>
+                      <option value={1}>15 minutes</option>
+                      <option value={2}>30 minutes</option>
+                      <option value={3}>1 hour</option>
+                      <option value={4}>2 hour</option>
                     </Select>
                   </FormControl>
                 ) : (
