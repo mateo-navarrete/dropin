@@ -2,6 +2,12 @@ const db = require('..');
 
 const createEvent = (req, res, next) => {
   const rb = req.body;
+  const duration = {
+    1: 15,
+    2: 30,
+    3: 60,
+    4: 120,
+  };
   const eventObj = {
     category_id: rb.category_id,
     user_name: rb.user_name,
@@ -10,10 +16,10 @@ const createEvent = (req, res, next) => {
     display_user: rb.display_user,
     event_name: rb.event_name,
     description: rb.description,
-    expiration_date: rb.expiration_date,
+    expiration_date: duration[rb.expiration_date],
   };
   db.none(
-    'INSERT INTO events (category_id, user_id, latitude, longitude, display_user, event_name, description, expiration_date) VALUES (${category_id}, (SELECT id FROM users WHERE user_name = ${user_name}), ${latitude}, ${longitude}, ${display_user}, ${event_name}, ${description}, ${expiration_date})',
+    "INSERT INTO events (category_id, user_id, latitude, longitude, display_user, event_name, description, expiration_date) VALUES (${category_id}, (SELECT id FROM users WHERE user_name = ${user_name}), ${latitude}, ${longitude}, ${display_user}, ${event_name}, ${description}, now() + INTERVAL '${expiration_date}' MINUTE)",
     eventObj
   )
     .then(() => {
@@ -26,7 +32,10 @@ const createEvent = (req, res, next) => {
 };
 
 const getEvents = (req, res, next) => {
-  db.any('SELECT * FROM events WHERE category_id=$1', +req.params.id)
+  db.any(
+    'SELECT * FROM events WHERE category_id=$1 AND expiration_date >= CURRENT_TIMESTAMP',
+    +req.params.id
+  )
     .then(data => {
       res.send({
         status: 'success',
@@ -34,7 +43,10 @@ const getEvents = (req, res, next) => {
         message: `got all events in category: ${req.params.id}`,
       });
     })
-    .catch(err => next(err));
+    .catch(err => {
+      console.log(err);
+      next(err);
+    });
 };
 
 const updateEvent = (req, res, next) => {
@@ -74,7 +86,7 @@ module.exports = {
   createEvent,
   getEvents,
   updateEvent,
-  deleteEvent
+  deleteEvent,
 };
 
 // TODO:

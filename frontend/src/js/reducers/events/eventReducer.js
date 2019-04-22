@@ -62,7 +62,7 @@ export const eventReducer = (state = initState, action) => {
       nextState = { ...state, creating: false };
       return nextState;
     case CREATED_EVENT:
-      console.log('@ccreated_event', action.payload);
+      // console.log('@created_event', action.payload);
       nextState = { ...state, creating: false };
       return nextState;
     case SET_CATEGORY:
