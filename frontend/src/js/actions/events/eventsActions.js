@@ -7,13 +7,15 @@ import {
   GOT_FAMILY_EVENTS,
   GOT_PARTY_EVENTS,
   GOT_SPORTS_EVENTS,
-  SET_LOADED_TO_FALSE
-} from '../../constants';
-import { getData } from '../../utils';
+  SET_LOADED_TO_FALSE,
+  GET_ADDRESS
+} from "../../constants";
+import { getData } from "../../utils";
+import Geocode from "react-geocode";
 
-export const setLoadedToFalse = ()=>{
-  return {type: SET_LOADED_TO_FALSE}
-}
+export const setLoadedToFalse = () => {
+  return { type: SET_LOADED_TO_FALSE };
+};
 
 const getCategoryEvents = category => {
   return { type: GET_CATEGORY_EVENTS, payload: category };
@@ -35,18 +37,37 @@ const got_sportsEvents = events => {
   return { type: GOT_SPORTS_EVENTS, payload: events };
 };
 
+const get_address = address => {
+  return { type: GET_ADDRESS, payload: address };
+};
+
 const EVENTS = {
   got_familyEvents,
   got_partyEvents,
-  got_sportsEvents,
+  got_sportsEvents
 };
 
 export const getEvents = ({ id, name }) => dispatch => {
-  let gotEvent = EVENTS['got_' + name + 'Events'];
+  let gotEvent = EVENTS["got_" + name + "Events"];
   dispatch(getCategoryEvents(name));
-  getData('/api/events/' + (id || ''), res => {
+  getData("/api/events/" + (id || ""), res => {
     res.data.length
       ? dispatch(gotEvent(res.data))
       : dispatch(gotEventsError(res.data));
   });
+};
+
+export const getAddress = (latitude, longitude) => dispatch => {
+  console.log("Get Address Events Actions!!!")
+  Geocode.setApiKey("AIzaSyB5uKfMriNA73mQgW_ZRelAixBLEdqT-Xg");
+  Geocode.fromLatLng(`${latitude}`, `${longitude}`).then(
+    response => {
+      let address = response.results[0].formatted_address;
+      dispatch(get_address(address));
+      console.log("getAddress", address);
+    },
+    error => {
+      console.error(error);
+    }
+  );
 };

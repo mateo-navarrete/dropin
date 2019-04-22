@@ -19,7 +19,6 @@ const EventMap = props => {
           defaultZoom={15}
           defaultCenter={{ lat: latitude, lng: longitude }}
         >
-
           {eventCoords.length && (
             <EventMarkers
               category={category}

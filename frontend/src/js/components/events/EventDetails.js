@@ -48,10 +48,11 @@ const EventsDetails = ({
   eventID,
   classes,
   theme,
+  getAddress,
   ...props,
 }) => {
   // console.log(props, category);
-
+  console.log("events details", props)
   const events = props[category + 'Events'];
   const renderEventDetails =
     topOverlay &&
@@ -76,6 +77,9 @@ const EventsDetails = ({
                 {e.description}
                 <br />
                 {e.latitude}, {e.longitude}
+                <br />
+                {getAddress(e.latitude, e.longitude)}
+                {props.address}
               </Typography>
               <div className="flex center">
                 <div className="divider-line" style={{ width: width * 0.4 }} />

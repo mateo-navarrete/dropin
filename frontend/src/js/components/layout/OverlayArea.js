@@ -1,5 +1,5 @@
 import React from 'react';
-import { withAreaSizes, withOverlay } from '../../containers';
+import { withAreaSizes, withOverlay, withEvents } from '../../containers';
 import { EventDetails, UserEvents } from '..';
 import '../../../styles/overlay.css';
 
@@ -11,7 +11,9 @@ const Overlay = props => {
     width,
     hideBottomOverlay,
     hideTopOverlay,
+    getAddress
   } = props;
+  console.log("Overlay Area!!", props)
 
   return (
     <div>
@@ -24,6 +26,7 @@ const Overlay = props => {
           width={width}
           topOverlay={topOverlay}
           hideTopOverlay={hideTopOverlay}
+          getAddress={getAddress}
         />
       </div>
       <div
@@ -41,4 +44,4 @@ const Overlay = props => {
   );
 };
 
-export const OverlayArea = withAreaSizes(withOverlay(Overlay));
+export const OverlayArea = withAreaSizes(withEvents(withOverlay(Overlay)));
