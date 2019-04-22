@@ -1,6 +1,13 @@
 import React from 'react';
+import moment from 'moment';
 import { withEvents, withStyles, withTheme } from '../../containers';
 import { Button, Paper, IconWrapper, Typography, EventButtons } from '..';
+
+const barColor = {
+  family: 'red-bg',
+  party: 'blue-bg',
+  sports: 'green-bg',
+};
 
 const getTime = str => {
   let d = new Date(str);
@@ -51,12 +58,38 @@ const EventsDetails = ({
   getAddress,
   ...props,
 }) => {
-  // console.log(props, category);
   const events = props[category + 'Events'];
   const renderEventDetails =
     topOverlay &&
     events.map(e => {
-      // console.log(e);
+      let now;
+      let start;
+      let end;
+      let total;
+      let remaining;
+      let percent;
+      let maxWidth = width <= 310 ? 310 : width <= 370 ? 360 : 400;
+      if (e.id === +eventID) {
+        now = moment();
+        start = moment(e.created_date);
+        end = moment(e.expiration_date);
+        let duration = moment.duration(end.diff(start));
+        total = duration.asMinutes();
+        let expired = moment.duration(now.diff(start));
+        remaining = expired.asMinutes();
+        percent = (((remaining / total) * 10000) >>> 0) / 10000;
+        let percentComplete = (((remaining / total) * 10000) >>> 0) / 100;
+        //NOTE: percentComplete / 100 %
+        // console.log(
+        //   total,
+        //   remaining,
+        //   remaining / total,
+        //   percentComplete,
+        //   percent
+        // );
+        console.log('@', theme, width, maxWidth, category, barColor[category]);
+      }
+
       return (
         e.id === +eventID && (
           <div className="" key={e.id}>
@@ -70,7 +103,23 @@ const EventsDetails = ({
               <Typography component="h1" variant="h5">
                 {e.event_name.toUpperCase()}
               </Typography>
+              <div
+                className={'progress-bg ' + barColor[category]}
+                style={{ width: maxWidth - theme.spacing.unit * 8 }}
+              >
+                <div
+                  className={'progress-bar'}
+                  style={{
+                    width: (maxWidth - theme.spacing.unit * 8) * percent,
+                  }}
+                />
+              </div>
+              <Typography variant="caption" gutterBottom>
+                time remaining
+              </Typography>
+              <br />
               <EventButtons {...props} />
+              <br />
               <Typography variant="subtitle1" gutterBottom>
                 {getTime(e.created_date).slice(0, 24)}
                 <br />
@@ -82,7 +131,10 @@ const EventsDetails = ({
                 {props.address}
               </Typography>
               <div className="flex center">
-                <div className="divider-line" style={{ width: width * 0.4 }} />
+                <div
+                  className="divider-line"
+                  style={{ width: maxWidth * 0.5 }}
+                />
               </div>
               <br />
               <Button variant="outlined" onClick={hideTopOverlay}>
