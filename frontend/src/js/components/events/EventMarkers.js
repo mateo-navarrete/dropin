@@ -44,12 +44,12 @@ const EventsMarkers = props => {
   if (eventCoords.length) {
     return (
       <MarkerClusterer
-        averageCenter
         enableRetinaIcons
         minimumClusterSize={3}
         zoomOnClick
-        gridSize={100}
-        defaultZoomOnClick
+        averageCenter
+        gridSize={70}
+        maxZoom={5}
       >
         {eventCoords.length && (
           <Spiderfy>
