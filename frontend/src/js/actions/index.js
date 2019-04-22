@@ -3,13 +3,15 @@ import {
   setCategory,
   setPrivacy,
   setExpiration,
-  getEvents,setLoadedToFalse,
+  getEvents,
+  setLoadedToFalse,
   getAddress
 } from './events';
 import {
   checkAuthStatus,
   createUser,
   loginUser,
+  loginDemoUser,
   logoutUser,
   hideSignin,
   hideSignup,
@@ -36,6 +38,7 @@ export {
   checkAuthStatus,
   createUser,
   loginUser,
+  loginDemoUser,
   logoutUser,
   hideSignin,
   hideSignup,

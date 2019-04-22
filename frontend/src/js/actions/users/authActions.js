@@ -72,6 +72,11 @@ export const hideMustBe18 = () => {
   return { type: HIDE_MUST_BE_18 };
 };
 
+export const loginDemoUser = () => dispatch => {
+  // console.log('@here');
+  dispatch(loginUser({ user_name: 'demo', password: 'abc123' }));
+};
+
 // const userLogin = ({ user_name, password }) => dispatch => {
 export const loginUser = ({ user_name, password }) => dispatch => {
   // Auth.authenticateUser(user_name);
