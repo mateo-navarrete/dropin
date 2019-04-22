@@ -70,6 +70,6 @@ VALUES ( 1, 1, 40.743431, -73.938770, 'true', 'My Family Event', 'Fun get togeth
 -- ( 3, 3, 40.741431, -73.938870, 'true',  'smash tourney 2000', 'big money no hanzo mains' )
 ;
 
-UPDATE events SET expiration_date = created_date + INTERVAL '15' MINUTE;
+-- UPDATE events SET expiration_date = created_date + INTERVAL '15' MINUTE;
 
--- UPDATE events SET expiration_date = created_date + INTERVAL '3' HOUR;
+UPDATE events SET expiration_date = created_date + INTERVAL '2' HOUR;

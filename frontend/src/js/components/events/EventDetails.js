@@ -1,6 +1,6 @@
 import React from 'react';
 import { withEvents, withStyles, withTheme } from '../../containers';
-import { Button, Paper, IconWrapper, Typography } from '..';
+import { Button, Paper, IconWrapper, Typography, EventButtons } from '..';
 
 const getTime = str => {
   let d = new Date(str);
@@ -70,6 +70,7 @@ const EventsDetails = ({
               <Typography component="h1" variant="h5">
                 {e.event_name.toUpperCase()}
               </Typography>
+              <EventButtons {...props} />
               <Typography variant="subtitle1" gutterBottom>
                 {getTime(e.created_date).slice(0, 24)}
                 <br />
