@@ -3,8 +3,8 @@ import {
   setCategory,
   setPrivacy,
   setExpiration,
-  getEvents,
-  setLoadedToFalse
+  getEvents,setLoadedToFalse,
+  getAddress
 } from './events';
 import {
   checkAuthStatus,
@@ -47,5 +47,6 @@ export {
   hideTopOverlay,
   showBottomOverlay,
   showTopOverlay,
-  getResize
+  getResize,
+  getAddress
 };

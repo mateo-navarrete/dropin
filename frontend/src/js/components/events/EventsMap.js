@@ -2,6 +2,10 @@ import React from "react";
 import { withScriptjs, withGoogleMap, GoogleMap } from "../../utils";
 import { EventMarker, EventMarkers } from "..";
 // import Spiderfy from "./Spiderfy";
+import { css } from "@emotion/core";
+// First way to import
+import { CircleLoader } from "react-spinners";
+import LoadingSpinner from "./LoadingSpinner";
 
 const EventMap = props => {
   const {
@@ -12,7 +16,13 @@ const EventMap = props => {
     loaded,
     loading
   } = props;
-  // console.log("!!!", props);
+
+  const override = css`
+    display: block;
+    margin: auto;
+    border-color: red;
+  `;
+
   return (
     <>
       {latitude && (

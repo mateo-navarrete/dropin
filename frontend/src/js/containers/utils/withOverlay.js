@@ -4,7 +4,8 @@ import {
   hideBottomOverlay,
   hideTopOverlay,
   showBottomOverlay,
-  showTopOverlay
+  showTopOverlay,
+  getAddress
 } from '../../actions';
 
 const mapStateToProps = ({ overlayReducer }) => {
@@ -20,6 +21,7 @@ const mapDispatchToProps = dispatch => {
     hideTopOverlay: () => dispatch(hideTopOverlay()),
     showBottomOverlay: () => dispatch(showBottomOverlay()),
     showTopOverlay: eventID => dispatch(showTopOverlay(eventID)),
+    getAddress: (latitude, longitude) => dispatch(getAddress(latitude, longitude))
   };
 };
 

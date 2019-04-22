@@ -5,7 +5,8 @@ import {
   GOT_PARTY_EVENTS,
   GOT_SPORTS_EVENTS,
   SHOW_TOP_OVERLAY,
-  SET_LOADED_TO_FALSE
+  SET_LOADED_TO_FALSE,
+  GET_ADDRESS
 } from "../../constants";
 
 const initState = {
@@ -25,7 +26,8 @@ const initState = {
   partyEvents: [],
   sportsEvents: [],
   loading: false,
-  loaded: false
+  loaded: false,
+  address: ""
 };
 
 export const eventsReducer = (state = initState, action) => {
@@ -77,6 +79,9 @@ export const eventsReducer = (state = initState, action) => {
       return nextState;
     case SET_LOADED_TO_FALSE:
       nextState = { ...state, loaded: false };
+      return nextState;
+    case GET_ADDRESS:
+      nextState = { ...state, address: action.payload };
       return nextState;
     default:
       return state;

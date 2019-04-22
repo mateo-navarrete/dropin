@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getEvents, setLoadedToFalse } from "../../actions";
+import { getEvents, setLoadedToFalse, getAddress } from "../../actions";
 
 const mapStateToProps = ({ eventsReducer }) => {
   return {
@@ -14,7 +14,8 @@ const mapStateToProps = ({ eventsReducer }) => {
 const mapDispatchToProps = dispatch => {
   return {
     getEvents: e => dispatch(getEvents(e)),
-    setLoadedToFalse: () => dispatch(setLoadedToFalse())
+    setLoadedToFalse: () => dispatch(setLoadedToFalse()),
+    getAddress: (latitude, longitude) => dispatch(getAddress(latitude, longitude))
   };
 };
 
