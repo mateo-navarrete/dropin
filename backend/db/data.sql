@@ -56,7 +56,8 @@ VALUES ('Family'),
 INSERT INTO users (user_name, password_digest, email) VALUES ('JRJMuzik', '12345678', 'JRJMuzik@gmail.com'),
 ('GoodSamaritan123', '12345678', 'GoodSamaritan123@gmail.com'),
 ('BallIsLife', '12345678', 'BallIsLife@gmail.com'),
-('user1', '12345678', 'user1@gmail.com');
+('user1', '12345678', 'user1@gmail.com'),
+('demo', '$2a$10$9eZBe6FRcdBRlK8pv7lE2.ptT9XiqnUWxVJv.nZx61JNyBWzFrsri', 'test@hotmail.com');
 
 INSERT INTO events (category_id, user_id, latitude, longitude, display_user, event_name, description)
 VALUES ( 1, 1, 40.743431, -73.938770, 'true', 'My Family Event', 'Fun get together' ),

@@ -59,6 +59,7 @@ class SignIn extends React.Component {
 
   render() {
     const { classes } = this.props;
+    console.log("@@@", this.props);
     return (
       <>
         {this.props.height > 600 && (
@@ -119,6 +120,11 @@ class SignIn extends React.Component {
             className={classes.submit}
           >
             Sign In
+          </Button>
+          <br />
+          <br />
+          <Button color="secondary" onClick={this.props.showSignup}>
+            or create an account
           </Button>
         </form>
       </>

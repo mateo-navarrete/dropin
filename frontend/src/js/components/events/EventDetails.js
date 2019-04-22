@@ -125,8 +125,9 @@ class EventsDetails extends Component {
           localtime = moment(start).format('dddd, MMMM Do YYYY, h:mm:ss a');
           let [first, ...rest] = this.props.address.split(',');
           rest = rest.join(',');
-          console.log(first);
-          console.log(rest);
+          // console.log(first);
+          // console.log(rest);
+          console.log(e);
           street = first;
           address = rest;
           // street = this.props.address; //copy.match(/([^,]+)/);
@@ -149,6 +150,13 @@ class EventsDetails extends Component {
                 <Typography variant="caption" gutterBottom>
                   dropped {localtime}
                 </Typography>
+                {e.display_user ? (
+                  <Typography variant="caption" gutterBottom>
+                    by {e.id}
+                  </Typography>
+                ) : (
+                  ''
+                )}
                 <div
                   className={'progress-bg ' + barColor[category]}
                   style={{ width: maxWidth - theme.spacing.unit * 8 }}

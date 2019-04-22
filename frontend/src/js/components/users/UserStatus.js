@@ -7,6 +7,7 @@ import {
 } from "..";
 
 export const UserStatus = props => {
+  // console.log('@@@', props)
   return (
     <>
       {props.signup ? (

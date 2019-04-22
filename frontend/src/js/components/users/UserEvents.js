@@ -1,6 +1,6 @@
 import React from "react";
 import { withAuthUser, withStyles } from "../../containers";
-import { Button, Paper, UserLogout, UserStatus, EventStepper } from "..";
+import { Button, Paper, UserStatus, EventStepper } from "..";
 
 const styles = theme => ({
   main: {
