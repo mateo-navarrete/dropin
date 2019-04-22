@@ -58,13 +58,11 @@ export const getEvents = ({ id, name }) => dispatch => {
 };
 
 export const getAddress = (latitude, longitude) => dispatch => {
-  console.log("Get Address Events Actions!!!")
   Geocode.setApiKey("AIzaSyB5uKfMriNA73mQgW_ZRelAixBLEdqT-Xg");
   Geocode.fromLatLng(`${latitude}`, `${longitude}`).then(
     response => {
       let address = response.results[0].formatted_address;
       dispatch(get_address(address));
-      console.log("getAddress", address);
     },
     error => {
       console.error(error);
