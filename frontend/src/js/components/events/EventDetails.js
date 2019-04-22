@@ -123,8 +123,13 @@ class EventsDetails extends Component {
           // );
           // console.log('@', theme, width, maxWidth, category, barColor[category]);
           localtime = moment(start).format('dddd, MMMM Do YYYY, h:mm:ss a');
-          // let copy = this.props.address;
-          street = this.props.address; //copy.match(/([^,]+)/);
+          let [first, ...rest] = this.props.address.split(',');
+          rest = rest.join(',');
+          console.log(first);
+          console.log(rest);
+          street = first;
+          address = rest;
+          // street = this.props.address; //copy.match(/([^,]+)/);
           // console.log(street.length);
         }
 
@@ -177,7 +182,9 @@ class EventsDetails extends Component {
                     )}
                   </div>
                   {getAddress(e.latitude, e.longitude)}
-                  {this.props.address}
+                  {street}
+                  <br />
+                  {address}
                 </Typography>
                 <div className="flex center">
                   <div
