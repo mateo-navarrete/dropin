@@ -49,6 +49,7 @@ const EventsMarkers = props => {
         zoomOnClick
         averageCenter
         gridSize={70}
+        maxZoom={5}
       >
         {eventCoords.length && (
           <Spiderfy>
