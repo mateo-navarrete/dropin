@@ -33,7 +33,14 @@ const createEvent = (req, res, next) => {
 
 const getEvents = (req, res, next) => {
   db.any(
-    'SELECT * FROM events WHERE category_id=$1 AND expiration_date >= CURRENT_TIMESTAMP',
+    `SELECT *,
+    (SELECT
+        user_name
+    FROM users AS u
+    WHERE events.user_id = u.id) AS user_name
+    FROM events
+    WHERE category_id=$1
+    AND expiration_date >= CURRENT_TIMESTAMP`,
     +req.params.id
   )
     .then(data => {
