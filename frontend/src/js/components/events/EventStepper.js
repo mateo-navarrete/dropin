@@ -88,6 +88,7 @@ class HorizontalLabelPositionBelowStepper extends Component {
   };
 
   handleChange = e => {
+    e.preventDefault();
     const { name, value } = e.target;
     this.setState({ [name]: value });
   };
@@ -111,21 +112,25 @@ class HorizontalLabelPositionBelowStepper extends Component {
   };
 
   render() {
-    const config = {
-      category_id: this.props.category_id || 1,
-      user_id: this.props.user_id || 1,
-      latitude: this.props.latitude,
-      longitude: this.props.longitude,
-      display_user: this.props.display_user || "false",
-      event_name: this.state.event_name || "my event",
-      description: this.state.description || "default description of my event",
-      expiration_date: this.props.expiration_date || "2019-04-09 8:30:29.247613"
-    };
+    // const config = {
+    //   category_id: this.props.category_id || 1,
+    //   user_id: this.props.user_id || 1,
+    //   latitude: this.props.latitude,
+    //   longitude: this.props.longitude,
+    //   display_user: this.props.display_user || "false",
+    //   event_name: this.state.event_name || "my event",
+    //   description: this.state.description || "default description of my event",
+    //   expiration_date: this.props.expiration_date || "2019-04-09 8:30:29.247613"
+    // };
+
     const { classes, hideBottomOverlay } = this.props;
     const steps = getSteps();
     const { activeStep } = this.state;
-    const { family, party, sports, drop, labelWidth } = this.state;
-    const error = [family, party, sports].filter(v => v).length !== 1;
+    const {
+      // fsamily, party, sports, drop,
+      labelWidth
+    } = this.state;
+    // const error = [family, party, sports].filter(v => v).length !== 1;
     // const error = [family, party, sports].filter(v => v).length !== 2;
     const STEPobj = {
       0: (
@@ -203,7 +208,11 @@ class HorizontalLabelPositionBelowStepper extends Component {
         </FormControl>
       ),
       1: (
-        <form className={classes.form} onChange={this.handleChange}>
+        <form
+          className={classes.form}
+          onChange={this.handleChange}
+          onSubmit={e => this.handleChange(e)}
+        >
           <FormControl margin="normal" required fullWidth>
             <InputLabel htmlFor="event_name">Event Name</InputLabel>
             <Input
@@ -218,7 +227,11 @@ class HorizontalLabelPositionBelowStepper extends Component {
         </form>
       ),
       2: (
-        <form className={classes.form} onChange={this.handleChange}>
+        <form
+          className={classes.form}
+          onChange={this.handleChange}
+          onSubmit={e => this.handleChange(e)}
+        >
           <FormControl margin="normal" required fullWidth>
             <InputLabel htmlFor="description">Event Details</InputLabel>
             <Input

@@ -103,6 +103,7 @@ class EventsDetails extends Component {
         let localtime;
         let street;
         let address;
+        let endtime;
         if (e.id === +eventID) {
           now = moment();
           start = moment(e.created_date);
@@ -112,6 +113,8 @@ class EventsDetails extends Component {
           let expired = moment.duration(now.diff(start));
           remaining = expired.asMinutes();
           percent = (((remaining / total) * 10000) >>> 0) / 10000;
+          if (percent <= 0) percent = 0;
+          if (percent >= 1) percent = 1;
           let percentComplete = (((remaining / total) * 10000) >>> 0) / 100;
           //NOTE: percentComplete / 100 %
           // console.log(
@@ -123,11 +126,14 @@ class EventsDetails extends Component {
           // );
           // console.log('@', theme, width, maxWidth, category, barColor[category]);
           localtime = moment(start).format('dddd, MMMM Do YYYY, h:mm:ss a');
+          endtime = moment(end).format('dddd, MMMM Do YYYY, h:mm:ss a');
           let [first, ...rest] = this.props.address.split(',');
           rest = rest.join(',');
           // console.log(first);
           // console.log(rest);
-          console.log(e);
+          // console.log(e, e.display_user);
+          //   percent,
+          //   (maxWidth - theme.spacing.unit * 8) * percent
           street = first;
           address = rest;
           // street = this.props.address; //copy.match(/([^,]+)/);
@@ -147,16 +153,16 @@ class EventsDetails extends Component {
                 <Typography component="h1" variant="h5">
                   {e.event_name.toUpperCase()}
                 </Typography>
-                <Typography variant="caption" gutterBottom>
-                  dropped {localtime}
-                </Typography>
-                {e.display_user ? (
+                {e.display_user === 'true' ? (
                   <Typography variant="caption" gutterBottom>
-                    by {e.id}
+                    by {e.user_name}
                   </Typography>
                 ) : (
                   ''
                 )}
+                <Typography variant="caption" gutterBottom>
+                  dropped: {localtime}
+                </Typography>
                 <div
                   className={'progress-bg ' + barColor[category]}
                   style={{ width: maxWidth - theme.spacing.unit * 8 }}
@@ -169,7 +175,7 @@ class EventsDetails extends Component {
                   />
                 </div>
                 <Typography variant="caption" gutterBottom>
-                  time remaining
+                  expires: {endtime}
                 </Typography>
                 <br />
                 <EventButtons {...this.props} />
