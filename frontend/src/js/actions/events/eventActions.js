@@ -32,7 +32,7 @@ const createEventError = err => {
   return { type: CREATE_EVENT_ERROR, payload: err };
 };
 
-const pad = num => ('00' + num).slice(-2);
+// const pad = num => ('00' + num).slice(-2);
 
 export const createEvent = eventObj => dispatch => {
   // let date = new Date();
@@ -57,6 +57,14 @@ export const createEvent = eventObj => dispatch => {
   //   .replace('T', ' ');
   //
   // console.log('@config', eventObj, date, d);
+  let page =
+    +eventObj.category_id === 1
+      ? 'family'
+      : +eventObj.category_id === 2
+      ? 'party'
+      : 'sports';
+  //TODO: refactor!
+  window.location.assign(`/${page}`);
   dispatch(creatingEvent());
   // console.log(eventObj);
   postData('/api/events/', eventObj, res => {

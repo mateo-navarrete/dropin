@@ -88,6 +88,7 @@ class HorizontalLabelPositionBelowStepper extends Component {
   };
 
   handleChange = e => {
+    e.preventDefault();
     const { name, value } = e.target;
     this.setState({ [name]: value });
   };
@@ -203,7 +204,11 @@ class HorizontalLabelPositionBelowStepper extends Component {
         </FormControl>
       ),
       1: (
-        <form className={classes.form} onChange={this.handleChange}>
+        <form
+          className={classes.form}
+          onChange={this.handleChange}
+          onSubmit={e => this.handleChange(e)}
+        >
           <FormControl margin="normal" required fullWidth>
             <InputLabel htmlFor="event_name">Event Name</InputLabel>
             <Input
@@ -218,7 +223,11 @@ class HorizontalLabelPositionBelowStepper extends Component {
         </form>
       ),
       2: (
-        <form className={classes.form} onChange={this.handleChange}>
+        <form
+          className={classes.form}
+          onChange={this.handleChange}
+          onSubmit={e => this.handleChange(e)}
+        >
           <FormControl margin="normal" required fullWidth>
             <InputLabel htmlFor="description">Event Details</InputLabel>
             <Input
