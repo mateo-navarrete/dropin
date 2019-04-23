@@ -1,4 +1,5 @@
 import React from 'react';
+/*global google*/
 import { Marker, MarkerClusterer } from '../../utils';
 import { withOverlay } from '../../containers';
 import family from '../../../svg-family.svg';
@@ -36,6 +37,8 @@ export const EventMarker = props => {
   );
 };
 
+// animation={google.maps.Animation.BOUNCE}
+
 const EventsMarkers = props => {
   const { category, eventCoords, showTopOverlay, loading, loaded } = props;
   // const eventMarker =
@@ -63,6 +66,7 @@ const EventsMarkers = props => {
                   icon={eventMarker}
                   id={id}
                   label={id.toString()}
+                  animation={google.maps.Animation.DROP}
                 />
               );
             })}
