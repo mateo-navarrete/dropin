@@ -112,21 +112,25 @@ class HorizontalLabelPositionBelowStepper extends Component {
   };
 
   render() {
-    const config = {
-      category_id: this.props.category_id || 1,
-      user_id: this.props.user_id || 1,
-      latitude: this.props.latitude,
-      longitude: this.props.longitude,
-      display_user: this.props.display_user || "false",
-      event_name: this.state.event_name || "my event",
-      description: this.state.description || "default description of my event",
-      expiration_date: this.props.expiration_date || "2019-04-09 8:30:29.247613"
-    };
+    // const config = {
+    //   category_id: this.props.category_id || 1,
+    //   user_id: this.props.user_id || 1,
+    //   latitude: this.props.latitude,
+    //   longitude: this.props.longitude,
+    //   display_user: this.props.display_user || "false",
+    //   event_name: this.state.event_name || "my event",
+    //   description: this.state.description || "default description of my event",
+    //   expiration_date: this.props.expiration_date || "2019-04-09 8:30:29.247613"
+    // };
+
     const { classes, hideBottomOverlay } = this.props;
     const steps = getSteps();
     const { activeStep } = this.state;
-    const { family, party, sports, drop, labelWidth } = this.state;
-    const error = [family, party, sports].filter(v => v).length !== 1;
+    const {
+      // fsamily, party, sports, drop,
+      labelWidth
+    } = this.state;
+    // const error = [family, party, sports].filter(v => v).length !== 1;
     // const error = [family, party, sports].filter(v => v).length !== 2;
     const STEPobj = {
       0: (

@@ -131,11 +131,9 @@ class EventsDetails extends Component {
           rest = rest.join(',');
           // console.log(first);
           // console.log(rest);
-          // console.log(
-          //   e,
+          // console.log(e, e.display_user);
           //   percent,
           //   (maxWidth - theme.spacing.unit * 8) * percent
-          // );
           street = first;
           address = rest;
           // street = this.props.address; //copy.match(/([^,]+)/);
@@ -155,9 +153,9 @@ class EventsDetails extends Component {
                 <Typography component="h1" variant="h5">
                   {e.event_name.toUpperCase()}
                 </Typography>
-                {e.display_user ? (
+                {e.display_user === 'true' ? (
                   <Typography variant="caption" gutterBottom>
-                    by {e.id}
+                    by {e.user_name}
                   </Typography>
                 ) : (
                   ''

@@ -65,6 +65,7 @@ export const createEvent = eventObj => dispatch => {
       : 'sports';
   //TODO: refactor!
   window.location.assign(`/${page}`);
+  console.log('@@@', eventObj);
   dispatch(creatingEvent());
   // console.log(eventObj);
   postData('/api/events/', eventObj, res => {
