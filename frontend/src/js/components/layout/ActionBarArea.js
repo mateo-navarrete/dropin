@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { Button, UserLogout } from '..';
 import { withAreaSizes, withOverlay, withStyles } from '../../containers';
 
@@ -11,12 +12,19 @@ const styles = theme => ({
   },
 });
 
-const ActionBar = ({ actionBarHeight, classes, showBottomOverlay }) => {
+const ActionBar = ({
+  actionBarHeight,
+  classes,
+  showBottomOverlay,
+  ...props,
+}) => {
+  let page = props.location.pathname.slice(1);
+  let logo = page === 'party' ? 'blue' : page === 'sports' ? 'green' : 'red';
   return (
     <div style={{ height: actionBarHeight }} className="flex space-around">
       <Button variant="contained" classes={classes} onClick={showBottomOverlay}>
         <img
-          src={require('../../../assets/dropin-logo-wide.png')}
+          src={require(`../../../assets/dropin-logo-${logo}.png`)}
           alt="dropin"
           height={actionBarHeight - 20}
           width={actionBarHeight * 2 - 40}
@@ -28,6 +36,6 @@ const ActionBar = ({ actionBarHeight, classes, showBottomOverlay }) => {
 };
 // onClick={() => openStepperModal()}
 
-export const ActionBarArea = withAreaSizes(
-  withOverlay(withStyles(styles)(ActionBar))
+export const ActionBarArea = withRouter(
+  withAreaSizes(withOverlay(withStyles(styles)(ActionBar)))
 );
