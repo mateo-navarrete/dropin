@@ -53,8 +53,8 @@ const EventsMarkers = props => {
         enableRetinaIcons
         minimumClusterSize={3}
         zoomOnClick
-        averageCenter
-        gridSize={70}
+        averageCenter={true}
+        gridSize={60}
       >
         {eventCoords.length && (
           <Spiderfy>
@@ -83,7 +83,3 @@ const EventsMarkers = props => {
 };
 
 export const EventMarkers = withOverlay(EventsMarkers);
-// <MarkerClusterer averageCenter enableRetinaIcons minimumClusterSize={3} zoomOnClick gridSize={10} defaultZoomOnClick>
-// </MarkerClusterer>
-// <Spiderfy eventCoords={eventCoords} loaded={loaded}>
-// </Spiderfy>
