@@ -9,17 +9,83 @@ import LoadingSpinner from "./LoadingSpinner";
 
 const exampleMapStyles = [
   {
-    featureType: "administrative",
-    elementType: "labels.text.fill",
+    featureType: "water",
     stylers: [
       {
-        color: "#6195a0"
+        color: "#2980b9"
       }
     ]
   },
   {
-    featureType: "administrative.province",
+    featureType: "administrative",
+    elementType: "labels.text.stroke",
+    stylers: [
+      {
+        color: "#ffffff"
+      },
+      {
+        weight: 6
+      }
+    ]
+  },
+  {
+    featureType: "administrative",
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        color: "#fb364a"
+      }
+    ]
+  },
+  {
+    featureType: "road.highway",
     elementType: "geometry.stroke",
+    stylers: [
+      {
+        color: "#efe9e4"
+      },
+      {
+        lightness: -40
+      }
+    ]
+  },
+  {
+    featureType: "road.arterial",
+    elementType: "geometry.stroke",
+    stylers: [
+      {
+        color: "#efe9e4"
+      },
+      {
+        lightness: -20
+      }
+    ]
+  },
+  {
+    featureType: "road",
+    elementType: "labels.text.stroke",
+    stylers: [
+      {
+        lightness: 100
+      }
+    ]
+  },
+  {
+    featureType: "road",
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        lightness: -100
+      }
+    ]
+  },
+  {
+    featureType: "road.highway",
+    elementType: "labels.icon"
+  },
+  {
+    featureType: "landscape",
+    elementType: "labels",
     stylers: [
       {
         visibility: "off"
@@ -28,85 +94,81 @@ const exampleMapStyles = [
   },
   {
     featureType: "landscape",
-    elementType: "geometry",
     stylers: [
       {
-        lightness: "0"
+        lightness: 20
       },
       {
-        saturation: "0"
-      },
-      {
-        color: "#f5f5f2"
-      },
-      {
-        gamma: "1"
+        color: "#efe9e4"
       }
     ]
   },
   {
     featureType: "landscape.man_made",
-    elementType: "all",
     stylers: [
       {
-        lightness: "-3"
-      },
-      {
-        gamma: "1.00"
+        visibility: "off"
       }
     ]
   },
   {
-    featureType: "landscape.natural.terrain",
-    elementType: "all",
+    featureType: "water",
+    elementType: "labels.text.stroke",
     stylers: [
       {
-        visibility: "off"
+        lightness: 100
+      }
+    ]
+  },
+  {
+    featureType: "water",
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        lightness: -100
       }
     ]
   },
   {
     featureType: "poi",
-    elementType: "all",
+    elementType: "labels.text.fill",
     stylers: [
       {
-        visibility: "off"
+        hue: "#11ff00"
       }
     ]
   },
   {
-    featureType: "poi.park",
-    elementType: "geometry.fill",
+    featureType: "poi",
+    elementType: "labels.text.stroke",
     stylers: [
       {
-        color: "#bae5ce"
+        lightness: 100
+      }
+    ]
+  },
+  {
+    featureType: "poi",
+    elementType: "labels.icon",
+    stylers: [
+      {
+        hue: "#4cff00"
       },
+      {
+        saturation: 58
+      },
+      {visibility: "off"}
+    ]
+  },
+  {
+    featureType: "poi",
+    elementType: "geometry",
+    stylers: [
       {
         visibility: "on"
-      }
-    ]
-  },
-  {
-    featureType: "road",
-    elementType: "all",
-    stylers: [
-      {
-        saturation: -100
       },
       {
-        lightness: 45
-      },
-      {
-        visibility: "simplified"
-      }
-    ]
-  },
-  {
-    featureType: "road.highway",
-    elementType: "all",
-    stylers: [
-      {
-        visibility: "simplified"
+        color: "#f0e4d3"
       }
     ]
   },
@@ -115,127 +177,31 @@ const exampleMapStyles = [
     elementType: "geometry.fill",
     stylers: [
       {
-        color: "#fac9a9"
+        color: "#efe9e4"
       },
       {
-        visibility: "simplified"
-      }
-    ]
-  },
-  {
-    featureType: "road.highway",
-    elementType: "labels.text",
-    stylers: [
-      {
-        color: "#4e4e4e"
+        lightness: -25
       }
     ]
   },
   {
     featureType: "road.arterial",
-    elementType: "labels.text.fill",
-    stylers: [
-      {
-        color: "#787878"
-      }
-    ]
-  },
-  {
-    featureType: "road.arterial",
-    elementType: "labels.icon",
-    stylers: [
-      {
-        visibility: "off"
-      }
-    ]
-  },
-  {
-    featureType: "transit",
-    elementType: "all",
-    stylers: [
-      {
-        visibility: "simplified"
-      }
-    ]
-  },
-  {
-    featureType: "transit.station.airport",
-    elementType: "labels.icon",
-    stylers: [
-      {
-        hue: "#0a00ff"
-      },
-      {
-        saturation: "-77"
-      },
-      {
-        gamma: "0.57"
-      },
-      {
-        lightness: "0"
-      }
-    ]
-  },
-  {
-    featureType: "transit.station.rail",
-    elementType: "labels.text.fill",
-    stylers: [
-      {
-        color: "#43321e"
-      }
-    ]
-  },
-  {
-    featureType: "transit.station.rail",
-    elementType: "labels.icon",
-    stylers: [
-      {
-        hue: "#ff6c00"
-      },
-      {
-        lightness: "4"
-      },
-      {
-        gamma: "0.75"
-      },
-      {
-        saturation: "-68"
-      }
-    ]
-  },
-  {
-    featureType: "water",
-    elementType: "all",
-    stylers: [
-      {
-        color: "#eaf6f8"
-      },
-      {
-        visibility: "on"
-      }
-    ]
-  },
-  {
-    featureType: "water",
     elementType: "geometry.fill",
     stylers: [
       {
-        color: "#c7eced"
+        color: "#efe9e4"
+      },
+      {
+        lightness: -10
       }
     ]
   },
   {
-    featureType: "water",
-    elementType: "labels.text.fill",
+    featureType: "poi",
+    elementType: "labels",
     stylers: [
       {
-        lightness: "-49"
-      },
-      {
-        saturation: "-53"
-      },
-      {
-        gamma: "0.79"
+        visibility: "off"
       }
     ]
   }
@@ -262,9 +228,11 @@ const EventMap = props => {
       {latitude && (
         <GoogleMap
           options={{
-            styles: exampleMapStyles
+            styles: exampleMapStyles,
+            mapTypeControl: false
           }}
           defaultZoom={15}
+          defaultOptions={{mapTypeControl: false}}
           defaultCenter={{ lat: latitude, lng: longitude }}
           defaultClickableIcons={false}
           containerProps={{

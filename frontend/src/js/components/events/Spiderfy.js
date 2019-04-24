@@ -13,6 +13,10 @@ class Spiderfy extends React.Component {
     const oms = require(`npm-overlapping-marker-spiderfier/lib/oms.min`);
     this.oms = new oms.OverlappingMarkerSpiderfier(this.context[MAP], {
       keepSpiderfied: true,
+      circleFootSeparation: 60,
+      spiralFootSeparation: 60,
+      spiralLengthStart: 60,
+      spiralLengthFactor: 4
     });
   }
 

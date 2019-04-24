@@ -7,6 +7,7 @@ import ErrorBoundary from './ErrorBoundary';
 import App from './js/App';
 import { store } from './js/store';
 
+
 ReactDOM.render(
   <ErrorBoundary>
     <Provider store={store}>
