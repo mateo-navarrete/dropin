@@ -201,7 +201,7 @@ const exampleMapStyles = [
     elementType: "labels",
     stylers: [
       {
-        visibility: "simplified"
+        visibility: "off"
       }
     ]
   }
