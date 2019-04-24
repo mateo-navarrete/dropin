@@ -10,7 +10,7 @@ import {
 import LoadingSpinner from "./LoadingSpinner";
 
 const prepend = "https://maps.googleapis.com/maps/api/js?key=";
-const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+const apiKey = "AIzaSyB5uKfMriNA73mQgW_ZRelAixBLEdqT-Xg"
 const append = "&v=3.exp&libraries=geometry,drawing,places";
 
 const EventWrapper = props => {
