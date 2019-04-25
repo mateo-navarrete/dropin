@@ -64,7 +64,7 @@ const EventsMarkers = props => {
         zoomOnClick
         maxZoom={16}
         averageCenter={true}
-        gridSize={40}
+        gridSize={50}
         styles={[
           {
             url: marker_cluster1,
