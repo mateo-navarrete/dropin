@@ -142,6 +142,17 @@ Green: 39, 174, 96 27ae60
   padding: 5px;
 }
 
+#myVideo {
+  background-color: #acb2f2;
+  /*  */
+  max-width: 100%;
+}
+
+.vjs-tech {
+  /* object-fit: contain; */
+  object-fit: cover;
+  /* object-fit: fill; */
+}
 
 /*
 .logo-square {
