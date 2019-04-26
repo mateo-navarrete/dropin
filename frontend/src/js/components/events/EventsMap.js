@@ -5,7 +5,7 @@ import {
   GoogleMap,
   Marker
 } from "react-google-maps";
-import { EventMarker, EventMarkers } from "..";
+// import { EventMarker, EventMarkers } from "..";
 import { css } from "@emotion/core";
 // import { CircleLoader } from "react-spinners";
 // import LoadingSpinner from "./LoadingSpinner";

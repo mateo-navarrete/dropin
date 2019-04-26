@@ -20,7 +20,7 @@ import post2 from './blog-post.2.md';
 import post3 from './blog-post.3.md';
 import StyledAppBar from './components/StyledAppBar';
 import StyledDrawer from './components/StyledDrawer';
-import { EventsWrapper } from './components/events/EventsWrapper';
+import { EventMap } from './components/events/EventMap';
 
 const styles = theme => ({
   layout: {
@@ -138,7 +138,7 @@ function Blog(props) {
       <div className={classes.layout}>
         <StyledAppBar />
         <StyledDrawer />
-        <EventsWrapper />
+        <EventMap isMarkerShown/>
         <main>
           {/* Main featured post */}
           <Paper className={classes.mainFeaturedPost}>
