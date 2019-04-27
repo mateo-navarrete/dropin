@@ -43,6 +43,7 @@ h1 {
   /* background: #00f281; */
 }
 
+/* red = #FB364A rgba(251, 54, 74, 1) */
 .red-bg {
   background-color: rgba(251, 54, 74, 1);
 }
@@ -55,6 +56,7 @@ h1 {
   color: rgba(251, 54, 74, 1);
 }
 
+/* blue = #2980B9 rgba(41, 128, 185, 1) */
 .blue-bg {
   background-color: rgba(41, 128, 185, 1);
 }
@@ -67,6 +69,7 @@ h1 {
   color: rgba(41, 128, 185, 1);
 }
 
+/* green = #27AE60 rgba(39, 174, 96, 1) */
 .green-bg {
   background-color: rgba(39, 174, 96, 1);
 }
@@ -79,6 +82,7 @@ h1 {
   color: rgba(39, 174, 96, 1);
 }
 
+/* yellow = #F1C40F rgba(241, 196, 15, 1) */
 .yellow-bg {
   background-color: rgba(241, 196, 15, 1);
 }
