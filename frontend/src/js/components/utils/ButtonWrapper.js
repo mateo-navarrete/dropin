@@ -3,18 +3,19 @@ import { Button } from '../material';
 import { withStyles } from '../../containers';
 
 const styles = theme => ({
-  cssRoot: {
-    color: theme.palette.getContrastText('rgba(251, 54, 74, 1)'),
-    backgroundColor: 'rgba(251, 54, 74, 1)',
+  root: {
+    color: theme.palette.getContrastText('#FB364A'),
+    backgroundColor: '#FB364A',
     '&:hover': {
-      backgroundColor: 'rgba(201, 4, 24, 1)',
+      backgroundColor: '#af2533',
     },
+    transition: 'background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
   },
 });
 
 const Wrapper = ({ classes, children, ...props }) => {
   return (
-    <Button variant="contained" className={classes.cssRoot}>
+    <Button variant="contained" size="large" className={classes.root}>
       {children}
     </Button>
   );

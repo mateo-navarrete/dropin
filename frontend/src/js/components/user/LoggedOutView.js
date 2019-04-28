@@ -1,25 +1,37 @@
 //jscs:disable requireShorthandArrowFunctions
-import React from 'react';
-import { IconButton, LoggedOutIcon } from '../material';
-import { withStyles } from '../../containers';
+import React, { Component, Fragment as F } from 'react';
+import { SideList } from './SideList';
+import { IconButton, LoggedOutIcon, Drawer } from '../material';
 
-const styles = {
-  menuButton: {
-    // marginLeft: -12,
-    // marginRight: 20,
-  },
-};
+class Wrapper extends Component {
+  state = {
+    modal: false,
+  };
+  toggleDrawer = open => {
+    this.setState({ modal: open });
+  };
 
-const Wrapper = props => {
-  return (
-    <IconButton
-      className={props.classes.menuButton}
-      color="inherit"
-      aria-label="Menu"
-    >
-      <LoggedOutIcon fontSize="large"/>
-    </IconButton>
-  );
-};
+  render() {
+    const { modal } = this.state;
+    return (
+      <F>
+        <IconButton
+          color="inherit"
+          aria-label="Menu"
+          onClick={() => this.toggleDrawer(!modal)}
+        >
+          <LoggedOutIcon fontSize="large" />
+        </IconButton>
+        <Drawer
+          anchor="right"
+          open={modal}
+          onClose={() => this.toggleDrawer(false)}
+        >
+          <SideList />
+        </Drawer>
+      </F>
+    );
+  }
+}
 
-export const LoggedOutView = withStyles(styles)(Wrapper);
+export const LoggedOutView = Wrapper;
