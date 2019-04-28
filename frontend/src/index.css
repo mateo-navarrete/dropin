@@ -146,6 +146,14 @@ Green: 39, 174, 96 27ae60
   padding: 5px;
 }
 
+.divide-or {
+  width: 35%;
+}
+
+.or-margin {
+  margin-left: 5%;
+  margin-right: 5%;
+}
 
 #myVideo {
   background-color: #acb2f2;

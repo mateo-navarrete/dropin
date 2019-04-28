@@ -1,10 +1,10 @@
 //jscs:disable requireShorthandArrowFunctions
 import React, { Component, Fragment as F } from 'react';
-import { AuthOptionsView } from './AuthOptionsView';
+import { AuthOptionsView } from '.';
 import { IconButton, LoggedOutIcon,
    // Drawer
-  } from '../material';
-import { withStyles } from '../../containers';
+ } from '../../material';
+import { withStyles } from '../../../containers';
 import Modal from '@material-ui/core/Modal';
 
 const getModalStyle = () => {

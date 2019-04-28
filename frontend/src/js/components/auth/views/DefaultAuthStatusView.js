@@ -1,7 +1,7 @@
 import React, { Fragment as F } from 'react';
 import { CompactLoggedInView, DefaultLoggedOutView } from '.';
 
-export const DefaultUserStatusView = ({ isLoggedIn, ...props }) => {
+export const DefaultAuthStatusView = ({ isLoggedIn, ...props }) => {
   const renderUserStatus = isLoggedIn ? (
     <CompactLoggedInView {...props} />
   ) : (

@@ -1,7 +1,7 @@
 //jscs:disable requireShorthandArrowFunctions
 import React from 'react';
-import { IconButton, LoggedInIcon } from '../material';
-import { withStyles } from '../../containers';
+import { IconButton, LoggedInIcon } from '../../material';
+import { withStyles } from '../../../containers';
 
 const styles = {
   menuButton: {
