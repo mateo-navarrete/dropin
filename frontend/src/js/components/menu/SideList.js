@@ -39,13 +39,15 @@ const styles = theme => ({
   },
 });
 
-const section1 = ['Search', 'Newest', 'Trending'];
+const section1 = ['Search'];
 
-const section2 = ['Favorites', 'Recent', 'Topics', 'Users'];
+const section2 = ['Newest', 'Expiring Soon', 'Trending'];
 
-const section3 = ['Drop History', 'Last Dropped'];
+const section3 = ['Favorites', 'Recent', 'Topics', 'Users'];
 
-const section4 = ['Settings', 'Privacy', 'Default Duration', 'Blocked'];
+const section4 = ['Drop History', 'Last Dropped'];
+
+const section5 = ['Settings', 'Privacy', 'Default Duration', 'Blocked'];
 
 const Wrapper = ({ classes, ...props }) => {
   return (
@@ -54,13 +56,7 @@ const Wrapper = ({ classes, ...props }) => {
         {section1.map((text, index) => (
           <ListItem button key={text + index}>
             <ListItemIcon>
-              {text === 'Trending' ? (
-                <HotIcon />
-              ) : text === 'Search' ? (
-                <SearchIcon />
-              ) : (
-                <HourGlassIcon />
-              )}
+              <SearchIcon />
             </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
@@ -69,6 +65,17 @@ const Wrapper = ({ classes, ...props }) => {
       <Divider />
       <List>
         {section2.map((text, index) => (
+          <ListItem button key={text + index}>
+            <ListItemIcon>
+              {text === 'Trending' ? <HotIcon /> : <HourGlassIcon />}
+            </ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {section3.map((text, index) => (
           <ListItem button key={text + index}>
             <ListItemIcon>
               {text === 'Favorites' ? (
@@ -87,7 +94,7 @@ const Wrapper = ({ classes, ...props }) => {
       </List>
       <Divider />
       <List>
-        {section3.map((text, index) => (
+        {section4.map((text, index) => (
           <ListItem button key={text + index}>
             <ListItemIcon>
               {text === 'Last Dropped' ? (
@@ -102,7 +109,7 @@ const Wrapper = ({ classes, ...props }) => {
       </List>
       <Divider />
       <List>
-        {section4.map((text, index) => (
+        {section5.map((text, index) => (
           <ListItem button key={text + index}>
             <ListItemIcon>
               {text === 'Privacy' ? (

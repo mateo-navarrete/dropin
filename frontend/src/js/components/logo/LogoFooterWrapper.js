@@ -14,6 +14,7 @@ export const LogoFooterWrapper = ({ height, children, ...props }) => {
         style={{
           marginTop: -((height * 0.8) >> 0),
           position: 'fixed',
+          outline: 'none',
         }}
       >
         {children}

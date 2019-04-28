@@ -1,13 +1,6 @@
 import React from 'react';
-import { withStyles } from '../../containers';
 
-const styles = {
-  grow: {
-    flexGrow: 1,
-  },
-};
-
-const Wrapper = ({ color, height, ...props }) => {
+export const Logo = ({ color, height, ...props }) => {
   return (
     <img
       src={require(`../../../assets/logo-${color || 'red'}.png`)}
@@ -17,5 +10,3 @@ const Wrapper = ({ color, height, ...props }) => {
     />
   );
 };
-
-export const Logo = withStyles(styles)(Wrapper);

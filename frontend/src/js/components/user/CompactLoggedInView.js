@@ -22,4 +22,4 @@ const Wrapper = props => {
   );
 };
 
-export const LoggedInView = withStyles(styles)(Wrapper);
+export const CompactLoggedInView = withStyles(styles)(Wrapper);
