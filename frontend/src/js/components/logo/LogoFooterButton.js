@@ -1,7 +1,7 @@
 //jscs:disable requireShorthandArrowFunctions
 import React from 'react';
 import { Logo, LogoFooterWrapper } from '.';
-import { ButtonWrapper } from '../buttons';
+import { ButtonWrapper } from '../utils';
 
 export const LogoFooterButton = ({ height, color, ...props }) => {
   return (

@@ -1,6 +1,6 @@
 //jscs:disable requireShorthandArrowFunctions
 import React from 'react';
-import { IconButton, MenuIcon } from '../material';
+import { IconButton, LoggedInIcon } from '../material';
 import { withStyles } from '../../containers';
 
 const styles = {
@@ -10,16 +10,16 @@ const styles = {
   },
 };
 
-const SettingsButton = props => {
+const Wrapper = props => {
   return (
     <IconButton
       className={props.classes.menuButton}
       color="inherit"
       aria-label="Menu"
     >
-      <MenuIcon />
+      <LoggedInIcon fontSize="large"/>
     </IconButton>
   );
 };
 
-export const ToggleSettingsButton = withStyles(styles)(SettingsButton);
+export const LoggedInView = withStyles(styles)(Wrapper);
