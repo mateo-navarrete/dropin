@@ -37,6 +37,24 @@ export const loginDemoUser = () => dispatch => {
   dispatch(loginUser(demoUser));
 };
 
+export const createUser = userObj => dispatch => {
+  // dispatch(creatingUser(userObj));
+  // console.log('@authActions', userObj);
+  // userObj.birthdate = '1990-01-01';
+  postData('/api/users/new', userObj).then(res => {
+    // res.data; //.username
+    // console.log('@frontend createUser res', res);
+    // dispatch(userLogin(userObj));
+    //TODO: LOGIN USER HERE
+    dispatch(loginUser(userObj));
+    // ? dispatch(authUser(res.data))
+    // : dispatch(authError(res.data));
+    //NOTE: dispatch(toggleSignUpFormVisible)
+  });
+  //NOTE
+  // sendEmail('/api/send', { userObj });
+};
+
 export const logoutUser = () => dispatch => {
   postData('/api/users/logout', null)
     .then(() => dispatch(checkAuthStatus()))

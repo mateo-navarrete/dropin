@@ -1,12 +1,12 @@
 import React, { Fragment as F } from 'react';
-import { DefaultView, MobileView } from '.';
+import { CompactView, DefaultView } from '.';
 
 export const HomeView = props => {
-  const isMobileDevice = !(props.width > 450 && props.height > 450);
-  const renderView = isMobileDevice ? (
-    <MobileView isMobileDevice={isMobileDevice} {...props} />
+  const isDeviceCompact = !(props.width > 450 && props.height > 450);
+  const renderView = isDeviceCompact ? (
+    <CompactView isDeviceCompact={isDeviceCompact} {...props} />
   ) : (
-    <DefaultView isMobileDevice={isMobileDevice} {...props} />
+    <DefaultView isDeviceCompact={isDeviceCompact} {...props} />
   );
   return <F>{renderView}</F>;
 };

@@ -1,5 +1,5 @@
 import { withStyles } from '@material-ui/core/styles';
-import { withAuth } from './auth';
+import { withAuth, withDemoUser } from './auth';
 import { withDimensions, withResize } from './utils';
 
-export { withAuth, withStyles, withDimensions, withResize };
+export { withAuth, withDemoUser, withStyles, withDimensions, withResize };

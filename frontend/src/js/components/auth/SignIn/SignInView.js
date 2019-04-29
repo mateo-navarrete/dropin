@@ -1,4 +1,7 @@
 import React, { Fragment as F } from 'react';
+//TODO rename SignInView && create SignUpView
+import { DivideOr } from '../LoggedOut/DivideOr';
+import { LogInDemoUser } from '../LoggedOut/LogInDemoUser';
 
 import {
   Avatar,
@@ -62,6 +65,7 @@ class Wrapper extends React.Component {
 
   render() {
     const { classes } = this.props;
+    // console.log(this.props);
     // console.log('@@@', this.props);
     return (
       <F>
@@ -130,8 +134,10 @@ class Wrapper extends React.Component {
             or create an account
           </Button>
         </form>
+        <DivideOr />
+        <LogInDemoUser />
       </F>
     );
   }
 }
-export const LogInView = withStyles(styles)(Wrapper);
+export const SignInView = withStyles(styles)(Wrapper);

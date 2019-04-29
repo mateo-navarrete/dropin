@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
   checkAuthStatus,
+  createUser,
   loginUser,
-  loginDemoUser,
   logoutUser
 } from '../../actions';
 
@@ -17,8 +17,8 @@ const mapStateToProps = ({ auth }) => {
 const mapDispatchToProps = dispatch => {
   return {
     checkAuthStatus: () => dispatch(checkAuthStatus()),
+    createUser: userObj => dispatch(createUser(userObj)),
     loginUser: loginObj => dispatch(loginUser(loginObj)),
-    loginDemoUser: () => dispatch(loginDemoUser()),
     logoutUser: () => dispatch(logoutUser()),
   };
 };

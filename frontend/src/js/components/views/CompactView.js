@@ -3,18 +3,18 @@ import React, { Fragment as F } from 'react';
 import { Main } from '../Main';
 import { Footer } from '../Footer';
 
-export const MobileView = ({
+export const CompactView = ({
   width,
   mainHeight,
   footerHeight,
-  isMobileDevice,
+  isDeviceCompact,
   ...props,
 }) => {
   return (
     <F>
       <Main width={width} height={mainHeight} />
       <Footer
-        isMobileDevice={isMobileDevice}
+        isDeviceCompact={isDeviceCompact}
         width={width}
         height={footerHeight}
       />

@@ -1,8 +1,9 @@
 import {
   checkAuthStatus,
+  createUser,
   loginUser,
   loginDemoUser,
   logoutUser
 } from './authActions';
 
-export { checkAuthStatus, loginUser, loginDemoUser, logoutUser };
+export { checkAuthStatus, createUser, loginUser, loginDemoUser, logoutUser };
