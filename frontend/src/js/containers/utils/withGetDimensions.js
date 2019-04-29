@@ -9,7 +9,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export const withResize = WrappedComponent => {
+export const withGetDimensions = WrappedComponent => {
   class HOC extends Component {
     componentDidMount() {
       const { resizeDimensions } = this.props;

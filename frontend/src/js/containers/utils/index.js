@@ -1,4 +1,4 @@
 import { withDimensions } from './withDimensions';
-import { withResize } from './withResize';
+import { withGetDimensions } from './withGetDimensions';
 
-export { withDimensions, withResize };
+export { withDimensions, withGetDimensions };

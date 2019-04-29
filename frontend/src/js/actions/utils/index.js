@@ -1,3 +1,3 @@
-import { resizeDimensions } from './resizeActions';
+import { resizeDimensions } from './dimensionsActions';
 
 export { resizeDimensions };

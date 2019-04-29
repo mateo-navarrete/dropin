@@ -1,6 +1,6 @@
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ButtonWrapper } from './ButtonWrapper';
+import { DimensionsListener } from './DimensionsListener';
 import { ModalView } from './ModalView';
-import { ResizeListener } from './ResizeListener';
 
-export { ButtonWrapper, ModalView, CssBaseline, ResizeListener };
+export { ButtonWrapper, CssBaseline, DimensionsListener, ModalView };
