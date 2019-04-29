@@ -13,7 +13,7 @@ const styles = theme => ({
   },
 });
 
-const Wrapper = ({ classes, handleClick, ...props }) => {
+const WrappedComponent = ({ classes, handleClick, ...props }) => {
   return (
     <Button
       variant="outlined"
@@ -27,4 +27,4 @@ const Wrapper = ({ classes, handleClick, ...props }) => {
   );
 };
 
-export const SignOutButton = withStyles(styles)(Wrapper);
+export const SignOutButton = withStyles(styles)(WrappedComponent);

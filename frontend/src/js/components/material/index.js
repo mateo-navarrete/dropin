@@ -1,87 +1,93 @@
-import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import ShowLoggedInMenuIcon from '@material-ui/icons/Person';
-import ShowAuthMenuIcon from '@material-ui/icons/Input';
-import MenuIcon from '@material-ui/icons/Menu';
-import Toolbar from '@material-ui/core/Toolbar';
-import Divider from '@material-ui/core/Divider';
-import Drawer from '@material-ui/core/Drawer';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
-import HourGlassIcon from '@material-ui/icons/HourglassEmpty';
-import HotIcon from '@material-ui/icons/Whatshot';
-import SearchIcon from '@material-ui/icons/Search';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import BlockIcon from '@material-ui/icons/Block';
-import PrivateIcon from '@material-ui/icons/VisibilityOff';
-import SettingsIcon from '@material-ui/icons/Settings';
-import TimerIcon from '@material-ui/icons/Timer';
-import DropinEventIcon from '@material-ui/icons/Loyalty'; //Folder'; WhereToVote'; Assignment';
-import DropinUserIcon from '@material-ui/icons/SupervisedUserCircle'; //FolderShared'; //PersonPinCircle'; //AssignmentInd';
-import DropinHistoryIcon from '@material-ui/icons/PinDrop';
-import LogInIcon from '@material-ui/icons/Lock';
-import LogOutIcon from '@material-ui/icons/LockOpen';
-import SignUpIcon from '@material-ui/icons/VerifiedUser';
-import Modal from '@material-ui/core/Modal';
-import Avatar from '@material-ui/core/Avatar';
-import Checkbox from '@material-ui/core/Checkbox';
-import FormControl from '@material-ui/core/FormControl';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Input from '@material-ui/core/Input';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import InputLabel from '@material-ui/core/InputLabel';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import MyLocationIcon from '@material-ui/icons/MyLocation';
-
-export {
+import {
   AppBar,
+  Avatar,
   Button,
-  IconButton,
-  ShowAuthMenuIcon,
-  ShowLoggedInMenuIcon,
-  MenuIcon,
-  Toolbar,
+  Checkbox,
   Divider,
   Drawer,
-  InboxIcon,
+  FormControl,
+  FormControlLabel,
+  FormGroup,
+  IconButton,
+  Input,
+  InputAdornment,
+  InputLabel,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
-  MailIcon,
-  HourGlassIcon,
-  HotIcon,
-  SearchIcon,
-  FavoriteIcon,
-  DropinEventIcon,
-  DropinUserIcon,
+  Switch,
+  Modal,
+  Toolbar,
+  Typography
+} from './core';
+import {
   BlockIcon,
-  PrivateIcon,
-  SettingsIcon,
-  TimerIcon,
+  DropinEventIcon,
   DropinHistoryIcon,
+  DropinUserIcon,
+  FavoriteIcon,
+  HotIcon,
+  InboxIcon,
+  HourGlassIcon,
+  LockOutlinedIcon,
   LogInIcon,
   LogOutIcon,
+  MailIcon,
+  MenuIcon,
+  MyLocationIcon,
+  SearchIcon,
+  SettingsIcon,
+  ShowAuthMenuIcon,
+  ShowLoggedInMenuIcon,
   SignUpIcon,
-  Modal,
+  TimerIcon,
+  Visibility,
+  VisibilityOff
+} from './icons';
+
+export {
+  AppBar,
   Avatar,
+  Button,
   Checkbox,
+  Divider,
+  Drawer,
   FormControl,
   FormControlLabel,
+  FormGroup,
+  IconButton,
   Input,
   InputAdornment,
   InputLabel,
-  LockOutlinedIcon,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Switch,
+  Modal,
+  Toolbar,
   Typography,
+  BlockIcon,
+  DropinEventIcon,
+  DropinHistoryIcon,
+  DropinUserIcon,
+  FavoriteIcon,
+  HotIcon,
+  InboxIcon,
+  HourGlassIcon,
+  LockOutlinedIcon,
+  LogInIcon,
+  LogOutIcon,
+  MailIcon,
+  MenuIcon,
+  MyLocationIcon,
+  SearchIcon,
+  SettingsIcon,
+  ShowAuthMenuIcon,
+  ShowLoggedInMenuIcon,
+  SignUpIcon,
+  TimerIcon,
   Visibility,
-  VisibilityOff,
-  MyLocationIcon
+  VisibilityOff
 };

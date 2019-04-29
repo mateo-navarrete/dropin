@@ -11,8 +11,4 @@ export const Main = props => {
   );
 };
 
-// <div>MainView</div>
-// <h1>
-//   width: {props.width} height: {props.height}
-// </h1>
-// StyledMapWrapper > MapView
+// <MyMap width={width} height={height} {...props}/>

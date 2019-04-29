@@ -5,7 +5,6 @@ import { getGeolocation } from '../../actions';
 
 const mapStateToProps = ({ geolocation }) => {
   return {
-    // loading: geolocation.loading,
     coords: geolocation.coords,
   };
 };

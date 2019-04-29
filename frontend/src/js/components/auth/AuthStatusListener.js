@@ -1,5 +1,5 @@
 import { withGetAuthStatus } from '../../containers';
 
-const Wrapper = props => null;
+const WrappedComponent = props => null;
 
-export const AuthStatusListener = withGetAuthStatus(Wrapper);
+export const AuthStatusListener = withGetAuthStatus(WrappedComponent);

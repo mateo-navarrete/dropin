@@ -1,6 +1,6 @@
 //jscs:disable requireShorthandArrowFunctions
 import React from 'react';
-import { Divider } from '../../material';
+import { Divider } from '../material';
 
 export const DivideOr = () => {
   return (

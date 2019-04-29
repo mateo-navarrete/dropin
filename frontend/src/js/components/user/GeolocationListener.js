@@ -1,5 +1,5 @@
 import { withGetGeolocation } from '../../containers';
 
-const Wrapper = props => null;
+const WrappedComponent = props => null;
 
-export const GeolocationListener = withGetGeolocation(Wrapper);
+export const GeolocationListener = withGetGeolocation(WrappedComponent);

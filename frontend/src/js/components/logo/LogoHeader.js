@@ -1,3 +1,4 @@
+//jscs:disable requireShorthandArrowFunctions
 import React from 'react';
 import { withStyles } from '../../containers';
 
@@ -7,7 +8,7 @@ const styles = {
   },
 };
 
-const Wrapper = ({ classes, height, ...props }) => {
+const WrappedComponent = ({ classes, height, ...props }) => {
   return (
     <div className={classes.grow}>
       <img
@@ -20,4 +21,4 @@ const Wrapper = ({ classes, height, ...props }) => {
   );
 };
 
-export const LogoHeader = withStyles(styles)(Wrapper);
+export const LogoHeader = withStyles(styles)(WrappedComponent);

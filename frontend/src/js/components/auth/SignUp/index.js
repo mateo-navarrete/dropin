@@ -2,11 +2,12 @@
 import React, { Component, Fragment as F } from 'react';
 import { withRouter } from 'react-router-dom';
 import { SignUpButton } from './SignUpButton';
-import { SignUpView } from './SignUpView';
+import { ValidateAge } from './ValidateAge';
 import { Modal } from '../../Modal';
 
-class Wrapper extends Component {
+class WrappedComponent extends Component {
   state = {
+    is18: false,
     modal: false,
   };
   toggleModal = open => {
@@ -15,8 +16,12 @@ class Wrapper extends Component {
     this.setState({ modal: open });
   };
 
+  hideMustBe18 = () => {
+    this.setState({ is18: true });
+  };
+
   render() {
-    const { modal } = this.state;
+    const { is18, modal } = this.state;
     const { closeAuthMenu, ...rest } = this.props;
     const closeModal = () => {
       this.toggleModal(false);
@@ -31,12 +36,18 @@ class Wrapper extends Component {
           handleClick={() => this.toggleModal(true)}
           isButtonOutlined={this.props.isButtonOutlined}
         />
+
         <Modal modal={modal} handleClick={closeModal}>
-          <SignUpView closeModal={closeModal} {...rest} />
+          <ValidateAge
+            is18={is18}
+            closeModal={closeModal}
+            hideMustBe18={this.hideMustBe18}
+            {...rest}
+          />
         </Modal>
       </F>
     );
   }
 }
 
-export const SignUp = withRouter(Wrapper);
+export const SignUp = withRouter(WrappedComponent);

@@ -9,7 +9,7 @@ const styles = {
   },
 };
 
-const Wrapper = ({ children, classes, height, ...props }) => {
+const WrappedComponent = ({ children, classes, height, ...props }) => {
   return (
     <div className={classes.root} style={{ overflow: 'hidden' }}>
       <AppBar
@@ -33,4 +33,4 @@ const Wrapper = ({ children, classes, height, ...props }) => {
   );
 };
 
-export const View = withStyles(styles)(Wrapper);
+export const View = withStyles(styles)(WrappedComponent);

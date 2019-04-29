@@ -3,7 +3,7 @@ import React, { Component, Fragment as F } from 'react';
 import { SideList } from './SideList';
 import { IconButton, MenuIcon, Drawer } from '../material';
 
-class Wrapper extends Component {
+class WrappedComponent extends Component {
   state = {
     modal: false,
   };
@@ -34,4 +34,4 @@ class Wrapper extends Component {
   }
 }
 
-export const MenuButton = Wrapper;
+export const MenuButton = WrappedComponent;

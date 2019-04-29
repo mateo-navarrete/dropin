@@ -1,12 +1,12 @@
 import React, { Fragment as F } from 'react';
 import { OutlinedSignUpButton } from './OutlinedSignUpButton';
-import { ContainedSignUpButton } from './ContainedSignUpButton';
+import { MaterialSignUpButton } from './MaterialSignUpButton';
 
 export const SignUpButton = ({ isButtonOutlined, ...props }) => {
   const renderButton = isButtonOutlined ? (
     <OutlinedSignUpButton {...props} />
   ) : (
-    <ContainedSignUpButton {...props} />
+    <MaterialSignUpButton {...props} />
   );
   return <F>{renderButton}</F>;
 };

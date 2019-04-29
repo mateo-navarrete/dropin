@@ -2,13 +2,13 @@
 import React from 'react';
 import { SignOut } from '../SignOut';
 import {
+  BlockIcon,
   Divider,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
-  BlockIcon,
-  PrivateIcon,
+  VisibilityOff,
   SettingsIcon,
   TimerIcon
 } from '../../material';
@@ -29,19 +29,19 @@ const styles = theme => ({
   },
 });
 
-const section2 = ['Settings', 'Privacy', 'Default Duration', 'Blocked'];
+const sections = ['Settings', 'Privacy', 'Default Duration', 'Blocked'];
 
-const Wrapper = ({ classes, logoutUser, ...props }) => {
+const WrappedComponent = ({ classes, logoutUser, ...props }) => {
   return (
     <div className={classes.list}>
       <SignOut handleClick={logoutUser} />
       <Divider />
       <List>
-        {section2.map((text, index) => (
+        {sections.map((text, index) => (
           <ListItem button key={text + index}>
             <ListItemIcon>
               {text === 'Privacy' ? (
-                <PrivateIcon />
+                <VisibilityOff />
               ) : text === 'Default Duration' ? (
                 <TimerIcon />
               ) : text === 'Blocked' ? (
@@ -58,4 +58,4 @@ const Wrapper = ({ classes, logoutUser, ...props }) => {
   );
 };
 
-export const LoggedInMenu = withStyles(styles)(Wrapper);
+export const LoggedInMenu = withStyles(styles)(WrappedComponent);

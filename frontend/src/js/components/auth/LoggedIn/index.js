@@ -4,7 +4,7 @@ import { LoggedInMenu } from './LoggedInMenu';
 import { ShowLoggedInMenuButton } from './ShowLoggedInMenuButton';
 import { Drawer } from '../../material';
 
-class Wrapper extends Component {
+class WrappedComponent extends Component {
   state = {
     modal: false,
   };
@@ -32,4 +32,4 @@ class Wrapper extends Component {
   }
 }
 
-export const LoggedIn = Wrapper;
+export const LoggedIn = WrappedComponent;

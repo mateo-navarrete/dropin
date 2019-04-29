@@ -1,7 +1,7 @@
 //jscs:disable requireShorthandArrowFunctions
 import React from 'react';
-import { withStyles } from '../../containers';
 import { Modal as M } from '../material';
+import { withStyles } from '../../containers';
 
 const styles = theme => ({
   paper: {
@@ -14,7 +14,7 @@ const styles = theme => ({
   },
 });
 
-const Wrapper = ({ modal, handleClick, children, classes, ...props }) => {
+const WrappedComponent = ({ modal, handleClick, children, classes, ...props }) => {
   return (
     <M
       aria-labelledby="simple-modal-title"
@@ -32,4 +32,4 @@ const Wrapper = ({ modal, handleClick, children, classes, ...props }) => {
   );
 };
 
-export const Modal = withStyles(styles)(Wrapper);
+export const Modal = withStyles(styles)(WrappedComponent);

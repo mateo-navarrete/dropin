@@ -1,5 +1,5 @@
 import { withGetDimensions } from '../../containers';
 
-const Wrapper = props => null;
+const WrappedComponent = props => null;
 
-export const DimensionsListener = withGetDimensions(Wrapper);
+export const DimensionsListener = withGetDimensions(WrappedComponent);

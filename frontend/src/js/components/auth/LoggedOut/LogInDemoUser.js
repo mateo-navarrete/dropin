@@ -13,7 +13,7 @@ const styles = theme => ({
   },
 });
 
-const Wrapper = ({ classes, loginDemoUser, ...props }) => {
+const WrappedComponent = ({ classes, loginDemoUser, ...props }) => {
   return (
     <Button
       variant="contained"
@@ -27,4 +27,4 @@ const Wrapper = ({ classes, loginDemoUser, ...props }) => {
   );
 };
 
-export const LogInDemoUser = withStyles(styles)(withDemoUser(Wrapper));
+export const LogInDemoUser = withStyles(styles)(withDemoUser(WrappedComponent));

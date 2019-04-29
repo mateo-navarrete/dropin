@@ -6,15 +6,15 @@ import { withStyles } from '../../../containers';
 const styles = theme => ({
   redButton: {
     margin: theme.spacing.unit,
-    color: '#FB364A',
-    borderColor: '#FB364A',
+    color: '#FFF',
+    backgroundColor: '#FB364A',
+    width: '90%',
     '&:hover': {
-      backgroundColor: '#fb5e6e33',
+      backgroundColor: '#af2533',
     },
     '&:active': {
       boxShadow: 'none',
       backgroundColor: '#FB364A',
-      color: '#FFF',
     },
     '&:focus': {
       boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
@@ -25,12 +25,13 @@ const styles = theme => ({
   },
 });
 
-const Wrapper = ({ classes, ...props }) => {
+const WrappedComponent = ({ classes, handleClick, ...props }) => {
   return (
     <Button
-      variant="outlined"
+      variant="contained"
+      fullWidth
       className={classes.redButton}
-      href="./new"
+      onClick={handleClick}
     >
       Sign Up
       <SignUpIcon fontSize="small" className={classes.rightIcon} />
@@ -38,4 +39,4 @@ const Wrapper = ({ classes, ...props }) => {
   );
 };
 
-export const OutlinedSignInButton = withStyles(styles)(Wrapper);
+export const MaterialSignUpButton = withStyles(styles)(WrappedComponent);

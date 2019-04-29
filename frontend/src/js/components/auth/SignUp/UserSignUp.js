@@ -1,14 +1,10 @@
 import React, { Fragment as F } from 'react';
 import { Button, FormControl, Input, InputLabel } from '../../material';
-// import  GoogleLogin  from 'react-google-button'
-// import {googleProvider, fire} from "../../../config/fire"
 
 export const UserSignUp = props => {
   const textFields = [
     { id: 'email', label: 'Email' },
     //   { id: "profile_photo", label: "Profile Photo URL" },
-    //   { id: "instagram_id", label: "Instagram ID" },
-    //   { id: "linkedin_id", label: "LinkedIn ID" }
   ];
 
   const renderTextFields = textFields.map(field => {
@@ -43,14 +39,3 @@ export const UserSignUp = props => {
     </F>
   );
 };
-
-// <GoogleLogin
-//   onClick={props.handleGoogleSignIn}
-//   type='dark'
-//   style={{width: '100%'}}
-// />
-
-////////////////////////////////////////////////////
-// type={id === "birth_date" ? "date" : "text"}
-//
-// autoComplete={id === "birth_date" ? "current-birth_date" : "off"}

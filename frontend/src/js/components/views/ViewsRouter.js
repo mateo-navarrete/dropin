@@ -1,10 +1,6 @@
 import React from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
-import {
-  // LogInView,
-  // SignUpView,
-  HomeView
-} from '../views';
+import { HomeView } from '../views';
 import { withDimensions } from '../../containers';
 
 export const ViewsRouter = () => {
@@ -14,6 +10,3 @@ export const ViewsRouter = () => {
     </Switch>
   );
 };
-
-// <Route path="/login" render={withRouter(withDimensions(LogInView))} />
-// <Route path="/new" render={withRouter(withDimensions(SignUpView))} />

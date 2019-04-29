@@ -25,7 +25,7 @@ const styles = theme => ({
   },
 });
 
-const Wrapper = ({ classes, handleClick, ...props }) => {
+const WrappedComponent = ({ classes, handleClick, ...props }) => {
   return (
     <Button
       variant="contained"
@@ -39,4 +39,4 @@ const Wrapper = ({ classes, handleClick, ...props }) => {
   );
 };
 
-export const ContainedSignInButton = withStyles(styles)(Wrapper);
+export const MaterialSignInButton = withStyles(styles)(WrappedComponent);

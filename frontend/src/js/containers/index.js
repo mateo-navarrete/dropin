@@ -7,9 +7,9 @@ export {
   withAuth,
   withDemoUser,
   withDimensions,
+  withGeolocation,
   withGetAuthStatus,
   withGetDimensions,
-  withGeolocation,
   withGetGeolocation,
   withStyles
 };

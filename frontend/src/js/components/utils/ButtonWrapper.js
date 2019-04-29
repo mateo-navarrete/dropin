@@ -1,10 +1,11 @@
+//jscs:disable requireShorthandArrowFunctions
 import React from 'react';
 import { Button } from '../material';
 import { withStyles } from '../../containers';
 
 const styles = theme => ({
-  button: {
-    color: theme.palette.getContrastText('#FB364A'),
+  redButton: {
+    color: '#FFF',
     backgroundColor: '#FB364A',
     '&:hover': {
       backgroundColor: '#af2533',
@@ -22,12 +23,12 @@ const styles = theme => ({
   },
 });
 
-const Wrapper = ({ classes, children, ...props }) => {
+const WrappedComponent = ({ classes, children, ...props }) => {
   return (
-    <Button variant="contained" size="large" className={classes.button}>
+    <Button variant="contained" size="large" className={classes.redButton}>
       {children}
     </Button>
   );
 };
 
-export const ButtonWrapper = withStyles(styles)(Wrapper);
+export const ButtonWrapper = withStyles(styles)(WrappedComponent);

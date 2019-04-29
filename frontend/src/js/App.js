@@ -10,8 +10,8 @@ export const App = () => {
     <F>
       <AuthStatusListener />
       <GeolocationListener />
-      <CssBaseline />
       <DimensionsListener />
+      <CssBaseline />
       <ViewsRouter />
     </F>
   );

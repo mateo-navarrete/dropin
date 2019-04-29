@@ -3,7 +3,7 @@ import { LoggedIn } from './LoggedIn';
 import { LoggedOut } from './LoggedOut';
 import { withAuth, withDimensions } from '../../containers';
 
-const Wrapper = props => {
+const WrappedComponent = props => {
   let isLoggedIn = () => (props.user ? true : false);
   const renderAuthStatus = isLoggedIn() ? (
     <LoggedIn {...props} />
@@ -13,4 +13,4 @@ const Wrapper = props => {
   return <F>{renderAuthStatus}</F>;
 };
 
-export const AuthStatus = withAuth(withDimensions(Wrapper));
+export const AuthStatus = withAuth(withDimensions(WrappedComponent));

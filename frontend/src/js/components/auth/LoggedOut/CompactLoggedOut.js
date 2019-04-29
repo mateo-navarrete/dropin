@@ -4,7 +4,7 @@ import { AuthMenu } from './AuthMenu';
 import { ShowAuthMenuButton } from './ShowAuthMenuButton';
 import { Modal } from '../../Modal';
 
-class Wrapper extends Component {
+class WrappedComponent extends Component {
   state = {
     modal: false,
   };
@@ -28,4 +28,4 @@ class Wrapper extends Component {
   }
 }
 
-export const CompactLoggedOut = Wrapper;
+export const CompactLoggedOut = WrappedComponent;

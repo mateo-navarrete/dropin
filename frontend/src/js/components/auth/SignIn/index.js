@@ -5,7 +5,7 @@ import { SignInButton } from './SignInButton';
 import { SignInView } from './SignInView';
 import { Modal } from '../../Modal';
 
-class Wrapper extends Component {
+class WrappedComponent extends Component {
   state = {
     modal: false,
   };
@@ -39,4 +39,4 @@ class Wrapper extends Component {
   }
 }
 
-export const SignIn = withRouter(Wrapper);
+export const SignIn = withRouter(WrappedComponent);

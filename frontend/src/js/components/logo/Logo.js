@@ -1,3 +1,4 @@
+//jscs:disable requireShorthandArrowFunctions
 import React from 'react';
 
 export const Logo = ({ color, height, ...props }) => {

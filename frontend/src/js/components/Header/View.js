@@ -8,7 +8,7 @@ const styles = {
   },
 };
 
-const Wrapper = ({ children, classes, height, ...props }) => {
+const WrappedComponent = ({ children, classes, height, ...props }) => {
   const style = { height: height };
   return (
     <div className={classes.root}>
@@ -19,4 +19,4 @@ const Wrapper = ({ children, classes, height, ...props }) => {
   );
 };
 
-export const View = withStyles(styles)(Wrapper);
+export const View = withStyles(styles)(WrappedComponent);

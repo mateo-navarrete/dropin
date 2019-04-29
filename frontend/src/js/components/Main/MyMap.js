@@ -71,6 +71,7 @@ const GoogleMapWrapper = ({
       defaultZoom={15}
       center={userCoords}
       defaultOptions={{
+        clickableIcons: false,
         disableDefaultUI: true,
         zoomControl: true,
         zoomControlOptions: {

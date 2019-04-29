@@ -1,7 +1,7 @@
 import React, { Fragment as F } from 'react';
 //TODO rename SignInView && create SignUpView
 import { UserSignUp } from './UserSignUp';
-import { DivideOr } from '../LoggedOut/DivideOr';
+import { DivideOr } from '../../utils';
 import { LogInDemoUser } from '../LoggedOut/LogInDemoUser';
 import {
   Avatar,
@@ -33,7 +33,7 @@ const styles = theme => ({
   },
 });
 
-class Wrapper extends React.Component {
+class WrappedComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -126,4 +126,4 @@ class Wrapper extends React.Component {
     );
   }
 }
-export const SignUpView = withStyles(styles)(Wrapper);
+export const SignUpView = withStyles(styles)(WrappedComponent);
