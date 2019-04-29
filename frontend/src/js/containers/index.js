@@ -1,6 +1,6 @@
 import { withStyles } from '@material-ui/core/styles';
 import { withAuth, withDemoUser, withGetAuthStatus } from './auth';
-import { withGetGeolocation } from './user';
+import { withGeolocation, withGetGeolocation } from './user';
 import { withDimensions, withGetDimensions } from './utils';
 
 export {
@@ -9,6 +9,7 @@ export {
   withDimensions,
   withGetAuthStatus,
   withGetDimensions,
+  withGeolocation,
   withGetGeolocation,
-  withStyles,
+  withStyles
 };
