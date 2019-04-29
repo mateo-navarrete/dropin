@@ -2,11 +2,11 @@
 import React, { Fragment as F } from 'react';
 import { OutlinedLogInButton, OutlinedSignInButton } from '../utils';
 
-export const DefaultLoggedOutView = () => {
+export const DefaultLoggedOutView = ({ ...props }) => {
   return (
     <F>
-      <OutlinedSignInButton />
-      <OutlinedLogInButton />
+      <OutlinedSignInButton {...props} />
+      <OutlinedLogInButton {...props} />
     </F>
   );
 };

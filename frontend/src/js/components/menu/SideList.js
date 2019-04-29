@@ -16,10 +16,6 @@ import {
   FavoriteIcon,
   DropinEventIcon,
   DropinUserIcon,
-  BlockIcon,
-  PrivateIcon,
-  SettingsIcon,
-  TimerIcon,
   DropinHistoryIcon
 } from '../material';
 import { withStyles } from '../../containers';
@@ -46,8 +42,6 @@ const section2 = ['Newest', 'Expiring Soon', 'Trending'];
 const section3 = ['Favorites', 'Recent', 'Topics', 'Users'];
 
 const section4 = ['Drop History', 'Last Dropped'];
-
-const section5 = ['Settings', 'Privacy', 'Default Duration', 'Blocked'];
 
 const Wrapper = ({ classes, ...props }) => {
   return (
@@ -101,25 +95,6 @@ const Wrapper = ({ classes, ...props }) => {
                 <HourGlassIcon />
               ) : (
                 <DropinHistoryIcon />
-              )}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {section5.map((text, index) => (
-          <ListItem button key={text + index}>
-            <ListItemIcon>
-              {text === 'Privacy' ? (
-                <PrivateIcon />
-              ) : text === 'Default Duration' ? (
-                <TimerIcon />
-              ) : text === 'Blocked' ? (
-                <BlockIcon />
-              ) : (
-                <SettingsIcon />
               )}
             </ListItemIcon>
             <ListItemText primary={text} />

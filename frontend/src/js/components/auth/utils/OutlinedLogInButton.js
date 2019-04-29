@@ -26,6 +26,7 @@ const styles = theme => ({
 });
 
 const Wrapper = ({ classes, ...props }) => {
+  console.log(props);
   return (
     <Button
       variant="outlined"

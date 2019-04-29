@@ -1,17 +1,17 @@
 import { AuthOptionsView } from './AuthOptionsView';
 import { AuthStatusView } from './AuthStatusView';
-import { CompactAuthStatusView } from './CompactAuthStatusView';
-import { CompactLoggedInView } from './CompactLoggedInView';
 import { CompactLoggedOutView } from './CompactLoggedOutView';
-import { DefaultAuthStatusView } from './DefaultAuthStatusView';
 import { DefaultLoggedOutView } from './DefaultLoggedOutView';
+import { LoggedInView } from './LoggedInView';
+import { LoggedOutView } from './LoggedOutView';
+import { LogInView } from './LogInView';
 
 export {
   AuthOptionsView,
   AuthStatusView,
-  CompactAuthStatusView,
-  CompactLoggedInView,
   CompactLoggedOutView,
-  DefaultAuthStatusView,
   DefaultLoggedOutView,
+  LoggedInView,
+  LoggedOutView,
+  LogInView
 };

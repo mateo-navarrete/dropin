@@ -1,3 +1,3 @@
-import { AuthStatusView, CompactAuthStatusView } from './views';
+import { AuthStatusView } from './views';
 
-export { AuthStatusView, CompactAuthStatusView };
+export { AuthStatusView };

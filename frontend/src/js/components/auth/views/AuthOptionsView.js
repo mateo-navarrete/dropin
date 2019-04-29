@@ -7,14 +7,14 @@ import {
   DivideOr
 } from '../utils';
 
-export const AuthOptionsView = () => {
+export const AuthOptionsView = ({ loginDemoUser, ...props }) => {
   return (
     <F>
-      <DefaultSignInButton />
+      <DefaultSignInButton {...props} />
       <DivideOr />
-      <DefaultLogInButton />
+      <DefaultLogInButton {...props} />
       <DivideOr />
-      <DemoLogInButton />
+      <DemoLogInButton handleClick={loginDemoUser} />
     </F>
   );
 };

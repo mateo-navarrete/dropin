@@ -1,3 +1,4 @@
+import { deleteData, getData, postData } from './api';
 import { getDimensions } from './getDimensions';
 
-export { getDimensions };
+export { deleteData, getData, postData, getDimensions };

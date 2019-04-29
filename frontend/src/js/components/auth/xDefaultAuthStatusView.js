@@ -1,9 +1,9 @@
 import React, { Fragment as F } from 'react';
-import { CompactLoggedInView, DefaultLoggedOutView } from '.';
+import { LoggedInView, DefaultLoggedOutView } from '.';
 
 export const DefaultAuthStatusView = ({ isLoggedIn, ...props }) => {
   const renderUserStatus = isLoggedIn ? (
-    <CompactLoggedInView {...props} />
+    <LoggedInView {...props} />
   ) : (
     <DefaultLoggedOutView {...props} />
   );

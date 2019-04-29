@@ -1,6 +1,9 @@
 //jscs:disable requireShorthandArrowFunctions
-import React from 'react';
+import React, { Component, Fragment as F } from 'react';
+import { Link } from 'react-router-dom';
+import { LogInView } from '../views';
 import { Button, LogInIcon } from '../../material';
+import { ModalView } from '../../utils';
 import { withStyles } from '../../../containers';
 
 const styles = theme => ({
@@ -25,18 +28,37 @@ const styles = theme => ({
   },
 });
 
-const Wrapper = ({ classes, ...props }) => {
-  return (
-    <Button
-      variant="contained"
-      fullWidth
-      className={classes.blueButton}
-      href="./login"
-    >
-      Log In
-      <LogInIcon fontSize="small" className={classes.rightIcon} />
-    </Button>
-  );
-};
+const LoginUrl = props => <Link to="/login" {...props} />;
+
+class Wrapper extends Component {
+  state = {
+    modal: false,
+  };
+  toggleDrawer = open => {
+    this.setState({ modal: open });
+  };
+
+  render() {
+    const { modal } = this.state;
+    const { classes } = this.props;
+    return (
+      <F>
+        <Button
+          variant="contained"
+          fullWidth
+          className={classes.blueButton}
+          component={LoginUrl}
+          onClick={() => this.toggleDrawer(!modal)}
+        >
+          Log In
+          <LogInIcon fontSize="small" className={classes.rightIcon} />
+        </Button>
+        <ModalView modal={modal} handleClick={() => this.toggleDrawer(!modal)}>
+          <LogInView {...this.props} />
+        </ModalView>
+      </F>
+    );
+  }
+}
 
 export const DefaultLogInButton = withStyles(styles)(Wrapper);

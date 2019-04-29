@@ -10,7 +10,7 @@ export const Header = props => {
     <View {...props}>
       <MenuButton />
       <LogoHeader height={props.height} color="red" />
-      <AuthStatusView isLoggedIn={false} />
+      <AuthStatusView />
     </View>
   );
 };

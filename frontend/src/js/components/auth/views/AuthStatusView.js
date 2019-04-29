@@ -1,15 +1,15 @@
 import React, { Fragment as F } from 'react';
-import { CompactAuthStatusView, DefaultAuthStatusView } from '.';
-import { withDimensions } from '../../../containers';
+import { LoggedInView, LoggedOutView } from '.';
+import { withAuth, withDimensions } from '../../../containers';
 
-const Wrapper = ({ height, width, isLoggedIn, ...props }) => {
-  let isCompact = height > width;
-  const renderView = isCompact ? (
-    <CompactAuthStatusView isLoggedIn={isLoggedIn} />
+const Wrapper = props => {
+  let isLoggedIn = props.user ? true : false;
+  const renderView = isLoggedIn ? (
+    <LoggedInView {...props} />
   ) : (
-    <DefaultAuthStatusView isLoggedIn={isLoggedIn} />
+    <LoggedOutView {...props} />
   );
   return <F>{renderView}</F>;
 };
 
-export const AuthStatusView = withDimensions(Wrapper);
+export const AuthStatusView = withAuth(withDimensions(Wrapper));

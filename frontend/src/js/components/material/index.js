@@ -25,7 +25,20 @@ import DropinEventIcon from '@material-ui/icons/Loyalty'; //Folder'; WhereToVote
 import DropinUserIcon from '@material-ui/icons/SupervisedUserCircle'; //FolderShared'; //PersonPinCircle'; //AssignmentInd';
 import DropinHistoryIcon from '@material-ui/icons/PinDrop';
 import LogInIcon from '@material-ui/icons/Lock';
+import LogOutIcon from '@material-ui/icons/LockOpen';
 import SignUpIcon from '@material-ui/icons/VerifiedUser';
+import Modal from '@material-ui/core/Modal';
+import Avatar from '@material-ui/core/Avatar';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControl from '@material-ui/core/FormControl';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Input from '@material-ui/core/Input';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import InputLabel from '@material-ui/core/InputLabel';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
 export {
   AppBar,
@@ -55,5 +68,18 @@ export {
   TimerIcon,
   DropinHistoryIcon,
   LogInIcon,
-  SignUpIcon
+  LogOutIcon,
+  SignUpIcon,
+  Modal,
+  Avatar,
+  Checkbox,
+  FormControl,
+  FormControlLabel,
+  Input,
+  InputAdornment,
+  InputLabel,
+  LockOutlinedIcon,
+  Typography,
+  Visibility,
+  VisibilityOff
 };
