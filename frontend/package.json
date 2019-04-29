@@ -8,7 +8,6 @@
     "@types/googlemaps": "^3.30.19",
     "@types/markerclustererplus": "^2.1.33",
     "axios": "^0.18.0",
-    "google-maps-react": "^2.0.2",
     "markdown-to-jsx": "^6.9.4",
     "moment": "^2.24.0",
     "npm-overlapping-marker-spiderfier": "^1.0.3",

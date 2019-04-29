@@ -39,6 +39,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import MyLocationIcon from '@material-ui/icons/MyLocation';
 
 export {
   AppBar,
@@ -81,5 +82,6 @@ export {
   LockOutlinedIcon,
   Typography,
   Visibility,
-  VisibilityOff
+  VisibilityOff,
+  MyLocationIcon
 };
