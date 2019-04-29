@@ -11,9 +11,9 @@ export const checkAuthStatus = () => dispatch => {
     .then(res => {
       res.status === 200
         ? dispatch(setAuthStatus(res.data))
-        : console.log('TODO: handleErrCodes', res);
+        : console.log('TODO: handleAuthErrCodes', res);
     })
-    .catch(err => console.log('TODO: handleErrCodes', err));
+    .catch(err => console.log('TODO: handleAuthErrCodes', err));
 };
 
 export const loginUser = ({ user_name, password }) => dispatch => {
@@ -21,8 +21,14 @@ export const loginUser = ({ user_name, password }) => dispatch => {
     user_name,
     password,
   })
-    .then(() => dispatch(checkAuthStatus()))
-    .catch(err => console.log('TODO: handleErrCodes', err));
+    .then(res => {
+      res.status === 200
+        ? dispatch(checkAuthStatus())
+        : console.log('TODO: handleLoginErrCodes', res);
+    })
+    .catch(err => {
+      console.log('TODO: handleLoginErrCodes', err);
+    });
 };
 
 const demoUser = { user_name: 'demo', password: 'abc123' };

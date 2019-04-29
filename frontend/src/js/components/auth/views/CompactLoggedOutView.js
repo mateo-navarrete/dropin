@@ -16,9 +16,12 @@ class Wrapper extends Component {
     const { modal } = this.state;
     return (
       <F>
-        <LoggedOutButton handleClick={() => this.toggleDrawer(!modal)} />
-        <ModalView modal={modal} handleClick={() => this.toggleDrawer(!modal)}>
-          <AuthOptionsView {...this.props} />
+        <LoggedOutButton handleClick={() => this.toggleDrawer(true)} />
+        <ModalView modal={modal} handleClick={() => this.toggleDrawer(false)}>
+          <AuthOptionsView
+            closeModal={() => this.toggleDrawer(false)}
+            {...this.props}
+          />
         </ModalView>
       </F>
     );

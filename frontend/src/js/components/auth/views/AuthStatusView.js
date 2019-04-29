@@ -3,8 +3,8 @@ import { LoggedInView, LoggedOutView } from '.';
 import { withAuth, withDimensions } from '../../../containers';
 
 const Wrapper = props => {
-  let isLoggedIn = props.user ? true : false;
-  const renderView = isLoggedIn ? (
+  let isLoggedIn = () => (props.user ? true : false);
+  const renderView = isLoggedIn() ? (
     <LoggedInView {...props} />
   ) : (
     <LoggedOutView {...props} />

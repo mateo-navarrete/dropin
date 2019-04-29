@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment as F } from 'react';
 
 import {
   Avatar,
@@ -14,65 +14,66 @@ import {
   IconButton,
   FormControlLabel,
   Checkbox
-} from "../../material";
-import { withStyles } from "../../../containers";
+} from '../../material';
+import { withStyles } from '../../../containers';
 
 const styles = theme => ({
   main: {},
   paper: {},
   avatar: {
     margin: theme.spacing.unit,
-    backgroundColor: theme.palette.secondary.main
+    backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing.unit
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing.unit,
   },
   submit: {
-    marginTop: theme.spacing.unit * 3
-  }
+    marginTop: theme.spacing.unit * 3,
+  },
 });
 
 class Wrapper extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user_name: "",
-      password: "",
-      showPassword: false
+      user_name: '',
+      password: '',
+      showPassword: false,
     };
   }
+
   handleShowPassword = () => {
     this.setState(state => ({ showPassword: !state.showPassword }));
   };
+
   handleSubmit = event => {
     event.preventDefault();
     const { user_name, password } = this.state;
     // console.log(user_name, password);
-    this.props
-      .loginUser({ user_name, password })
+    this.props.loginUser({ user_name, password });
   };
 
   handleChange = event => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
   render() {
     const { classes } = this.props;
-    console.log("@@@", this.props);
+    // console.log('@@@', this.props);
     return (
-      <>
+      <F>
         {this.props.height > 600 && (
-          <>
+          <F>
             <Avatar className={classes.avatar}>
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
               Sign In
             </Typography>
-          </>
+          </F>
         )}
         <form className={classes.form} onSubmit={this.handleSubmit}>
           <FormControl margin="normal" required fullWidth>
@@ -91,7 +92,7 @@ class Wrapper extends React.Component {
             <Input
               name="password"
               id="password"
-              type={this.state.showPassword ? "text" : "password"}
+              type={this.state.showPassword ? 'text' : 'password'}
               value={this.state.password}
               onChange={this.handleChange}
               endAdornment={
@@ -129,7 +130,7 @@ class Wrapper extends React.Component {
             or create an account
           </Button>
         </form>
-      </>
+      </F>
     );
   }
 }

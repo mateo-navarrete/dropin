@@ -1,6 +1,9 @@
 //jscs:disable requireShorthandArrowFunctions
-import React from 'react';
+import React, { Component, Fragment as F } from 'react';
+import { withRouter } from 'react-router-dom';
+import { LogInView } from '../views';
 import { Button, LogInIcon } from '../../material';
+import { ModalView } from '../../utils';
 import { withStyles } from '../../../containers';
 
 const styles = theme => ({
@@ -25,18 +28,38 @@ const styles = theme => ({
   },
 });
 
-const Wrapper = ({ classes, ...props }) => {
-  console.log(props);
-  return (
-    <Button
-      variant="outlined"
-      className={classes.blueButton}
-      href="./login"
-    >
-      Log In
-      <LogInIcon fontSize="small" className={classes.rightIcon} />
-    </Button>
-  );
-};
+class Wrapper extends Component {
+  state = {
+    modal: false,
+  };
+  toggleDrawer = open => {
+    let path = open ? `login` : '/';
+    this.props.history.push(path);
+    this.setState({ modal: open });
+  };
 
-export const OutlinedLogInButton = withStyles(styles)(Wrapper);
+  render() {
+    const { modal } = this.state;
+    const { classes, ...rest } = this.props;
+    // console.log(this.props);
+    return (
+      <F>
+        <Button
+          variant="outlined"
+          className={classes.blueButton}
+          onClick={() => this.toggleDrawer(true)}
+        >
+          Log In
+          <LogInIcon fontSize="small" className={classes.rightIcon} />
+        </Button>
+        <ModalView modal={modal} handleClick={() => this.toggleDrawer(false)}>
+          <LogInView {...rest} />
+        </ModalView>
+      </F>
+    );
+  }
+}
+
+// href="./login"
+
+export const OutlinedLogInButton = withStyles(styles)(withRouter(Wrapper));
