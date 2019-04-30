@@ -31,6 +31,35 @@ const createEvent = (req, res, next) => {
     .catch(err => next(err));
 };
 
+const getUserEvents = (req, res, next) => {
+  let user_name = req.params.id;
+  db.any(
+    `SELECT
+    e.*,
+    (SELECT
+        user_name
+    FROM users AS u
+    WHERE e.user_id = u.id) AS user_name
+FROM events e
+JOIN users u
+ON u.id = e.user_id
+WHERE u.user_name=$1
+ORDER BY e.created_date DESC`,
+    user_name
+  )
+    .then(data => {
+      res.send({
+        status: 'success',
+        data: data,
+        message: `got all user events: ${req.params.id}`,
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      next(err);
+    });
+};
+
 const getEvents = (req, res, next) => {
   db.any(
     `SELECT *,
@@ -91,6 +120,7 @@ const deleteEvent = (req, res, next) => {
 
 module.exports = {
   createEvent,
+  getUserEvents,
   getEvents,
   updateEvent,
   deleteEvent,

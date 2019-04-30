@@ -12,16 +12,16 @@ const styles = theme => ({
     marginLeft: theme.spacing.unit,
   },
 });
-
-const WrappedComponent = ({ classes, loginDemoUser, ...props }) => {
+//["text","outlined","contained"]
+const WrappedComponent = ({ buttonType, classes, loginDemoUser, label, ...props }) => {
   return (
     <Button
-      variant="contained"
+      variant={buttonType}
       fullWidth
       className={classes.demoButton}
       onClick={loginDemoUser}
     >
-      Log In As Demo User
+      {label || 'Log In As Demo User'}
       <LogInIcon fontSize="small" className={classes.rightIcon} />
     </Button>
   );

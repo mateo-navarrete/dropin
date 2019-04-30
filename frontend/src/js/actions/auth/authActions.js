@@ -1,5 +1,6 @@
 //jscs:disable requireShorthandArrowFunctions
 import { SET_AUTH_STATUS } from '../../constants';
+import { getUserEvents } from '..';
 import { getData, postData } from '../../utils';
 
 const setAuthStatus = authStatus => {
@@ -10,10 +11,15 @@ export const checkAuthStatus = () => dispatch => {
   getData('/api/users/isLoggedIn')
     .then(res => {
       res.status === 200
-        ? dispatch(setAuthStatus(res.data))
+        ? dispatch(handleAuthSuccess(res.data))
         : console.log('TODO: handleAuthErrCodes', res);
     })
     .catch(err => console.log('TODO: handleAuthErrCodes', err));
+};
+
+const handleAuthSuccess = user => dispatch => {
+  dispatch(setAuthStatus(user));
+  dispatch(getUserEvents(user));
 };
 
 export const loginUser = ({ user_name, password }) => dispatch => {
@@ -23,7 +29,7 @@ export const loginUser = ({ user_name, password }) => dispatch => {
   })
     .then(res => {
       res.status === 200
-        ? dispatch(checkAuthStatus())
+        ? dispatch(dispatch(checkAuthStatus()))
         : console.log('TODO: handleLoginErrCodes', res);
     })
     .catch(err => {

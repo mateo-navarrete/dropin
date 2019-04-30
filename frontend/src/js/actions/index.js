@@ -5,7 +5,7 @@ import {
   loginDemoUser,
   logoutUser
 } from './auth';
-import { getGeolocation } from './user';
+import { getGeolocation, getUserEvents } from './user';
 import { resizeDimensions } from './utils';
 
 export {
@@ -14,6 +14,6 @@ export {
   loginUser,
   loginDemoUser,
   logoutUser,
-  getGeolocation,
+  getGeolocation, getUserEvents,
   resizeDimensions
 };

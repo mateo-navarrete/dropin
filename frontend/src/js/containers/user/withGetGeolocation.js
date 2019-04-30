@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getGeolocation } from '../../actions';
 
-const mapStateToProps = ({ geolocation }) => {
+const mapStateToProps = ({ user: { geolocation } }) => {
   return {
     coords: geolocation.coords,
   };

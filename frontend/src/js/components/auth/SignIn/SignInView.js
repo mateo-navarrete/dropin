@@ -1,10 +1,13 @@
 import React, { Fragment as F } from 'react';
-import { DivideOr } from '../../utils';
+// import { DivideOr } from '../../utils';
 import { LogInDemoUser } from '../LoggedOut/LogInDemoUser';
+// import { withDemoUser } from '../../../containers';
+// import { Btn } from '../../Button';
 
 import {
   Avatar,
-  Button,
+  Button as B,
+  Divider,
   FormControl,
   Input,
   InputLabel,
@@ -31,7 +34,7 @@ const styles = theme => ({
     marginTop: theme.spacing.unit,
   },
   submit: {
-    marginTop: theme.spacing.unit * 3,
+    // marginTop: theme.spacing.unit * 3,
   },
 });
 
@@ -118,7 +121,7 @@ class WrappedComponent extends React.Component {
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
           />
-          <Button
+          <B
             type="submit"
             fullWidth
             variant="contained"
@@ -126,17 +129,38 @@ class WrappedComponent extends React.Component {
             className={classes.submit}
           >
             Sign In
-          </Button>
-          <br />
-          <br />
-          <Button color="secondary" onClick={this.props.showSignup}>
-            or create an account
-          </Button>
+          </B>
         </form>
-        <DivideOr />
-        <LogInDemoUser />
+        <br />
+        <Divider />
+        <B color="secondary" onClick={this.props.showSignup}>
+          or create an account
+        </B>
+        <LogInDemoUser buttonType="text" label="Or Log In As Demo User" />
       </F>
     );
   }
 }
+// <HOCdemo />
+
+// const HOCdemo = props => {
+//   console.log(props);
+//   return (
+//     <LogInDemoUser
+//       buttonStyle="demoButton"
+//       label="HOC rule"
+//       isRightIcon="rightIcon"
+//       handleClick={props.loginDemoUser}
+//     />
+//   );
+// };
+//
+// const LogInDemoUser = props => {
+//   console.log(props);
+//   const Wrapped = props => <Btn {...props} />;
+//   const HOC = withDemoUser(Wrapped);
+//   // console.log(props, Wrapped, HOC);
+//   return <HOC {...props} />;
+// };
+
 export const SignInView = withStyles(styles)(WrappedComponent);
