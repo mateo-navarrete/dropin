@@ -18,6 +18,10 @@ import {
   DropinUserIcon,
   DropinHistoryIcon
 } from '../material';
+import { DropsFilterView } from '../user/DropsFilterView';
+import { FavoritesView } from '../user/FavoritesView';
+import { DropHistoryView } from '../user/DropHistoryView';
+import { MenuButtons } from '../user/MenuButtons';
 import { withStyles } from '../../containers';
 
 const styles = theme => ({
@@ -57,50 +61,14 @@ const Wrapper = ({ classes, ...props }) => {
         ))}
       </List>
       <Divider />
-      <List>
-        {section2.map((text, index) => (
-          <ListItem button key={text + index}>
-            <ListItemIcon>
-              {text === 'Trending' ? <HotIcon /> : <HourGlassIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+      <DropsFilterView />
       <Divider />
-      <List>
-        {section3.map((text, index) => (
-          <ListItem button key={text + index}>
-            <ListItemIcon>
-              {text === 'Favorites' ? (
-                <FavoriteIcon />
-              ) : text === 'Recent' ? (
-                <HourGlassIcon />
-              ) : text === 'Topics' ? (
-                <DropinEventIcon />
-              ) : (
-                <DropinUserIcon />
-              )}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+      <FavoritesView />
       <Divider />
-      <List>
-        {section4.map((text, index) => (
-          <ListItem button key={text + index}>
-            <ListItemIcon>
-              {text === 'Last Dropped' ? (
-                <HourGlassIcon />
-              ) : (
-                <DropinHistoryIcon />
-              )}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+      <DropHistoryView />
+      <Divider />
+      <MenuButtons />
+      <Divider />
     </div>
   );
 };

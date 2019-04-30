@@ -1,6 +1,9 @@
 //jscs:disable requireShorthandArrowFunctions
 import React from 'react';
+// import { ExpansionPanels } from './ExpansionPanels';
+// import { ExtraExpansion } from './ExtraExpansion';
 import { SignOut } from '../auth/SignOut';
+import { UserProfile, UserMenuButtons, UserNestedList } from '../user';
 import {
   BlockIcon,
   Divider,
@@ -13,6 +16,7 @@ import {
   TimerIcon
 } from '../material';
 import { withStyles } from '../../containers';
+import Avatar from '@material-ui/core/Avatar';
 
 const styles = theme => ({
   list: {
@@ -34,28 +38,16 @@ const sections = ['Settings', 'Privacy', 'Default Duration', 'Blocked'];
 const WrappedComponent = ({ classes, logoutUser, ...props }) => {
   return (
     <div className={classes.list}>
-      <SignOut handleClick={logoutUser} />
+      <UserProfile />
       <Divider />
-      <List>
-        {sections.map((text, index) => (
-          <ListItem button key={text + index}>
-            <ListItemIcon>
-              {text === 'Privacy' ? (
-                <VisibilityOff />
-              ) : text === 'Default Duration' ? (
-                <TimerIcon />
-              ) : text === 'Blocked' ? (
-                <BlockIcon />
-              ) : (
-                <SettingsIcon />
-              )}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+      <UserNestedList />
+      <Divider />
+      <UserMenuButtons />
+      <Divider />
     </div>
   );
 };
+// <SignOut handleClick={logoutUser} />
+// <ListItemText primary={text} />
 
 export const LoggedInMenu = withStyles(styles)(WrappedComponent);
