@@ -17,11 +17,11 @@ class WrappedComponent extends Component {
 
   render() {
     const { modal } = this.state;
-    const { closeAuthMenu, ...rest } = this.props;
+    const { closeLoggedOutMenu, ...rest } = this.props;
     const closeModal = () => {
       this.toggleModal(false);
-      if (closeAuthMenu) {
-        closeAuthMenu();
+      if (closeLoggedOutMenu) {
+        closeLoggedOutMenu();
       }
     };
 

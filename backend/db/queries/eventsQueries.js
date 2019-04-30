@@ -61,6 +61,7 @@ ORDER BY e.created_date DESC`,
 };
 
 const getEvents = (req, res, next) => {
+  // TODO: byRadius & notPrivate
   db.any(
     `SELECT
     e.*,

@@ -1,6 +1,6 @@
 //jscs:disable requireShorthandArrowFunctions
 import React from 'react';
-import { SignOut } from '../SignOut';
+import { SignOut } from '../auth/SignOut';
 import {
   BlockIcon,
   Divider,
@@ -11,8 +11,8 @@ import {
   VisibilityOff,
   SettingsIcon,
   TimerIcon
-} from '../../material';
-import { withStyles } from '../../../containers';
+} from '../material';
+import { withStyles } from '../../containers';
 
 const styles = theme => ({
   list: {

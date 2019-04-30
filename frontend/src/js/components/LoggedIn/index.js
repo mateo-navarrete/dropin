@@ -2,7 +2,7 @@
 import React, { Component, Fragment as F } from 'react';
 import { LoggedInMenu } from './LoggedInMenu';
 import { ShowLoggedInMenuButton } from './ShowLoggedInMenuButton';
-import { Drawer } from '../../material';
+import { Drawer } from '../material';
 
 class WrappedComponent extends Component {
   state = {

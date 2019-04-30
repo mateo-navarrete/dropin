@@ -14,8 +14,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import MyLocationIcon from '@material-ui/icons/MyLocation';
 import SearchIcon from '@material-ui/icons/Search';
 import SettingsIcon from '@material-ui/icons/Settings';
-import ShowAuthMenuIcon from '@material-ui/icons/Input';
 import ShowLoggedInMenuIcon from '@material-ui/icons/Person';
+import ShowLoggedOutMenuIcon from '@material-ui/icons/Input';
 import SignUpIcon from '@material-ui/icons/VerifiedUser';
 import TimerIcon from '@material-ui/icons/Timer';
 import Visibility from '@material-ui/icons/Visibility';
@@ -38,8 +38,8 @@ export {
   MyLocationIcon,
   SearchIcon,
   SettingsIcon,
-  ShowAuthMenuIcon,
   ShowLoggedInMenuIcon,
+  ShowLoggedOutMenuIcon,
   SignUpIcon,
   TimerIcon,
   Visibility,

@@ -1,6 +1,6 @@
 import React, { Fragment as F } from 'react';
-import { LoggedIn } from './LoggedIn';
-import { LoggedOut } from './LoggedOut';
+import { LoggedIn } from '../LoggedIn';
+import { LoggedOut } from '../LoggedOut';
 import { withAuth, withDimensions } from '../../containers';
 
 const WrappedComponent = props => {

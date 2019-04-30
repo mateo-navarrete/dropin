@@ -18,9 +18,9 @@ const gotGeolocationSuccess = position => {
   return { type: GOT_GEOLOCATION_SUCCESS, payload: position };
 };
 
-const handleGeolocationSuccess = (position)=>dispatch=> {
+const handleGeolocationSuccess = position => dispatch => {
   dispatch(gotGeolocationSuccess(position));
-  dispatch(getEvents());//TODO: getEventsBy => position
+  dispatch(getEvents()); // TODO byRadius & notPrivate
 };
 
 export const getGeolocation = () => async dispatch => {

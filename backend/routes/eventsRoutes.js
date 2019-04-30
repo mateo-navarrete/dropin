@@ -11,7 +11,7 @@ const {
 
 router.post('/', createEvent);
 router.get('/user/:id', getUserEvents);
-//TODO: withInRadiusOfUserGeolocation
+// TODO: byRadius & notPrivate
 router.get('/', getEvents);
 // router.get('/:id', getEvents);
 router.put('/', updateEvent);

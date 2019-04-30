@@ -1,6 +1,6 @@
 import React, { Fragment as F } from 'react';
 // import { DivideOr } from '../../utils';
-import { LogInDemoUser } from '../LoggedOut/LogInDemoUser';
+import { LogInDemoUser } from '../../LoggedOut/LogInDemoUser';
 // import { withDemoUser } from '../../../containers';
 // import { Btn } from '../../Button';
 

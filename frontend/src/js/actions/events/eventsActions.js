@@ -20,6 +20,7 @@ const gotEventsSuccess = events => {
 };
 
 export const getEvents = () => dispatch => {
+  // TODO: byRadius & notPrivate
   dispatch(gettingEvents());
   getData(`/api/events`)
     .then(res => dispatch(gotEventsSuccess(res.data.data)))

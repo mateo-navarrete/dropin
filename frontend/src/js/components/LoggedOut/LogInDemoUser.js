@@ -1,7 +1,7 @@
 //jscs:disable requireShorthandArrowFunctions
 import React from 'react';
-import { Button, LogInIcon } from '../../material';
-import { withDemoUser, withStyles } from '../../../containers';
+import { Button, LogInIcon } from '../material';
+import { withDemoUser, withStyles } from '../../containers';
 
 const styles = theme => ({
   demoButton: {
