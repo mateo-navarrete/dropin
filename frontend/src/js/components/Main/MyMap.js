@@ -8,6 +8,7 @@ import {
   Marker
 } from 'react-google-maps';
 import { CustomMapControl } from './CustomMapControl';
+// import { MapStyles } from './MapStyles';
 import { withDimensions, withGeolocation } from '../../containers';
 import { IconButton, MyLocationIcon } from '../material';
 const prepend = 'https://maps.googleapis.com/maps/api/js?key=';
@@ -15,57 +16,13 @@ const apiKey = 'AIzaSyB5uKfMriNA73mQgW_ZRelAixBLEdqT-Xg'; //process.env.REACT_AP
 const append = '&v=3.exp&libraries=geometry,drawing,places';
 const mapURL = prepend + apiKey + append;
 
-// var map;
-// var chicago = { lat: 41.85, lng: -87.65 };
-//
-// const CenterControl = (controlDiv, map) => {
-//   // Set CSS for the control border.
-//   var controlUI = document.createElement('div');
-//   controlUI.style.backgroundColor = '#fff';
-//   controlUI.style.border = '2px solid #fff';
-//   controlUI.style.borderRadius = '3px';
-//   controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
-//   controlUI.style.cursor = 'pointer';
-//   controlUI.style.marginBottom = '22px';
-//   controlUI.style.textAlign = 'center';
-//   controlUI.title = 'Click to recenter the map';
-//   controlDiv.appendChild(controlUI);
-//
-//   // Set CSS for the control interior.
-//   var controlText = document.createElement('div');
-//   controlText.style.color = 'rgb(25,25,25)';
-//   controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
-//   controlText.style.fontSize = '16px';
-//   controlText.style.lineHeight = '38px';
-//   controlText.style.paddingLeft = '5px';
-//   controlText.style.paddingRight = '5px';
-//   controlText.innerHTML = 'Center Map';
-//   controlUI.appendChild(controlText);
-//
-//   // Setup the click event listeners: simply set the map to Chicago.
-//   controlUI.addEventListener('click', function () {
-//     map.setCenter(chicago);
-//   });
-// };
-//
-// var centerControlDiv = document.createElement('div');
-// var centerControl = new CenterControl(centerControlDiv, map);
-//
-// centerControlDiv.index = 1;
-// map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
+// const mapTypes = ['night', 'red', 'creed', 'veins', 'chill', 'pinRed'];
+const colors = ['cyan', 'green', 'magenta'];
+const getRandomNum = n => (Math.random() * n) >> 0;
 
-const GoogleMapWrapper = ({
-  gotUserCoords,
-  userCoords,
-  // recenter,
-  // center,
-  ...props,
-}) => {
-  // console.log(props);
-  // const handleClick = e => {
-  //   console.log(e, userCoords);
-  // };
-
+const GoogleMapWrapper = ({ gotUserCoords, userCoords, ...props }) => {
+  const randomColor = colors[getRandomNum(colors.length)];
+  // const randomMap = MapStyles[mapTypes[getRandomNum(mapTypes.length)]];
   return gotUserCoords ? (
     <GoogleMap
       defaultZoom={15}
@@ -73,6 +30,7 @@ const GoogleMapWrapper = ({
       defaultOptions={{
         clickableIcons: false,
         disableDefaultUI: true,
+        // styles: MapStyles.night,
         zoomControl: true,
         zoomControlOptions: {
           position: google.maps.ControlPosition.TOP_RIGHT,
@@ -85,7 +43,16 @@ const GoogleMapWrapper = ({
         </IconButton>
       </CustomMapControl>
       {props.isMarkerShown && (
-        <Marker position={userCoords} onClick={props.onMarkerClick} />
+        <Marker
+          position={userCoords}
+          onClick={props.onMarkerClick}
+          icon={{
+            url: require(`../../../assets/marker_${randomColor}_pin.png`), //'/img/icon.svg',
+            scaledSize: new google.maps.Size(64, 64),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(32, 64),
+          }}
+        />
       )}
     </GoogleMap>
   ) : null;
