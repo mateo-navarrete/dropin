@@ -11,15 +11,15 @@ export const checkAuthStatus = () => dispatch => {
   getData('/api/users/isLoggedIn')
     .then(res => {
       res.status === 200
-        ? dispatch(handleAuthSuccess(res.data))
+        ? dispatch(handleAuthResponse(res.data))
         : console.log('TODO: handleAuthErrCodes', res);
     })
     .catch(err => console.log('TODO: handleAuthErrCodes', err));
 };
 
-const handleAuthSuccess = user => dispatch => {
+const handleAuthResponse = user => dispatch => {
   dispatch(setAuthStatus(user));
-  dispatch(getUserEvents(user));
+  if (user.user_name) dispatch(getUserEvents(user));
 };
 
 export const loginUser = ({ user_name, password }) => dispatch => {
@@ -29,7 +29,7 @@ export const loginUser = ({ user_name, password }) => dispatch => {
   })
     .then(res => {
       res.status === 200
-        ? dispatch(dispatch(checkAuthStatus()))
+        ? dispatch(checkAuthStatus())
         : console.log('TODO: handleLoginErrCodes', res);
     })
     .catch(err => {

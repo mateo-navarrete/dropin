@@ -4,7 +4,7 @@ import {
   GOT_USER_EVENTS_ERROR,
   GOT_USER_EVENTS_SUCCESS
 } from '../../constants';
-import { getData, postData } from '../../utils';
+import { getData } from '../../utils';
 
 const gettingUserEvents = () => {
   return { type: GETTING_USER_EVENTS };

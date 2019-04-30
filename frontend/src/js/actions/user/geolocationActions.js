@@ -4,6 +4,7 @@ import {
   GOT_GEOLOCATION_ERROR,
   GOT_GEOLOCATION_SUCCESS
 } from '../../constants';
+import { getEvents } from '..';
 
 const gettingGeolocation = () => {
   return { type: GETTING_GEOLOCATION };
@@ -17,11 +18,16 @@ const gotGeolocationSuccess = position => {
   return { type: GOT_GEOLOCATION_SUCCESS, payload: position };
 };
 
+const handleGeolocationSuccess = (position)=>dispatch=> {
+  dispatch(gotGeolocationSuccess(position));
+  dispatch(getEvents());//TODO: getEventsBy => position
+};
+
 export const getGeolocation = () => async dispatch => {
   dispatch(gettingGeolocation());
   window.navigator.geolocation.getCurrentPosition(
     position => {
-      dispatch(gotGeolocationSuccess(position));
+      dispatch(handleGeolocationSuccess(position));
     },
 
     error => {

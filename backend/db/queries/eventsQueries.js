@@ -55,35 +55,62 @@ ORDER BY e.created_date DESC`,
       });
     })
     .catch(err => {
-      console.log(err);
+      console.log('@getUserEvents', err);
       next(err);
     });
 };
 
 const getEvents = (req, res, next) => {
   db.any(
-    `SELECT *,
+    `SELECT
+    e.*,
     (SELECT
         user_name
     FROM users AS u
-    WHERE events.user_id = u.id) AS user_name
-    FROM events
-    WHERE category_id=$1
-    AND expiration_date >= CURRENT_TIMESTAMP`,
-    +req.params.id
+    WHERE e.user_id = u.id) AS user_name
+FROM events e
+JOIN users u
+ON u.id = e.user_id
+AND expiration_date >= CURRENT_TIMESTAMP
+ORDER BY e.created_date DESC`
   )
     .then(data => {
       res.send({
         status: 'success',
         data: data,
-        message: `got all events in category: ${req.params.id}`,
+        message: `got all active user events`,
       });
     })
     .catch(err => {
-      console.log(err);
+      console.log('@getEvents', err);
       next(err);
     });
 };
+
+// const getEvents = (req, res, next) => {
+//   db.any(
+//     `SELECT *,
+//     (SELECT
+//         user_name
+//     FROM users AS u
+//     WHERE events.user_id = u.id) AS user_name
+//     FROM events
+//     WHERE category_id=$1
+//     AND expiration_date >= CURRENT_TIMESTAMP`,
+//     +req.params.id
+//   )
+//     .then(data => {
+//       res.send({
+//         status: 'success',
+//         data: data,
+//         message: `got all events in category: ${req.params.id}`,
+//       });
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       next(err);
+//     });
+// };
 
 const updateEvent = (req, res, next) => {
   const rb = req.body;
