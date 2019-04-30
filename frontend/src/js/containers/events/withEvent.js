@@ -37,13 +37,13 @@ const mapDispatchToProps = dispatch => {
     // closeStepperModal: () => dispatch(closeStepperModal()),
     setCategory: category_id => dispatch(setCategory(category_id)),
     setPrivacy: display_user => dispatch(setPrivacy(display_user)),
-    setExpiration: expiration_date => dispatch(setExpiration(expiration_date)),
+    setExpiration: expiration_date => dispatch(setExpiration(expiration_date))
   };
 };
 
 export const withEvent = WrappedComponent => {
   class HOC extends Component {
-    
+
 
     render() {
       return <WrappedComponent {...this.props} />;
