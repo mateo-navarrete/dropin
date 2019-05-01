@@ -12,7 +12,7 @@ export const View = ({ handleClose }) => {
       <DivideOr />
       <LogIn handleClose={handleClose} variant="contained" />
       <DivideOr />
-      <LogInDemoUser />
+      <LogInDemoUser variant="text"/>
     </F>
   );
 };

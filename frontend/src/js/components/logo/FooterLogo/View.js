@@ -1,7 +1,7 @@
 //jscs:disable requireShorthandArrowFunctions
 import React from 'react';
-import { Button } from '../material';
-import { withStyles } from '../../containers';
+import { Button } from '../../material';
+import { withStyles } from '../../../containers';
 
 const styles = theme => ({
   redButton: {
@@ -31,4 +31,4 @@ const WrappedComponent = ({ classes, children, ...props }) => {
   );
 };
 
-export const ButtonWrapper = withStyles(styles)(WrappedComponent);
+export const View = withStyles(styles)(WrappedComponent);

@@ -13,10 +13,9 @@ const styles = theme => ({
     marginLeft: theme.spacing.unit,
   },
 });
-// TODO change from buttonType to variant
-//buttonType = "text","outlined","contained"
+
 const WrappedComponent = ({
-  buttonType,
+  variant,
   classes,
   handleClick,
   label,
@@ -24,7 +23,7 @@ const WrappedComponent = ({
 }) => {
   return (
     <Button
-      variant={buttonType}
+      variant={variant}
       fullWidth
       className={classes.demoButton}
       onClick={handleClick}

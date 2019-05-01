@@ -1,7 +1,7 @@
 //jscs:disable requireShorthandArrowFunctions
 import React from 'react';
-import { LogoFooterButton } from '../../logo';
+import { FooterLogo } from '../../logo';
 
 export const DefaultFooter = ({ height, ...props }) => {
-  return <LogoFooterButton height={height} color="white" />;
+  return <FooterLogo height={height} color="white" />;
 };

@@ -1,7 +1,7 @@
 //jscs:disable requireShorthandArrowFunctions
 import React from 'react';
 
-export const LogoFooterWrapper = ({ height, children, ...props }) => {
+export const Wrapper = ({ height, children, ...props }) => {
   return (
     <div
       style={{
