@@ -6,8 +6,8 @@ import { SignUp } from '../../SignUp';
 export const DefaultMenu = () => {
   return (
     <F>
-      <SignUp isButtonOutlined />
-      <LogIn isButtonOutlined />
+      <SignUp variant='outlined' />
+      <LogIn variant='outlined' />
     </F>
   );
 };

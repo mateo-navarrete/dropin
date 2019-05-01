@@ -42,9 +42,7 @@ const styles = theme => ({
   },
 });
 
-// TODO change from isButtonOutlined to variant
-const WrappedComponent = ({ classes, isButtonOutlined, handleClick }) => {
-  const variant = isButtonOutlined ? 'outlined' : 'contained';
+const WrappedComponent = ({ classes, variant, handleClick }) => {
   return (
     <B
       variant={variant}

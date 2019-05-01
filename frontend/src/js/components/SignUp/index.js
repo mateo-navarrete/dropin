@@ -22,7 +22,7 @@ class WrappedComponent extends Component {
 
   render() {
     const { ageVerified, modal } = this.state;
-    const { closeLoggedOutMenu, isButtonOutlined } = this.props;
+    const { closeLoggedOutMenu, variant } = this.props;
     const closeModal = () => {
       this.toggleModal(false);
       if (closeLoggedOutMenu) {
@@ -32,10 +32,7 @@ class WrappedComponent extends Component {
 
     return (
       <F>
-        <Button
-          handleClick={() => this.toggleModal(true)}
-          isButtonOutlined={isButtonOutlined}
-        />
+        <Button handleClick={() => this.toggleModal(true)} variant={variant} />
         <Modal modal={modal} handleClick={closeModal}>
           <View
             closeModal={closeModal}

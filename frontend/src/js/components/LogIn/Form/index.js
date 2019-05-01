@@ -123,7 +123,7 @@ class WrappedComponent extends React.Component {
             label="Remember me"
           />
 
-          <Button handleClick={e => this.handleSubmit(e)} />
+          <Button handleClick={e => this.handleSubmit(e)} variant="contained" />
         </form>
         <DropDown />
       </F>

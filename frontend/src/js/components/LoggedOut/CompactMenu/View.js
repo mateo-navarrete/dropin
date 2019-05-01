@@ -8,9 +8,9 @@ import { DivideOr } from '../../utils';
 export const View = ({ closeLoggedOutMenu }) => {
   return (
     <F>
-      <SignUp closeLoggedOutMenu={closeLoggedOutMenu} />
+      <SignUp closeLoggedOutMenu={closeLoggedOutMenu} variant="contained" />
       <DivideOr />
-      <LogIn closeLoggedOutMenu={closeLoggedOutMenu} />
+      <LogIn closeLoggedOutMenu={closeLoggedOutMenu} variant="contained" />
       <DivideOr />
       <LogInDemoUser />
     </F>
