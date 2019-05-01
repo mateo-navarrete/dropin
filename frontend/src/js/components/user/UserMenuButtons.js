@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 // import Typography from '@material-ui/core/Typography';
 import ClearIcon from '@material-ui/icons/Clear';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
+import { LogOut } from '../LogOut';
 
 const styles = theme => ({
   card: {
@@ -34,10 +35,7 @@ function MyCard(props) {
   // <CardActions>
   return (
     <F>
-      <Button variant="outlined" color="default" className={classes.button}>
-        Log Out
-        <LockOpenIcon className={classes.rightIcon} />
-      </Button>
+      <LogOut {...props}/>
       <Button variant="outlined" color="secondary" className={classes.button}>
         Close
         <ClearIcon className={classes.rightIcon} />
@@ -45,6 +43,11 @@ function MyCard(props) {
     </F>
   );
 }
+
+// <Button variant="outlined" color="default" className={classes.button}>
+//   Log Out
+//   <LockOpenIcon className={classes.rightIcon} />
+// </Button>
 // </CardActions>
 // </Card>
 

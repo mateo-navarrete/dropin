@@ -7,7 +7,7 @@ import HotIcon from '@material-ui/icons/Whatshot';
 import HourGlassIcon from '@material-ui/icons/HourglassEmpty';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import LogInIcon from '@material-ui/icons/Lock';
+// import LogInIcon from '@material-ui/icons/Lock';
 import LogOutIcon from '@material-ui/icons/LockOpen';
 import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -15,8 +15,8 @@ import MyLocationIcon from '@material-ui/icons/MyLocation';
 import SearchIcon from '@material-ui/icons/Search';
 import SettingsIcon from '@material-ui/icons/Settings';
 import ShowLoggedInMenuIcon from '@material-ui/icons/Person';
-import ShowLoggedOutMenuIcon from '@material-ui/icons/Input';
-import SignUpIcon from '@material-ui/icons/VerifiedUser';
+// import ShowCompactLoggedOutMenuIcon from '@material-ui/icons/Input';
+// import SignUpIcon from '@material-ui/icons/VerifiedUser';
 import TimerIcon from '@material-ui/icons/Timer';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
@@ -31,7 +31,7 @@ export {
   InboxIcon,
   HourGlassIcon,
   LockOutlinedIcon,
-  LogInIcon,
+  // LogInIcon,
   LogOutIcon,
   MailIcon,
   MenuIcon,
@@ -39,8 +39,8 @@ export {
   SearchIcon,
   SettingsIcon,
   ShowLoggedInMenuIcon,
-  ShowLoggedOutMenuIcon,
-  SignUpIcon,
+  // ShowCompactLoggedOutMenuIcon,
+  // SignUpIcon,
   TimerIcon,
   Visibility,
   VisibilityOff

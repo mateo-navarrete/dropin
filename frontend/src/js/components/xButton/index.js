@@ -55,3 +55,25 @@ export const Btn = props => {
   const HOC = withStyles(Styles[props.buttonStyle])(WrappedComponent);
   return <HOC {...props} />;
 };
+
+// <HOCdemo />
+
+// const HOCdemo = props => {
+//   console.log(props);
+//   return (
+//     <LogInDemoUser
+//       buttonStyle="demoButton"
+//       label="HOC rule"
+//       isRightIcon="rightIcon"
+//       handleClick={props.loginDemoUser}
+//     />
+//   );
+// };
+//
+// const LogInDemoUser = props => {
+//   console.log(props);
+//   const Wrapped = props => <Btn {...props} />;
+//   const HOC = withDemoUser(Wrapped);
+//   // console.log(props, Wrapped, HOC);
+//   return <HOC {...props} />;
+// };

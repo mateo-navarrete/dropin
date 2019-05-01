@@ -1,13 +1,8 @@
 import React, { Fragment as F } from 'react';
-import { CompactLoggedOut } from './CompactLoggedOut';
-import { DefaultLoggedOut } from './DefaultLoggedOut';
+import { CompactMenu } from './CompactMenu';
+import { DefaultMenu } from './DefaultMenu';
 
-export const LoggedOut = ({ height, width, ...props }) => {
-  let isCompact = height > width;
-  const renderView = isCompact ? (
-    <CompactLoggedOut {...props} />
-  ) : (
-    <DefaultLoggedOut {...props} />
-  );
+export const LoggedOut = ({ isCompact }) => {
+  const renderView = isCompact ? <CompactMenu /> : <DefaultMenu />;
   return <F>{renderView}</F>;
 };

@@ -1,9 +1,9 @@
 //jscs:disable requireShorthandArrowFunctions
 import React, { Component, Fragment as F } from 'react';
 import { withRouter } from 'react-router-dom';
-import { SignInButton } from './SignInButton';
-import { SignInView } from './SignInView';
-import { Modal } from '../../Modal';
+import { Button } from './Button';
+import { View } from './View';
+import { Modal } from '../Modal';
 
 class WrappedComponent extends Component {
   state = {
@@ -17,7 +17,7 @@ class WrappedComponent extends Component {
 
   render() {
     const { modal } = this.state;
-    const { closeLoggedOutMenu, ...rest } = this.props;
+    const { closeLoggedOutMenu, isButtonOutlined } = this.props;
     const closeModal = () => {
       this.toggleModal(false);
       if (closeLoggedOutMenu) {
@@ -27,16 +27,16 @@ class WrappedComponent extends Component {
 
     return (
       <F>
-        <SignInButton
+        <Button
           handleClick={() => this.toggleModal(true)}
-          isButtonOutlined={this.props.isButtonOutlined}
+          isButtonOutlined={isButtonOutlined}
         />
         <Modal modal={modal} handleClick={closeModal}>
-          <SignInView closeModal={closeModal} {...rest} />
+          <View closeModal={closeModal} />
         </Modal>
       </F>
     );
   }
 }
 
-export const SignIn = withRouter(WrappedComponent);
+export const LogIn = withRouter(WrappedComponent);

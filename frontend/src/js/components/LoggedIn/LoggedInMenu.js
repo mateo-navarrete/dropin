@@ -2,7 +2,7 @@
 import React from 'react';
 // import { ExpansionPanels } from './ExpansionPanels';
 // import { ExtraExpansion } from './ExtraExpansion';
-import { SignOut } from '../auth/SignOut';
+// import { SignOut } from '../auth/SignOut';
 import { UserProfile, UserMenuButtons, UserNestedList } from '../user';
 import {
   BlockIcon,

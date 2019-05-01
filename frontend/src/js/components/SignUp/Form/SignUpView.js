@@ -2,7 +2,7 @@ import React, { Fragment as F } from 'react';
 //TODO rename SignInView && create SignUpView
 import { UserSignUp } from './UserSignUp';
 import { DivideOr } from '../../utils';
-import { LogInDemoUser } from '../../LoggedOut/LogInDemoUser';
+import { LogInDemoUser } from '../../auth/LogInDemoUser';
 import {
   Avatar,
   FormControl,

@@ -1,9 +1,8 @@
 import React, { Fragment as F } from 'react';
-// import { DivideOr } from '../../utils';
-import { LogInDemoUser } from '../../LoggedOut/LogInDemoUser';
-// import { withDemoUser } from '../../../containers';
-// import { Btn } from '../../Button';
-
+import { withRouter } from 'react-router-dom';
+import { LogInDemoUser } from '../../auth';
+import { Button } from '../Button';
+import { DropDown } from '../DropDown';
 import {
   Avatar,
   Button as B,
@@ -20,7 +19,7 @@ import {
   FormControlLabel,
   Checkbox
 } from '../../material';
-import { withStyles } from '../../../containers';
+import { withStyles, withLogIn } from '../../../containers';
 
 const styles = theme => ({
   main: {},
@@ -56,6 +55,8 @@ class WrappedComponent extends React.Component {
     event.preventDefault();
     const { user_name, password } = this.state;
     // console.log(user_name, password);
+    let path = '/';
+    this.props.history.push(path);
     this.props.loginUser({ user_name, password });
   };
 
@@ -81,7 +82,7 @@ class WrappedComponent extends React.Component {
             </Typography>
           </F>
         )}
-        <form className={classes.form} onSubmit={this.handleSubmit}>
+        <form className={classes.form} onSubmit={e => this.handleSubmit(e)}>
           <FormControl margin="normal" required fullWidth>
             <InputLabel htmlFor="user_name">User Name</InputLabel>
             <Input
@@ -121,46 +122,30 @@ class WrappedComponent extends React.Component {
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
           />
-          <B
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Sign In
-          </B>
+
+          <Button handleClick={e => this.handleSubmit(e)} />
         </form>
-        <br />
-        <Divider />
-        <B color="secondary" onClick={this.props.showSignup}>
-          or create an account
-        </B>
-        <LogInDemoUser buttonType="text" label="Or Log In As Demo User" />
+        <DropDown />
       </F>
     );
   }
 }
-// <HOCdemo />
+// <Button handleClick={this.props.showSignup} />
 
-// const HOCdemo = props => {
-//   console.log(props);
-//   return (
-//     <LogInDemoUser
-//       buttonStyle="demoButton"
-//       label="HOC rule"
-//       isRightIcon="rightIcon"
-//       handleClick={props.loginDemoUser}
-//     />
-//   );
-// };
-//
-// const LogInDemoUser = props => {
-//   console.log(props);
-//   const Wrapped = props => <Btn {...props} />;
-//   const HOC = withDemoUser(Wrapped);
-//   // console.log(props, Wrapped, HOC);
-//   return <HOC {...props} />;
-// };
+// <br />
+// <Divider />
+// <LogInDemoUser buttonType="text" label="Or Log In As Demo User" />
+// <B
+//   type="submit"
+//   fullWidth
+//   variant="contained"
+//   color="primary"
+//   className={classes.submit}
+// >
+//   Sign In
+// </B>
+// <B color="secondary" onClick={this.props.showSignup}>
+// or create an account
+// </B>
 
-export const SignInView = withStyles(styles)(WrappedComponent);
+export const Form = withStyles(styles)(withRouter(withLogIn(WrappedComponent)));

@@ -2,24 +2,18 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { loginDemoUser } from '../../actions';
+import { loginUser } from '../../actions';
 
 const mapDispatchToProps = dispatch => {
   return {
-    loginDemoUser: () => dispatch(loginDemoUser()),
+    loginUser: (userObj) => dispatch(loginUser(userObj)),
   };
 };
 
-export const withDemoUser = WrappedComponent => {
+export const withLogIn = WrappedComponent => {
   class HOC extends Component {
-    handleClick = () => {
-      let path = '/';
-      this.props.history.push(path);
-      this.props.loginDemoUser();
-    };
-
     render() {
-      return <WrappedComponent handleClick={this.handleClick}{...this.props} />;
+      return <WrappedComponent {...this.props} />;
     }
   }
   return connect(

@@ -1,13 +1,13 @@
 //jscs:disable requireShorthandArrowFunctions
 import React, { Component, Fragment as F } from 'react';
 import { withRouter } from 'react-router-dom';
-import { SignUpButton } from './SignUpButton';
-import { ValidateAge } from './ValidateAge';
-import { Modal } from '../../Modal';
+import { Button } from './Button';
+import { View } from './View';
+import { Modal } from '../Modal';
 
 class WrappedComponent extends Component {
   state = {
-    is18: false,
+    ageVerified: false,
     modal: false,
   };
   toggleModal = open => {
@@ -16,13 +16,13 @@ class WrappedComponent extends Component {
     this.setState({ modal: open });
   };
 
-  hideMustBe18 = () => {
-    this.setState({ is18: true });
+  hideAgeVerification = () => {
+    this.setState({ ageVerified: true });
   };
 
   render() {
-    const { is18, modal } = this.state;
-    const { closeLoggedOutMenu, ...rest } = this.props;
+    const { ageVerified, modal } = this.state;
+    const { closeLoggedOutMenu, isButtonOutlined } = this.props;
     const closeModal = () => {
       this.toggleModal(false);
       if (closeLoggedOutMenu) {
@@ -32,17 +32,15 @@ class WrappedComponent extends Component {
 
     return (
       <F>
-        <SignUpButton
+        <Button
           handleClick={() => this.toggleModal(true)}
-          isButtonOutlined={this.props.isButtonOutlined}
+          isButtonOutlined={isButtonOutlined}
         />
-
         <Modal modal={modal} handleClick={closeModal}>
-          <ValidateAge
-            is18={is18}
+          <View
             closeModal={closeModal}
-            hideMustBe18={this.hideMustBe18}
-            {...rest}
+            hideAgeVerification={this.hideAgeVerification}
+            ageVerified={ageVerified}
           />
         </Modal>
       </F>

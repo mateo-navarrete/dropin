@@ -1,6 +1,7 @@
 //jscs:disable requireShorthandArrowFunctions
 import React from 'react';
-import { Button, LogInIcon } from '../material';
+import LogInIcon from '@material-ui/icons/Lock';
+import { Button } from '../material';
 import { withDemoUser, withStyles } from '../../containers';
 
 const styles = theme => ({
@@ -12,14 +13,21 @@ const styles = theme => ({
     marginLeft: theme.spacing.unit,
   },
 });
-//["text","outlined","contained"]
-const WrappedComponent = ({ buttonType, classes, loginDemoUser, label, ...props }) => {
+// TODO change from buttonType to variant
+//buttonType = "text","outlined","contained"
+const WrappedComponent = ({
+  buttonType,
+  classes,
+  handleClick,
+  label,
+  ...props,
+}) => {
   return (
     <Button
       variant={buttonType}
       fullWidth
       className={classes.demoButton}
-      onClick={loginDemoUser}
+      onClick={handleClick}
     >
       {label || 'Log In As Demo User'}
       <LogInIcon fontSize="small" className={classes.rightIcon} />

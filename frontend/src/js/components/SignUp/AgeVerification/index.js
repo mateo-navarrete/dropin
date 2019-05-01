@@ -38,7 +38,7 @@ class WrappedComponent extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const { isUnder18 } = this.state;
-    if (!isUnder18) this.props.hideMustBe18();
+    if (!isUnder18) this.props.hideAgeVerification();
   };
 
   handleChange = event => {
@@ -91,4 +91,4 @@ class WrappedComponent extends Component {
     );
   }
 }
-export const UserMustBe18 = withStyles(styles)(WrappedComponent);
+export const AgeVerification = withStyles(styles)(WrappedComponent);
