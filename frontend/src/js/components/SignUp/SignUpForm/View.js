@@ -1,17 +1,17 @@
 import React, { Fragment as F } from 'react';
+import SignUpIcon from '@material-ui/icons/VerifiedUser';
 import { Form } from './Form';
 import { DropDown } from '../DropDown';
 import {
   Avatar,
   Typography,
-  LockOutlinedIcon
 } from '../../material';
 import { withStyles, withDimensions } from '../../../containers';
 
 const styles = theme => ({
   avatar: {
     margin: `0 0 ${theme.spacing.unit * 2}px`,
-    backgroundColor: '#2980B9',
+    backgroundColor: '#FB364A',
   },
 });
 
@@ -23,17 +23,20 @@ const WrappedComponent = ({
   user_name,
   showPassword,
   password,
+  email,
+  photo,
   handleShowPassword,
   handleClick,
 }) => {
+  // TODO signUp icon instead?
   const renderHeader =
     height > 600 ? (
       <div className="flex col align">
         <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
+          <SignUpIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Log In
+          Sign Up
         </Typography>
       </div>
     ) : null;
@@ -46,6 +49,8 @@ const WrappedComponent = ({
         user_name={user_name}
         showPassword={showPassword}
         password={password}
+        email={email}
+        photo={photo}
         handleShowPassword={handleShowPassword}
         handleClick={handleClick}
       />

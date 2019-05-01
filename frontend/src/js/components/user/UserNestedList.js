@@ -82,7 +82,7 @@ class NestedList extends React.Component {
             <Collapse in={this.state.privacy} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
                 <ListItem button className={classes.nested}>
-                  <ListItemText inset primary="make serachable" />
+                  <ListItemText inset primary="allow users to search for my profile" />
                 </ListItem>
               </List>
             </Collapse>
@@ -100,7 +100,7 @@ class NestedList extends React.Component {
             <Collapse in={this.state.duration} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
                 <ListItem button className={classes.nested}>
-                  <ListItemText inset primary="change default duration" />
+                  <ListItemText inset primary="change default duration: 15m 30m 1hr 2hr" />
                 </ListItem>
               </List>
             </Collapse>

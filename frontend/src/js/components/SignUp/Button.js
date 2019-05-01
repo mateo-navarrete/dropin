@@ -42,9 +42,10 @@ const styles = theme => ({
   },
 });
 
-const WrappedComponent = ({ classes, variant, handleClick }) => {
+const WrappedComponent = ({ classes, disabled, variant, handleClick }) => {
   return (
     <B
+      disabled={disabled}
       variant={variant}
       fullWidth={variant === 'contained'}
       className={classes[variant + 'Button']}

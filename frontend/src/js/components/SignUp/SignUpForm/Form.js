@@ -1,5 +1,4 @@
-//jscs:disable requireShorthandArrowFunctions
-import React from 'react';
+import React, { Fragment as F } from 'react';
 import { Button } from '../Button';
 import {
   FormControl,
@@ -8,9 +7,7 @@ import {
   Visibility,
   VisibilityOff,
   InputAdornment,
-  IconButton,
-  FormControlLabel,
-  Checkbox
+  IconButton
 } from '../../material';
 import { withStyles } from '../../../containers';
 
@@ -20,10 +17,9 @@ const styles = theme => ({
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing.unit,
-    //TODO edit text color
   },
   submit: {
-    // marginTop: theme.spacing.unit * 3,
+    marginTop: theme.spacing.unit * 3,
   },
 });
 
@@ -34,12 +30,14 @@ const WrappedComponent = ({
   user_name,
   showPassword,
   password,
+  email,
+  photo,
   handleShowPassword,
   handleClick,
 }) => {
-  const disabled = !(user_name && password);
+  const disabled = !(user_name && password && email);
   return (
-    <form className={classes.form} onSubmit={e => this.handleSubmit(e)}>
+    <form className={classes.form} onSubmit={handleSubmit}>
       <FormControl margin="normal" required fullWidth>
         <InputLabel htmlFor="user_name">User Name</InputLabel>
         <Input
@@ -71,36 +69,26 @@ const WrappedComponent = ({
           }
         />
       </FormControl>
-      <FormControlLabel
-        control={<Checkbox value="remember" color="primary" />}
-        label="Remember me"
-      />
-
-      <Button
-        disabled={disabled}
-        handleClick={handleClick}
-        variant="contained"
-      />
+      <FormControl margin="normal" required fullWidth>
+        <InputLabel htmlFor="user_name">Email</InputLabel>
+        <Input
+          onChange={handleChange}
+          id="email"
+          name="email"
+          value={email}
+          autoComplete="on"
+        />
+      </FormControl>
+      <Button disabled={disabled} handleClick={handleClick} variant="contained" />
     </form>
   );
 };
 
-// <Button handleClick={this.props.showSignup} />
-
-// <br />
-// <Divider />
-// <LogInDemoUser buttonType="text" label="Or Log In As Demo User" />
-// <B
-//   type="submit"
-//   fullWidth
-//   variant="contained"
-//   color="primary"
-//   className={classes.submit}
-// >
-//   Sign In
-// </B>
-// <B color="secondary" onClick={this.props.showSignup}>
-// or create an account
-// </B>
+// <UserSignUp
+//   classes={classes}
+//   {...props}
+//   {...state}
+//   handleChange={handleChange}
+// />
 
 export const Form = withStyles(styles)(WrappedComponent);
