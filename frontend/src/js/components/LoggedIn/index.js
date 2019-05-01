@@ -1,7 +1,7 @@
 //jscs:disable requireShorthandArrowFunctions
 import React, { Component, Fragment as F } from 'react';
-import { LoggedInMenu } from './LoggedInMenu';
-import { ShowLoggedInMenuButton } from './ShowLoggedInMenuButton';
+import { Button } from './Button';
+import { View } from './View';
 import { Drawer } from '../material';
 
 class WrappedComponent extends Component {
@@ -16,16 +16,13 @@ class WrappedComponent extends Component {
     const { modal } = this.state;
     return (
       <F>
-        <ShowLoggedInMenuButton handleClick={() => this.toggleModal(true)} />
+        <Button handleClick={() => this.toggleModal(true)} />
         <Drawer
           anchor="right"
           open={modal}
           onClose={() => this.toggleModal(false)}
         >
-          <LoggedInMenu
-            closeModal={() => this.toggleModal(false)}
-            {...this.props}
-          />
+          <View handleClose={() => this.toggleModal(false)} />
         </Drawer>
       </F>
     );

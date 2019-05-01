@@ -21,7 +21,7 @@ import {
 import { DropsFilterView } from '../user/DropsFilterView';
 import { FavoritesView } from '../user/FavoritesView';
 import { DropHistoryView } from '../user/DropHistoryView';
-import { MenuButtons } from '../user/MenuButtons';
+import { MenuButtons } from '../user/xMenuButtons';
 import { withStyles } from '../../containers';
 
 const styles = theme => ({

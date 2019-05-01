@@ -1,17 +1,11 @@
+//jscs:disable requireShorthandArrowFunctions
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import Collapse from '@material-ui/core/Collapse';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import SendIcon from '@material-ui/icons/Send';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-import StarBorder from '@material-ui/icons/StarBorder';
+// import { View } from './View';
+// import { withUser } from '../../containers';
 import {
-  BlockIcon,
-  Divider,
+  Collapse,
+  ExpandLess,
+  ExpandMore,
   List,
   ListItem,
   ListItemIcon,
@@ -20,6 +14,7 @@ import {
   SettingsIcon,
   TimerIcon
 } from '../material';
+import { withStyles } from '../../containers';
 const styles = theme => ({
   root: {
     width: '100%',
@@ -52,11 +47,6 @@ class NestedList extends React.Component {
 
   render() {
     const { classes } = this.props;
-    // component = "nav";
-    // subheader={
-    //   <ListSubheader component="div">Nested List Items</ListSubheader>
-    // }
-
     return (
       <List className={classes.root}>
         <ListItem button onClick={this.handleClick}>
@@ -82,7 +72,10 @@ class NestedList extends React.Component {
             <Collapse in={this.state.privacy} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
                 <ListItem button className={classes.nested}>
-                  <ListItemText inset primary="allow users to search for my profile" />
+                  <ListItemText
+                    inset
+                    primary="allow users to search for my profile"
+                  />
                 </ListItem>
               </List>
             </Collapse>
@@ -100,7 +93,10 @@ class NestedList extends React.Component {
             <Collapse in={this.state.duration} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
                 <ListItem button className={classes.nested}>
-                  <ListItemText inset primary="change default duration: 15m 30m 1hr 2hr" />
+                  <ListItemText
+                    inset
+                    primary="change default duration: 15m 30m 1hr 2hr"
+                  />
                 </ListItem>
               </List>
             </Collapse>
@@ -111,8 +107,5 @@ class NestedList extends React.Component {
   }
 }
 
-NestedList.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export const UserNestedList = withStyles(styles)(NestedList);
+export const UserSettings = withStyles(styles)(NestedList);
+// export const UserSettings = withUser(WrappedComponent);

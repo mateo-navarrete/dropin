@@ -1,8 +1,8 @@
 import BlockIcon from '@material-ui/icons/Block';
-import Collapse from '@material-ui/core/Collapse';
 import DropinEventIcon from '@material-ui/icons/Loyalty';
 import DropinHistoryIcon from '@material-ui/icons/PinDrop';
 import DropinUserIcon from '@material-ui/icons/SupervisedUserCircle';
+import EditIcon from '@material-ui/icons/Edit';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
@@ -15,18 +15,18 @@ import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import MyLocationIcon from '@material-ui/icons/MyLocation';
+import PersonIcon from '@material-ui/icons/Person';
 import SearchIcon from '@material-ui/icons/Search';
 import SettingsIcon from '@material-ui/icons/Settings';
-import ShowLoggedInMenuIcon from '@material-ui/icons/Person';
 import TimerIcon from '@material-ui/icons/Timer';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 export {
   BlockIcon,
-  Collapse,
   DropinEventIcon,
   DropinHistoryIcon,
   DropinUserIcon,
+  EditIcon,
   ExpandLess,
   ExpandMore,
   FavoriteIcon,
@@ -39,9 +39,9 @@ export {
   MenuIcon,
   MoreVertIcon,
   MyLocationIcon,
+  PersonIcon,
   SearchIcon,
   SettingsIcon,
-  ShowLoggedInMenuIcon,
   TimerIcon,
   Visibility,
   VisibilityOff
