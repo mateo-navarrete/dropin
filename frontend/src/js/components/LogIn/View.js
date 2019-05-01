@@ -1,11 +1,11 @@
 import React, { Fragment as F } from 'react';
-import { Form } from './Form';
+import { LogInForm } from './LogInForm';
 
 export const View = props => {
   // console.log(props);
   return (
     <F>
-      <Form />
+      <LogInForm />
     </F>
   );
 };

@@ -1,5 +1,5 @@
 //jscs:disable requireShorthandArrowFunctions
-import React, { Component, Fragment as F } from 'react';
+import React, { Component } from 'react';
 import { View } from './View';
 
 class WrappedComponent extends Component {
@@ -21,13 +21,11 @@ class WrappedComponent extends Component {
   render() {
     const { isUnder18 } = this.state;
     return (
-      <F>
-        <View
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          isUnder18={isUnder18}
-        />
-      </F>
+      <View
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+        isUnder18={isUnder18}
+      />
     );
   }
 }

@@ -1,5 +1,5 @@
-import { SignUpView as Form } from './SignUpView';
-export { Form };
+import { SignUpView as SignUpForm } from './SignUpView';
+export { SignUpForm };
 
 // import React, { Fragment as F } from 'react';
 // import { LogInDemoUser } from '../../auth';

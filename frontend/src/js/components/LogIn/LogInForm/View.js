@@ -1,23 +1,30 @@
-//jscs:disable requireShorthandArrowFunctions
 import React, { Fragment as F } from 'react';
 import { Form } from './Form';
+import { DropDown } from '../DropDown';
+import {
+  Avatar,
+  Typography,
+  LockOutlinedIcon
+} from '../../material';
 import { withStyles, withDimensions } from '../../../containers';
-import { Avatar, LockOutlinedIcon, Typography } from '../../material';
 
 const styles = theme => ({
   avatar: {
-    margin: `0 0 ${theme.spacing.unit * 2}px`,
-    backgroundColor: '#FB364A',
+    margin: theme.spacing.unit,
+    backgroundColor: '#2980B9',
   },
 });
 
 const WrappedComponent = ({
-  classes,
-  handleChange,
-  handleSubmit,
   height,
-  isUnder18,
-  ...props,
+  classes,
+  handleSubmit,
+  handleChange,
+  user_name,
+  showPassword,
+  password,
+  handleShowPassword,
+  handleClick,
 }) => {
   const renderHeader =
     height > 600 ? (
@@ -26,7 +33,7 @@ const WrappedComponent = ({
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          You must be at least 18 years old to create a dropin Account.
+          Sign In
         </Typography>
       </div>
     ) : null;
@@ -34,10 +41,15 @@ const WrappedComponent = ({
     <F>
       {renderHeader}
       <Form
-        handleChange={handleChange}
         handleSubmit={handleSubmit}
-        isUnder18={isUnder18}
+        handleChange={handleChange}
+        user_name={user_name}
+        showPassword={showPassword}
+        password={password}
+        handleShowPassword={handleShowPassword}
+        handleClick={handleClick}
       />
+      <DropDown />
     </F>
   );
 };
