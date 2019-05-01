@@ -1,22 +1,19 @@
-import React from 'react';
-import { AppBar, Toolbar } from '../material';
-import { withStyles } from '../../containers';
+//jscs:disable requireShorthandArrowFunctions
+import React, { Fragment as F } from 'react';
+import { LogoHeader } from '../logo';
+import { MenuButton } from '../menu';
+import { AuthStatus } from '../auth';
 
-const styles = {
-  root: {
-    flexGrow: 1,
-  },
-};
-
-const WrappedComponent = ({ children, classes, height, ...props }) => {
-  const style = { height: height };
+export const View = ({ ...props }) => {
   return (
-    <div className={classes.root}>
-      <AppBar position="static" color="default" style={style}>
-        <Toolbar style={style}>{children}</Toolbar>
-      </AppBar>
-    </div>
+    <F>
+      <MenuButton />
+      <LogoHeader
+        height={props.height}
+        isCompact={props.isCompact}
+        color="red"
+      />
+      <AuthStatus />
+    </F>
   );
 };
-
-export const View = withStyles(styles)(WrappedComponent);

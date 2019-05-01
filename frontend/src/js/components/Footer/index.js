@@ -1,13 +1,12 @@
+//jscs:disable requireShorthandArrowFunctions
 import React from 'react';
-import { CompactFooter } from './CompactFooter';
-import { DefaultFooter } from './DefaultFooter';
 import { View } from './View';
+import { Wrapper } from './Wrapper';
 
-export const Footer = ({ isDeviceCompact, ...props }) => {
-  const renderFooter = isDeviceCompact ? (
-    <CompactFooter {...props} />
-  ) : (
-    <DefaultFooter {...props} />
+export const Footer = props => {
+  return (
+    <Wrapper {...props}>
+      <View {...props} />
+    </Wrapper>
   );
-  return <View {...props}>{renderFooter}</View>;
 };

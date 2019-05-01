@@ -1,23 +1,24 @@
 //jscs:disable requireShorthandArrowFunctions
 import React, { Fragment as F } from 'react';
-import { Header } from '../Header';
-import { Main } from '../Main';
-import { Footer } from '../Footer';
+import { Header } from '../../Header';
+import { Main } from '../../Main';
+import { Footer } from '../../Footer';
 
 export const DefaultView = ({
+  height,
   width,
   headerHeight,
   mainHeight,
   footerHeight,
-  isMobileDevice,
+  isDeviceCompact,
   ...props,
 }) => {
   return (
     <F>
-      <Header width={width} height={headerHeight} />
+      <Header isCompact={height > width} width={width} height={headerHeight} />
       <Main width={width} height={mainHeight} />
       <Footer
-        isMobileDevice={isMobileDevice}
+        isDeviceCompact={isDeviceCompact}
         width={width}
         height={footerHeight}
       />

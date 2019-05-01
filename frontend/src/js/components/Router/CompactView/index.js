@@ -1,7 +1,7 @@
 //jscs:disable requireShorthandArrowFunctions
 import React, { Fragment as F } from 'react';
-import { Main } from '../Main';
-import { Footer } from '../Footer';
+import { Main } from '../../Main';
+import { Footer } from '../../Footer';
 
 export const CompactView = ({
   width,

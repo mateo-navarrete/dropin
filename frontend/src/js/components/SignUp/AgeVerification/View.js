@@ -15,7 +15,7 @@ const styles = theme => ({
   main: {},
   paper: {},
   avatar: {
-    margin: theme.spacing.unit,
+    margin: `0 0 ${theme.spacing.unit * 2}px`,
     backgroundColor: '#FB364A', // backgroundColor: theme.palette.secondary.main,
   },
   form: {
@@ -33,6 +33,9 @@ const styles = theme => ({
   },
   colorBar: {},
   colorChecked: {},
+  // grow: {
+  //   flexGrow: 1,
+  // },
 });
 
 const WrappedComponent = ({
@@ -43,22 +46,23 @@ const WrappedComponent = ({
   isUnder18,
   ...props,
 }) => {
+  // classes.grow
   const renderHeader =
     height > 600 ? (
-      <F>
+      <div className="flex col align">
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
           You must be at least 18 years old to create a dropin Account.
         </Typography>
-      </F>
+      </div>
     ) : null;
   return (
     <F>
       {renderHeader}
       <form className={classes.form} onSubmit={handleSubmit}>
-        <FormGroup>
+        <FormGroup style={{ display: 'block' }}>
           <FormControlLabel
             control={
               <Switch

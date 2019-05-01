@@ -1,6 +1,6 @@
 //jscs:disable requireShorthandArrowFunctions
 import React, { Fragment as F } from 'react';
-import { withStyles, withDimensions } from '../../../containers';
+import { withStyles } from '../../../containers';
 import { Button as B } from '../../material';
 
 const styles = theme => ({
@@ -27,10 +27,10 @@ const WrappedComponent = ({ classes, isUnder18, ...props }) => {
         color="primary"
         className={classes.submit}
       >
-        Create my dropin Account
+        Create my dropin account
       </B>
     </F>
   );
 };
 
-export const Button = withStyles(styles)(withDimensions(WrappedComponent));
+export const Button = withStyles(styles)(WrappedComponent);

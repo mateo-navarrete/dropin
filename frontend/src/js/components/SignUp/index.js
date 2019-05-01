@@ -22,20 +22,20 @@ class WrappedComponent extends Component {
 
   render() {
     const { ageVerified, modal } = this.state;
-    const { closeLoggedOutMenu, variant } = this.props;
-    const closeModal = () => {
+    const { variant } = this.props;
+    const handleClose = () => {
       this.toggleModal(false);
-      if (closeLoggedOutMenu) {
-        closeLoggedOutMenu();
+      if (this.props.handleClose) {
+        this.props.handleClose();
       }
     };
 
     return (
       <F>
         <Button handleClick={() => this.toggleModal(true)} variant={variant} />
-        <Modal modal={modal} handleClick={closeModal}>
+        <Modal modal={modal} handleClose={handleClose}>
           <View
-            closeModal={closeModal}
+            handleClose={handleClose}
             hideAgeVerification={this.hideAgeVerification}
             ageVerified={ageVerified}
           />

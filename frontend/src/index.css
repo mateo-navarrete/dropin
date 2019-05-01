@@ -123,6 +123,14 @@ Green: 39, 174, 96 27ae60
   display: flex;
 }
 
+.row {
+  flex-direction: row;
+}
+
+.col {
+  flex-direction: column;
+}
+
 .space-around {
   justify-content: space-around;
 }

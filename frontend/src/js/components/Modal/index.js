@@ -8,26 +8,31 @@ const styles = theme => ({
     position: 'absolute',
     width: theme.spacing.unit * 50,
     backgroundColor: theme.palette.background.paper,
+    borderRadius: 4,
     boxShadow: theme.shadows[5],
     padding: theme.spacing.unit * 4,
     outline: 'none',
+    top: `50%`,
+    left: `50%`,
+    transform: `translate(-50%, -50%)`,
   },
 });
 
-const WrappedComponent = ({ modal, handleClick, children, classes, ...props }) => {
+const WrappedComponent = ({
+  modal,
+  handleClose,
+  children,
+  classes,
+  ...props,
+}) => {
   return (
     <M
       aria-labelledby="simple-modal-title"
       aria-describedby="simple-modal-description"
       open={modal}
-      onClose={handleClick}
+      onClose={handleClose}
     >
-      <div
-        style={{ top: `50%`, left: `50%`, transform: `translate(-50%, -50%)` }}
-        className={classes.paper}
-      >
-        {children}
-      </div>
+      <div className={classes.paper}>{children}</div>
     </M>
   );
 };

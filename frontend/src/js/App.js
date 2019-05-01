@@ -3,7 +3,7 @@ import React, { Fragment as F } from 'react';
 import { AuthStatusListener } from './components/auth';
 import { GeolocationListener } from './components/user';
 import { CssBaseline, DimensionsListener } from './components/utils';
-import { ViewsRouter } from './components/views';
+import { Router } from './components/Router';
 
 export const App = () => {
   return (
@@ -12,7 +12,7 @@ export const App = () => {
       <GeolocationListener />
       <DimensionsListener />
       <CssBaseline />
-      <ViewsRouter />
+      <Router />
     </F>
   );
 };

@@ -1,7 +1,8 @@
 import React, { Fragment as F } from 'react';
-import { CompactView, DefaultView } from '.';
+import { CompactView } from './CompactView';
+import { DefaultView } from './DefaultView';
 
-export const HomeView = props => {
+export const View = props => {
   const isDeviceCompact = !(props.width > 450 && props.height > 450);
   const renderView = isDeviceCompact ? (
     <CompactView isDeviceCompact={isDeviceCompact} {...props} />

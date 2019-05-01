@@ -2,10 +2,9 @@ import React, { Fragment as F } from 'react';
 import { AgeVerification } from './AgeVerification';
 import { Form } from './Form';
 
-export const View = ({ ageVerified, hideAgeVerification, ...props }) => {
-  console.log(props);
+export const View = ({ ageVerified, hideAgeVerification, handleClose }) => {
   const renderView = ageVerified ? (
-    <Form />
+    <Form handleClose={handleClose} />
   ) : (
     <AgeVerification hideAgeVerification={hideAgeVerification} />
   );

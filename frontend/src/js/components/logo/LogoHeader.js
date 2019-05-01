@@ -8,15 +8,17 @@ const styles = {
   },
 };
 
-const WrappedComponent = ({ classes, height, ...props }) => {
+const WrappedComponent = ({ classes, height, isCompact, ...props }) => {
   return (
     <div className={classes.grow}>
-      <img
-        src={require(`../../../assets/logo-red.png`)}
-        alt="dropin"
-        height={height - 20}
-        width={height * 2 - 40}
-      />
+      <div className={isCompact ? '' : 'flex'}>
+        <img
+          src={require(`../../../assets/logo-red.png`)}
+          alt="dropin"
+          height={height - 20}
+          width={height * 2 - 40}
+        />
+      </div>
     </div>
   );
 };

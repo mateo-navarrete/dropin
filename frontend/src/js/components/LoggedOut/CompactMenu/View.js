@@ -5,12 +5,12 @@ import { LogIn } from '../../LogIn';
 import { SignUp } from '../../SignUp';
 import { DivideOr } from '../../utils';
 
-export const View = ({ closeLoggedOutMenu }) => {
+export const View = ({ handleClose }) => {
   return (
     <F>
-      <SignUp closeLoggedOutMenu={closeLoggedOutMenu} variant="contained" />
+      <SignUp handleClose={handleClose} variant="contained" />
       <DivideOr />
-      <LogIn closeLoggedOutMenu={closeLoggedOutMenu} variant="contained" />
+      <LogIn handleClose={handleClose} variant="contained" />
       <DivideOr />
       <LogInDemoUser />
     </F>

@@ -17,8 +17,8 @@ class WrappedComponent extends Component {
     return (
       <F>
         <Button handleClick={() => this.toggleModal(true)} />
-        <Modal modal={modal} handleClick={() => this.toggleModal(false)}>
-          <View closeLoggedOutMenu={() => this.toggleModal(false)} />
+        <Modal modal={modal} handleClose={() => this.toggleModal(false)}>
+          <View handleClose={() => this.toggleModal(false)} />
         </Modal>
       </F>
     );
