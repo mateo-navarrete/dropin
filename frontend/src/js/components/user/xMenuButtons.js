@@ -1,15 +1,8 @@
 import React, { Fragment as F } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-// import Card from '@material-ui/core/Card';
-// import CardActionArea from '@material-ui/core/CardActionArea';
-// import CardActions from '@material-ui/core/CardActions';
-// import CardContent from '@material-ui/core/CardContent';
-// import CardMedia from '@material-ui/core/CardMedia';
+import { withStyles } from '../../containers';
 import Button from '@material-ui/core/Button';
-// import Typography from '@material-ui/core/Typography';
 import ClearIcon from '@material-ui/icons/Clear';
-// import LockOpenIcon from '@material-ui/icons/LockOpen';
 
 const styles = theme => ({
   card: {
@@ -30,8 +23,6 @@ const styles = theme => ({
 
 function MyCard(props) {
   const { classes } = props;
-  // <Card className={classes.card}>
-  // <CardActions>
   return (
     <F>
       <Button variant="outlined" color="secondary" className={classes.button}>
@@ -41,8 +32,6 @@ function MyCard(props) {
     </F>
   );
 }
-// </CardActions>
-// </Card>
 
 MyCard.propTypes = {
   classes: PropTypes.object.isRequired,

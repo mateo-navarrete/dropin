@@ -1,4 +1,5 @@
 import BlockIcon from '@material-ui/icons/Block';
+import ClearIcon from '@material-ui/icons/Clear';
 import DropinEventIcon from '@material-ui/icons/Loyalty';
 import DropinHistoryIcon from '@material-ui/icons/PinDrop';
 import DropinUserIcon from '@material-ui/icons/SupervisedUserCircle';
@@ -23,6 +24,7 @@ import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 export {
   BlockIcon,
+  ClearIcon,
   DropinEventIcon,
   DropinHistoryIcon,
   DropinUserIcon,

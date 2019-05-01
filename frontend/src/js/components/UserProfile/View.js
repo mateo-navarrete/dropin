@@ -1,6 +1,5 @@
 //jscs:disable requireShorthandArrowFunctions
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
 import {
   Avatar,
   EditIcon,
@@ -11,6 +10,7 @@ import {
   ListItemText,
   PersonIcon
 } from '../material';
+import { withStyles } from '../../containers';
 
 const styles = theme => ({
   root: {

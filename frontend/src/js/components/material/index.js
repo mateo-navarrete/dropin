@@ -25,6 +25,7 @@ import {
 } from './core';
 import {
   BlockIcon,
+  ClearIcon,
   DropinEventIcon,
   DropinHistoryIcon,
   DropinUserIcon,
@@ -73,6 +74,7 @@ export {
   Toolbar,
   Typography,
   BlockIcon,
+  ClearIcon,
   Collapse,
   DropinEventIcon,
   DropinHistoryIcon,
