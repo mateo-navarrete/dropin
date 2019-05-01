@@ -1,59 +1,14 @@
 //jscs:disable requireShorthandArrowFunctions
-import React, { Fragment as F } from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import {
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  TimerIcon,
-  VisibilityOff
-} from '../material';
-import { ExtraExpansion } from '../LoggedIn/ExtraExpansion';
+import React from 'react';
+import { DurationSettings } from './DurationSettings';
+import { PrivacySettings } from './PrivacySettings';
+import { Wrapper } from './Wrapper';
 
-const styles = theme => ({
-  root: {
-    width: '95%',
-    // maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
-  },
-});
-
-const sections = ['Privacy', 'Default Duration'];
-
-const WrappedComponent = ({ classes, name, events, ...props }) => {
+export const View = ({ handleClick, open }) => {
   return (
-    <F>
-      <List>
-        {sections.map((section, index) => (
-          <ListItem button key={section + index}>
-            <ListItemIcon>
-              {section === 'Privacy' ? <VisibilityOff /> : <TimerIcon />}
-            </ListItemIcon>
-            <ListItemText>
-              <ExtraExpansion />
-            </ListItemText>
-          </ListItem>
-        ))}
-      </List>
-    </F>
+    <Wrapper handleClick={handleClick} open={open}>
+      <DurationSettings />
+      <PrivacySettings />
+    </Wrapper>
   );
 };
-
-export const View = withStyles(styles)(WrappedComponent);
-
-// <List className={classes.root}>
-//   <ListItem>
-//     <IconButton aria-label="Update Photo">
-//       <Avatar>
-//         <PersonIcon />
-//       </Avatar>
-//     </IconButton>
-//     <ListItemText primary={name} secondary={`drops: ${events.length}`} />
-//     <ListItemSecondaryAction>
-//       <IconButton aria-label="Edit Profile">
-//         <EditIcon />
-//       </IconButton>
-//     </ListItemSecondaryAction>
-//   </ListItem>
-// </List>

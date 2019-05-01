@@ -1,4 +1,4 @@
-import React, { Fragment as F } from 'react';
+import React from 'react';
 import { Button } from '../Button';
 import {
   FormControl,
@@ -79,7 +79,11 @@ const WrappedComponent = ({
           autoComplete="on"
         />
       </FormControl>
-      <Button disabled={disabled} handleClick={handleClick} variant="contained" />
+      <Button
+        disabled={disabled}
+        handleClick={handleClick}
+        variant="contained"
+      />
     </form>
   );
 };

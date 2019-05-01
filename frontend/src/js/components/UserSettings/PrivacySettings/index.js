@@ -16,6 +16,6 @@ class WrappedComponent extends Component {
   }
 }
 
-export const UserSettings = WrappedComponent;
+export const PrivacySettings = WrappedComponent;
 
 // export const UserSettings = withUser(WrappedComponent);
