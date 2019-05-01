@@ -18,6 +18,7 @@ const WrappedComponent = ({
   handleSubmit,
   height,
   isUnder18,
+  handleClose,
   ...props,
 }) => {
   const renderHeader =
@@ -38,6 +39,7 @@ const WrappedComponent = ({
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         isUnder18={isUnder18}
+        handleClose={handleClose}
       />
     </F>
   );

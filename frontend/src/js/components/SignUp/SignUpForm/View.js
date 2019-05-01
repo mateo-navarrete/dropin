@@ -1,11 +1,8 @@
 import React, { Fragment as F } from 'react';
 import SignUpIcon from '@material-ui/icons/VerifiedUser';
 import { Form } from './Form';
-import { DropDown } from '../DropDown';
-import {
-  Avatar,
-  Typography,
-} from '../../material';
+import { DropDownMenu } from '../../LoggedOut/DropDownMenu';
+import { Avatar, Typography } from '../../material';
 import { withStyles, withDimensions } from '../../../containers';
 
 const styles = theme => ({
@@ -27,6 +24,7 @@ const WrappedComponent = ({
   photo,
   handleShowPassword,
   handleClick,
+  handleClose,
 }) => {
   // TODO signUp icon instead?
   const renderHeader =
@@ -54,7 +52,7 @@ const WrappedComponent = ({
         handleShowPassword={handleShowPassword}
         handleClick={handleClick}
       />
-      <DropDown />
+      <DropDownMenu handleClose={handleClose} showLogIn/>
     </F>
   );
 };

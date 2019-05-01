@@ -6,12 +6,12 @@ import { withAuthUser, withDimensions } from '../../containers';
 const WrappedComponent = ({ height, width, user, ...props }) => {
   let isCompact = height > width;
   let isLoggedIn = user ? true : false;
-  const renderAuthStatus = isLoggedIn ? (
+  const renderView = isLoggedIn ? (
     <LoggedIn isCompact={isCompact} />
   ) : (
     <LoggedOut isCompact={isCompact} />
   );
-  return <F>{renderAuthStatus}</F>;
+  return <F>{renderView}</F>;
 };
 
-export const AuthStatus = withAuthUser(withDimensions(WrappedComponent));
+export const View = withAuthUser(withDimensions(WrappedComponent));

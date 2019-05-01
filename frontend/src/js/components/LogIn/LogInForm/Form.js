@@ -85,22 +85,4 @@ const WrappedComponent = ({
   );
 };
 
-// <Button handleClick={this.props.showSignup} />
-
-// <br />
-// <Divider />
-// <LogInDemoUser buttonType="text" label="Or Log In As Demo User" />
-// <B
-//   type="submit"
-//   fullWidth
-//   variant="contained"
-//   color="primary"
-//   className={classes.submit}
-// >
-//   Sign In
-// </B>
-// <B color="secondary" onClick={this.props.showSignup}>
-// or create an account
-// </B>
-
 export const Form = withStyles(styles)(WrappedComponent);

@@ -2,6 +2,6 @@
 import React from 'react';
 import { View } from './View';
 
-export const LoggedOut = props => {
+export const AuthMenu = props => {
   return <View {...props} />;
 };

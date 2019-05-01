@@ -1,11 +1,9 @@
+//jscs:disable requireShorthandArrowFunctions
 import React, { Fragment as F } from 'react';
 import { LogInForm } from './LogInForm';
 
-export const View = props => {
-  // console.log(props);
+export const View = (props) => {
   return (
-    <F>
       <LogInForm />
-    </F>
   );
 };

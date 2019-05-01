@@ -3,10 +3,10 @@ import { CompactFooter } from './CompactFooter';
 import { DefaultFooter } from './DefaultFooter';
 
 export const View = ({ isDeviceCompact, ...props }) => {
-  const renderFooter = isDeviceCompact ? (
+  const renderView = isDeviceCompact ? (
     <CompactFooter {...props} />
   ) : (
     <DefaultFooter {...props} />
   );
-  return <F>{renderFooter}</F>;
+  return <F>{renderView}</F>;
 };

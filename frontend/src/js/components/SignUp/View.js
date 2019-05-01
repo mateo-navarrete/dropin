@@ -6,7 +6,10 @@ export const View = ({ ageVerified, hideAgeVerification, handleClose }) => {
   const renderView = ageVerified ? (
     <SignUpForm handleClose={handleClose} />
   ) : (
-    <AgeVerification hideAgeVerification={hideAgeVerification} />
+    <AgeVerification
+      hideAgeVerification={hideAgeVerification}
+      handleClose={handleClose}
+    />
   );
   return <F>{renderView}</F>;
 };

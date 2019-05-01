@@ -19,9 +19,10 @@ class WrappedComponent extends Component {
   };
 
   render() {
-    const { isUnder18 } = this.state;
+    const { isUnder18, handleClose } = this.state;
     return (
       <View
+        handleClose={handleClose}
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
         isUnder18={isUnder18}

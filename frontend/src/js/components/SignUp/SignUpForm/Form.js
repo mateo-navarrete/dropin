@@ -84,11 +84,4 @@ const WrappedComponent = ({
   );
 };
 
-// <UserSignUp
-//   classes={classes}
-//   {...props}
-//   {...state}
-//   handleChange={handleChange}
-// />
-
 export const Form = withStyles(styles)(WrappedComponent);

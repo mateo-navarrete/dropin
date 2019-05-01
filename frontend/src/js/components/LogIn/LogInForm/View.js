@@ -1,6 +1,6 @@
 import React, { Fragment as F } from 'react';
 import { Form } from './Form';
-import { DropDown } from '../DropDown';
+import { DropDownMenu } from '../../LoggedOut/DropDownMenu';
 import {
   Avatar,
   Typography,
@@ -49,7 +49,7 @@ const WrappedComponent = ({
         handleShowPassword={handleShowPassword}
         handleClick={handleClick}
       />
-      <DropDown />
+      <DropDownMenu />
     </F>
   );
 };

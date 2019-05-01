@@ -28,6 +28,7 @@ const WrappedComponent = ({
   classes,
   handleChange,
   handleSubmit,
+  handleClose,
   isUnder18,
   ...props,
 }) => {

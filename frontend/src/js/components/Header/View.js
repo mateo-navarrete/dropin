@@ -2,7 +2,7 @@
 import React, { Fragment as F } from 'react';
 import { HeaderLogo } from '../logo';
 import { MenuButton } from '../menu';
-import { AuthStatus } from '../auth';
+import { AuthMenu } from '../AuthMenu';
 
 export const View = ({ ...props }) => {
   return (
@@ -13,7 +13,7 @@ export const View = ({ ...props }) => {
         isCompact={props.isCompact}
         color="red"
       />
-      <AuthStatus />
+      <AuthMenu />
     </F>
   );
 };
