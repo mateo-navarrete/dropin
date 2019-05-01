@@ -10,13 +10,13 @@ import {
   ListItemText,
 
   // MailIcon,
-  HourGlassIcon,
-  HotIcon,
+  // HourGlassIcon,
+  // HotIcon,
   SearchIcon,
-  FavoriteIcon,
-  DropinEventIcon,
-  DropinUserIcon,
-  DropinHistoryIcon
+  // FavoriteIcon,
+  // DropinEventIcon,
+  // DropinUserIcon,
+  // DropinHistoryIcon
 } from '../material';
 import { DropsFilterView } from '../user/DropsFilterView';
 import { FavoritesView } from '../user/FavoritesView';
@@ -41,11 +41,11 @@ const styles = theme => ({
 
 const section1 = ['Search'];
 
-const section2 = ['Newest', 'Expiring Soon', 'Trending'];
+// const section2 = ['Newest', 'Expiring Soon', 'Trending'];
 
-const section3 = ['Favorites', 'Recent', 'Topics', 'Users'];
+// const section3 = ['Favorites', 'Recent', 'Topics', 'Users'];
 
-const section4 = ['Drop History', 'Last Dropped'];
+// const section4 = ['Drop History', 'Last Dropped'];
 
 const Wrapper = ({ classes, ...props }) => {
   return (

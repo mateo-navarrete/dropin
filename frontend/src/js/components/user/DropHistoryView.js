@@ -1,30 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import ListSubheader from '@material-ui/core/ListSubheader';
+// import ListSubheader from '@material-ui/core/ListSubheader';
 import Collapse from '@material-ui/core/Collapse';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import SendIcon from '@material-ui/icons/Send';
+// import InboxIcon from '@material-ui/icons/MoveToInbox';
+// import DraftsIcon from '@material-ui/icons/Drafts';
+// import SendIcon from '@material-ui/icons/Send';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
-import StarBorder from '@material-ui/icons/StarBorder';
+// import StarBorder from '@material-ui/icons/StarBorder';
 import ArchiveIcon from '@material-ui/icons/Archive';
 import ActivePinIcon from '@material-ui/icons/WhereToVote';
 
 import {
-  BlockIcon,
-  Divider,
+  // BlockIcon,
+  // Divider,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
-  VisibilityOff,
-  SettingsIcon,
-  TimerIcon,
-  HourGlassIcon,
+  // VisibilityOff,
+  // SettingsIcon,
+  // TimerIcon,
+  // HourGlassIcon,
   DropinHistoryIcon,
-  DropinEventIcon
+  // DropinEventIcon
 } from '../material';
 const styles = theme => ({
   root: {
