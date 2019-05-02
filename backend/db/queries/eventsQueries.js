@@ -32,7 +32,6 @@ const createEvent = (req, res, next) => {
 };
 
 const getUserEvents = (req, res, next) => {
-  let user_name = req.params.id;
   db.any(
     `SELECT
     e.*,
@@ -43,7 +42,7 @@ const getUserEvents = (req, res, next) => {
 FROM events e
 JOIN users u
 ON u.id = e.user_id
-WHERE u.user_name=$1
+AND expiration_date >= CURRENT_TIMESTAMP
 ORDER BY e.created_date DESC`,
     user_name
   )
@@ -62,18 +61,13 @@ ORDER BY e.created_date DESC`,
 
 const getEvents = (req, res, next) => {
   // TODO: byRadius & notPrivate
+  const eventObj = {
+    latitude: +req.query.lat,
+    longitude: +req.query.lon
+  }
   db.any(
-    `SELECT
-    e.*,
-    (SELECT
-        user_name
-    FROM users AS u
-    WHERE e.user_id = u.id) AS user_name
-FROM events e
-JOIN users u
-ON u.id = e.user_id
-AND expiration_date >= CURRENT_TIMESTAMP
-ORDER BY e.created_date DESC`
+    'SELECT *, (SELECT user_name FROM users AS u WHERE events.user_id = u.id) AS user_name FROM events WHERE (expiration_date >= CURRENT_TIMESTAMP) AND (events.latitude BETWEEN (${latitude} - 0.014492) AND (${latitude} + 0.014492)) AND (events.longitude BETWEEN (${longitude} - 0.0188679) AND (${longitude} + 0.0188679))',
+    eventObj
   )
     .then(data => {
       res.send({
