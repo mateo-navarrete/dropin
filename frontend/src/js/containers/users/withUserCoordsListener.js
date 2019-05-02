@@ -11,7 +11,7 @@ const mapStateToProps = ({ userCoordsReducer }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getUserCoords: () => dispatch(getUserCoords()),
+    getUserCoords: () => dispatch(getUserCoords())
   };
 };
 
