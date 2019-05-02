@@ -9,6 +9,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import FilterListIcon from '@material-ui/icons/FilterList';
 import FomoIcon from '@material-ui/icons/AccessAlarm';
 import HotIcon from '@material-ui/icons/Whatshot';
 import HourGlassIcon from '@material-ui/icons/HourglassEmpty';
@@ -39,6 +40,7 @@ export {
   ExpandLess,
   ExpandMore,
   FavoriteIcon,
+  FilterListIcon,
   FomoIcon,
   HotIcon,
   InboxIcon,

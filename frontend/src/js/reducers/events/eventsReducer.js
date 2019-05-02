@@ -5,7 +5,7 @@ import {
 } from '../../constants';
 
 const initState = {
-  events: [],
+  eventsList: [],
   errMsg: '',
   loading: false,
 };
@@ -23,7 +23,7 @@ export const eventsReducer = (state = initState, action) => {
     case GOT_EVENTS_SUCCESS:
       nextState = {
         ...state,
-        events: action.payload,
+        eventsList: action.payload,
         errMsg: '',
         loading: false,
       };

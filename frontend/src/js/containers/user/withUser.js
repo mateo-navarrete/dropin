@@ -8,8 +8,8 @@ const mapStateToProps = ({ auth, user: { geolocation, events } }) => {
     geolocationErrMsg: geolocation.errMsg,
     geolocationLoading: geolocation.loading,
     timestamp: geolocation.timestamp,
-    events: events.events,
     eventsErrMsg: events.errMsg,
+    eventsList: events.eventsList,
     eventsLoading: events.loading,
     name: auth.user,
   };

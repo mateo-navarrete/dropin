@@ -8,7 +8,7 @@ import {
   Marker
 } from 'react-google-maps';
 import { CustomMapControl } from './CustomMapControl';
-// import { MapStyles } from './MapStyles';
+import { MapStyles } from './MapStyles';
 import { withDimensions, withGeolocation, withEvents } from '../../containers';
 import { IconButton, MyLocationIcon } from '../material';
 const prepend = 'https://maps.googleapis.com/maps/api/js?key=';
@@ -20,15 +20,15 @@ const mapURL = prepend + apiKey + append;
 const colors = ['cyan', 'green', 'magenta'];
 const getRandomNum = n => (Math.random() * n) >> 0;
 
+const randomEventMarkerColor = colors[getRandomNum(colors.length)];
 const MarkerWrapper = ({ position, handleClick }) => {
-  const randomColor = colors[getRandomNum(colors.length)];
 
   return (
     <Marker
       position={position}
       onClick={handleClick}
       icon={{
-        url: require(`../../../assets/marker_${randomColor}_pin.png`), //'/img/icon.svg',
+        url: require(`../../../assets/marker_${randomEventMarkerColor}_pin.png`), //'/img/icon.svg',
         scaledSize: new google.maps.Size(64, 64),
         origin: new google.maps.Point(0, 0),
         anchor: new google.maps.Point(32, 64),
@@ -37,8 +37,8 @@ const MarkerWrapper = ({ position, handleClick }) => {
   );
 };
 
+const randomMarkerColor = colors[getRandomNum(colors.length)];
 const EventsListMarkers = ({ eventsList }) => {
-  const randomColor = colors[getRandomNum(colors.length)];
   const renderEvents = eventsList.map(e => {
     return (
       <Marker
@@ -46,7 +46,7 @@ const EventsListMarkers = ({ eventsList }) => {
         position={{ lat: e.latitude, lng: e.longitude }}
         onClick={() => console.log('I got clicked')}
         icon={{
-          url: require(`../../../assets/marker_${randomColor}_pin.png`), //'/img/icon.svg',
+          url: require(`../../../assets/marker_${randomMarkerColor}_pin.png`), //'/img/icon.svg',
           scaledSize: new google.maps.Size(64, 64),
           origin: new google.maps.Point(0, 0),
           anchor: new google.maps.Point(32, 64),
@@ -59,7 +59,8 @@ const EventsListMarkers = ({ eventsList }) => {
 
 const GoogleMapWrapper = ({ gotUserCoords, userCoords, ...props }) => {
   // const randomColor = colors[getRandomNum(colors.length)];
-  // // const randomMap = MapStyles[mapTypes[getRandomNum(mapTypes.length)]];
+  // MapStyles.night
+  // const randomMap = MapStyles[mapTypes[getRandomNum(mapTypes.length)]];
   return gotUserCoords ? (
     <GoogleMap
       defaultZoom={15}
@@ -67,7 +68,7 @@ const GoogleMapWrapper = ({ gotUserCoords, userCoords, ...props }) => {
       defaultOptions={{
         clickableIcons: false,
         disableDefaultUI: true,
-        // styles: MapStyles.night,
+        styles: MapStyles.night, //randomMap,
         zoomControl: true,
         zoomControlOptions: {
           position: google.maps.ControlPosition.TOP_RIGHT,
@@ -165,7 +166,7 @@ class MyFancyComponent extends React.PureComponent {
     let gotUserCoords = latitude ? true : false;
     let userCoords = { lat: latitude, lng: longitude };
 
-    // console.log(this.state);
+    // console.log('@', this.props.eventsList);
 
     return (
       <MyMapComponent
@@ -180,7 +181,7 @@ class MyFancyComponent extends React.PureComponent {
         loadingElement={LoadingElement}
         containerElement={ContainerElement}
         mapElement={MapElement}
-        eventsList={this.props.events}
+        eventsList={this.props.eventsList}
         {...this.props}
       />
     );
