@@ -20,7 +20,7 @@ const gotGeolocationSuccess = position => {
 
 const handleGeolocationSuccess = position => dispatch => {
   dispatch(gotGeolocationSuccess(position));
-  dispatch(getEvents()); // TODO byRadius & notPrivate
+  dispatch(getEvents(position)); // TODO byRadius & notPrivate
 };
 
 export const getGeolocation = () => async dispatch => {
