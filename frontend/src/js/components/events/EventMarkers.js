@@ -18,12 +18,12 @@ const eMarkers = {
   sports: sports
 };
 
-const eventsMarker = {
-  family: "pal2/icon10.png",
-  party: "pal2/icon27.png",
-  sports: "pal2/icon57.png",
-  user: "shapes/poi.png"
-};
+// const eventsMarker = {
+//   family: "pal2/icon10.png",
+//   party: "pal2/icon27.png",
+//   sports: "pal2/icon57.png",
+//   user: "shapes/poi.png"
+// };
 const markerURL = "http://maps.google.com/mapfiles/kml/";
 
 const EventMark = props => {
