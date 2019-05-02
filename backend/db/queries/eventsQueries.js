@@ -63,10 +63,11 @@ const getEvents = (req, res, next) => {
   // TODO: byRadius & notPrivate
   const eventObj = {
     latitude: +req.query.lat,
-    longitude: +req.query.lon
+    longitude: +req.query.lon,
+    radius: 1.5 //in Miles
   }
   db.any(
-    'SELECT *, (SELECT user_name FROM users AS u WHERE events.user_id = u.id) AS user_name FROM events WHERE (expiration_date >= CURRENT_TIMESTAMP) AND (events.latitude BETWEEN (${latitude} - 0.014492) AND (${latitude} + 0.014492)) AND (events.longitude BETWEEN (${longitude} - 0.0188679) AND (${longitude} + 0.0188679))',
+    'SELECT *, (SELECT user_name FROM users AS u WHERE events.user_id = u.id) AS user_name FROM events WHERE (expiration_date >= CURRENT_TIMESTAMP) AND acos(sin(events.latitude * 0.0175) * sin(${latitude} * 0.0175) + cos(events.latitude * 0.0175) * cos(${latitude} * 0.0175) * cos((${longitude} * 0.0175) - (events.longitude * 0.0175))) * 3959 <= ${radius}',
     eventObj
   )
     .then(data => {
