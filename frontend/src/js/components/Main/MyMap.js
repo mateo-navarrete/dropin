@@ -1,5 +1,5 @@
 /*global google*/
-import React from 'react';
+import React, { Fragment as F } from 'react';
 // import { compose, withProps } from "recompose"
 import {
   withScriptjs,
@@ -9,7 +9,7 @@ import {
 } from 'react-google-maps';
 import { CustomMapControl } from './CustomMapControl';
 // import { MapStyles } from './MapStyles';
-import { withDimensions, withGeolocation } from '../../containers';
+import { withDimensions, withGeolocation, withEvents } from '../../containers';
 import { IconButton, MyLocationIcon } from '../material';
 const prepend = 'https://maps.googleapis.com/maps/api/js?key=';
 const apiKey = 'AIzaSyB5uKfMriNA73mQgW_ZRelAixBLEdqT-Xg'; //process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
@@ -20,9 +20,46 @@ const mapURL = prepend + apiKey + append;
 const colors = ['cyan', 'green', 'magenta'];
 const getRandomNum = n => (Math.random() * n) >> 0;
 
-const GoogleMapWrapper = ({ gotUserCoords, userCoords, ...props }) => {
+const MarkerWrapper = ({ position, handleClick }) => {
   const randomColor = colors[getRandomNum(colors.length)];
-  // const randomMap = MapStyles[mapTypes[getRandomNum(mapTypes.length)]];
+
+  return (
+    <Marker
+      position={position}
+      onClick={handleClick}
+      icon={{
+        url: require(`../../../assets/marker_${randomColor}_pin.png`), //'/img/icon.svg',
+        scaledSize: new google.maps.Size(64, 64),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(32, 64),
+      }}
+    />
+  );
+};
+
+const EventsListMarkers = ({ eventsList }) => {
+  const randomColor = colors[getRandomNum(colors.length)];
+  const renderEvents = eventsList.map(e => {
+    return (
+      <Marker
+        key={e.id}
+        position={{ lat: e.latitude, lng: e.longitude }}
+        onClick={() => console.log('I got clicked')}
+        icon={{
+          url: require(`../../../assets/marker_${randomColor}_pin.png`), //'/img/icon.svg',
+          scaledSize: new google.maps.Size(64, 64),
+          origin: new google.maps.Point(0, 0),
+          anchor: new google.maps.Point(32, 64),
+        }}
+      />
+    );
+  });
+  return <F>{renderEvents}</F>;
+};
+
+const GoogleMapWrapper = ({ gotUserCoords, userCoords, ...props }) => {
+  // const randomColor = colors[getRandomNum(colors.length)];
+  // // const randomMap = MapStyles[mapTypes[getRandomNum(mapTypes.length)]];
   return gotUserCoords ? (
     <GoogleMap
       defaultZoom={15}
@@ -43,20 +80,30 @@ const GoogleMapWrapper = ({ gotUserCoords, userCoords, ...props }) => {
         </IconButton>
       </CustomMapControl>
       {props.isMarkerShown && (
-        <Marker
+        <MarkerWrapper
           position={userCoords}
-          onClick={props.onMarkerClick}
-          icon={{
-            url: require(`../../../assets/marker_${randomColor}_pin.png`), //'/img/icon.svg',
-            scaledSize: new google.maps.Size(64, 64),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(32, 64),
-          }}
+          handleClick={props.onMarkerClick}
         />
+      )}
+      {props.eventsList.length && (
+        <EventsListMarkers eventsList={props.eventsList} />
       )}
     </GoogleMap>
   ) : null;
 };
+
+// {props.isMarkerShown && (
+//   <Marker
+//     position={userCoords}
+//     onClick={props.onMarkerClick}
+//     icon={{
+//       url: require(`../../../assets/marker_${randomColor}_pin.png`), //'/img/icon.svg',
+//       scaledSize: new google.maps.Size(64, 64),
+//       origin: new google.maps.Point(0, 0),
+//       anchor: new google.maps.Point(32, 64)
+//     }}
+//   />
+// )}
 
 const LoadingElement = <div style={{ height: `100%` }} />;
 const MapElement = <div style={{ height: `100%` }} />;
@@ -133,10 +180,13 @@ class MyFancyComponent extends React.PureComponent {
         loadingElement={LoadingElement}
         containerElement={ContainerElement}
         mapElement={MapElement}
+        eventsList={this.props.events}
         {...this.props}
       />
     );
   }
 }
 
-export const MyMap = withDimensions(withGeolocation(MyFancyComponent));
+export const MyMap = withEvents(
+  withDimensions(withGeolocation(MyFancyComponent))
+);

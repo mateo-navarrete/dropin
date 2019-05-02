@@ -7,14 +7,20 @@ import {
   withLogOut,
   withGetAuthStatus
 } from './auth';
+import { withEvents } from './events';
 import { withGeolocation, withGetGeolocation, withUser } from './user';
-import { withDimensions, withGetDimensions, withToggleShowChildren } from './utils';
+import {
+  withDimensions,
+  withGetDimensions,
+  withToggleShowChildren
+} from './utils';
 
 export {
   withAuth,
   withAuthUser,
   withDemoUser,
   withDimensions,
+  withEvents,
   withGeolocation,
   withGetAuthStatus,
   withGetDimensions,
@@ -23,5 +29,5 @@ export {
   withLogOut,
   withStyles,
   withToggleShowChildren,
-  withUser,
+  withUser
 };
