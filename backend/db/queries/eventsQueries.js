@@ -1,4 +1,4 @@
-const db = require('..');
+const db = require("..");
 
 const createEvent = (req, res, next) => {
   const rb = req.body;
@@ -6,7 +6,7 @@ const createEvent = (req, res, next) => {
     1: 15,
     2: 30,
     3: 60,
-    4: 120,
+    4: 120
   };
   const eventObj = {
     category_id: rb.category_id,
@@ -16,7 +16,7 @@ const createEvent = (req, res, next) => {
     display_user: rb.display_user,
     event_name: rb.event_name,
     description: rb.description,
-    expiration_date: duration[rb.expiration_date],
+    expiration_date: duration[rb.expiration_date]
   };
   db.none(
     "INSERT INTO events (category_id, user_id, latitude, longitude, display_user, event_name, description, expiration_date) VALUES (${category_id}, (SELECT id FROM users WHERE user_name = ${user_name}), ${latitude}, ${longitude}, ${display_user}, ${event_name}, ${description}, now() + INTERVAL '${expiration_date}' MINUTE)",
@@ -24,30 +24,34 @@ const createEvent = (req, res, next) => {
   )
     .then(() => {
       res.send({
-        status: 'success',
-        message: `created event: ${JSON.stringify(eventObj)}`,
+        status: "success",
+        message: `created event: ${JSON.stringify(eventObj)}`
       });
     })
     .catch(err => next(err));
 };
 
 const getEvents = (req, res, next) => {
+
+  const eventObj = {
+    id: +req.params.id,
+    lat: +req.query.lat,
+    lon: +req.query.lon
+  }
   db.any(
-    `SELECT *,
-    (SELECT
-        user_name
-    FROM users AS u
-    WHERE events.user_id = u.id) AS user_name
-    FROM events
-    WHERE category_id=$1
-    AND expiration_date >= CURRENT_TIMESTAMP`,
-    +req.params.id
+    'SELECT *,(SELECT user_name FROM users AS u WHERE events.user_id = u.id) AS user_name FROM events WHERE category_id=$1 AND expiration_date >= CURRENT_TIMESTAMP AND (events.latitude BETWEEN (${lat} - 0.014492) AND (${lat} + 0.014492)) AND (events.longitude BETWEEN (${lon} - 0.0188679) AND (${lon} + 0.0188679))',
+    //Below SQL query for radius in miles around user location///////
+    // AND acos(sin(events.latitude * 0.0175) * sin(YOUR_LATITUDE_X * 0.0175)
+    //            + cos(events.latitude * 0.0175) * cos(YOUR_LATITUDE_X * 0.0175) *
+    //              cos((YOUR_LONGITUDE_Y * 0.0175) - (events.longitude * 0.0175))
+    //           ) * 6371 <= 3`,
+    eventObj
   )
     .then(data => {
       res.send({
-        status: 'success',
+        status: "success",
         data: data,
-        message: `got all events in category: ${req.params.id}`,
+        message: `got all events in category: ${req.params.id}`
       });
     })
     .catch(err => {
@@ -63,27 +67,27 @@ const updateEvent = (req, res, next) => {
     category_id: rb.category_id,
     display_user: rb.display_user,
     event_name: rb.event_name,
-    description: rb.description || '',
+    description: rb.description || ""
   };
   db.none(
-    'UPDATE events SET category_id=${category_id}, display_user=${display_user}, event_name=${event_name}, description=${description} WHERE id=${id}',
+    "UPDATE events SET category_id=${category_id}, display_user=${display_user}, event_name=${event_name}, description=${description} WHERE id=${id}",
     eventObj
   )
     .then(() => {
       res.send({
-        status: 'success',
-        message: `updated event: ${JSON.stringify(eventObj)}`,
+        status: "success",
+        message: `updated event: ${JSON.stringify(eventObj)}`
       });
     })
     .catch(err => next(err));
 };
 
 const deleteEvent = (req, res, next) => {
-  db.none('DELETE FROM events WHERE id=$1', +req.params.id)
+  db.none("DELETE FROM events WHERE id=$1", +req.params.id)
     .then(() => {
       res.status(200).json({
-        status: 'success',
-        message: `deleted event: ${req.params.id}`,
+        status: "success",
+        message: `deleted event: ${req.params.id}`
       });
     })
     .catch(err => next(err));
@@ -93,7 +97,7 @@ module.exports = {
   createEvent,
   getEvents,
   updateEvent,
-  deleteEvent,
+  deleteEvent
 };
 
 // TODO:
