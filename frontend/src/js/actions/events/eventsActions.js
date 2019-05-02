@@ -22,9 +22,9 @@ const gotEventsSuccess = events => {
 export const getEvents = (userCoords) => dispatch => {
   // TODO: byRadius & notPrivate
   const {latitude, longitude} = userCoords.coords
-  console.log("get Events!!!", `/api/events` + `/?lat=${latitude}&lon${longitude}`)
+  console.log("get Events!!!", `/api/events` + `/?lat=${latitude}?lon=${longitude}`)
   dispatch(gettingEvents());
-  getData(`/api/events` + `/?lat=${latitude}&lon${longitude}`)
+  getData(`/api/events` + `/?lat=${latitude}&lon=${longitude}`)
     .then(res => dispatch(gotEventsSuccess(res.data.data)))
     .catch(err => dispatch(gotEventsError(err)));
 };
