@@ -149,7 +149,7 @@ class EventsDetails extends Component {
                   style={{ color: 'rgba(0,0,0,0.5)' }}
                 />
               </div>
-              <Paper className={classes.paper}>
+              <Paper className={classes.paper} elevation={3}>
                 <Typography component="h1" variant="h5">
                   {e.event_name.toUpperCase()}
                 </Typography>
