@@ -8,12 +8,12 @@ import { Modal } from '../Modal';
 class WrappedComponent extends Component {
   state = {
     ageVerified: false,
-    modal: false,
+    showModal: false,
   };
-  toggleModal = open => {
+  setShowModal = open => {
     let path = open ? `new` : '/';
     this.props.history.push(path);
-    this.setState({ modal: open });
+    this.setState({ showModal: open });
   };
 
   hideAgeVerification = () => {
@@ -21,10 +21,10 @@ class WrappedComponent extends Component {
   };
 
   render() {
-    const { ageVerified, modal } = this.state;
+    const { ageVerified, showModal } = this.state;
     const { variant } = this.props;
     const handleClose = () => {
-      this.toggleModal(false);
+      this.setShowModal(false);
       if (this.props.handleClose) {
         this.props.handleClose();
       }
@@ -32,8 +32,8 @@ class WrappedComponent extends Component {
 
     return (
       <F>
-        <Button handleClick={() => this.toggleModal(true)} variant={variant} />
-        <Modal modal={modal} handleClose={handleClose}>
+        <Button handleClick={() => this.setShowModal(true)} variant={variant} />
+        <Modal showModal={showModal} handleClose={handleClose}>
           <View
             handleClose={handleClose}
             hideAgeVerification={this.hideAgeVerification}

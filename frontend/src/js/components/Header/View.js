@@ -1,14 +1,13 @@
 //jscs:disable requireShorthandArrowFunctions
-import React, { Fragment as F } from 'react';
+import React from 'react';
+import { Wrapper } from './Wrapper';
 import { EventsMenu } from '../EventsMenu';
 import { HeaderLogo } from '../logo';
-// import { MenuButton } from '../menu';
 import { AuthMenu } from '../AuthMenu';
 
 export const View = ({ ...props }) => {
-  // <MenuButton />
   return (
-    <F>
+    <Wrapper {...props}>
       <EventsMenu />
       <HeaderLogo
         height={props.height}
@@ -16,6 +15,6 @@ export const View = ({ ...props }) => {
         color="red"
       />
       <AuthMenu />
-    </F>
+    </Wrapper>
   );
 };

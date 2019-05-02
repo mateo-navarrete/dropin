@@ -1,26 +1,12 @@
 //jscs:disable requireShorthandArrowFunctions
-import React, { Fragment as F } from 'react';
-import NewPinIcon from '@material-ui/icons/Assistant';
-import { ListItem, ListItemIcon, ListItemText } from '../../material';
-import { withStyles } from '../../../containers';
+import React from 'react';
+import { NewPinIcon } from '../../material';
+import { ChildListItem } from '../../utils';
 
-const styles = theme => ({
-  nested: {
-    paddingLeft: theme.spacing.unit * 4,
-  },
-});
-
-const WrappedComponent = ({ classes, handleClick, open }) => {
+export const View = props => {
   return (
-    <F>
-      <ListItem button className={classes.nested} onClick={handleClick}>
-        <ListItemIcon>
-          <NewPinIcon />
-        </ListItemIcon>
-        <ListItemText inset primary="Just Dropped" />
-      </ListItem>
-    </F>
+    <ChildListItem primaryText="Just Dropped">
+      <NewPinIcon />
+    </ChildListItem>
   );
 };
-
-export const View = withStyles(styles)(WrappedComponent);

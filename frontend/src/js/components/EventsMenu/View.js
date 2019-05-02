@@ -1,20 +1,21 @@
 //jscs:disable requireShorthandArrowFunctions
-import React from 'react';
-import { Wrapper } from './Wrapper';
+import React, { Fragment as F } from 'react';
 import { EventsSearch } from '../EventsSearch';
 import { EventsActive } from '../EventsActive';
 import { EventsExit } from '../EventsExit';
 import { UserFavorites } from '../UserFavorites';
 import { UserHistory } from '../UserHistory';
 
+// TODO: close onClick
+
 export const View = ({ handleClose }) => {
   return (
-    <Wrapper handleClose={handleClose}>
+    <F>
       <EventsSearch />
       <EventsActive />
       <UserFavorites />
       <UserHistory />
       <EventsExit handleClose={handleClose} />
-    </Wrapper>
+    </F>
   );
 };

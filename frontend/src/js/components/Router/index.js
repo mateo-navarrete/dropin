@@ -1,3 +1,4 @@
+//jscs:disable requireShorthandArrowFunctions
 import React from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { View } from './View';

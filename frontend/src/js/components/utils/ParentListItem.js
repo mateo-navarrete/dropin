@@ -7,8 +7,7 @@ import {
   List,
   ListItem,
   ListItemIcon,
-  ListItemText,
-  SettingsIcon
+  ListItemText
 } from '../material';
 import { withStyles } from '../../containers';
 
@@ -19,17 +18,22 @@ const styles = theme => ({
   },
 });
 
-const WrappedComponent = ({ classes, children, handleClick, open }) => {
+const WrappedComponent = ({
+  classes,
+  children,
+  primaryText,
+  toggleShowChildren,
+  showChildren,
+  showIcon,
+}) => {
   return (
     <List className={classes.root}>
-      <ListItem button onClick={handleClick}>
-        <ListItemIcon>
-          <SettingsIcon />
-        </ListItemIcon>
-        <ListItemText inset primary="Default Settings" />
-        {open ? <ExpandLess /> : <ExpandMore />}
+      <ListItem button onClick={toggleShowChildren}>
+        <ListItemIcon>{showIcon}</ListItemIcon>
+        <ListItemText inset primary={primaryText} />
+        {showChildren ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
-      <Collapse in={open} timeout="auto" unmountOnExit>
+      <Collapse in={showChildren} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           {children}
         </List>
@@ -38,4 +42,4 @@ const WrappedComponent = ({ classes, children, handleClick, open }) => {
   );
 };
 
-export const Wrapper = withStyles(styles)(WrappedComponent);
+export const ParentListItem = withStyles(styles)(WrappedComponent);

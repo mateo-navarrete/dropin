@@ -1,5 +1,6 @@
 //jscs:disable requireShorthandArrowFunctions
 import React from 'react';
+import { Drawer as D } from '../material';
 import { withStyles } from '../../containers';
 
 const styles = theme => ({
@@ -17,12 +18,19 @@ const styles = theme => ({
   },
 });
 
-const WrappedComponent = ({ classes, children, handleClose }) => {
+const StyledDrawer = ({
+  anchor,
+  showModal,
+  handleClose,
+  children,
+  classes,
+  ...props,
+}) => {
   return (
-    <div className={classes.list}>
-      {children}
-    </div>
+    <D anchor={anchor} open={showModal} onClose={handleClose}>
+      <div className={classes.list}>{children}</div>
+    </D>
   );
 };
 
-export const Wrapper = withStyles(styles)(WrappedComponent);
+export const Drawer = withStyles(styles)(StyledDrawer);

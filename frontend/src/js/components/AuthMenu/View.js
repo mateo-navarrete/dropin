@@ -1,9 +1,8 @@
 import React, { Fragment as F } from 'react';
 import { LoggedIn } from '../LoggedIn';
 import { LoggedOut } from '../LoggedOut';
-import { withAuthUser, withDimensions } from '../../containers';
 
-const WrappedComponent = ({ height, width, user, ...props }) => {
+export const View = ({ height, width, user, ...props }) => {
   let isCompact = height > width;
   let isLoggedIn = user ? true : false;
   const renderView = isLoggedIn ? (
@@ -13,5 +12,3 @@ const WrappedComponent = ({ height, width, user, ...props }) => {
   );
   return <F>{renderView}</F>;
 };
-
-export const View = withAuthUser(withDimensions(WrappedComponent));

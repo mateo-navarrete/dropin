@@ -18,8 +18,8 @@ const styles = theme => ({
   },
 });
 
-const WrappedComponent = ({
-  modal,
+const StyledModal = ({
+  showModal,
   handleClose,
   children,
   classes,
@@ -29,7 +29,7 @@ const WrappedComponent = ({
     <M
       aria-labelledby="simple-modal-title"
       aria-describedby="simple-modal-description"
-      open={modal}
+      open={showModal}
       onClose={handleClose}
     >
       <div className={classes.paper}>{children}</div>
@@ -37,4 +37,4 @@ const WrappedComponent = ({
   );
 };
 
-export const Modal = withStyles(styles)(WrappedComponent);
+export const Modal = withStyles(styles)(StyledModal);

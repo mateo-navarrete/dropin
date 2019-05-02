@@ -2,13 +2,19 @@
 import React from 'react';
 import { ActiveEvents } from './ActiveEvents';
 import { ArchivedEvents } from './ArchivedEvents';
-import { Wrapper } from './Wrapper';
+import { DropinHistoryIcon } from '../material';
+import { ParentListItem } from '../utils';
 
-export const View = ({ handleClick, open }) => {
+export const View = ({ toggleShowChildren, showChildren }) => {
   return (
-    <Wrapper handleClick={handleClick} open={open}>
+    <ParentListItem
+      primaryText="Drop History"
+      toggleShowChildren={toggleShowChildren}
+      showChildren={showChildren}
+      showIcon={<DropinHistoryIcon />}
+    >
       <ActiveEvents />
       <ArchivedEvents />
-    </Wrapper>
+    </ParentListItem>
   );
 };

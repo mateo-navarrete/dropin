@@ -1,28 +1,32 @@
 //jscs:disable requireShorthandArrowFunctions
 import React, { Component, Fragment as F } from 'react';
-import { Button } from './Button';
 import { View } from './View';
-import { Drawer } from '../material';
+import { Drawer } from '../Drawer';
+import { PersonIcon } from '../material';
+import { ShowMenuButton } from '../utils';
 
 class WrappedComponent extends Component {
   state = {
-    modal: false,
+    showModal: false,
   };
-  toggleModal = open => {
-    this.setState({ modal: open });
+  setShowModal = open => {
+    this.setState({ showModal: open });
   };
 
   render() {
-    const { modal } = this.state;
+    const { showModal } = this.state;
     return (
       <F>
-        <Button handleClick={() => this.toggleModal(true)} />
+      <ShowMenuButton
+        buttonIcon={<PersonIcon fontSize='large'/>}
+        handleClick={() => this.setShowModal(true)}
+      />
         <Drawer
           anchor="right"
-          open={modal}
-          onClose={() => this.toggleModal(false)}
+          showModal={showModal}
+          handleClose={() => this.setShowModal(false)}
         >
-          <View handleClose={() => this.toggleModal(false)} />
+          <View handleClose={() => this.setShowModal(false)} />
         </Drawer>
       </F>
     );

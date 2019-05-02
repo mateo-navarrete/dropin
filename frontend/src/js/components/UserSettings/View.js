@@ -2,13 +2,19 @@
 import React from 'react';
 import { DurationSettings } from './DurationSettings';
 import { PrivacySettings } from './PrivacySettings';
-import { Wrapper } from './Wrapper';
+import { SettingsIcon } from '../material';
+import { ParentListItem } from '../utils';
 
-export const View = ({ handleClick, open }) => {
+export const View = ({ toggleShowChildren, showChildren, ...props }) => {
   return (
-    <Wrapper handleClick={handleClick} open={open}>
+    <ParentListItem
+      primaryText="Drop History"
+      toggleShowChildren={toggleShowChildren}
+      showChildren={showChildren}
+      showIcon={<SettingsIcon />}
+    >
       <DurationSettings />
       <PrivacySettings />
-    </Wrapper>
+    </ParentListItem>
   );
 };

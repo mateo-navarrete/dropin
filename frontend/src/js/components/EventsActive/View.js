@@ -3,14 +3,20 @@ import React from 'react';
 import { TrendingEvents } from './TrendingEvents';
 import { JustDroppedEvents } from './JustDroppedEvents';
 import { FomoEvents } from './FomoEvents';
-import { Wrapper } from './Wrapper';
+import { ActivePinIcon } from '../material';
+import { ParentListItem } from '../utils';
 
-export const View = ({ handleClick, open }) => {
+export const View = ({ toggleShowChildren, showChildren, ...props }) => {
   return (
-    <Wrapper handleClick={handleClick} open={open}>
+    <ParentListItem
+      primaryText="Active"
+      toggleShowChildren={toggleShowChildren}
+      showChildren={showChildren}
+      showIcon={<ActivePinIcon />}
+    >
       <TrendingEvents />
       <JustDroppedEvents />
       <FomoEvents />
-    </Wrapper>
+    </ParentListItem>
   );
 };

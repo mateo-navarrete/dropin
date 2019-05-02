@@ -1,30 +1,12 @@
 //jscs:disable requireShorthandArrowFunctions
-import React, { Fragment as F } from 'react';
-import {
-  DropinUserIcon,
-  ListItem,
-  ListItemIcon,
-  ListItemText
-} from '../../material';
-import { withStyles } from '../../../containers';
+import React from 'react';
+import { DropinUserIcon } from '../../material';
+import { ChildListItem } from '../../utils';
 
-const styles = theme => ({
-  nested: {
-    paddingLeft: theme.spacing.unit * 4,
-  },
-});
-
-const WrappedComponent = ({ classes, handleClick, open }) => {
+export const View = props => {
   return (
-    <F>
-      <ListItem button className={classes.nested} onClick={handleClick}>
-        <ListItemIcon>
-          <DropinUserIcon />
-        </ListItemIcon>
-        <ListItemText inset primary="Drop Circle" />
-      </ListItem>
-    </F>
+    <ChildListItem primaryText="Drop Circle">
+      <DropinUserIcon />
+    </ChildListItem>
   );
 };
-
-export const View = withStyles(styles)(WrappedComponent);

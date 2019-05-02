@@ -2,18 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getUserCoords } from '../../actions';
 
-const mapStateToProps = ({ userCoordsReducer }) => {
-  return {
-    // loading: userCoordsReducer.loading,
-    userCoords: userCoordsReducer.coords,
-  };
-};
+const mapStateToProps = ({ userCoordsReducer }) => ({
+  userCoords: userCoordsReducer.coords,
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getUserCoords: () => dispatch(getUserCoords()),
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  getUserCoords: () => dispatch(getUserCoords()),
+});
 
 export const withUserCoordsListener = WrappedComponent => {
   class HOC extends Component {

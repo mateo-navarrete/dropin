@@ -1,19 +1,10 @@
 //jscs:disable requireShorthandArrowFunctions
-import React, { Component } from 'react';
+import React from 'react';
 import { View } from './View';
+import { withToggleShowChildren } from '../../../containers';
 
-class WrappedComponent extends Component {
-  state = {
-    open: false,
-  };
+const WrappedComponent = props => {
+  return <View {...props} />;
+};
 
-  handleClick = () => {
-    this.setState(state => ({ open: !state.open }));
-  };
-
-  render() {
-    return <View {...this.state} handleClick={this.handleClick} />;
-  }
-}
-
-export const ActiveEvents = WrappedComponent;
+export const ActiveEvents = withToggleShowChildren(WrappedComponent);

@@ -1,45 +1,20 @@
 //jscs:disable requireShorthandArrowFunctions
-import React, { Fragment as F } from 'react';
-import {
-  Collapse,
-  ExpandLess,
-  ExpandMore,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  VisibilityOff
-} from '../../material';
-import { withStyles } from '../../../containers';
+import React from 'react';
+import { VisibilityOff } from '../../material';
+import { ChildListItem, ParentListItem } from '../../utils';
 
-const styles = theme => ({
-  nested: {
-    paddingLeft: theme.spacing.unit * 4,
-  },
-});
-
-const WrappedComponent = ({ classes, handleClick, open }) => {
+export const View = ({ toggleShowChildren, showChildren, ...props }) => {
   return (
-    <F>
-      <ListItem button className={classes.nested} onClick={handleClick}>
-        <ListItemIcon>
-          <VisibilityOff />
-        </ListItemIcon>
-        <ListItemText inset primary="Privacy" />
-        {open ? <ExpandLess /> : <ExpandMore />}
-      </ListItem>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItem button className={classes.nested}>
-            <ListItemText
-              inset
-              primary="allow users to search for my profile"
-            />
-          </ListItem>
-        </List>
-      </Collapse>
-    </F>
+    <ParentListItem
+      primaryText="Privacy"
+      toggleShowChildren={toggleShowChildren}
+      showChildren={showChildren}
+      showIcon={<VisibilityOff />}
+    >
+      <ChildListItem
+        toggleShowChildren={toggleShowChildren}
+        primaryText="make my profile visible in search results"
+      />
+    </ParentListItem>
   );
 };
-
-export const View = withStyles(styles)(WrappedComponent);

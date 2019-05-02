@@ -1,11 +1,11 @@
 //jscs:disable requireShorthandArrowFunctions
 import React from 'react';
-import { IconButton, PersonIcon } from '../material';
+import { IconButton } from '../material';
 
-export const Button = ({ handleClick, ...props }) => {
+export const ShowMenuButton = ({ children, buttonIcon, handleClick, ...props }) => {
   return (
     <IconButton color="inherit" aria-label="Menu" onClick={handleClick}>
-      <PersonIcon fontSize="large" />
+      {buttonIcon}
     </IconButton>
   );
 };

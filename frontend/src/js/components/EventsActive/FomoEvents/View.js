@@ -1,26 +1,12 @@
 //jscs:disable requireShorthandArrowFunctions
-import React, { Fragment as F } from 'react';
-import FomoIcon from '@material-ui/icons/AccessAlarm';
-import { ListItem, ListItemIcon, ListItemText } from '../../material';
-import { withStyles } from '../../../containers';
+import React from 'react';
+import { FomoIcon } from '../../material';
+import { ChildListItem } from '../../utils';
 
-const styles = theme => ({
-  nested: {
-    paddingLeft: theme.spacing.unit * 4,
-  },
-});
-
-const WrappedComponent = ({ classes, handleClick, open }) => {
+export const View = props => {
   return (
-    <F>
-      <ListItem button className={classes.nested} onClick={handleClick}>
-        <ListItemIcon>
-          <FomoIcon />
-        </ListItemIcon>
-        <ListItemText inset primary="Fomo" />
-      </ListItem>
-    </F>
+    <ChildListItem primaryText="Fomo">
+      <FomoIcon />
+    </ChildListItem>
   );
 };
-
-export const View = withStyles(styles)(WrappedComponent);

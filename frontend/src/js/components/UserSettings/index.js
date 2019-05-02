@@ -1,21 +1,13 @@
 //jscs:disable requireShorthandArrowFunctions
-import React, { Component } from 'react';
+import React, { Fragment as F } from 'react';
 import { View } from './View';
+import { withAuth, withToggleShowChildren } from '../../containers';
 
-class WrappedComponent extends Component {
-  state = {
-    open: false,
-  };
+const WrappedComponent = props => {
+  const renderView = props.user ? <View {...props} /> : '';
+  return <F>{renderView}</F>;
+};
 
-  handleClick = () => {
-    this.setState(state => ({ open: !state.open }));
-  };
-
-  render() {
-    return <View {...this.state} handleClick={this.handleClick} />;
-  }
-}
-
-export const UserSettings = WrappedComponent;
+export const UserSettings = withAuth(withToggleShowChildren(WrappedComponent));
 
 // export const UserSettings = withUser(WrappedComponent);

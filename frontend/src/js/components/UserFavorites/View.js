@@ -3,14 +3,20 @@ import React from 'react';
 import { ActiveFavorites } from './ActiveFavorites';
 import { DropTags } from './DropTags';
 import { DropCircle } from './DropCircle';
-import { Wrapper } from './Wrapper';
+import { FavoriteIcon } from '../material';
+import { ParentListItem } from '../utils';
 
-export const View = ({ handleClick, open, user }) => {
+export const View = ({ toggleShowChildren, showChildren, user }) => {
   return (
-    <Wrapper handleClick={handleClick} open={open}>
+    <ParentListItem
+      primaryText="Favorites"
+      toggleShowChildren={toggleShowChildren}
+      showChildren={showChildren}
+      showIcon={<FavoriteIcon />}
+    >
       <ActiveFavorites />
       <DropTags />
       <DropCircle />
-    </Wrapper>
+    </ParentListItem>
   );
 };

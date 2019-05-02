@@ -1,11 +1,7 @@
 import React, { Fragment as F } from 'react';
 import { Form } from './Form';
 import { DropDownMenu } from '../../LoggedOut/DropDownMenu';
-import {
-  Avatar,
-  Typography,
-  LockOutlinedIcon
-} from '../../material';
+import { Avatar, Typography, LockOutlinedIcon } from '../../material';
 import { withStyles, withDimensions } from '../../../containers';
 
 const styles = theme => ({

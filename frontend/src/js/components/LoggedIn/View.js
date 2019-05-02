@@ -1,29 +1,19 @@
 //jscs:disable requireShorthandArrowFunctions
-import React from 'react';
-import { UserMenu } from '../UserMenu';
-import { withStyles } from '../../containers';
+import React, { Fragment as F } from 'react';
+import { UserProfile } from '../UserProfile';
+import { UserSettings } from '../UserSettings';
+import { UserExit } from '../UserExit';
+import { Divider } from '../material';
 
-const styles = theme => ({
-  list: {
-    width: 350, //250,
-    [theme.breakpoints.up('310')]: {
-      width: 310,
-    },
-    [theme.breakpoints.up('370')]: {
-      width: 360,
-    },
-    [theme.breakpoints.up(400 + theme.spacing.unit)]: {
-      width: 400,
-    },
-  },
-});
-
-const WrappedComponent = ({ classes, handleClose }) => {
+export const View = ({ handleClose }) => {
   return (
-    <div className={classes.list}>
-      <UserMenu handleClose={handleClose} />
-    </div>
+    <F>
+      <UserProfile />
+      <Divider />
+      <UserSettings />
+      <Divider />
+      <UserExit handleClose={handleClose} />
+      <Divider />
+    </F>
   );
 };
-
-export const View = withStyles(styles)(WrappedComponent);

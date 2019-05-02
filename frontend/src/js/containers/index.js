@@ -8,19 +8,20 @@ import {
   withGetAuthStatus
 } from './auth';
 import { withGeolocation, withGetGeolocation, withUser } from './user';
-import { withDimensions, withGetDimensions } from './utils';
+import { withDimensions, withGetDimensions, withToggleShowChildren } from './utils';
 
 export {
   withAuth,
   withAuthUser,
   withDemoUser,
-  withLogIn,
   withDimensions,
   withGeolocation,
-  withLogOut,
   withGetAuthStatus,
   withGetDimensions,
   withGetGeolocation,
+  withLogIn,
+  withLogOut,
+  withStyles,
+  withToggleShowChildren,
   withUser,
-  withStyles
 };
