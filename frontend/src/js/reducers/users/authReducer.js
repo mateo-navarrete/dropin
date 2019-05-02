@@ -120,12 +120,6 @@ export const authReducer = (state = initState, action) => {
         signup: true,
       };
       return nextState;
-    case SHOW_SIGNUP:
-      nextState = {
-        ...state,
-        signup: true,
-      };
-      return nextState;
     case HIDE_MUST_BE_18:
       nextState = {
         ...state,
