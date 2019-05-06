@@ -1,27 +1,18 @@
-import React, { Component } from "react";
-import CssBaseline from '@material-ui/core/CssBaseline';
-import {
-  OverlayArea,
-  ActionBarArea,
-  MainArea,
-  NavBarArea,
-  // AuthUser,
-  UserCoordsListener,
-  ResizeListener
-} from "./components";
+//jscs:disable requireShorthandArrowFunctions
+import React, { Fragment as F } from 'react';
+import { AuthStatusListener } from './components/auth';
+import { GeolocationListener } from './components/user';
+import { CssBaseline, DimensionsListener } from './components/utils';
+import { Router } from './components/Router';
 
-export default class App extends Component {
-  render() {
-    return (
-      <>
-        <ResizeListener />
-        <UserCoordsListener />
-        <CssBaseline />
-        <OverlayArea />
-        <MainArea />
-        <NavBarArea />
-        <ActionBarArea />
-      </>
-    );
-  }
-}
+export const App = () => {
+  return (
+    <F>
+      <AuthStatusListener />
+      <GeolocationListener />
+      <DimensionsListener />
+      <CssBaseline />
+      <Router />
+    </F>
+  );
+};

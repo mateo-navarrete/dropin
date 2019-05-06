@@ -1,13 +1,12 @@
 import { combineReducers } from 'redux';
-import { eventReducer, eventsReducer } from './events';
-import { authReducer, userCoordsReducer } from './users';
-import { areaSizeReducer, overlayReducer } from './utils';
+import { authReducer } from './auth';
+import { eventsReducer } from './events';
+import { userReducer } from './user';
+import { dimensionsReducer } from './utils';
 
 export const rootReducer = combineReducers({
-  eventReducer,
-  eventsReducer,
-  authReducer,
-  userCoordsReducer,
-  areaSizeReducer,
-  overlayReducer,
+  auth: authReducer,
+  events: eventsReducer,
+  dimensions: dimensionsReducer,
+  user: userReducer,
 });

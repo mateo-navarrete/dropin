@@ -1,15 +1,3 @@
-import {
-  hideBottomOverlay,
-  hideTopOverlay,
-  showBottomOverlay,
-  showTopOverlay
-} from './overlayActions';
-import { getResize } from './resizeActions';
+import { resizeDimensions } from './dimensionsActions';
 
-export {
-  hideBottomOverlay,
-  hideTopOverlay,
-  showBottomOverlay,
-  showTopOverlay,
-  getResize
-};
+export { resizeDimensions };

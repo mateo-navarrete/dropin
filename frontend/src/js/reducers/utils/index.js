@@ -1,4 +1,3 @@
-import { areaSizeReducer } from './areaSizeReducer';
-import { overlayReducer } from './overlayReducer';
+import { dimensionsReducer } from './dimensionsReducer';
 
-export { areaSizeReducer, overlayReducer };
+export { dimensionsReducer };

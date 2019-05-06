@@ -1,22 +1,4 @@
-import MarkerClusterer from 'react-google-maps/lib/components/addons/MarkerClusterer';
-import {
-  withScriptjs,
-  withGoogleMap,
-  GoogleMap,
-  Marker
-} from 'react-google-maps';
-import { deleteData, getData, postData, sendEmail } from './api';
-import { getAreaSizes } from './getAreaSizes';
+import { deleteData, getData, postData } from './api';
+import { getDimensions } from './getDimensions';
 
-export {
-  MarkerClusterer,
-  withScriptjs,
-  withGoogleMap,
-  GoogleMap,
-  Marker,
-  deleteData,
-  getData,
-  postData,
-  getAreaSizes,
-  sendEmail
-};
+export { deleteData, getData, postData, getDimensions };

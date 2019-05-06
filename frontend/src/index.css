@@ -8,6 +8,7 @@ body {
   margin: 0 auto;
   padding: 0;
   text-align: center;
+  overflow: hidden;
 }
 
 h1 {
@@ -43,6 +44,7 @@ h1 {
   /* background: #00f281; */
 }
 
+/* red = #FB364A rgba(251, 54, 74, 1) */
 .red-bg {
   background-color: rgba(251, 54, 74, 1);
 }
@@ -55,6 +57,7 @@ h1 {
   color: rgba(251, 54, 74, 1);
 }
 
+/* blue = #2980B9 rgba(41, 128, 185, 1) */
 .blue-bg {
   background-color: rgba(41, 128, 185, 1);
 }
@@ -67,6 +70,7 @@ h1 {
   color: rgba(41, 128, 185, 1);
 }
 
+/* green = #27AE60 rgba(39, 174, 96, 1) */
 .green-bg {
   background-color: rgba(39, 174, 96, 1);
 }
@@ -79,6 +83,7 @@ h1 {
   color: rgba(39, 174, 96, 1);
 }
 
+/* yellow = #F1C40F rgba(241, 196, 15, 1) */
 .yellow-bg {
   background-color: rgba(241, 196, 15, 1);
 }
@@ -118,6 +123,14 @@ Green: 39, 174, 96 27ae60
   display: flex;
 }
 
+.row {
+  flex-direction: row;
+}
+
+.col {
+  flex-direction: column;
+}
+
 .space-around {
   justify-content: space-around;
 }
@@ -142,6 +155,26 @@ Green: 39, 174, 96 27ae60
   padding: 5px;
 }
 
+.divide-or {
+  width: 35%;
+}
+
+.or-margin {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#myVideo {
+  background-color: #acb2f2;
+  /*  */
+  max-width: 100%;
+}
+
+.vjs-tech {
+  /* object-fit: contain; */
+  object-fit: cover;
+  /* object-fit: fill; */
+}
 
 /*
 .logo-square {

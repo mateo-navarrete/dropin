@@ -9,7 +9,7 @@ passport.use(
   new LocalStrategy(
     { usernameField: 'user_name', passwordField: 'password' },
     (user_name, password, done) => {
-      console.log(user_name);
+      // console.log(user_name);
       db.one('SELECT * FROM users WHERE user_name = ${user_name}', {
         user_name: user_name,
       })
@@ -17,6 +17,7 @@ passport.use(
           if (!helpers.comparePass(password, user.password_digest)) {
             return done(null, false);
           } else {
+            // console.log('@', user);
             return done(null, user);
           }
         })

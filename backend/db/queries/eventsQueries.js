@@ -31,30 +31,82 @@ const createEvent = (req, res, next) => {
     .catch(err => next(err));
 };
 
-const getEvents = (req, res, next) => {
+const getUserEvents = (req, res, next) => {
   db.any(
-    `SELECT *,
+    `SELECT
+    e.*,
     (SELECT
         user_name
     FROM users AS u
-    WHERE events.user_id = u.id) AS user_name
-    FROM events
-    WHERE category_id=$1
-    AND expiration_date >= CURRENT_TIMESTAMP`,
-    +req.params.id
+    WHERE e.user_id = u.id) AS user_name
+FROM events e
+JOIN users u
+ON u.id = e.user_id
+AND expiration_date >= CURRENT_TIMESTAMP
+ORDER BY e.created_date DESC`,
+    user_name
   )
     .then(data => {
       res.send({
         status: 'success',
         data: data,
-        message: `got all events in category: ${req.params.id}`,
+        message: `got all user events: ${req.params.id}`,
       });
     })
     .catch(err => {
-      console.log(err);
+      console.log('@getUserEvents', err);
       next(err);
     });
 };
+
+const getEvents = (req, res, next) => {
+  // TODO: byRadius & notPrivate
+  const eventObj = {
+    latitude: +req.query.lat,
+    longitude: +req.query.lon,
+    radius: 1.5 //in Miles
+  }
+  db.any(
+    'SELECT *, (SELECT user_name FROM users AS u WHERE events.user_id = u.id) AS user_name FROM events WHERE (expiration_date >= CURRENT_TIMESTAMP) AND acos(sin(events.latitude * 0.0175) * sin(${latitude} * 0.0175) + cos(events.latitude * 0.0175) * cos(${latitude} * 0.0175) * cos((${longitude} * 0.0175) - (events.longitude * 0.0175))) * 3959 <= ${radius}',
+    eventObj
+  )
+    .then(data => {
+      res.send({
+        status: 'success',
+        data: data,
+        message: `got all active user events`,
+      });
+    })
+    .catch(err => {
+      console.log('@getEvents', err);
+      next(err);
+    });
+};
+
+// const getEvents = (req, res, next) => {
+//   db.any(
+//     `SELECT *,
+//     (SELECT
+//         user_name
+//     FROM users AS u
+//     WHERE events.user_id = u.id) AS user_name
+//     FROM events
+//     WHERE category_id=$1
+//     AND expiration_date >= CURRENT_TIMESTAMP`,
+//     +req.params.id
+//   )
+//     .then(data => {
+//       res.send({
+//         status: 'success',
+//         data: data,
+//         message: `got all events in category: ${req.params.id}`,
+//       });
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       next(err);
+//     });
+// };
 
 const updateEvent = (req, res, next) => {
   const rb = req.body;
@@ -91,6 +143,7 @@ const deleteEvent = (req, res, next) => {
 
 module.exports = {
   createEvent,
+  getUserEvents,
   getEvents,
   updateEvent,
   deleteEvent,

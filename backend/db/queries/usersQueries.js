@@ -89,7 +89,9 @@ const logoutUser = (req, res, next) => {
 const loginUser = (req, res) => {
   // res.json({ message: req.user.user_name + ' is now logged in.' });
   //TODO: REMOVE ^^ ?
-  res.json(req.user);
+  // console.log('@@', req.user);
+  // res.json(req.user);
+  res.json({ user_name: req.user.user_name });
 };
 
 const isLoggedIn = (req, res) => {

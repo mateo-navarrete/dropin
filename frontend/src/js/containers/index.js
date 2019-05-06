@@ -1,27 +1,33 @@
 import { withStyles } from '@material-ui/core/styles';
-import { withTheme } from '@material-ui/core/styles';
 import {
-  withEvent,
-  withEvents,
-  withFamilyEvents,
-  withPartyEvents,
-  withSportsEvents
-} from './events';
-import { withAuthUser, withUserCoords, withUserCoordsListener } from './users';
-import { withAreaSizes, withOverlay, withResize } from './utils';
+  withAuth,
+  withAuthUser,
+  withDemoUser,
+  withLogIn,
+  withLogOut,
+  withGetAuthStatus
+} from './auth';
+import { withEvents } from './events';
+import { withGeolocation, withGetGeolocation, withUser } from './user';
+import {
+  withDimensions,
+  withGetDimensions,
+  withToggleShowChildren
+} from './utils';
 
 export {
-  withStyles,
-  withTheme,
-  withEvent,
-  withEvents,
-  withFamilyEvents,
-  withPartyEvents,
-  withSportsEvents,
+  withAuth,
   withAuthUser,
-  withUserCoords,
-  withUserCoordsListener,
-  withAreaSizes,
-  withOverlay,
-  withResize
+  withDemoUser,
+  withDimensions,
+  withEvents,
+  withGeolocation,
+  withGetAuthStatus,
+  withGetDimensions,
+  withGetGeolocation,
+  withLogIn,
+  withLogOut,
+  withStyles,
+  withToggleShowChildren,
+  withUser
 };

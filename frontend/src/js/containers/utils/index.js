@@ -1,5 +1,5 @@
-import { withAreaSizes } from './withAreaSizes';
-import { withOverlay } from './withOverlay';
-import { withResize } from './withResize';
+import { withDimensions } from './withDimensions';
+import { withGetDimensions } from './withGetDimensions';
+import { withToggleShowChildren } from './withToggleShowChildren';
 
-export { withAreaSizes, withOverlay, withResize };
+export { withDimensions, withGetDimensions, withToggleShowChildren };

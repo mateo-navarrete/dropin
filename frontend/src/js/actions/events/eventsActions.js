@@ -1,72 +1,29 @@
-/* jscs:disable requireCamelCaseOrUpperCaseIdentifiers */
-/* eslint-disable no-unused-vars */
-
+//jscs:disable requireShorthandArrowFunctions
 import {
-  GET_CATEGORY_EVENTS,
+  GETTING_EVENTS,
   GOT_EVENTS_ERROR,
-  GOT_FAMILY_EVENTS,
-  GOT_PARTY_EVENTS,
-  GOT_SPORTS_EVENTS,
-  SET_LOADED_TO_FALSE,
-  GET_ADDRESS
+  GOT_EVENTS_SUCCESS
 } from '../../constants';
 import { getData } from '../../utils';
-import Geocode from 'react-geocode';
 
-export const setLoadedToFalse = () => {
-  return { type: SET_LOADED_TO_FALSE };
-};
-
-const getCategoryEvents = category => {
-  return { type: GET_CATEGORY_EVENTS, payload: category };
+const gettingEvents = () => {
+  return { type: GETTING_EVENTS };
 };
 
 const gotEventsError = err => {
+  console.log('@gotEventsError', err);
   return { type: GOT_EVENTS_ERROR, payload: err };
 };
 
-const got_familyEvents = events => {
-  return { type: GOT_FAMILY_EVENTS, payload: events };
+const gotEventsSuccess = events => {
+  return { type: GOT_EVENTS_SUCCESS, payload: events };
 };
 
-const got_partyEvents = events => {
-  return { type: GOT_PARTY_EVENTS, payload: events };
-};
-
-const got_sportsEvents = events => {
-  return { type: GOT_SPORTS_EVENTS, payload: events };
-};
-
-const get_address = address => {
-  return { type: GET_ADDRESS, payload: address };
-};
-
-const EVENTS = {
-  got_familyEvents,
-  got_partyEvents,
-  got_sportsEvents,
-};
-
-export const getEvents = ({ id, name }) => dispatch => {
-  let gotEvent = EVENTS['got_' + name + 'Events'];
-  dispatch(getCategoryEvents(name));
-  getData('/api/events/' + (id || ''), res => {
-    res.data //.length
-      ? dispatch(gotEvent(res.data))
-      : dispatch(gotEventsError(res.data));
-  });
-};
-
-export const getAddress = (latitude, longitude) => dispatch => {
-  Geocode.setApiKey('AIzaSyB5uKfMriNA73mQgW_ZRelAixBLEdqT-Xg');
-  Geocode.fromLatLng(`${latitude}`, `${longitude}`).then(
-    response => {
-      let address = response.results[0].formatted_address;
-      dispatch(get_address(address));
-    },
-
-    error => {
-      console.error(error);
-    }
-  );
+export const getEvents = (userCoords) => dispatch => {
+  // TODO: byRadius & notPrivate
+  const {latitude, longitude} = userCoords.coords
+  dispatch(gettingEvents());
+  getData(`/api/events` + `/?lat=${latitude}&lon=${longitude}`)
+    .then(res => dispatch(gotEventsSuccess(res.data.data)))
+    .catch(err => dispatch(gotEventsError(err)));
 };

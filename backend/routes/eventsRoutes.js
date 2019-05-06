@@ -1,10 +1,19 @@
 const express = require('express');
 const router = express.Router();
 
-const { createEvent, getEvents, updateEvent, deleteEvent } = require('../db/queries/eventsQueries');
+const {
+  createEvent,
+  getUserEvents,
+  getEvents,
+  updateEvent,
+  deleteEvent,
+} = require('../db/queries/eventsQueries');
 
 router.post('/', createEvent);
-router.get('/:id', getEvents);
+router.get('/user/:id', getUserEvents);
+// TODO: byRadius & notPrivate
+router.get('/', getEvents);
+// router.get('/:id', getEvents);
 router.put('/', updateEvent);
 router.delete('/:id', deleteEvent);
 
