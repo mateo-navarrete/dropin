@@ -2,6 +2,7 @@ import ActivePinIcon from '@material-ui/icons/WhereToVote';
 import ArchiveIcon from '@material-ui/icons/Archive';
 import BlockIcon from '@material-ui/icons/Block';
 import ClearIcon from '@material-ui/icons/Clear';
+import DeleteIcon from '@material-ui/icons/DeleteForever';
 import DropinEventIcon from '@material-ui/icons/Loyalty';
 import DropinHistoryIcon from '@material-ui/icons/PinDrop';
 import DropinUserIcon from '@material-ui/icons/SupervisedUserCircle';
@@ -23,6 +24,8 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import MyLocationIcon from '@material-ui/icons/MyLocation';
 import NewPinIcon from '@material-ui/icons/Assistant';
 import PersonIcon from '@material-ui/icons/Person';
+import PinIcon from '@material-ui/icons/LocationOn';
+import ReportIcon from '@material-ui/icons/Flag';
 import SearchIcon from '@material-ui/icons/Search';
 import SettingsIcon from '@material-ui/icons/Settings';
 import TimerIcon from '@material-ui/icons/Timer';
@@ -33,6 +36,7 @@ export {
   ArchiveIcon,
   BlockIcon,
   ClearIcon,
+  DeleteIcon,
   DropinEventIcon,
   DropinHistoryIcon,
   DropinUserIcon,
@@ -54,6 +58,8 @@ export {
   MyLocationIcon,
   NewPinIcon,
   PersonIcon,
+  PinIcon,
+  ReportIcon,
   SearchIcon,
   SettingsIcon,
   TimerIcon,

@@ -1,6 +1,7 @@
 //jscs:disable requireShorthandArrowFunctions
 import React, { Component, Fragment as F } from 'react';
-// import { View } from './View';
+import { View } from './View';
+import { withUser } from '../../containers';
 // import { Modal } from '../Modal';
 
 class WrappedComponent extends Component {
@@ -15,23 +16,13 @@ class WrappedComponent extends Component {
   render() {
     // const { showModal } = this.state;
     // const { handleClick, ...props } = this.props;
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <F>
-        <div>Report || ( Edit || Delete )</div>
-        <div>TitleTag | ( FavoriteStatus )</div>
-        <div>User | ( FavoriteStatus )</div>
-        <div>CreatedAt | durationBar</div>
-        <div>( Media )</div>
-        <div>Caption</div>
-        <div>Tags | ( FavoriteStatus )</div>
-        <div>Geolocation</div>
-        <div>Address</div>
-        <div>Reactions</div>
-        <div>x CLOSE</div>
+        <View {...this.props} />
       </F>
     );
   }
 }
 
-export const EventDetails = WrappedComponent;
+export const EventDetails = withUser(WrappedComponent);

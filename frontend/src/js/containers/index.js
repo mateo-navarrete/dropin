@@ -1,4 +1,4 @@
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, withTheme } from '@material-ui/core/styles';
 import {
   withAuth,
   withAuthUser,
@@ -29,6 +29,7 @@ export {
   withLogIn,
   withLogOut,
   withStyles,
+  withTheme,
   withToggleShowChildren,
   withUser
 };
