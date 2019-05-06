@@ -1,84 +1,84 @@
-const night = [
+export const night = [
   {
-    featureType: 'all',
-    elementType: 'all',
+    featureType: "all",
+    elementType: "all",
     stylers: [
       {
-        visibility: 'on',
-      },
-    ],
+        visibility: "on"
+      }
+    ]
   },
   {
-    featureType: 'all',
-    elementType: 'labels',
+    featureType: "all",
+    elementType: "labels",
     stylers: [
       {
-        visibility: 'off',
-      },
-    ],
+        visibility: "off"
+      }
+    ]
   },
   {
-    featureType: 'all',
-    elementType: 'labels.text.fill',
+    featureType: "all",
+    elementType: "labels.text.fill",
     stylers: [
       {
-        color: '#ffffff',
+        color: "#ffffff"
       },
       {
-        visibility: 'off',
-      },
-    ],
+        visibility: "off"
+      }
+    ]
   },
   {
-    featureType: 'all',
-    elementType: 'labels.text.stroke',
+    featureType: "all",
+    elementType: "labels.text.stroke",
     stylers: [
       {
-        color: '#000000',
+        color: "#000000"
       },
       {
-        lightness: 13,
+        lightness: 13
       },
       {
-        visibility: 'off',
-      },
-    ],
+        visibility: "off"
+      }
+    ]
   },
   {
-    featureType: 'all',
-    elementType: 'labels.icon',
+    featureType: "all",
+    elementType: "labels.icon",
     stylers: [
       {
-        visibility: 'off',
-      },
-    ],
+        visibility: "off"
+      }
+    ]
   },
   {
-    featureType: 'administrative',
-    elementType: 'geometry.fill',
+    featureType: "administrative",
+    elementType: "geometry.fill",
     stylers: [
       {
-        color: '#000000',
-      },
-    ],
+        color: "#000000"
+      }
+    ]
   },
   {
-    featureType: 'administrative',
-    elementType: 'geometry.stroke',
+    featureType: "administrative",
+    elementType: "geometry.stroke",
     stylers: [
       {
-        color: '#144b53',
+        color: "#144b53"
       },
       {
-        lightness: 14,
+        lightness: 14
       },
       {
-        weight: 1.4,
-      },
-    ],
+        weight: 1.4
+      }
+    ]
   },
   {
-    featureType: 'landscape',
+    featureType: "landscape",
     elementType: "all",
     stylers: [
       {
@@ -169,7 +169,7 @@ const night = [
   }
 ];
 
-const pinRed = [
+export const pinRed = [
   {
     featureType: "all",
     elementType: "labels.text.fill",
@@ -340,7 +340,7 @@ const pinRed = [
   }
 ];
 
-const red = [
+export const red = [
   {
     featureType: "all",
     elementType: "labels.text.fill",
@@ -511,7 +511,7 @@ const red = [
   }
 ];
 
-const creed = [
+export const creed = [
   {
     featureType: "all",
     elementType: "all",
@@ -877,7 +877,7 @@ const creed = [
   }
 ];
 
-const veins = [
+export const veins = [
   {
     featureType: "all",
     elementType: "labels",
@@ -1237,7 +1237,7 @@ const veins = [
   }
 ];
 
-const chill = [
+export const chill = [
   {
     featureType: "all",
     elementType: "all",
@@ -1318,4 +1318,204 @@ const chill = [
   }
 ];
 
-export const MapStyles = { night, red, creed, veins, chill, pinRed };
+export const v1default = [
+  {
+    featureType: "water",
+    stylers: [
+      {
+        color: "#2980b9"
+      }
+    ]
+  },
+  {
+    featureType: "administrative",
+    elementType: "labels.text.stroke",
+    stylers: [
+      {
+        color: "#ffffff"
+      },
+      {
+        weight: 6
+      }
+    ]
+  },
+  {
+    featureType: "administrative",
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        color: "#fb364a"
+      }
+    ]
+  },
+  {
+    featureType: "road.highway",
+    elementType: "geometry.stroke",
+    stylers: [
+      {
+        color: "#efe9e4"
+      },
+      {
+        lightness: -40
+      }
+    ]
+  },
+  {
+    featureType: "road.arterial",
+    elementType: "geometry.stroke",
+    stylers: [
+      {
+        color: "#efe9e4"
+      },
+      {
+        lightness: -20
+      }
+    ]
+  },
+  {
+    featureType: "road",
+    elementType: "labels.text.stroke",
+    stylers: [
+      {
+        lightness: 100
+      }
+    ]
+  },
+  {
+    featureType: "road",
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        lightness: -100
+      }
+    ]
+  },
+  {
+    featureType: "road.highway",
+    elementType: "labels.icon"
+  },
+  {
+    featureType: "landscape",
+    elementType: "labels",
+    stylers: [
+      {
+        visibility: "off"
+      }
+    ]
+  },
+  {
+    featureType: "landscape",
+    stylers: [
+      {
+        lightness: 20
+      },
+      {
+        color: "#efe9e4"
+      }
+    ]
+  },
+  {
+    featureType: "landscape.man_made",
+    stylers: [
+      {
+        visibility: "off"
+      }
+    ]
+  },
+  {
+    featureType: "water",
+    elementType: "labels.text.stroke",
+    stylers: [
+      {
+        lightness: 100
+      }
+    ]
+  },
+  {
+    featureType: "water",
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        lightness: -100
+      }
+    ]
+  },
+  {
+    featureType: "poi",
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        hue: "#11ff00"
+      }
+    ]
+  },
+  {
+    featureType: "poi",
+    elementType: "labels.text.stroke",
+    stylers: [
+      {
+        lightness: 100
+      }
+    ]
+  },
+  {
+    featureType: "poi",
+    elementType: "labels.icon",
+    stylers: [
+      {
+        hue: "#4cff00"
+      },
+      {
+        saturation: 58
+      },
+      { visibility: "off" }
+    ]
+  },
+  {
+    featureType: "poi",
+    elementType: "geometry",
+    stylers: [
+      {
+        visibility: "on"
+      },
+      {
+        color: "#f0e4d3"
+      }
+    ]
+  },
+  {
+    featureType: "road.highway",
+    elementType: "geometry.fill",
+    stylers: [
+      {
+        color: "#efe9e4"
+      },
+      {
+        lightness: -25
+      }
+    ]
+  },
+  {
+    featureType: "road.arterial",
+    elementType: "geometry.fill",
+    stylers: [
+      {
+        color: "#efe9e4"
+      },
+      {
+        lightness: -10
+      }
+    ]
+  },
+  {
+    featureType: "poi",
+    elementType: "labels",
+    stylers: [
+      {
+        visibility: "off"
+      }
+    ]
+  }
+];
+
+export const MapStyles = { night, red, creed, veins, chill, pinRed, v1default };
