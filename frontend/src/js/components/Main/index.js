@@ -1,12 +1,12 @@
 //jscs:disable requireShorthandArrowFunctions
 import React from 'react';
 import { View } from './View';
-import { MyMap } from './MyMap';
+import { Map } from '../Map';
 
 export const Main = props => {
   return (
     <View {...props}>
-      <MyMap />
+      <Map />
     </View>
   );
 };

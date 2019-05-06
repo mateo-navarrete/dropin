@@ -1,0 +1,84 @@
+/*global google*/
+import React, { Component } from 'react';
+import { View } from './view';
+import {
+  withDimensions,
+  withGeolocation,
+  withEvents,
+  withUser
+} from '../../containers';
+const prepend = 'https://maps.googleapis.com/maps/api/js?key=';
+const apiKey = 'AIzaSyB5uKfMriNA73mQgW_ZRelAixBLEdqT-Xg'; //process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+const append = '&v=3.exp&libraries=geometry,drawing,places';
+const mapURL = prepend + apiKey + append;
+
+const LoadingElement = <div style={{ height: `100%` }} />;
+const MapElement = <div style={{ height: `100%` }} />;
+
+class WrappedComponent extends Component {
+  state = {
+    isMarkerShown: true,
+    recenter: false,
+  };
+
+  resetCenter = () => {
+    this.timeout2 = setTimeout(() => {
+      this.setState({ recenter: false });
+    }, 100);
+  };
+
+  handleMarkerClick = () => {
+    this.setState({ isMarkerShown: false });
+  };
+
+  handleCenterClick = e => {
+    this.props.getGeolocation();
+
+    //this.setState({ recenter: true });
+    // console.log(this.props);
+    //TODO => this.props.getGeolocation()
+    // this.resetCenter();
+  };
+
+  render() {
+    const {
+      coords: { latitude, longitude },
+    } = this.props;
+    const ContainerElement = (
+      <div
+        style={{
+          height: this.props.mainHeight + this.props.footerHeight + 21,
+          overflow: 'hidden',
+        }}
+      />
+    );
+    let gotUserCoords = latitude ? true : false;
+    let userCoords = { lat: latitude, lng: longitude };
+
+    // console.log('@', this.props.eventsList);
+
+    return (
+      <View
+        gotUserCoords={gotUserCoords}
+        userCoords={userCoords}
+        recenter={this.state.center}
+        center={userCoords}
+        isMarkerShown={this.state.isMarkerShown}
+        onMarkerClick={this.handleMarkerClick}
+        onCenterClick={this.handleCenterClick}
+        googleMapURL={mapURL}
+        loadingElement={LoadingElement}
+        containerElement={ContainerElement}
+        mapElement={MapElement}
+        eventsList={this.props.eventsList}
+        userEventsList={this.props.userEventsList}
+        userHistory={this.props.userHistory}
+        {...this.props}
+      />
+    );
+  }
+}
+
+export const Map = withEvents(
+  withUser(withDimensions(withGeolocation(WrappedComponent)))
+);
