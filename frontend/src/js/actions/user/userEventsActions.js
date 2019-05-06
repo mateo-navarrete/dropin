@@ -22,6 +22,9 @@ const gotUserEventsSuccess = events => {
 export const getUserEvents = ({ user_name }) => dispatch => {
   dispatch(gettingUserEvents());
   getData(`/api/events/user/${user_name}`)
-    .then(res => dispatch(gotUserEventsSuccess(res.data.data)))
+    .then(res => {
+      let userData = res.data.data[0];
+      dispatch(gotUserEventsSuccess(userData));
+    })
     .catch(err => dispatch(gotUserEventsError(err)));
 };

@@ -34,24 +34,46 @@ const createEvent = (req, res, next) => {
 const getUserEvents = (req, res, next) => {
   let user_name = req.params.id;
   db.any(
-    `SELECT
-    e.*,
-    (SELECT
-        user_name
-    FROM users AS u
-    WHERE e.user_id = u.id) AS user_name
-FROM events e
-JOIN users u
-ON u.id = e.user_id
-WHERE u.user_name=$1
-ORDER BY e.created_date DESC`,
+    `SELECT a.active, h.history
+FROM   users u
+LEFT   JOIN LATERAL (
+   SELECT json_agg(a) AS active
+   FROM   (
+      SELECT *
+      FROM   events e
+      WHERE  e.user_id = (
+        SELECT id
+        FROM users u
+        WHERE u.user_name = 'demo'
+        AND expiration_date > CURRENT_TIMESTAMP
+        )
+      ) a
+   ) a ON TRUE
+LEFT   JOIN LATERAL (
+   SELECT json_agg(h) AS history
+   FROM   (
+      SELECT *
+      FROM   events e
+      WHERE  e.user_id = (
+        SELECT id
+        FROM users u
+        WHERE u.user_name = 'demo'
+        AND expiration_date <= CURRENT_TIMESTAMP
+        )
+      ) h
+   ) h ON TRUE
+WHERE u.id = (
+    SELECT id
+    FROM users u
+    WHERE u.user_name = 'demo'
+    )`,
     user_name
   )
     .then(data => {
       res.send({
         status: 'success',
         data: data,
-        message: `got all user events: ${req.params.id}`,
+        message: `got user: ${req.params.id} active events and history`,
       });
     })
     .catch(err => {
@@ -59,6 +81,35 @@ ORDER BY e.created_date DESC`,
       next(err);
     });
 };
+
+// const getUserEvents = (req, res, next) => {
+//   let user_name = req.params.id;
+//   db.any(
+//     `SELECT
+//     e.*,
+//     (SELECT
+//         user_name
+//     FROM users AS u
+//     WHERE e.user_id = u.id) AS user_name
+// FROM events e
+// JOIN users u
+// ON u.id = e.user_id
+// WHERE u.user_name=$1
+// ORDER BY e.created_date DESC`,
+//     user_name
+//   )
+//     .then(data => {
+//       res.send({
+//         status: 'success',
+//         data: data,
+//         message: `got all user events: ${req.params.id}`,
+//       });
+//     })
+//     .catch(err => {
+//       console.log('@getUserEvents', err);
+//       next(err);
+//     });
+// };
 
 const getEvents = (req, res, next) => {
   // TODO: byRadius & notPrivate
@@ -80,6 +131,92 @@ ORDER BY e.created_date DESC`
         status: 'success',
         data: data,
         message: `got all active user events`,
+      });
+    })
+    .catch(err => {
+      console.log('@getEvents', err);
+      next(err);
+    });
+};
+
+const getTrendingEvents = (req, res, next) => {
+  // TODO: byRadius & notPrivate
+  db.any(
+    `SELECT
+    e.*,
+    (SELECT
+        user_name
+    FROM users AS u
+    WHERE e.user_id = u.id) AS user_name
+FROM events e
+JOIN users u
+ON u.id = e.user_id
+AND expiration_date >= CURRENT_TIMESTAMP
+ORDER BY e.created_date DESC`
+  )
+    .then(data => {
+      res.send({
+        status: 'success',
+        data: data,
+        message: `got all active events with the most popular tags`,
+      });
+    })
+    .catch(err => {
+      console.log('@getEvents', err);
+      next(err);
+    });
+};
+
+const getRecentEvents = (req, res, next) => {
+  // TODO: byRadius & notPrivate
+  db.any(
+    `SELECT
+    e.*,
+    (SELECT
+        user_name
+    FROM users AS u
+    WHERE e.user_id = u.id) AS user_name
+FROM events e
+JOIN users u
+ON u.id = e.user_id
+AND expiration_date >= CURRENT_TIMESTAMP
+AND e.created_date >= CURRENT_TIMESTAMP - INTERVAL '30' MINUTE
+ORDER BY e.created_date DESC`
+  )
+    .then(data => {
+      res.send({
+        status: 'success',
+        data: data,
+        message: `got all active events created within the past 30mins`,
+      });
+    })
+    .catch(err => {
+      console.log('@getEvents', err);
+      next(err);
+    });
+};
+
+const getExpiringEvents = (req, res, next) => {
+  // TODO: byRadius & notPrivate
+  db.any(
+    `SELECT
+    e.*,
+    (SELECT
+        user_name
+    FROM users AS u
+    WHERE e.user_id = u.id) AS user_name
+FROM events e
+JOIN users u
+ON u.id = e.user_id
+AND expiration_date >= CURRENT_TIMESTAMP
+AND expiration_date <= CURRENT_TIMESTAMP + INTERVAL '30' MINUTE
+ORDER BY expiration_date DESC`
+  )
+    .then(data => {
+      res.send({
+        status: 'success',
+        data: data,
+        message: `got all active events expiring within the next 30mins`,
       });
     })
     .catch(err => {
@@ -150,6 +287,9 @@ module.exports = {
   createEvent,
   getUserEvents,
   getEvents,
+  getTrendingEvents,
+  getRecentEvents,
+  getExpiringEvents,
   updateEvent,
   deleteEvent,
 };

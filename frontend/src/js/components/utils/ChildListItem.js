@@ -9,9 +9,9 @@ const styles = theme => ({
   },
 });
 
-const WrappedComponent = ({ classes, children, primaryText }) => {
+const WrappedComponent = ({ classes, children, handleClick, primaryText }) => {
   return (
-    <ListItem button className={classes.nested}>
+    <ListItem button className={classes.nested} onClick={handleClick}>
       {children ? <ListItemIcon>{children}</ListItemIcon> : ''}
       <ListItemText primary={primaryText} />
     </ListItem>

@@ -21,6 +21,9 @@ const WrappedComponent = ({
   password,
   handleShowPassword,
   handleClick,
+  handleClose,
+  showModal,
+  ...props,
 }) => {
   const renderHeader =
     height > 600 ? (
@@ -45,7 +48,7 @@ const WrappedComponent = ({
         handleShowPassword={handleShowPassword}
         handleClick={handleClick}
       />
-      <DropDownMenu />
+      <DropDownMenu handleClose={handleClose} showModal={showModal} />
     </F>
   );
 };

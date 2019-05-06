@@ -6,6 +6,7 @@ import {
 
 const initState = {
   eventsList: [],
+  history: [],
   errMsg: '',
   loading: false,
 };
@@ -23,7 +24,8 @@ export const userEventsReducer = (state = initState, action) => {
     case GOT_USER_EVENTS_SUCCESS:
       nextState = {
         ...state,
-        eventsList: action.payload,
+        eventsList: action.payload.active || [],
+        history: action.payload.history,
         errMsg: '',
         loading: false,
       };

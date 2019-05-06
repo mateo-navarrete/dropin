@@ -20,7 +20,7 @@ const styles = theme => ({
 });
 
 const WrappedComponent = ({ classes, name, ...props }) => {
-  console.log('props', props);
+  // console.log('props', props);
   return (
     <List className={classes.root}>
       <ListItem>

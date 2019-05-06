@@ -7,7 +7,13 @@ import { FomoEvents } from './FomoEvents';
 import { FilterListIcon } from '../material';
 import { ParentListItem } from '../utils';
 
-export const View = ({ toggleShowChildren, showChildren, ...props }) => {
+export const View = ({
+  handleClose,
+  toggleShowChildren,
+  showChildren,
+  getEvents,
+  ...props,
+}) => {
   return (
     <ParentListItem
       primaryText="Filters"
@@ -15,10 +21,10 @@ export const View = ({ toggleShowChildren, showChildren, ...props }) => {
       showChildren={showChildren}
       showIcon={<FilterListIcon />}
     >
-      <ActiveEvents />
-      <TrendingEvents />
-      <JustDroppedEvents />
-      <FomoEvents />
+      <ActiveEvents getEvents={getEvents} handleClose={handleClose} />
+      <TrendingEvents getEvents={getEvents} handleClose={handleClose} />
+      <JustDroppedEvents getEvents={getEvents} handleClose={handleClose} />
+      <FomoEvents getEvents={getEvents} handleClose={handleClose} />
     </ParentListItem>
   );
 };

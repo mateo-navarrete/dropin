@@ -5,7 +5,7 @@ import { ArchivedEvents } from './ArchivedEvents';
 import { DropinHistoryIcon } from '../material';
 import { ParentListItem } from '../utils';
 
-export const View = ({ toggleShowChildren, showChildren }) => {
+export const View = ({ handleClose, toggleShowChildren, showChildren }) => {
   return (
     <ParentListItem
       primaryText="Drop History"
@@ -13,8 +13,8 @@ export const View = ({ toggleShowChildren, showChildren }) => {
       showChildren={showChildren}
       showIcon={<DropinHistoryIcon />}
     >
-      <ActiveEvents />
-      <ArchivedEvents />
+      <ActiveEvents handleClose={handleClose} />
+      <ArchivedEvents handleClose={handleClose} />
     </ParentListItem>
   );
 };

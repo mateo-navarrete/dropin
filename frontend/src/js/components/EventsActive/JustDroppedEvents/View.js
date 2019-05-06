@@ -3,9 +3,15 @@ import React from 'react';
 import { NewPinIcon } from '../../material';
 import { ChildListItem } from '../../utils';
 
-export const View = props => {
+export const View = ({ getEvents, handleClose, ...props }) => {
   return (
-    <ChildListItem primaryText="Just Dropped">
+    <ChildListItem
+      primaryText="Just Dropped"
+      handleClick={() => {
+        getEvents('recent');
+        handleClose();
+      }}
+    >
       <NewPinIcon />
     </ChildListItem>
   );

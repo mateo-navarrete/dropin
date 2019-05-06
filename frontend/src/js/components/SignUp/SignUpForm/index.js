@@ -40,8 +40,8 @@ class WrappedComponent extends Component {
       password,
       email,
       photo,
-      handleClose,
     } = this.state;
+    const { handleClose } = this.props;
     return (
       <View
         handleSubmit={e => this.handleSubmit(e)}

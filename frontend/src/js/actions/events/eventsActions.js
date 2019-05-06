@@ -19,10 +19,11 @@ const gotEventsSuccess = events => {
   return { type: GOT_EVENTS_SUCCESS, payload: events };
 };
 
-export const getEvents = () => dispatch => {
+export const getEvents = api => dispatch => {
   // TODO: byRadius & notPrivate
   dispatch(gettingEvents());
-  getData(`/api/events`)
+  // trending || recent || expiring
+  getData(`/api/events/` + (api || ''))
     .then(res => dispatch(gotEventsSuccess(res.data.data)))
     .catch(err => dispatch(gotEventsError(err)));
 };

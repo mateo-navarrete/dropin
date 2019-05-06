@@ -29,7 +29,7 @@ class WrappedComponent extends Component {
       <F>
         <Button handleClick={() => this.setShowModal(true)} variant={variant} />
         <Modal showModal={showModal} handleClose={handleClose}>
-          <View handleClose={handleClose} />
+          <View handleClose={handleClose} {...this.state} />
         </Modal>
       </F>
     );

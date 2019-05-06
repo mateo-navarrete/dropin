@@ -9,7 +9,12 @@ import {
 } from 'react-google-maps';
 import { CustomMapControl } from './CustomMapControl';
 import { MapStyles } from './MapStyles';
-import { withDimensions, withGeolocation, withEvents } from '../../containers';
+import {
+  withDimensions,
+  withGeolocation,
+  withEvents,
+  withUser
+} from '../../containers';
 import { IconButton, MyLocationIcon } from '../material';
 const prepend = 'https://maps.googleapis.com/maps/api/js?key=';
 const apiKey = 'AIzaSyB5uKfMriNA73mQgW_ZRelAixBLEdqT-Xg'; //process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
@@ -22,7 +27,6 @@ const getRandomNum = n => (Math.random() * n) >> 0;
 
 const randomEventMarkerColor = colors[getRandomNum(colors.length)];
 const MarkerWrapper = ({ position, handleClick }) => {
-
   return (
     <Marker
       position={position}
@@ -36,10 +40,14 @@ const MarkerWrapper = ({ position, handleClick }) => {
     />
   );
 };
+// TODO: perhaps
+//let eventListToRender = props[props.selectedEvents]
+// refactor => EventsListMarkers & lines 97-103 etc => own script.js & withSelectedEvents etc
 
 const randomMarkerColor = colors[getRandomNum(colors.length)];
-const EventsListMarkers = ({ eventsList }) => {
-  const renderEvents = eventsList.map(e => {
+const EventsListMarkers = ({ eventsList, userEventsList, userHistory }) => {
+  // console.log(exventsList, userEventsList, userHistory);
+  const renderEvents = userHistory.map(e => {
     return (
       <Marker
         key={e.id}
@@ -68,7 +76,7 @@ const GoogleMapWrapper = ({ gotUserCoords, userCoords, ...props }) => {
       defaultOptions={{
         clickableIcons: false,
         disableDefaultUI: true,
-        styles: MapStyles.night, //randomMap,
+        //styles: MapStyles.night, //randomMap,
         zoomControl: true,
         zoomControlOptions: {
           position: google.maps.ControlPosition.TOP_RIGHT,
@@ -86,8 +94,14 @@ const GoogleMapWrapper = ({ gotUserCoords, userCoords, ...props }) => {
           handleClick={props.onMarkerClick}
         />
       )}
-      {props.eventsList.length && (
-        <EventsListMarkers eventsList={props.eventsList} />
+      {(props.eventsList.length ||
+        props.userEventsList ||
+        props.userHistory) && (
+        <EventsListMarkers
+          eventsList={props.eventsList}
+          userEventsList={props.userEventsList}
+          userHistory={props.userHistory}
+        />
       )}
     </GoogleMap>
   ) : null;
@@ -182,6 +196,8 @@ class MyFancyComponent extends React.PureComponent {
         containerElement={ContainerElement}
         mapElement={MapElement}
         eventsList={this.props.eventsList}
+        userEventsList={this.props.userEventsList}
+        userHistory={this.props.userHistory}
         {...this.props}
       />
     );
@@ -189,5 +205,5 @@ class MyFancyComponent extends React.PureComponent {
 }
 
 export const MyMap = withEvents(
-  withDimensions(withGeolocation(MyFancyComponent))
+  withUser(withDimensions(withGeolocation(MyFancyComponent)))
 );
