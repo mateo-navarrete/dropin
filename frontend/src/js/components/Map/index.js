@@ -1,4 +1,3 @@
-/*global google*/
 import React, { Component } from 'react';
 import { View } from './view';
 import {
@@ -27,8 +26,14 @@ class WrappedComponent extends Component {
     }, 100);
   };
 
-  handleMarkerClick = () => {
-    this.setState({ isMarkerShown: false });
+  handleUserMarkerClick = () => {
+    // this.setState({ isMarkerShown: false });
+    console.log('REDUX props.eventDraft()');
+  };
+
+  handleEventsMarkersClick = (el) => {
+    // this.setState({ isMarkerShown: true });
+    console.log('REDUX props.eventDetails()', el);
   };
 
   handleCenterClick = e => {
@@ -64,7 +69,8 @@ class WrappedComponent extends Component {
         recenter={this.state.center}
         center={userCoords}
         isMarkerShown={this.state.isMarkerShown}
-        onMarkerClick={this.handleMarkerClick}
+        onUserMarkerClick={this.handleUserMarkerClick}
+        onEventsMarkersClick={this.handleEventsMarkersClick}
         onCenterClick={this.handleCenterClick}
         googleMapURL={mapURL}
         loadingElement={LoadingElement}

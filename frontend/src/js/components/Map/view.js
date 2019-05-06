@@ -9,9 +9,10 @@ import { UserMarker } from './UserMarker';
 const WrappedComponent = props => {
   return (
     <GoogleMap
-      defaultZoom={15}
       center={props.userCoords}
+      defaultZoom={15}
       defaultOptions={{
+        // center: props.center,
         clickableIcons: false,
         disableDefaultUI: true,
         //styles: MapStyles.night, //randomMap,
@@ -26,7 +27,7 @@ const WrappedComponent = props => {
       <UserMarker
         isMarkerShown={props.isMarkerShown}
         position={props.userCoords}
-        handleClick={props.onMarkerClick}
+        handleClick={props.onUserMarkerClick}
       />
       <EventsMarkers
         eventsList={props.eventsList}
