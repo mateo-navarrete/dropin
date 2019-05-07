@@ -32,19 +32,12 @@ const createEvent = (req, res, next) => {
 };
 
 const getUserEvents = (req, res, next) => {
+  const eventObj = {
+    username: req.params.username
+  }
   db.any(
-    `SELECT
-    e.*,
-    (SELECT
-        user_name
-    FROM users AS u
-    WHERE e.user_id = u.id) AS user_name
-FROM events e
-JOIN users u
-ON u.id = e.user_id
-AND expiration_date >= CURRENT_TIMESTAMP
-ORDER BY e.created_date DESC`,
-    user_name
+    'SELECT events.* FROM events WHERE ((SELECT users.id FROM users WHERE users.user_name = ${username})=events.user_id) AND (expiration_date >= CURRENT_TIMESTAMP) ORDER BY events.created_date DESC',
+    eventObj
   )
     .then(data => {
       res.send({
