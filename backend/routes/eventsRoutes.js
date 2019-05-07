@@ -10,7 +10,7 @@ const {
 } = require('../db/queries/eventsQueries');
 
 router.post('/', createEvent);
-router.get('/user/:id', getUserEvents);
+router.get('/user/:username', getUserEvents);
 // TODO: byRadius & notPrivate
 router.get('/', getEvents);
 // router.get('/:id', getEvents);
