@@ -11,10 +11,10 @@ import { UserHistory } from '../UserHistory';
 export const View = ({ handleClose }) => {
   return (
     <F>
-      <EventsSearch />
-      <EventsActive />
-      <UserFavorites />
-      <UserHistory />
+      <EventsSearch handleClose={handleClose} />
+      <EventsActive handleClose={handleClose} />
+      <UserFavorites handleClose={handleClose} />
+      <UserHistory handleClose={handleClose} />
       <EventsExit handleClose={handleClose} />
     </F>
   );

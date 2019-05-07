@@ -1,22 +1,30 @@
 //jscs:disable requireShorthandArrowFunctions
 import React from 'react';
+import { ActiveEvents } from './ActiveEvents';
 import { TrendingEvents } from './TrendingEvents';
 import { JustDroppedEvents } from './JustDroppedEvents';
 import { FomoEvents } from './FomoEvents';
-import { ActivePinIcon } from '../material';
+import { FilterListIcon } from '../material';
 import { ParentListItem } from '../utils';
 
-export const View = ({ toggleShowChildren, showChildren, ...props }) => {
+export const View = ({
+  handleClose,
+  toggleShowChildren,
+  showChildren,
+  getEvents,
+  ...props,
+}) => {
   return (
     <ParentListItem
-      primaryText="Active"
+      primaryText="Filters"
       toggleShowChildren={toggleShowChildren}
       showChildren={showChildren}
-      showIcon={<ActivePinIcon />}
+      showIcon={<FilterListIcon />}
     >
-      <TrendingEvents />
-      <JustDroppedEvents />
-      <FomoEvents />
+      <ActiveEvents getEvents={getEvents} handleClose={handleClose} />
+      <TrendingEvents getEvents={getEvents} handleClose={handleClose} />
+      <JustDroppedEvents getEvents={getEvents} handleClose={handleClose} />
+      <FomoEvents getEvents={getEvents} handleClose={handleClose} />
     </ParentListItem>
   );
 };

@@ -32,7 +32,15 @@ class NestedList extends React.Component {
   };
 
   render() {
-    const { classes, handleClose, handleClick, showLogIn } = this.props;
+    const {
+      classes,
+      handleClose,
+      // showModal,
+      handleClick,
+      showLogIn,
+    } = this.props;
+    // TODO: refactor this to own components?
+    // then have it closeModal & open new modal
     const renderView = showLogIn ? (
       <F>
         <ListItemIcon>

@@ -8,7 +8,7 @@ import { ParentListItem } from '../utils';
 export const View = ({ toggleShowChildren, showChildren, ...props }) => {
   return (
     <ParentListItem
-      primaryText="Drop History"
+      primaryText="Default Settings"
       toggleShowChildren={toggleShowChildren}
       showChildren={showChildren}
       showIcon={<SettingsIcon />}

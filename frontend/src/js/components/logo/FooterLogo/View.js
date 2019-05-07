@@ -23,9 +23,14 @@ const styles = theme => ({
   },
 });
 
-const WrappedComponent = ({ classes, children, ...props }) => {
+const WrappedComponent = ({ classes, children, handleClick, ...props }) => {
   return (
-    <Button variant="contained" size="large" className={classes.redButton}>
+    <Button
+      variant="contained"
+      size="large"
+      className={classes.redButton}
+      onClick={handleClick}
+    >
       {children}
     </Button>
   );

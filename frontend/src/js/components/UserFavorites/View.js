@@ -6,7 +6,12 @@ import { DropCircle } from './DropCircle';
 import { FavoriteIcon } from '../material';
 import { ParentListItem } from '../utils';
 
-export const View = ({ toggleShowChildren, showChildren, user }) => {
+export const View = ({
+  handleClose,
+  toggleShowChildren,
+  showChildren,
+  user,
+}) => {
   return (
     <ParentListItem
       primaryText="Favorites"
@@ -14,9 +19,9 @@ export const View = ({ toggleShowChildren, showChildren, user }) => {
       showChildren={showChildren}
       showIcon={<FavoriteIcon />}
     >
-      <ActiveFavorites />
-      <DropTags />
-      <DropCircle />
+      <ActiveFavorites handleClose={handleClose} />
+      <DropTags handleClose={handleClose} />
+      <DropCircle handleClose={handleClose} />
     </ParentListItem>
   );
 };

@@ -1,4 +1,4 @@
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, withTheme } from '@material-ui/core/styles';
 import {
   withAuth,
   withAuthUser,
@@ -7,7 +7,7 @@ import {
   withLogOut,
   withGetAuthStatus
 } from './auth';
-import { withEvents } from './events';
+import { withEvents, withGetEvents } from './events';
 import { withGeolocation, withGetGeolocation, withUser } from './user';
 import {
   withDimensions,
@@ -21,6 +21,7 @@ export {
   withDemoUser,
   withDimensions,
   withEvents,
+  withGetEvents,
   withGeolocation,
   withGetAuthStatus,
   withGetDimensions,
@@ -28,6 +29,7 @@ export {
   withLogIn,
   withLogOut,
   withStyles,
+  withTheme,
   withToggleShowChildren,
   withUser
 };

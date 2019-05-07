@@ -3,9 +3,15 @@ import React from 'react';
 import { FomoIcon } from '../../material';
 import { ChildListItem } from '../../utils';
 
-export const View = props => {
+export const View = ({ getEvents, handleClose, ...props }) => {
   return (
-    <ChildListItem primaryText="Fomo">
+    <ChildListItem
+      primaryText="Fomo"
+      handleClick={() => {
+        getEvents('expiring');
+        handleClose();
+      }}
+    >
       <FomoIcon />
     </ChildListItem>
   );

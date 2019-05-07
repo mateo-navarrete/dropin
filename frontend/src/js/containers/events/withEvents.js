@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = ({ events }) => {
   return {
-    events: events.events,
+    eventsList: events.eventsList,
   };
 };
 

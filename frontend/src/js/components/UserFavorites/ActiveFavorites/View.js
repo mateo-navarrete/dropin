@@ -3,9 +3,15 @@ import React from 'react';
 import { ActivePinIcon } from '../../material';
 import { ChildListItem } from '../../utils';
 
-export const View = props => {
+export const View = ({ handleClose, ...props }) => {
   return (
-    <ChildListItem primaryText="Active">
+    <ChildListItem
+      primaryText="Active"
+      handleClick={() => {
+        // getEvents('expiring');
+        handleClose();
+      }}
+    >
       <ActivePinIcon />
     </ChildListItem>
   );

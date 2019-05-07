@@ -34,6 +34,7 @@ class WrappedComponent extends Component {
 
   render() {
     const { user_name, showPassword, password } = this.state;
+    const { handleClose, showModal } = this.props;
     return (
       <View
         handleSubmit={e => this.handleSubmit(e)}
@@ -43,6 +44,8 @@ class WrappedComponent extends Component {
         password={password}
         handleShowPassword={this.handleShowPassword}
         handleClick={e => this.handleSubmit(e)}
+        handleClose={handleClose}
+        showModal={showModal}
       />
     );
   }

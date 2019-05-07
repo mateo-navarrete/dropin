@@ -19,7 +19,8 @@ const styles = theme => ({
   },
 });
 
-const WrappedComponent = ({ classes, name, events, ...props }) => {
+const WrappedComponent = ({ classes, name, ...props }) => {
+  // console.log('props', props);
   return (
     <List className={classes.root}>
       <ListItem>
@@ -28,7 +29,7 @@ const WrappedComponent = ({ classes, name, events, ...props }) => {
             <PersonIcon />
           </Avatar>
         </IconButton>
-        <ListItemText primary={name} secondary={`drops: ${events.length}`} />
+        <ListItemText primary={name} secondary={`drops: ${name.length}`} />
         <ListItemSecondaryAction>
           <IconButton aria-label="Edit Profile">
             <EditIcon />

@@ -16,7 +16,7 @@ const style = {
   paddingRight: '2px',
 };
 
-export const CustomMapControl = (
+export const View = (
   { position = window.google.maps.ControlPosition.TOP_LEFT, children },
   context
 ) => {
@@ -36,6 +36,6 @@ export const CustomMapControl = (
   return createPortal(<div style={style}>{children}</div>, controlDiv);
 };
 
-CustomMapControl.contextTypes = {
+View.contextTypes = {
   [MAP]: PropTypes.object,
 };
