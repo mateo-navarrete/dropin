@@ -5,6 +5,7 @@ import { withScriptjs, withGoogleMap, GoogleMap } from 'react-google-maps';
 import { CenterMarker } from './CenterMarker';
 import { EventsMarkers } from './EventsMarkers';
 import { UserMarker } from './UserMarker';
+// import { MapStyles } from '../Main/MyStyles';
 
 const WrappedComponent = props => {
   return (
@@ -15,7 +16,7 @@ const WrappedComponent = props => {
         // center: props.center,
         clickableIcons: false,
         disableDefaultUI: true,
-        //styles: MapStyles.night, //randomMap,
+        // styles: MapStyles.night, //randomMap,
         zoomControl: true,
         zoomControlOptions: {
           position: google.maps.ControlPosition.TOP_RIGHT,

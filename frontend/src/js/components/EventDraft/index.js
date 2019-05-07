@@ -1,8 +1,11 @@
 //jscs:disable requireShorthandArrowFunctions
 import React, { Component, Fragment as F } from 'react';
+import { videoConfig } from './videoConfig';
+import VideoComponent from './VideoComponent';
 // import { View } from './View';
 // import { Modal } from '../Modal';
 // import { EventDetails } from '../EventDetails';
+import { withUser } from '../../containers';
 
 class WrappedComponent extends Component {
   // state = {
@@ -13,12 +16,19 @@ class WrappedComponent extends Component {
   // };
 
   render() {
+    console.log(this.props);
     // const { showModal } = this.state;
     // const { handleClick, ...props } = this.props;
     // console.log(showModal);
-    return <F>'Render Event Draft'</F>;
+    return (
+      <F>
+        <div>'Render Event Draft'</div>
+        <VideoComponent {...videoConfig} />
+      </F>
+    );
   }
 }
+// <VideoComponent {...videoConfig} />
 
 // <View {...props} handleClick={() => this.setShowModal(true)} />
 //
@@ -32,4 +42,4 @@ class WrappedComponent extends Component {
 //   />
 // </Modal>
 
-export const EventDraft = WrappedComponent;
+export const EventDraft = withUser(WrappedComponent);

@@ -17,7 +17,7 @@ class WrappedComponent extends Component {
     const { showModal } = this.state;
     const { handleClick, ...props } = this.props;
     const renderView = props.isUserMarker ? (
-      <EventDraft handleClose={() => this.setShowModal(false)} {...props} />
+      <EventDraft handleClose={() => this.setShowModal(false)} />
     ) : (
       <EventDetails handleClose={() => this.setShowModal(false)} {...props} />
     );
