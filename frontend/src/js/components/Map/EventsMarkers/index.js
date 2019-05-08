@@ -7,7 +7,7 @@ export const EventsMarkers = props => {
   let renderList = props.eventsList.length
     ? 'eventsList'
     : props.userEventsList.length
-    ? 'userEventsList'
+    ? 'eventsList' // switch to userEventsList once database is set
     : props.userHistory.length
     ? 'userHistory'
     : null;
