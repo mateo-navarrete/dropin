@@ -1,5 +1,30 @@
 const db = require('..');
 
+const uploadVideo = (req, res, next) => {
+  const rb = req.body;
+  console.log('@rb', rb);
+  db.none('INSERT INTO media (blob) VALUES (${data})', rb)
+    .then(() => {
+      res.send({
+        status: 'success',
+        message: `uploaded video: ${JSON.stringify(rb)}`,
+      });
+    })
+    .catch(err => next(err));
+};
+
+const getVideo = (req, res, next) => {
+  db.any('SELECT * FROM media')
+    .then(data => {
+      res.send({
+        status: 'success',
+        data: data,
+        message: `got Video`,
+      });
+    })
+    .catch(err => next(err));
+};
+
 const createEvent = (req, res, next) => {
   const rb = req.body;
   const duration = {
@@ -292,6 +317,8 @@ module.exports = {
   getExpiringEvents,
   updateEvent,
   deleteEvent,
+  uploadVideo,
+  getVideo,
 };
 
 // TODO:

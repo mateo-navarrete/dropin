@@ -17,6 +17,11 @@ CREATE TABLE categories (
   category VARCHAR NOT NULL
 );
 
+CREATE TABLE media (
+  id SERIAL PRIMARY KEY,
+  blob VARCHAR
+);
+
 CREATE TABLE events (
   id SERIAL PRIMARY KEY,
   category_id INT REFERENCES categories(id) ON DELETE CASCADE NOT NULL,
