@@ -18,6 +18,7 @@ import {
 } from '../material';
 
 export const View = ({
+  address,
   name,
   position,
   user_name,
@@ -92,7 +93,7 @@ export const View = ({
         </F>
         <F>{'lat: ' + position.lat + ' lng: ' + position.lng}</F>
       </div>
-      <div>TODO: Address</div>
+      <div>{address}</div>
       <br />
       <Divider />
       <br />
