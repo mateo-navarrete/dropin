@@ -9,6 +9,7 @@ export const View = ({ handleClose, ...props }) => {
       primaryText="Active"
       handleClick={() => {
         // getEvents('recent');
+        console.log("active events clicked")
         handleClose();
       }}
     >
