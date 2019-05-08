@@ -33,7 +33,7 @@ const createEvent = (req, res, next) => {
     3: 60,
     4: 120,
   };
-  const eventObj = {
+  const eventDetails = {
     // category_id: rb.category_id,
     user_name: rb.user_name,
     latitude: rb.latitude,
@@ -41,16 +41,16 @@ const createEvent = (req, res, next) => {
     display_user: rb.display_user,
     event_name: rb.event_name,
     caption: rb.caption,
-    expiration_date: duration[rb.expiration_date],
+    expiration_date: duration[rb.duration],
   };
   db.none(
     "INSERT INTO events (user_id, latitude, longitude, display_user, event_name, caption, expiration_date) VALUES ((SELECT id FROM users WHERE user_name = ${user_name}), ${latitude}, ${longitude}, ${display_user}, ${event_name}, ${caption}, now() + INTERVAL '${expiration_date}' MINUTE)",
-    eventObj
+    eventDetails
   )
     .then(() => {
       res.send({
         status: 'success',
-        message: `created event: ${JSON.stringify(eventObj)}`,
+        message: `created event: ${JSON.stringify(eventDetails)}`,
       });
     })
     .catch(err => next(err));
