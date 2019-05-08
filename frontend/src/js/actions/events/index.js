@@ -1,3 +1,3 @@
-import { getEvents } from './eventsActions';
+import { getEvents, getAddress } from './eventsActions';
 
-export { getEvents };
+export { getEvents, getAddress };
