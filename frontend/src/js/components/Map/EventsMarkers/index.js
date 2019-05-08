@@ -6,12 +6,14 @@ import { EventMarker } from '../../EventMarker';
 export const EventsMarkers = props => {
   let renderList = props.eventsList.length
     ? 'eventsList'
-    : props.userEventsList.length
-    ? 'userEventsList' //switch to userEventsList later
-    : props.userHistory.length
+    : props.userEventsList || props.userEventsList.length
+    //If use did not create any event, it gives error because props.userEventsList is null
+    ? 'userEventsList'
+    : props.userHistory || props.userHistory.length
     ? 'userHistory'
     : null;
   // console.log(renderList, props);
+  console.log("Even Markers Render List", renderList )
   const renderEvents = renderList
     ? props[renderList].map(e => {
         let position = { lat: e.latitude, lng: e.longitude };
