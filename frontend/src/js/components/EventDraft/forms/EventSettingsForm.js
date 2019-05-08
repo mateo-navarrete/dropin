@@ -2,7 +2,7 @@
 import React from 'react';
 import { FormControl, InputLabel, Input } from '../../material';
 
-export const EventNameForm = ({ classes, handleChange, event_name }) => {
+export const EventSettingsForm = ({ classes, handleChange, display_user, duration }) => {
   return (
     <form
       className={classes.form}
@@ -10,12 +10,12 @@ export const EventNameForm = ({ classes, handleChange, event_name }) => {
       onSubmit={e => handleChange(e)}
     >
       <FormControl margin="normal" required fullWidth>
-        <InputLabel htmlFor="event_name">Event Name</InputLabel>
+        <InputLabel htmlFor="display_user">Event Name</InputLabel>
         <Input
-          id="event_name"
-          name="event_name"
+          id="display_user"
+          name="display_user"
           autoComplete="off"
-          value={event_name}
+          value={display_user}
           autoFocus
           required
         />
