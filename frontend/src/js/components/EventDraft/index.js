@@ -7,7 +7,6 @@ import { withUser } from '../../containers';
 
 class WrappedComponent extends Component {
   render() {
-    console.log('@wUser', this.props);
     return (
       <F>
         <View {...this.props} />

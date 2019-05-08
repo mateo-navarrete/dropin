@@ -18,6 +18,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import Modal from '@material-ui/core/Modal';
+import Select from '@material-ui/core/Select';
 import Switch from '@material-ui/core/Switch';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -42,6 +43,7 @@ export {
   ListItemIcon,
   ListItemSecondaryAction,
   ListItemText,
+  Select,
   Switch,
   Modal,
   Toolbar,

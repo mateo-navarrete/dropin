@@ -9,6 +9,7 @@ export const EventStepperControls = ({
   handleBack,
   handleNext,
   handleReset,
+  handleCreateEvent,
   steps,
   ...props,
 }) => {
@@ -34,7 +35,7 @@ export const EventStepperControls = ({
         }
         variant="contained"
         color="primary"
-        onClick={activeStep === steps.length - 1 ? handleReset : handleNext}
+        onClick={activeStep === steps.length - 1 ? handleCreateEvent : handleNext}
       >
         {activeStep === steps.length - 1 ? 'Drop Pin' : 'Next'}
       </Button>
