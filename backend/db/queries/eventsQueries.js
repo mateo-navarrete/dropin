@@ -42,9 +42,10 @@ const createEvent = (req, res, next) => {
     event_name: rb.event_name,
     caption: rb.caption,
     expiration_date: duration[rb.expiration_date],
+    address: rb.address
   };
   db.none(
-    "INSERT INTO events (user_id, latitude, longitude, display_user, event_name, caption, expiration_date) VALUES ((SELECT id FROM users WHERE user_name = ${user_name}), ${latitude}, ${longitude}, ${display_user}, ${event_name}, ${caption}, now() + INTERVAL '${expiration_date}' MINUTE)",
+    "INSERT INTO events (user_id, latitude, longitude, display_user, event_name, caption, expiration_date, address) VALUES ((SELECT id FROM users WHERE user_name = ${user_name}), ${latitude}, ${longitude}, ${display_user}, ${event_name}, ${caption}, now() + INTERVAL '${expiration_date}' MINUTE)",
     eventObj
   )
     .then(() => {
