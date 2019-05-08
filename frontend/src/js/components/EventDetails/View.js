@@ -76,7 +76,7 @@ export const View = ({
       <Divider />
       <br />
       <Typography variant="subtitle1" gutterBottom>
-        Caption: {props.description}
+        Caption: {props.caption}
       </Typography>
       <Divider />
 
