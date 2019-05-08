@@ -2,11 +2,11 @@
 import React from 'react';
 import {
   Avatar,
-  // EditIcon,
+  EditIcon,
   IconButton,
   List,
   ListItem,
-  // ListItemSecondaryAction,
+  ListItemSecondaryAction,
   ListItemText,
   PersonIcon
 } from '../material';
@@ -29,7 +29,12 @@ const WrappedComponent = ({ classes, name, ...props }) => {
             <PersonIcon />
           </Avatar>
         </IconButton>
-        <ListItemText primary={name.toUpperCase()} secondary={`drops: ${name.length}`} />
+        <ListItemText primary={name} secondary={`drops: ${name.length}`} />
+        <ListItemSecondaryAction>
+          <IconButton aria-label="Edit Profile">
+            <EditIcon />
+          </IconButton>
+        </ListItemSecondaryAction>
       </ListItem>
     </List>
   );

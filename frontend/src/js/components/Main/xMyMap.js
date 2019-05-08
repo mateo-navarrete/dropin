@@ -7,8 +7,6 @@ import {
   GoogleMap,
   Marker
 } from 'react-google-maps';
-import { night, red, creed, veins, chill, pinRed, v1default } from "./MapStyles"
-
 import { CustomMapControl } from './CustomMapControl';
 import { MapStyles } from './MapStyles';
 import {
@@ -22,6 +20,7 @@ const prepend = 'https://maps.googleapis.com/maps/api/js?key=';
 const apiKey = 'AIzaSyB5uKfMriNA73mQgW_ZRelAixBLEdqT-Xg'; //process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 const append = '&v=3.exp&libraries=geometry,drawing,places';
 const mapURL = prepend + apiKey + append;
+
 // const mapTypes = ['night', 'red', 'creed', 'veins', 'chill', 'pinRed'];
 const colors = ['cyan', 'green', 'magenta'];
 const getRandomNum = n => (Math.random() * n) >> 0;
@@ -74,10 +73,6 @@ const GoogleMapWrapper = ({ gotUserCoords, userCoords, ...props }) => {
     <GoogleMap
       defaultZoom={15}
       center={userCoords}
-      options={{
-        mapTypeControl: false,
-        styles: v1default
-      }}
       defaultOptions={{
         clickableIcons: false,
         disableDefaultUI: true,

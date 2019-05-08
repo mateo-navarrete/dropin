@@ -1,7 +1,6 @@
 //jscs:disable requireShorthandArrowFunctions
 import React from 'react';
 import { ActiveEvents } from './ActiveEvents';
-import { TrendingEvents } from './TrendingEvents';
 import { JustDroppedEvents } from './JustDroppedEvents';
 import { FomoEvents } from './FomoEvents';
 import { FilterListIcon } from '../material';
@@ -22,9 +21,14 @@ export const View = ({
       showIcon={<FilterListIcon />}
     >
       <ActiveEvents getEvents={getEvents} handleClose={handleClose} />
-      <TrendingEvents getEvents={getEvents} handleClose={handleClose} />
       <JustDroppedEvents getEvents={getEvents} handleClose={handleClose} />
       <FomoEvents getEvents={getEvents} handleClose={handleClose} />
     </ParentListItem>
   );
 };
+
+// TODO:
+// <ActiveEvents getEvents={getEvents} handleClose={handleClose} />
+// <TrendingEvents getEvents={getEvents} handleClose={handleClose} />
+// <JustDroppedEvents getEvents={getEvents} handleClose={handleClose} />
+// <FomoEvents getEvents={getEvents} handleClose={handleClose} />

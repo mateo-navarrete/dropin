@@ -10,6 +10,8 @@ const {
   getExpiringEvents,
   updateEvent,
   deleteEvent,
+  uploadVideo,
+  getVideo,
 } = require('../db/queries/eventsQueries');
 
 router.post('/', createEvent);
@@ -22,6 +24,8 @@ router.get('/expiring', getExpiringEvents);
 //
 router.put('/', updateEvent);
 router.delete('/:id', deleteEvent);
+router.post('/upload', uploadVideo);
+router.get('/upload', getVideo);
 
 module.exports = router;
 
