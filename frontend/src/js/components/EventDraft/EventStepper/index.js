@@ -2,25 +2,12 @@ import React, { Component } from 'react';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
-import Typography from '@material-ui/core/Typography';
+// import Typography from '@material-ui/core/Typography';
 import { EventStepperControls } from '../EventStepperControls';
 import { EventNameForm } from '../forms';
 import { EventCaptionForm } from '../forms';
 
 const getSteps = () => ['', '', ''];
-
-// function getStepContent(stepIndex) {
-//   switch (stepIndex) {
-//     case 0:
-//       return 'at zero';
-//     case 1:
-//       return 'What is an ad group anyways?';
-//     case 2:
-//       return 'This is the bit I really care about!';
-//     default:
-//       return 'Unknown stepIndex';
-//   }
-// }
 
 class WrappedComponent extends Component {
   state = {
@@ -78,7 +65,6 @@ class WrappedComponent extends Component {
       ) : (
         ''
       );
-    // {getStepContent(activeStep)}
     return (
       <div className={classes.root}>
         <Stepper activeStep={activeStep} alternativeLabel>
@@ -89,12 +75,10 @@ class WrappedComponent extends Component {
           ))}
         </Stepper>
         <div>
-          <Typography className={classes.instructions}>
-            {renderEventNameForm}
-            {renderEventCaptionForm}
-          </Typography>
+          {renderEventNameForm}
+          {renderEventCaptionForm}
           <EventStepperControls
-            activeStep={activeStep}
+            {...this.state}
             classes={classes}
             handleBack={this.handleBack}
             handleNext={this.handleNext}
@@ -107,32 +91,9 @@ class WrappedComponent extends Component {
   }
 }
 
-export const EventStepper = WrappedComponent;
+// <Typography className={classes.instructions}>
+//   {renderEventNameForm}
+//   {renderEventCaptionForm}
+// </Typography>
 
-// <div>
-//   <Button
-//     disabled={activeStep === 0}
-//     onClick={this.handleBack}
-//     className={classes.backButton}
-//   >
-//     Back
-//   </Button>
-//   <Button
-//     disabled={activeStep === 0}
-//     onClick={this.handleReset}
-//     className={classes.backButton}
-//   >
-//     Reset
-//   </Button>
-//   <Button
-//     variant="contained"
-//     color="primary"
-//     onClick={
-//       activeStep === steps.length - 1
-//         ? this.handleReset
-//         : this.handleNext
-//     }
-//   >
-//     {activeStep === steps.length - 1 ? 'Drop Pin' : 'Next'}
-//   </Button>
-// </div>
+export const EventStepper = WrappedComponent;
