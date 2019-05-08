@@ -45,8 +45,8 @@ const createEvent = (req, res, next) => {
     address: rb.address
   };
   db.none(
-    "INSERT INTO events (user_id, latitude, longitude, display_user, event_name, caption, expiration_date, address) VALUES ((SELECT id FROM users WHERE user_name = ${user_name}), ${latitude}, ${longitude}, ${display_user}, ${event_name}, ${caption}, now() + INTERVAL '${expiration_date}' MINUTE)",
-    eventObj
+    "INSERT INTO events (user_id, latitude, longitude, display_user, event_name, caption, expiration_date, address) VALUES ((SELECT id FROM users WHERE user_name = ${user_name}), ${latitude}, ${longitude}, ${display_user}, ${event_name}, ${caption}, now() + INTERVAL '${expiration_date}' MINUTE, ${address})",
+    eventDetails
   )
     .then(() => {
       res.send({
