@@ -15,7 +15,7 @@ const {
 } = require('../db/queries/eventsQueries');
 
 router.post('/', createEvent);
-router.get('/user/:user_name', getUserEvents);
+router.get('/user/:username', getUserEvents);
 // TODO: byRadius & notPrivate
 router.get('/', getEvents);
 router.get('/trending', getTrendingEvents);

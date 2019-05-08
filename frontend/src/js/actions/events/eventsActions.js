@@ -19,11 +19,18 @@ const gotEventsSuccess = events => {
   return { type: GOT_EVENTS_SUCCESS, payload: events };
 };
 
-export const getEvents = api => dispatch => {
+export const getEvents = ({url, latitude, longitude}) => dispatch => {
   // TODO: byRadius & notPrivate
-  dispatch(gettingEvents());
-  // trending || recent || expiring
-  getData(`/api/events/` + (api || ''))
-    .then(res => dispatch(gotEventsSuccess(res.data.data)))
-    .catch(err => dispatch(gotEventsError(err)));
+  if(url) {
+    dispatch(gettingEvents());
+    getData(`/api/events` + `/${url}/?lat=${latitude}&lon=${longitude}`)
+      .then(res => dispatch(gotEventsSuccess(res.data.data)))
+      .catch(err => dispatch(gotEventsError(err)));
+  } else {
+    dispatch(gettingEvents());
+    getData(`/api/events` + `/?lat=${latitude}&lon=${longitude}`)
+      .then(res => dispatch(gotEventsSuccess(res.data.data)))
+      .catch(err => dispatch(gotEventsError(err)));
+  }
+
 };
