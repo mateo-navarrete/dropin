@@ -19,8 +19,13 @@ const gotGeolocationSuccess = position => {
 };
 
 const handleGeolocationSuccess = position => dispatch => {
+  let eventObj = {
+    url: "",
+    latitude: position.coords.latitude,
+    longitude: position.coords.longitude
+  }
   dispatch(gotGeolocationSuccess(position));
-  dispatch(getEvents(position)); // TODO byRadius & notPrivate
+  dispatch(getEvents(eventObj)); // TODO byRadius & notPrivate
 };
 
 export const getGeolocation = () => async dispatch => {
