@@ -7,11 +7,6 @@ import VideoComponent from './VideoComponent';
 // import { EventDetails } from '../EventDetails';
 import { withUser } from '../../containers';
 
-
-// NOTE: to work on Video Component
-// rename /EventDraft folder /xEventDraft
-// && name this folder /EventDraft
-
 class WrappedComponent extends Component {
   // state = {
   //   showModal: false,
