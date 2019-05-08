@@ -31,7 +31,6 @@ export const View = ({
 }) => {
   let eventCoords = {latitude: position.lat, longitude: position.lng}
   let timeAgo = moment(created_date).fromNow();
-  console.log("events details vieww", props);
   const favoriteStatus = (
     <IconButton>
       <FavoriteIcon fontSize="small" />
@@ -93,7 +92,7 @@ export const View = ({
         </F>
         <F>{'lat: ' + position.lat + ' lng: ' + position.lng}</F>
       </div>
-      <div>{address}</div>
+      <div>Address: {address}</div>
       <br />
       <Divider />
       <br />
