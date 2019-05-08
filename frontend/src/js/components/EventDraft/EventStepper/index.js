@@ -6,6 +6,7 @@ import StepLabel from '@material-ui/core/StepLabel';
 import { EventStepperControls } from '../EventStepperControls';
 import { EventNameForm } from '../forms';
 import { EventCaptionForm } from '../forms';
+import { EventSettingsForm } from '../forms';
 
 const getSteps = () => ['', '', ''];
 
@@ -14,7 +15,8 @@ class WrappedComponent extends Component {
     activeStep: 0,
     event_name: '',
     caption: '',
-    // checked:
+    duration: 1,
+    display_user: 'true',
   };
 
   handleChange = e => {
@@ -41,6 +43,28 @@ class WrappedComponent extends Component {
     });
   };
 
+  handleCreateEvent = e => {
+    e.preventDefault();
+    const {
+      name,
+      coords: { latitude, longitude },
+    } = this.props;
+    const { event_name, caption, display_user, duration } = this.state;
+    let eventDetails = {
+      user_name: name,
+      latitude: latitude,
+      longitude: longitude,
+      event_name: event_name,
+      caption: caption,
+      display_user: display_user,
+      duration: duration,
+    };
+    console.log('createEventDetails', eventDetails);
+    this.props.createEvent(eventDetails);
+    this.handleReset();
+    this.props.handleClose();
+  };
+
   render() {
     const { classes } = this.props;
     const steps = getSteps();
@@ -65,6 +89,17 @@ class WrappedComponent extends Component {
       ) : (
         ''
       );
+    const renderEventSettingsForm =
+      activeStep === 2 ? (
+        <EventSettingsForm
+          classes={classes}
+          handleChange={this.handleChange}
+          display_user={this.state.display_user}
+          duration={this.state.duration}
+        />
+      ) : (
+        ''
+      );
     return (
       <div className={classes.root}>
         <Stepper activeStep={activeStep} alternativeLabel>
@@ -77,12 +112,14 @@ class WrappedComponent extends Component {
         <div>
           {renderEventNameForm}
           {renderEventCaptionForm}
+          {renderEventSettingsForm}
           <EventStepperControls
             {...this.state}
             classes={classes}
             handleBack={this.handleBack}
             handleNext={this.handleNext}
             handleReset={this.handleReset}
+            handleCreateEvent={this.handleCreateEvent}
             steps={steps}
           />
         </div>

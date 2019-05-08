@@ -7,6 +7,14 @@ import { EventStepper } from './EventStepper';
 const styles = theme => ({
   main: {},
   paper: {},
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  formControl: {
+    margin: theme.spacing.unit,
+    minWidth: 120,
+  },
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing.unit,
