@@ -4,21 +4,23 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Typography from '@material-ui/core/Typography';
 import { EventStepperControls } from '../EventStepperControls';
+import { EventNameForm } from '../forms';
+import { EventCaptionForm } from '../forms';
 
 const getSteps = () => ['', '', ''];
 
-function getStepContent(stepIndex) {
-  switch (stepIndex) {
-    case 0:
-      return 'Select campaign settings...';
-    case 1:
-      return 'What is an ad group anyways?';
-    case 2:
-      return 'This is the bit I really care about!';
-    default:
-      return 'Unknown stepIndex';
-  }
-}
+// function getStepContent(stepIndex) {
+//   switch (stepIndex) {
+//     case 0:
+//       return 'at zero';
+//     case 1:
+//       return 'What is an ad group anyways?';
+//     case 2:
+//       return 'This is the bit I really care about!';
+//     default:
+//       return 'Unknown stepIndex';
+//   }
+// }
 
 class WrappedComponent extends Component {
   state = {
@@ -26,6 +28,12 @@ class WrappedComponent extends Component {
     event_name: '',
     caption: '',
     // checked:
+  };
+
+  handleChange = e => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
   };
 
   handleNext = () => {
@@ -50,7 +58,27 @@ class WrappedComponent extends Component {
     const { classes } = this.props;
     const steps = getSteps();
     const { activeStep } = this.state;
-
+    const renderEventNameForm =
+      activeStep === 0 ? (
+        <EventNameForm
+          classes={classes}
+          handleChange={this.handleChange}
+          event_name={this.state.event_name}
+        />
+      ) : (
+        ''
+      );
+    const renderEventCaptionForm =
+      activeStep === 1 ? (
+        <EventCaptionForm
+          classes={classes}
+          handleChange={this.handleChange}
+          caption={this.state.caption}
+        />
+      ) : (
+        ''
+      );
+    // {getStepContent(activeStep)}
     return (
       <div className={classes.root}>
         <Stepper activeStep={activeStep} alternativeLabel>
@@ -62,7 +90,8 @@ class WrappedComponent extends Component {
         </Stepper>
         <div>
           <Typography className={classes.instructions}>
-            {getStepContent(activeStep)}
+            {renderEventNameForm}
+            {renderEventCaptionForm}
           </Typography>
           <EventStepperControls
             activeStep={activeStep}
