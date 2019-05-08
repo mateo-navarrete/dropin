@@ -23,10 +23,14 @@ export const View = ({
   user_name,
   display_user,
   created_date,
+  getAddress,
+  latitude,
+  longitude,
   ...props,
 }) => {
+  let eventCoords = {latitude: position.lat, longitude: position.lng}
   let timeAgo = moment(created_date).fromNow();
-  console.log(props, timeAgo);
+  console.log("events details vieww", props);
   const favoriteStatus = (
     <IconButton>
       <FavoriteIcon fontSize="small" />
