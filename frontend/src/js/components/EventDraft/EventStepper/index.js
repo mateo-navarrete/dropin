@@ -1,0 +1,109 @@
+import React, { Component } from 'react';
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
+import Typography from '@material-ui/core/Typography';
+import { EventStepperControls } from '../EventStepperControls';
+
+const getSteps = () => ['', '', ''];
+
+function getStepContent(stepIndex) {
+  switch (stepIndex) {
+    case 0:
+      return 'Select campaign settings...';
+    case 1:
+      return 'What is an ad group anyways?';
+    case 2:
+      return 'This is the bit I really care about!';
+    default:
+      return 'Unknown stepIndex';
+  }
+}
+
+class WrappedComponent extends Component {
+  state = {
+    activeStep: 0,
+    event_name: '',
+    caption: '',
+    // checked:
+  };
+
+  handleNext = () => {
+    this.setState(state => ({
+      activeStep: state.activeStep + 1,
+    }));
+  };
+
+  handleBack = () => {
+    this.setState(state => ({
+      activeStep: state.activeStep - 1,
+    }));
+  };
+
+  handleReset = () => {
+    this.setState({
+      activeStep: 0,
+    });
+  };
+
+  render() {
+    const { classes } = this.props;
+    const steps = getSteps();
+    const { activeStep } = this.state;
+
+    return (
+      <div className={classes.root}>
+        <Stepper activeStep={activeStep} alternativeLabel>
+          {steps.map(label => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+        <div>
+          <Typography className={classes.instructions}>
+            {getStepContent(activeStep)}
+          </Typography>
+          <EventStepperControls
+            activeStep={activeStep}
+            classes={classes}
+            handleBack={this.handleBack}
+            handleNext={this.handleNext}
+            handleReset={this.handleReset}
+            steps={steps}
+          />
+        </div>
+      </div>
+    );
+  }
+}
+
+export const EventStepper = WrappedComponent;
+
+// <div>
+//   <Button
+//     disabled={activeStep === 0}
+//     onClick={this.handleBack}
+//     className={classes.backButton}
+//   >
+//     Back
+//   </Button>
+//   <Button
+//     disabled={activeStep === 0}
+//     onClick={this.handleReset}
+//     className={classes.backButton}
+//   >
+//     Reset
+//   </Button>
+//   <Button
+//     variant="contained"
+//     color="primary"
+//     onClick={
+//       activeStep === steps.length - 1
+//         ? this.handleReset
+//         : this.handleNext
+//     }
+//   >
+//     {activeStep === steps.length - 1 ? 'Drop Pin' : 'Next'}
+//   </Button>
+// </div>
