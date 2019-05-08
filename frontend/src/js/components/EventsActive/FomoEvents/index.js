@@ -1,10 +1,10 @@
 //jscs:disable requireShorthandArrowFunctions
 import React from 'react';
 import { View } from './View';
-import { withToggleShowChildren } from '../../../containers';
+import { withToggleShowChildren, withGetGeolocation } from '../../../containers';
 
 const WrappedComponent = props => {
   return <View {...props} />;
 };
 
-export const FomoEvents = withToggleShowChildren(WrappedComponent);
+export const FomoEvents = withGetGeolocation(withToggleShowChildren(WrappedComponent));
