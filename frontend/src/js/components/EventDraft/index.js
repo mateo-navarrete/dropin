@@ -1,7 +1,7 @@
 //jscs:disable requireShorthandArrowFunctions
 import React, { Component, Fragment as F } from 'react';
-import { videoConfig } from './videoConfig';
-import VideoComponent from './VideoComponent';
+// import { videoConfig } from './videoConfig';
+// import VideoComponent from './VideoComponent';
 // import { View } from './View';
 // import { Modal } from '../Modal';
 // import { EventDetails } from '../EventDetails';
@@ -28,11 +28,11 @@ class WrappedComponent extends Component {
     return (
       <F>
         <div>'Render Event Draft'</div>
-        <VideoComponent {...videoConfig} />
       </F>
     );
   }
 }
+// <VideoComponent {...videoConfig} />
 // <VideoComponent {...videoConfig} />
 
 // <View {...props} handleClick={() => this.setShowModal(true)} />

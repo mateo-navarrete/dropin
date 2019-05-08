@@ -36,6 +36,9 @@ export const View = ({
     user_name === name ? (
       <div className="flex align">
         <IconButton>
+          <EditIcon fontSize="small" />
+        </IconButton>
+        <IconButton>
           <DeleteIcon fontSize="small" />
         </IconButton>
       </div>
@@ -61,9 +64,11 @@ export const View = ({
             {props.event_name.toUpperCase()}
           </Typography>
         </F>
+        <F>{favoriteStatus}</F>
       </div>
       <div className="flex center align">
         <F>{renderCreater}</F>
+        <F>{favoriteStatus}</F>
       </div>
       <Typography variant="caption" gutterBottom>
         <div className="flex space-around align">
@@ -75,11 +80,15 @@ export const View = ({
       </Typography>
       <Divider />
       <br />
+      <div>( Media )</div>
       <Typography variant="subtitle1" gutterBottom>
         Caption: {props.description}
       </Typography>
       <Divider />
-
+      <div className="flex center align">
+        <F>Tags</F>
+        <F>{favoriteStatus}</F>
+      </div>
       <div className="flex center align">
         <F>
           <IconButton>
@@ -92,6 +101,7 @@ export const View = ({
       <br />
       <Divider />
       <br />
+      <div>TODO: Reactions</div>
 
       <EventsExit handleClose={props.handleClose} />
     </F>
