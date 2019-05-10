@@ -22,7 +22,6 @@ class WrappedComponent extends Component {
   handleChange = e => {
     e.preventDefault();
     const { name, value } = e.target;
-    console.log(e, 'name', name, 'value', value);
     this.setState({ [name]: value });
   };
 
