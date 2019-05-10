@@ -60,7 +60,7 @@ class WrappedComponent extends Component {
       display_user: displayUser[+display_user],
       duration: duration,
     };
-    console.log('createEventDetails', eventDetails);
+    // console.log('createEventDetails', eventDetails);
     this.props.createEvent(eventDetails);
     this.handleReset();
     this.props.handleClose();

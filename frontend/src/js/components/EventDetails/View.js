@@ -26,7 +26,7 @@ export const View = ({
   ...props,
 }) => {
   let timeAgo = moment(created_date).fromNow();
-  console.log(props, timeAgo);
+  // console.log(props, timeAgo);
   const favoriteStatus = (
     <IconButton>
       <FavoriteIcon fontSize="small" />
