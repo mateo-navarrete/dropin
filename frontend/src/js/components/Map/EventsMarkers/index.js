@@ -4,14 +4,14 @@ import React, { Fragment as F } from 'react';
 import { EventMarker } from '../../EventMarker';
 
 export const EventsMarkers = props => {
-  let renderList = props.eventsList.length
-    ? 'eventsList'
-    : props.userEventsList || props.userEventsList.length
-    //If user did not create any event, it gives error because props.userEventsList is null
-    ? 'userEventsList'
-    : props.userHistory || props.userHistory.length
-    ? 'userHistory'
-    : null;
+  let renderList =
+    props.eventsList && props.eventsList.length
+      ? 'eventsList'
+      : props.userEventsList && props.userEventsList.length
+      ? 'userEventsList' //switch to userEventsList later
+      : props.userHistory && props.userHistory.length
+      ? 'userHistory'
+      : null;
   // console.log(renderList, props);
   console.log("Even Markers Render List", renderList )
   const renderEvents = renderList

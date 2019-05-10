@@ -5,6 +5,8 @@ import { Wrapper } from './Wrapper';
 import { Logo } from '../Logo';
 import { Modal } from '../../Modal';
 import { EventDraft } from '../../EventDraft';
+import { LogInForm } from '../../LogIn/LogInForm';
+import { withAuth } from '../../../containers';
 
 class WrappedComponent extends Component {
   state = {
@@ -17,6 +19,11 @@ class WrappedComponent extends Component {
   render() {
     const { showModal } = this.state;
     const { handleClick, ...props } = this.props;
+    const renderLogin = props.user ? (
+      <EventDraft handleClose={() => this.setShowModal(false)} />
+    ) : (
+      <LogInForm handleClose={() => this.setShowModal(false)} />
+    );
     return (
       <F>
         <Wrapper {...props}>
@@ -28,11 +35,11 @@ class WrappedComponent extends Component {
           showModal={showModal}
           handleClose={() => this.setShowModal(false)}
         >
-          <EventDraft handleClose={() => this.setShowModal(false)} />
+          {renderLogin}
         </Modal>
       </F>
     );
   }
 }
 
-export const FooterLogo = WrappedComponent;
+export const FooterLogo = withAuth(WrappedComponent);

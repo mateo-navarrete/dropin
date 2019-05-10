@@ -31,6 +31,7 @@ export const View = ({
 }) => {
   let eventCoords = {latitude: position.lat, longitude: position.lng}
   let timeAgo = moment(created_date).fromNow();
+  // console.log(props, timeAgo);
   const favoriteStatus = (
     <IconButton>
       <FavoriteIcon fontSize="small" />

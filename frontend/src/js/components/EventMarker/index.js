@@ -4,6 +4,8 @@ import { View } from './View';
 import { Modal } from '../Modal';
 import { EventDetails } from '../EventDetails';
 import { EventDraft } from '../EventDraft';
+import { LogInForm } from '../LogIn/LogInForm';
+import { withAuth } from '../../containers';
 
 class WrappedComponent extends Component {
   state = {
@@ -16,8 +18,13 @@ class WrappedComponent extends Component {
   render() {
     const { showModal } = this.state;
     const { handleClick, ...props } = this.props;
-    const renderView = props.isUserMarker ? (
+    const renderLogin = props.user ? (
       <EventDraft handleClose={() => this.setShowModal(false)} />
+    ) : (
+      <LogInForm handleClose={() => this.setShowModal(false)} />
+    );
+    const renderView = props.isUserMarker ? (
+      renderLogin
     ) : (
       <EventDetails handleClose={() => this.setShowModal(false)} {...props} />
     );
@@ -36,4 +43,4 @@ class WrappedComponent extends Component {
   }
 }
 
-export const EventMarker = WrappedComponent;
+export const EventMarker = withAuth(WrappedComponent);
