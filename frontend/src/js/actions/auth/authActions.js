@@ -19,6 +19,7 @@ export const checkAuthStatus = () => dispatch => {
 
 const handleAuthResponse = user => dispatch => {
   dispatch(setAuthStatus(user));
+  // console.log("Handle Auth Reponse", user)
   if (user.user_name) dispatch(getUserEvents(user));
 };
 

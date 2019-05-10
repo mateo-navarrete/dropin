@@ -1,26 +1,47 @@
 //jscs:disable requireShorthandArrowFunctions
-/*global google*/
-import React from 'react';
-import { Marker } from 'react-google-maps';
+import React, { Component, Fragment as F } from 'react';
+import { withStyles } from '../../containers';
+// import { EventDraftForm } from './EventDraftForm';
+import { EventStepper } from './EventStepper';
 
-const colors = ['cyan', 'green', 'magenta'];
-const getRandomNum = n => (Math.random() * n) >> 0;
+const styles = theme => ({
+  main: {},
+  paper: {},
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  formControl: {
+    margin: theme.spacing.unit,
+    minWidth: 120,
+  },
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing.unit,
+  },
+  root: {
+    // width: "90%"
+  },
+  backButton: {
+    marginRight: theme.spacing.unit,
+  },
+  instructions: {
+    marginTop: theme.spacing.unit,
+    marginBottom: theme.spacing.unit,
+  },
+  icon: {
+    color: theme.primary, //'red !important',
+  },
+  iconed: {
+    color: 'rgba(251, 54, 74, 1) !important', //"green !important"
+  },
+  selectEmpty: {
+    marginTop: theme.spacing.unit * 2,
+  },
+});
 
-const randomMarkerColor = colors[getRandomNum(colors.length)];
-
-export const View = props => {
-  // console.log('@pHC', props.handleClick);
-  return (
-    <Marker
-      key={props.id}
-      position={{ lat: props.latitude, lng: props.longitude }}
-      onClick={props.handleClick}
-      icon={{
-        url: require(`../../../assets/marker_${randomMarkerColor}_pin.png`), //'/img/icon.svg',
-        scaledSize: new google.maps.Size(64, 64),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(32, 64),
-      }}
-    />
-  );
+const WrappedComponent = props => {
+  return <EventStepper {...props} />;
 };
+
+export const View = withStyles(styles)(WrappedComponent);

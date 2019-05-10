@@ -1,8 +1,12 @@
 //jscs:disable requireShorthandArrowFunctions
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { createEvent } from '../../actions';
 
-const mapStateToProps = ({ auth, user: { geolocation, events } }) => {
+const mapStateToProps = ({
+  auth,
+  user: { geolocation, events, createEvent },
+}) => {
   return {
     coords: geolocation.coords,
     geolocationErrMsg: geolocation.errMsg,
@@ -13,6 +17,14 @@ const mapStateToProps = ({ auth, user: { geolocation, events } }) => {
     userHistory: events.history,
     eventsLoading: events.loading,
     name: auth.user,
+    createEventErrMsg: createEvent.errMsg,
+    creatingEvent: createEvent.creatingEvent,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    createEvent: (eventDetails) => dispatch(createEvent(eventDetails)),
   };
 };
 
@@ -27,6 +39,6 @@ export const withUser = WrappedComponent => {
   }
   return connect(
     mapStateToProps,
-    null
+    mapDispatchToProps
   )(HOC);
 };

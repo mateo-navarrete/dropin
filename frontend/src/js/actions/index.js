@@ -5,12 +5,13 @@ import {
   loginDemoUser,
   logoutUser
 } from './auth';
-import { getEvents } from './events';
+import { createEvent, getEvents } from './events';
 import { getGeolocation, getUserEvents } from './user';
 import { resizeDimensions } from './utils';
 
 export {
   checkAuthStatus,
+  createEvent,
   createUser,
   loginUser,
   loginDemoUser,

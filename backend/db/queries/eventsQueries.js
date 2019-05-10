@@ -33,68 +33,39 @@ const createEvent = (req, res, next) => {
     3: 60,
     4: 120,
   };
-  const eventObj = {
-    category_id: rb.category_id,
+  const eventDetails = {
+    // category_id: rb.category_id,
     user_name: rb.user_name,
     latitude: rb.latitude,
     longitude: rb.longitude,
     display_user: rb.display_user,
     event_name: rb.event_name,
-    description: rb.description,
-    expiration_date: duration[rb.expiration_date],
+    caption: rb.caption,
+    expiration_date: duration[rb.duration],
   };
   db.none(
-    "INSERT INTO events (category_id, user_id, latitude, longitude, display_user, event_name, description, expiration_date) VALUES (${category_id}, (SELECT id FROM users WHERE user_name = ${user_name}), ${latitude}, ${longitude}, ${display_user}, ${event_name}, ${description}, now() + INTERVAL '${expiration_date}' MINUTE)",
-    eventObj
+    "INSERT INTO events (user_id, latitude, longitude, display_user, event_name, caption, expiration_date) VALUES ((SELECT id FROM users WHERE user_name = ${user_name}), ${latitude}, ${longitude}, ${display_user}, ${event_name}, ${caption}, now() + INTERVAL '${expiration_date}' MINUTE)",
+    eventDetails
   )
     .then(() => {
       res.send({
         status: 'success',
-        message: `created event: ${JSON.stringify(eventObj)}`,
+        message: `created event: ${JSON.stringify(eventDetails)}`,
       });
     })
     .catch(err => next(err));
 };
 
 const getUserEvents = (req, res, next) => {
-  let user_name = req.params.id;
+  const eventObj = {
+    username: req.params.username,
+  };
   db.any(
-    `SELECT a.active, h.history
-FROM   users u
-LEFT   JOIN LATERAL (
-   SELECT json_agg(a) AS active
-   FROM   (
-      SELECT *
-      FROM   events e
-      WHERE  e.user_id = (
-        SELECT id
-        FROM users u
-        WHERE u.user_name = 'demo'
-        AND expiration_date > CURRENT_TIMESTAMP
-        )
-      ) a
-   ) a ON TRUE
-LEFT   JOIN LATERAL (
-   SELECT json_agg(h) AS history
-   FROM   (
-      SELECT *
-      FROM   events e
-      WHERE  e.user_id = (
-        SELECT id
-        FROM users u
-        WHERE u.user_name = 'demo'
-        AND expiration_date <= CURRENT_TIMESTAMP
-        )
-      ) h
-   ) h ON TRUE
-WHERE u.id = (
-    SELECT id
-    FROM users u
-    WHERE u.user_name = 'demo'
-    )`,
-    user_name
+    'SELECT a.active, h.history FROM   users u LEFT JOIN LATERAL (SELECT json_agg(a) AS active FROM (SELECT * FROM events e WHERE e.user_id = (SELECT id FROM users u WHERE u.user_name = ${username} AND expiration_date > CURRENT_TIMESTAMP)) a) a ON TRUE LEFT JOIN LATERAL (SELECT json_agg(h) AS history FROM (SELECT * FROM   events e WHERE  e.user_id = (SELECT id FROM users u WHERE u.user_name = ${username} AND expiration_date <= CURRENT_TIMESTAMP)) h) h ON TRUE WHERE u.id = (SELECT id FROM users u WHERE u.user_name = ${username})',
+    eventObj
   )
     .then(data => {
+      // console.log('user events pins!!!', data);
       res.send({
         status: 'success',
         data: data,
@@ -138,20 +109,18 @@ WHERE u.id = (
 
 const getEvents = (req, res, next) => {
   // TODO: byRadius & notPrivate
+  const eventObj = {
+    username: req.params.username,
+    latitude: +req.query.lat,
+    longitude: +req.query.lon,
+    radius: 1.5,
+  };
   db.any(
-    `SELECT
-    e.*,
-    (SELECT
-        user_name
-    FROM users AS u
-    WHERE e.user_id = u.id) AS user_name
-FROM events e
-JOIN users u
-ON u.id = e.user_id
-AND expiration_date >= CURRENT_TIMESTAMP
-ORDER BY e.created_date DESC`
+    'SELECT events.*, (SELECT user_name FROM users AS u WHERE events.user_id = u.id) AS user_name FROM events WHERE expiration_date >= CURRENT_TIMESTAMP AND acos(sin(events.latitude * 0.0175) * sin(${latitude} * 0.0175) + cos(events.latitude * 0.0175) * cos(${latitude} * 0.0175) * cos((${longitude} * 0.0175) - (events.longitude * 0.0175))) * 3959 <= ${radius}',
+    eventObj
   )
     .then(data => {
+      // console.log('get events pins!!!', data);
       res.send({
         status: 'success',
         data: data,
@@ -166,18 +135,15 @@ ORDER BY e.created_date DESC`
 
 const getTrendingEvents = (req, res, next) => {
   // TODO: byRadius & notPrivate
+  // console.log('trending events!! latitude', req.query.lat);
+  const eventObj = {
+    latitude: +req.query.lat,
+    longitude: +req.query.lon,
+    radius: 1.5, //in Miles
+  };
   db.any(
-    `SELECT
-    e.*,
-    (SELECT
-        user_name
-    FROM users AS u
-    WHERE e.user_id = u.id) AS user_name
-FROM events e
-JOIN users u
-ON u.id = e.user_id
-AND expiration_date >= CURRENT_TIMESTAMP
-ORDER BY e.created_date DESC`
+    'SELECT events.*, (SELECT user_name FROM users AS u WHERE events.user_id = u.id) AS user_name FROM events WHERE expiration_date >= CURRENT_TIMESTAMP AND acos(sin(events.latitude * 0.0175) * sin(${latitude} * 0.0175) + cos(events.latitude * 0.0175) * cos(${latitude} * 0.0175) * cos((${longitude} * 0.0175) - (events.longitude * 0.0175))) * 3959 <= ${radius}',
+    eventObj
   )
     .then(data => {
       res.send({
@@ -194,19 +160,15 @@ ORDER BY e.created_date DESC`
 
 const getRecentEvents = (req, res, next) => {
   // TODO: byRadius & notPrivate
+  const eventObj = {
+    latitude: +req.query.lat,
+    longitude: +req.query.lon,
+    radius: 1.5, //in Miles
+    interval: '30',
+  };
   db.any(
-    `SELECT
-    e.*,
-    (SELECT
-        user_name
-    FROM users AS u
-    WHERE e.user_id = u.id) AS user_name
-FROM events e
-JOIN users u
-ON u.id = e.user_id
-AND expiration_date >= CURRENT_TIMESTAMP
-AND e.created_date >= CURRENT_TIMESTAMP - INTERVAL '30' MINUTE
-ORDER BY e.created_date DESC`
+    'SELECT events.*, (SELECT user_name FROM users WHERE events.user_id = users.id) AS user_name FROM events JOIN users ON users.id = events.user_id WHERE expiration_date >= CURRENT_TIMESTAMP AND events.created_date >= CURRENT_TIMESTAMP - INTERVAL ${interval} MINUTE AND acos(sin(events.latitude * 0.0175) * sin(${latitude} * 0.0175) + cos(events.latitude * 0.0175) * cos(${latitude} * 0.0175) * cos((${longitude} * 0.0175) - (events.longitude * 0.0175))) * 3959 <= ${radius} ORDER BY events.created_date DESC',
+    eventObj
   )
     .then(data => {
       res.send({
@@ -223,25 +185,22 @@ ORDER BY e.created_date DESC`
 
 const getExpiringEvents = (req, res, next) => {
   // TODO: byRadius & notPrivate
+  const eventObj = {
+    latitude: +req.query.lat,
+    longitude: +req.query.lon,
+    radius: 1.5, //in Miles
+    interval: '30',
+  };
   db.any(
-    `SELECT
-    e.*,
-    (SELECT
-        user_name
-    FROM users AS u
-    WHERE e.user_id = u.id) AS user_name
-FROM events e
-JOIN users u
-ON u.id = e.user_id
-AND expiration_date >= CURRENT_TIMESTAMP
-AND expiration_date <= CURRENT_TIMESTAMP + INTERVAL '30' MINUTE
-ORDER BY expiration_date DESC`
+    'SELECT events.*, (SELECT user_name FROM users WHERE events.user_id = users.id) AS user_name FROM events JOIN users ON users.id = events.user_id WHERE expiration_date >= CURRENT_TIMESTAMP AND expiration_date <= CURRENT_TIMESTAMP + INTERVAL ${interval} MINUTE AND acos(sin(events.latitude * 0.0175) * sin(${latitude} * 0.0175) + cos(events.latitude * 0.0175) * cos(${latitude} * 0.0175) * cos((${longitude} * 0.0175) - (events.longitude * 0.0175))) * 3959 <= ${radius} ORDER BY expiration_date DESC',
+    eventObj
   )
     .then(data => {
+      // console.log('expiring pins!!!', data);
       res.send({
         status: 'success',
         data: data,
-        message: `got all active events expiring within the next 30mins`,
+        message: `got all expiring events expiring within the next 30mins`,
       });
     })
     .catch(err => {
@@ -282,10 +241,10 @@ const updateEvent = (req, res, next) => {
     category_id: rb.category_id,
     display_user: rb.display_user,
     event_name: rb.event_name,
-    description: rb.description || '',
+    caption: rb.caption || '',
   };
   db.none(
-    'UPDATE events SET category_id=${category_id}, display_user=${display_user}, event_name=${event_name}, description=${description} WHERE id=${id}',
+    'UPDATE events SET category_id=${category_id}, display_user=${display_user}, event_name=${event_name}, caption=${caption} WHERE id=${id}',
     eventObj
   )
     .then(() => {
