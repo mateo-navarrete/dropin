@@ -16,12 +16,13 @@ class WrappedComponent extends Component {
     event_name: '',
     caption: '',
     duration: 1,
-    display_user: 'true',
+    display_user: 1,
   };
 
   handleChange = e => {
     e.preventDefault();
     const { name, value } = e.target;
+    console.log(e, 'name', name, 'value', value);
     this.setState({ [name]: value });
   };
 
@@ -50,13 +51,14 @@ class WrappedComponent extends Component {
       coords: { latitude, longitude },
     } = this.props;
     const { event_name, caption, display_user, duration } = this.state;
+    let displayUser = ['false', 'true'];
     let eventDetails = {
       user_name: name,
       latitude: latitude,
       longitude: longitude,
       event_name: event_name,
       caption: caption,
-      display_user: display_user,
+      display_user: displayUser[+display_user],
       duration: duration,
     };
     console.log('createEventDetails', eventDetails);

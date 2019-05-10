@@ -38,7 +38,7 @@ app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 // app.use('/', indexRouter);
 
-app.use('/api/hello', (req, res, next) => res.json({ key: 'hello' }));
+// app.use('/api/hello', (req, res, next) => res.json({ key: 'hello' }));
 
 app.use('/api/events', eventsApi);
 app.use('/api/users', usersApi);
