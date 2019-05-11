@@ -8,9 +8,10 @@ import { UserMarker } from './UserMarker';
 // import { MapStyles } from '../Main/MyStyles';
 
 const WrappedComponent = props => {
+  let userLocation = {lat: +props.userCoords.lat, lng:+props.userCoords.lat }
   return (
     <GoogleMap
-      center={props.userCoords}
+    center={userLocation}
       defaultZoom={15}
       defaultOptions={{
         // center: props.center,
