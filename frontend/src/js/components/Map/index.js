@@ -29,6 +29,7 @@ class WrappedComponent extends Component {
   handleUserMarkerClick = () => {
     // this.setState({ isMarkerShown: false });
     console.log('REDUX props.eventDraft()');
+    console.log("lalalala")
   };
 
   handleEventsMarkersClick = (el) => {

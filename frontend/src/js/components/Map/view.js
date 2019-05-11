@@ -31,6 +31,7 @@ const WrappedComponent = props => {
         position={props.userCoords}
         handleClick={props.onUserMarkerClick}
       />
+
       <EventsMarkers
         eventsList={props.eventsList}
         userEventsList={props.userEventsList}

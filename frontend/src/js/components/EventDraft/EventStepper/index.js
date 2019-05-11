@@ -40,6 +40,10 @@ class WrappedComponent extends Component {
   handleReset = () => {
     this.setState({
       activeStep: 0,
+      event_name: '',
+      caption: '',
+      duration: 1,
+      display_user: 'true'
     });
   };
 

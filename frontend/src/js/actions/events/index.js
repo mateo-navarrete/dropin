@@ -1,4 +1,4 @@
 import { createEvent } from './createEventActions';
-import { getEvents } from './eventsActions';
+import { getEvents, getAddress } from './eventsActions';
 
-export { createEvent, getEvents };
+export { createEvent, getEvents, getAddress };

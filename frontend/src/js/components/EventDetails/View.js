@@ -18,13 +18,18 @@ import {
 } from '../material';
 
 export const View = ({
+  address,
   name,
   position,
   user_name,
   display_user,
   created_date,
+  getAddress,
+  latitude,
+  longitude,
   ...props,
 }) => {
+  let eventCoords = {latitude: position.lat, longitude: position.lng}
   let timeAgo = moment(created_date).fromNow();
   // console.log(props, timeAgo);
   const favoriteStatus = (
@@ -88,7 +93,7 @@ export const View = ({
         </F>
         <F>{'lat: ' + position.lat + ' lng: ' + position.lng}</F>
       </div>
-      <div>TODO: Address</div>
+      <div>Address: {address}</div>
       <br />
       <Divider />
       <br />
