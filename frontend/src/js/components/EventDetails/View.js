@@ -2,6 +2,7 @@
 import React, { Fragment as F } from 'react';
 import moment from 'moment';
 import { EventsExit } from '../EventsExit';
+// import { deleteEvent } from '../../actions';
 import {
   Button,
   // Paper,
@@ -17,14 +18,21 @@ import {
   // EventButtons,
 } from '../material';
 
+// import { deleteEvent } from '../actions/eventActions'
+
 export const View = ({
   name,
   position,
   user_name,
   display_user,
   created_date,
+  eventsList,
   ...props,
 }) => {
+  const testfunc = () => {
+    console.log("clicked")
+  }
+  console.log("view props", props)
   let timeAgo = moment(created_date).fromNow();
   // console.log(props, timeAgo);
   const favoriteStatus = (
@@ -35,8 +43,8 @@ export const View = ({
   const renderOptions =
     user_name === name ? (
       <div className="flex align">
-        <IconButton>
-          <DeleteIcon fontSize="small" />
+        <IconButton onClick={() => {props.deleteEvent(props.id)}}>
+          <DeleteIcon fontSize="small"/>
         </IconButton>
       </div>
     ) : (

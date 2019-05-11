@@ -1,7 +1,7 @@
 //jscs:disable requireShorthandArrowFunctions
 import axios from 'axios';
 
-export const deleteData = (url, config) => {
+export const deleteData = (url, config, res, next) => {
   return axios.delete(url, config);
 };
 

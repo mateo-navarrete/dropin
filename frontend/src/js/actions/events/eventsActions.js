@@ -4,7 +4,7 @@ import {
   GOT_EVENTS_ERROR,
   GOT_EVENTS_SUCCESS
 } from '../../constants';
-import { getData } from '../../utils';
+import { getData, deleteData } from '../../utils';
 
 const gettingEvents = () => {
   return { type: GETTING_EVENTS };
@@ -34,3 +34,23 @@ export const getEvents = ({url, latitude, longitude}) => dispatch => {
   }
 
 };
+
+export const deleteEvent  = (id) => dispatch => {
+  console.log('hell2pay');
+  deleteData(`/api/events/${id}`, res => {
+    let handleres = () => {
+      console.log(res);
+    };
+    console.log(handleres);
+    // if(res.status ==="success"){
+    //   console.log(res.status + ' #2');
+    // }
+  })
+// deleteData(`/api/events/${id}`, res => {
+//     console.log(res.status);
+    // if(res.status ==="success"){
+    //   dispatch(props.showModal)
+    //   dispatch(getEvents());
+    // }
+  // })
+}

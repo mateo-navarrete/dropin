@@ -259,10 +259,11 @@ const updateEvent = (req, res, next) => {
 const deleteEvent = (req, res, next) => {
   db.none('DELETE FROM events WHERE id=$1', +req.params.id)
     .then(() => {
-      res.status(200).json({
-        status: 'success',
-        message: `deleted event: ${req.params.id}`,
-      });
+      res.send('good to go')
+      // res.status(200).json({
+      //   status: 'success',
+      //   message: `deleted event: ${req.params.id}`,
+      // });
     })
     .catch(err => next(err));
 };

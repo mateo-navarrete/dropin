@@ -1,7 +1,7 @@
 //jscs:disable requireShorthandArrowFunctions
 import React, { Component, Fragment as F } from 'react';
 import { View } from './View';
-import { withUser } from '../../containers';
+import { withUser, withGetEvents, withEvents } from '../../containers';
 // import { Modal } from '../Modal';
 
 class WrappedComponent extends Component {
@@ -25,4 +25,4 @@ class WrappedComponent extends Component {
   }
 }
 
-export const EventDetails = withUser(WrappedComponent);
+export const EventDetails = withUser(withGetEvents(WrappedComponent));
