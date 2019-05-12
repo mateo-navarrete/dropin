@@ -18,6 +18,7 @@ class WrappedComponent extends Component {
   };
 
   render() {
+    console.log("Event Marker Props", this.props)
     const { showModal } = this.state;
     const { handleClick, ...props } = this.props;
     const colors = ["cyan", "green", "magenta"];
@@ -48,6 +49,8 @@ class WrappedComponent extends Component {
             origin: new window.google.maps.Point(0, 0),
             anchor: new window.google.maps.Point(32, 64)
           }}
+          animation={window.google.maps.Animation.DROP}
+
         />
         <Modal
           showModal={showModal}
