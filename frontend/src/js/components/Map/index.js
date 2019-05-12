@@ -60,8 +60,6 @@ class WrappedComponent extends Component {
     let gotUserCoords = latitude ? true : false;
     let userCoords = { lat: latitude, lng: longitude };
 
-    // console.log('@', this.props.eventsList);
-
     // recenter={this.state.recenter}
     return (
       <View
@@ -79,6 +77,7 @@ class WrappedComponent extends Component {
         eventsList={this.props.eventsList}
         userEventsList={this.props.userEventsList}
         userHistory={this.props.userHistory}
+        markerType={this.props.markerType}
         {...this.props}
       />
     );

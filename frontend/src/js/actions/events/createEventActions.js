@@ -5,7 +5,7 @@ import {
   GOT_CREATE_EVENT_SUCCESS
 } from '../../constants';
 import { postData } from '../../utils';
-import { getEvents } from '.';
+import { getEvents, getUserEvents } from '..';
 
 const creatingEvent = () => {
   return { type: CREATING_EVENT };
@@ -30,13 +30,14 @@ export const createEvent = eventDetails => dispatch => {
       // let userData = res.data.data[0];
       dispatch(gotCreateEventSuccess(res.data));
     })
-    .then(() =>
+    .then(() => {
       dispatch(
         getEvents({
           latitude: eventDetails.latitude,
           longitude: eventDetails.longitude,
         })
-      )
-    )
+      );
+      dispatch(getUserEvents({ user_name: eventDetails.user_name }));
+    })
     .catch(err => dispatch(gotCreateEventError(err)));
 };

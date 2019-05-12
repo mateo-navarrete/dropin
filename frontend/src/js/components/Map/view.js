@@ -34,6 +34,7 @@ const WrappedComponent = props => {
         eventsList={props.eventsList}
         userEventsList={props.userEventsList}
         userHistory={props.userHistory}
+        markerType={props.markerType}
       />
     </GoogleMap>
   );

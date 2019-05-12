@@ -2,9 +2,14 @@
 import {
   GETTING_EVENTS,
   GOT_EVENTS_ERROR,
-  GOT_EVENTS_SUCCESS
+  GOT_EVENTS_SUCCESS,
+  SET_MARKER_TYPE
 } from '../../constants';
 import { getData } from '../../utils';
+
+export const setMarkerType = markerType => {
+  return { type: SET_MARKER_TYPE, payload: markerType };
+};
 
 const gettingEvents = () => {
   return { type: GETTING_EVENTS };

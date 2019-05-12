@@ -11,6 +11,7 @@ export const View = ({
   toggleShowChildren,
   showChildren,
   getEvents,
+  setMarkerType,
   ...props,
 }) => {
   return (
@@ -20,9 +21,21 @@ export const View = ({
       showChildren={showChildren}
       showIcon={<FilterListIcon />}
     >
-      <ActiveEvents getEvents={getEvents} handleClose={handleClose} />
-      <JustDroppedEvents getEvents={getEvents} handleClose={handleClose} />
-      <FomoEvents getEvents={getEvents} handleClose={handleClose} />
+      <ActiveEvents
+        getEvents={getEvents}
+        handleClose={handleClose}
+        setMarkerType={setMarkerType}
+      />
+      <JustDroppedEvents
+        getEvents={getEvents}
+        handleClose={handleClose}
+        setMarkerType={setMarkerType}
+      />
+      <FomoEvents
+        getEvents={getEvents}
+        handleClose={handleClose}
+        setMarkerType={setMarkerType}
+      />
     </ParentListItem>
   );
 };
