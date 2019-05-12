@@ -5,13 +5,12 @@ import { withUser } from '../../containers';
 // import { Modal } from '../Modal';
 
 class WrappedComponent extends Component {
-  // state = {
-  //   showModal: false,
-  // };
-  // setShowModal = open => {
-  //   this.setState({ showModal: open });
-  //   console.log(open);
-  // };
+  state = {
+    showCoords: false,
+  };
+  toggleShowCoords = () => {
+    this.setState({ showCoords: !this.state.showCoords });
+  };
 
   render() {
     // const { showModal } = this.state;
@@ -19,7 +18,11 @@ class WrappedComponent extends Component {
     // console.log(this.props);
     return (
       <F>
-        <View {...this.props} />
+        <View
+          {...this.props}
+          toggleShowCoords={this.toggleShowCoords}
+          showCoords={this.state.showCoords}
+        />
       </F>
     );
   }

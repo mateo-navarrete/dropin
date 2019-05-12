@@ -1,6 +1,5 @@
 //jscs:disable requireShorthandArrowFunctions
 import React, { Fragment as F } from 'react';
-import moment from 'moment';
 import { EventsExit } from '../EventsExit';
 import {
   Button,
@@ -8,14 +7,16 @@ import {
   // IconWrapper,
   Divider,
   Typography,
-  FavoriteIcon,
+  // FavoriteIcon,
   IconButton,
   ReportIcon,
-  EditIcon,
+  // EditIcon,
   DeleteIcon,
   PinIcon
   // EventButtons,
 } from '../material';
+import { ProgressBar } from '../ProgressBar';
+import { getTimeAgo } from '../../utils';
 
 export const View = ({
   name,
@@ -23,15 +24,17 @@ export const View = ({
   user_name,
   display_user,
   created_date,
+  expiration_date,
+  toggleShowCoords,
+  showCoords,
   ...props,
 }) => {
-  let timeAgo = moment(created_date).fromNow();
-  // console.log(props, timeAgo);
-  const favoriteStatus = (
-    <IconButton>
-      <FavoriteIcon fontSize="small" />
-    </IconButton>
-  );
+  let timeAgo = getTimeAgo(created_date);
+  // const favoriteStatus = (
+  //   <IconButton>
+  //     <FavoriteIcon fontSize="small" />
+  //   </IconButton>
+  // );
   const renderOptions =
     user_name === name ? (
       <div className="flex align">
@@ -52,69 +55,50 @@ export const View = ({
     ) : (
       ''
     );
+  const renderCoords = showCoords ? (
+    <div>
+      {position.lat}, {position.lng}
+    </div>
+  ) : (
+    ''
+  );
   return (
     <F>
-      {renderOptions}
-      <div className="flex center align">
+      <div className="flex space-between align">
         <F>
           <Typography component="h1" variant="h5">
             {props.event_name.toUpperCase()}
           </Typography>
         </F>
+        <F>{renderOptions}</F>
       </div>
-      <div className="flex center align">
-        <F>{renderCreater}</F>
-      </div>
-      <Typography variant="caption" gutterBottom>
-        <div className="flex space-around align">
-          <F>dropped {timeAgo} </F>
-          <F>
-            <div>durationBar</div>
-          </F>
-        </div>
-      </Typography>
       <Divider />
-      <br />
+      <Typography variant="caption" gutterBottom>
+        <div className="flex space-between align">
+          <F>dropped {timeAgo} </F>
+          <F>{renderCreater}</F>
+        </div>
+        <ProgressBar start={created_date} end={expiration_date} />
+      </Typography>
       <Typography variant="subtitle1" gutterBottom>
         Caption: {props.caption}
       </Typography>
-      <Divider />
-
-      <div className="flex center align">
-        <F>
-          <IconButton>
-            <PinIcon fontSize="small" />
-          </IconButton>
-        </F>
-        <F>{'lat: ' + position.lat + ' lng: ' + position.lng}</F>
+      <div className="flex space-around align">
+        <Button variant="outlined" onClick={toggleShowCoords}>
+          <PinIcon />
+        </Button>
+        {renderCoords}
       </div>
       <div>TODO: Address</div>
       <br />
       <Divider />
       <br />
-
       <EventsExit handleClose={props.handleClose} />
     </F>
   );
 };
 
-// <div className="flex space-around align">
-//   <Button variant="outlined" onClick={this.handleClick}>
-//     <PinIcon />
-//   </Button>
-//   {this.state.visible ? (
-//     <div>
-//       {props.latitude}, {props.longitude}
-//     </div>
-//   ) : (
-//     ''
-//   )}
-// </div>
 // {getAddress(e.latitude, e.longitude)}
 // {street}
 // <br />
 // {address}
-
-// <div className="flex center">
-//   <div className="divider-line" style={{ width: maxWidth * 0.5 }} />
-// </div>
