@@ -1,5 +1,5 @@
 //jscs:disable requireShorthandArrowFunctions
-import React, { Fragment as F } from "react";
+import React, { Component, Fragment as F } from "react";
 // import { View } from './View';
 import { EventMarker } from "../../EventMarker";
 import Spiderfy from "../Spiderfy/Spiderfy.js";
@@ -20,9 +20,7 @@ export const EventsMarkers = props => {
         console.log("Even Markers Map", e);
         let position = { lat: e.latitude, lng: e.longitude };
         return (
-          <F>
           <EventMarker key={"event-" + e.id} {...e} position={position} />
-          </F>
         )
       })
     : "";
