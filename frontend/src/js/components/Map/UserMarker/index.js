@@ -3,7 +3,7 @@ import React, { Fragment as F } from "react";
 import { EventMarker } from "../../EventMarker";
 import userMarkerIcon from "../../../../assets/user_marker.png";
 import { Marker } from "react-google-maps";
-
+import  Spiderfy from "../Spiderfy/Spiderfy"
 // export const UserMarker = ({ isMarkerShown, ...props }) => {
 //   const renderView =
 //     isMarkerShown && props.position.lat ? (
@@ -24,6 +24,7 @@ export const UserMarker = ({ isMarkerShown, ...props }) => {
   // };
   const renderView =
     isMarkerShown && props.position.lat ? (
+      <Spiderfy>
       <Marker
         onClick={props.handleClick}
         position={{ lat: lat, lng: lng }}
@@ -35,6 +36,8 @@ export const UserMarker = ({ isMarkerShown, ...props }) => {
         }}
         id="UserMarker"
       />
+      </Spiderfy>
+
     ) : (
       ""
     );
