@@ -6,7 +6,16 @@ import { withStyles } from '../../containers';
 const styles = theme => ({
   paper: {
     position: 'absolute',
-    width: theme.spacing.unit * 50,
+    width: 'auto', //theme.spacing.unit * 50,
+    [theme.breakpoints.up('310')]: {
+      width: 310,
+    },
+    [theme.breakpoints.up('370')]: {
+      width: 360,
+    },
+    [theme.breakpoints.up(400 + theme.spacing.unit)]: {
+      width: 400,
+    },
     backgroundColor: theme.palette.background.paper,
     borderRadius: 4,
     boxShadow: theme.shadows[5],
