@@ -37,6 +37,7 @@ class Spiderfy extends React.Component {
     this.oms.addMarker(marker);
     window.google.maps.event.addListener(marker, 'spider_click', e => {
       if (this.props.onSpiderClick) {
+        console.log("Spidferfy clicked e", e)
         this.props.onSpiderClick(e);
       } else {
         let markerId = marker.label;
