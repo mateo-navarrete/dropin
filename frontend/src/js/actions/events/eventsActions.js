@@ -20,16 +20,10 @@ const gotEventsSuccess = events => {
 };
 
 export const getEvents = ({ url, latitude, longitude }) => dispatch => {
-  // TODO: byRadius & notPrivate
-  if (url) {
-    dispatch(gettingEvents());
-    getData(`/api/events/${url}/?lat=${latitude}&lon=${longitude}`)
-      .then(res => dispatch(gotEventsSuccess(res.data.data)))
-      .catch(err => dispatch(gotEventsError(err)));
-  } else {
-    dispatch(gettingEvents());
-    getData(`/api/events/?lat=${latitude}&lon=${longitude}`)
-      .then(res => dispatch(gotEventsSuccess(res.data.data)))
-      .catch(err => dispatch(gotEventsError(err)));
-  }
+  // TODO: notPrivate
+  let api = url ? url + '/' : '';
+  dispatch(gettingEvents());
+  getData(`/api/events/${api}?lat=${latitude}&lon=${longitude}`)
+    .then(res => dispatch(gotEventsSuccess(res.data.data)))
+    .catch(err => dispatch(gotEventsError(err)));
 };

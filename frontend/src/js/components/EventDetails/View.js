@@ -35,6 +35,7 @@ export const View = ({
   //     <FavoriteIcon fontSize="small" />
   //   </IconButton>
   // );
+  // console.log(user_name, display_user);
   const renderOptions =
     user_name === name ? (
       <div className="flex align">

@@ -1,7 +1,7 @@
--- DROP DATABASE IF EXISTS dropin_data;
--- CREATE DATABASE dropin_data;
---
--- \c dropin_data;
+DROP DATABASE IF EXISTS dropin_data;
+CREATE DATABASE dropin_data;
+
+\c dropin_data;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,

@@ -17,21 +17,21 @@ const MapElement = <div style={{ height: `100%` }} />;
 class WrappedComponent extends Component {
   state = {
     isMarkerShown: true,
-    recenter: false,
+    // recenter: false,
   };
 
-  resetCenter = () => {
-    this.timeout2 = setTimeout(() => {
-      this.setState({ recenter: false });
-    }, 100);
-  };
+  // resetCenter = () => {
+  //   this.timeout2 = setTimeout(() => {
+  //     this.setState({ recenter: false });
+  //   }, 100);
+  // };
 
   handleUserMarkerClick = () => {
     // this.setState({ isMarkerShown: false });
     console.log('REDUX props.eventDraft()');
   };
 
-  handleEventsMarkersClick = (el) => {
+  handleEventsMarkersClick = el => {
     // this.setState({ isMarkerShown: true });
     console.log('REDUX props.eventDetails()', el);
   };
@@ -62,11 +62,11 @@ class WrappedComponent extends Component {
 
     // console.log('@', this.props.eventsList);
 
+    // recenter={this.state.recenter}
     return (
       <View
         gotUserCoords={gotUserCoords}
         userCoords={userCoords}
-        recenter={this.state.center}
         center={userCoords}
         isMarkerShown={this.state.isMarkerShown}
         onUserMarkerClick={this.handleUserMarkerClick}
