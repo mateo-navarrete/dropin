@@ -3,6 +3,14 @@ import React, { Component, Fragment as F } from "react";
 // import { View } from './View';
 import { EventMarker } from "../../EventMarker";
 import Spiderfy from "../Spiderfy/Spiderfy.js";
+// import { View } from "./../View";
+import { Modal } from "../../Modal";
+import { EventDetails } from "../../EventDetails";
+import { EventDraft } from "../../EventDraft";
+import { LogInForm } from "../../LogIn/LogInForm";
+import { withAuth } from "../../../containers";
+import { Marker } from "react-google-maps";
+
 
 export const EventsMarkers = props => {
   let renderList =
