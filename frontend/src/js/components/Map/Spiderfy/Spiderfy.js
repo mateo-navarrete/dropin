@@ -23,7 +23,7 @@ class Spiderfy extends React.Component {
   markerNodeMounted = (ref) => {
     // console.log('@Marker',ref, ref.state)
     if (ref.state) {
-      console.log("ref ref")
+      console.log("ref ref", ref)
       this.tempMarkerFn(ref);
     } else {
       console.log("no ref no ref", ref)
@@ -31,20 +31,15 @@ class Spiderfy extends React.Component {
   };
 
   tempMarkerFn = ref => {
-    // const {
-    //   showTopOverlay,
-    //   // , eventCoords, loading
-    // } = this.props;
-    console.log("Spiderfy Ref State", ref.state);
     let marker;
     marker = ref.state[MARKER];
+    console.log("Spiderfy Marker", marker)
     this.oms.addMarker(marker);
     window.google.maps.event.addListener(marker, 'spider_click', e => {
       if (this.props.onSpiderClick) {
         this.props.onSpiderClick(e);
       } else {
         let markerId = marker.label;
-        // showTopOverlay(markerId);
       }
     });
   };
