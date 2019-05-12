@@ -8,9 +8,11 @@ import { UserMarker } from './UserMarker';
 // import { MapStyles } from '../Main/MyStyles';
 
 const WrappedComponent = props => {
+  console.log("Map View Props", props)
+  let centerCoords = {lat: +props.userCoords.lat, lng: +props.userCoords.lng}
   return (
     <GoogleMap
-      center={props.userCoords}
+      center={centerCoords}
       defaultZoom={15}
       defaultOptions={{
         // center: props.center,
