@@ -29,7 +29,8 @@ export const View = ({
   longitude,
   ...props,
 }) => {
-  let eventCoords = {latitude: position.lat, longitude: position.lng}
+  // console.log("event details props", props)
+  // let eventCoords = {latitude: position.lat, longitude: position.lng}
   let timeAgo = moment(created_date).fromNow();
   // console.log(props, timeAgo);
   const favoriteStatus = (
@@ -63,7 +64,7 @@ export const View = ({
       <div className="flex center align">
         <F>
           <Typography component="h1" variant="h5">
-            {props.event_name.toUpperCase()}
+            {props.event.event_name.toUpperCase()}
           </Typography>
         </F>
       </div>
@@ -81,7 +82,7 @@ export const View = ({
       <Divider />
       <br />
       <Typography variant="subtitle1" gutterBottom>
-        Caption: {props.caption}
+        Caption: {props.event.caption}
       </Typography>
       <Divider />
 
@@ -91,7 +92,7 @@ export const View = ({
             <PinIcon fontSize="small" />
           </IconButton>
         </F>
-        <F>{'lat: ' + position.lat + ' lng: ' + position.lng}</F>
+        <F>{'lat: ' + props.event.latitude + ' lng: ' + props.event.longitude}</F>
       </div>
       <div>Address: {address}</div>
       <br />
