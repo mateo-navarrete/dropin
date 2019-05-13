@@ -1,7 +1,7 @@
 //jscs:disable requireShorthandArrowFunctions
 /*global google*/
 import React from 'react';
-import { withScriptjs, withGoogleMap, GoogleMap } from 'react-google-maps';
+import { withScriptjs, withGoogleMap, GoogleMap, MarkerClusterer } from 'react-google-maps';
 import { CenterMarker } from './CenterMarker';
 import { EventsMarkers } from './EventsMarkers';
 import { UserMarker } from './UserMarker';
@@ -9,7 +9,6 @@ import { UserMarker } from './UserMarker';
 import Spiderfy from './Spiderfy/Spiderfy'
 
 const WrappedComponent = props => {
-  console.log("Map View Props", props)
   let centerCoords = {lat: +props.userCoords.lat, lng: +props.userCoords.lng}
   return (
     <GoogleMap
@@ -33,13 +32,14 @@ const WrappedComponent = props => {
         position={props.userCoords}
         handleClick={props.onUserMarkerClick}
       />
-      
+
       <EventsMarkers
         eventsList={props.eventsList}
         userEventsList={props.userEventsList}
         userHistory={props.userHistory}
         markerType={props.markerType}
       />
+
     </GoogleMap>
   );
 };
