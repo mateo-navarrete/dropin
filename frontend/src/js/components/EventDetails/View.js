@@ -19,18 +19,25 @@ import { ProgressBar } from '../ProgressBar';
 import { getTimeAgo } from '../../utils';
 
 export const View = ({
-  address,
   name,
-  position,
-  user_name,
-  display_user,
-  created_date,
-  expiration_date,
+  event: {
+    address,
+    caption,
+    event_name,
+    latitude,
+    longitude,
+    position,
+    user_name,
+    display_user,
+    created_date,
+    expiration_date,
+  },
   toggleShowCoords,
   showCoords,
+  handleClose,
   ...props,
 }) => {
-  let timeAgo = getTimeAgo(props.event.created_date);
+  let timeAgo = getTimeAgo(created_date);
   // const favoriteStatus = (
   //   <IconButton>
   //     <FavoriteIcon fontSize="small" />
@@ -59,17 +66,24 @@ export const View = ({
     );
   const renderCoords = showCoords ? (
     <div>
-      {props.coords.latitude}, {props.coords.longitude}
+      {latitude}, {longitude}
     </div>
   ) : (
     ''
   );
+  let street = 'address';
+  let zip = 'unavailable';
+  if (address) {
+    let [street, ...zip] = address.split(',');
+    zip = zip.join(',');
+  }
+
   return (
     <F>
       <div className="flex space-between align">
         <F>
           <Typography component="h1" variant="h5">
-            {props.event.event_name.toUpperCase()}
+            {event_name.toUpperCase()}
           </Typography>
         </F>
         <F>{renderOptions}</F>
@@ -80,22 +94,28 @@ export const View = ({
           <F>dropped {timeAgo} </F>
           <F>{renderCreater}</F>
         </div>
-        <ProgressBar start={props.event.created_date} end={props.event.expiration_date} />
+        <ProgressBar start={created_date} end={expiration_date} />
       </Typography>
-      <Typography variant="subtitle1" gutterBottom>
-        Caption: {props.event.caption}
+      <Typography variant="subtitle1" gutterBottom className="text-left">
+        {caption}
       </Typography>
-      <div className="flex space-around align">
+      <Divider />
+      <br />
+      <div className="flex space-between align">
         <Button variant="outlined" onClick={toggleShowCoords}>
           <PinIcon />
         </Button>
         {renderCoords}
       </div>
-      <div>Address: {props.event.address}</div>
+      <br />
+      <div className="text-left">
+        <div>{street}</div>
+        <div>{zip}</div>
+      </div>
       <br />
       <Divider />
       <br />
-      <EventsExit handleClose={props.handleClose} />
+      <EventsExit handleClose={handleClose} />
     </F>
   );
 };

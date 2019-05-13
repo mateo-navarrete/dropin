@@ -42,7 +42,7 @@ const createEvent = (req, res, next) => {
     event_name: rb.event_name,
     caption: rb.caption,
     expiration_date: duration[rb.duration],
-    address: rb.address
+    address: rb.address,
   };
   db.none(
     "INSERT INTO events (user_id, latitude, longitude, display_user, event_name, caption, expiration_date, address) VALUES ((SELECT id FROM users WHERE user_name = ${user_name}), ${latitude}, ${longitude}, ${display_user}, ${event_name}, ${caption}, now() + INTERVAL '${expiration_date}' MINUTE, ${address})",
@@ -251,18 +251,18 @@ const updateEvent = (req, res, next) => {
     .then(() => {
       res.send({
         status: 'success',
-        message: `updated event: ${JSON.stringify(eventObj)}`,
+        message: `updated event: ${JSON.stringify(eventObj)}`
       });
     })
     .catch(err => next(err));
 };
 
 const deleteEvent = (req, res, next) => {
-  db.none('DELETE FROM events WHERE id=$1', +req.params.id)
+  db.none("DELETE FROM events WHERE id=$1", +req.params.id)
     .then(() => {
       res.status(200).json({
-        status: 'success',
-        message: `deleted event: ${req.params.id}`,
+        status: "success",
+        message: `deleted event: ${req.params.id}`
       });
     })
     .catch(err => next(err));
@@ -278,7 +278,7 @@ module.exports = {
   updateEvent,
   deleteEvent,
   uploadVideo,
-  getVideo,
+  getVideo
 };
 
 // TODO:
