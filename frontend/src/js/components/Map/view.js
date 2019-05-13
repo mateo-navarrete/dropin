@@ -6,6 +6,7 @@ import { CenterMarker } from './CenterMarker';
 import { EventsMarkers } from './EventsMarkers';
 import { UserMarker } from './UserMarker';
 // import { MapStyles } from '../Main/MyStyles';
+import Spiderfy from './Spiderfy/Spiderfy'
 
 const WrappedComponent = props => {
   console.log("Map View Props", props)
@@ -32,7 +33,7 @@ const WrappedComponent = props => {
         position={props.userCoords}
         handleClick={props.onUserMarkerClick}
       />
-
+      
       <EventsMarkers
         eventsList={props.eventsList}
         userEventsList={props.userEventsList}
