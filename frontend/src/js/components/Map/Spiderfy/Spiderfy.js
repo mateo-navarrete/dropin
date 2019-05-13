@@ -21,7 +21,7 @@ class Spiderfy extends React.Component {
   }
 
   markerNodeMounted = (ref) => {
-    // console.log('@Marker',ref, ref.state)
+    console.log('@Marker',ref)
     if (ref.state) {
       console.log("ref ref", ref)
       this.tempMarkerFn(ref);
