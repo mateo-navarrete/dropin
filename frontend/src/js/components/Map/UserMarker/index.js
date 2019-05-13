@@ -31,7 +31,7 @@ export const UserMarker = ({ isMarkerShown, ...props }) => {
         zIndex={100}
         icon={{
           url: userMarkerIcon,
-          scaledSize: new window.google.maps.Size(60, 60)
+          scaledSize: new window.google.maps.Size(45, 45)
         }}
         id="UserMarker"
       />
