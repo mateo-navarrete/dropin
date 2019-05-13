@@ -30,7 +30,8 @@ export const View = ({
   showCoords,
   ...props,
 }) => {
-  let timeAgo = getTimeAgo(created_date);
+  console.log("Event Details View", props)
+  let timeAgo = getTimeAgo(props.event.created_date);
   // const favoriteStatus = (
   //   <IconButton>
   //     <FavoriteIcon fontSize="small" />
@@ -59,7 +60,7 @@ export const View = ({
     );
   const renderCoords = showCoords ? (
     <div>
-      {position.lat}, {position.lng}
+      {props.coords.latitude}, {props.coords.longitude}
     </div>
   ) : (
     ''
@@ -80,7 +81,7 @@ export const View = ({
           <F>dropped {timeAgo} </F>
           <F>{renderCreater}</F>
         </div>
-        <ProgressBar start={created_date} end={expiration_date} />
+        <ProgressBar start={props.event.created_date} end={props.event.expiration_date} />
       </Typography>
       <Typography variant="subtitle1" gutterBottom>
         Caption: {props.event.caption}
@@ -91,7 +92,7 @@ export const View = ({
         </Button>
         {renderCoords}
       </div>
-      <div>Address: {address}</div>
+      <div>Address: {props.event.address}</div>
       <br />
       <Divider />
       <br />
