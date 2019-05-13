@@ -6,7 +6,8 @@ import {
   GET_ADDRESS,
   SET_MARKER_TYPE
 } from '../../constants';
-import { getData } from '../../utils';
+import { getUserEvents } from '..'
+import { getData, deleteData } from '../../utils';
 import Geocode from 'react-geocode';
 
 export const setMarkerType = markerType => {
@@ -52,3 +53,33 @@ export const getAddress = ({ latitude, longitude }) => dispatch => {
     }
   );
 };
+
+export const deleteEvent  = ({id, coords:{latitude, longitude}, user_name}) => dispatch => {
+  console.log('delete');
+  deleteData(`/api/events/${id}`)
+  .then((res) => {
+    if(res.data.status ==="success"){
+      console.log(res.data.message);
+      // console.log(coords);
+      // dispatch(getEvents(url))
+      //get all events again
+    }
+  })
+  .then(() => {
+          dispatch(
+            getEvents({
+              latitude: latitude,
+              longitude: longitude,
+            })
+          );
+          dispatch(getUserEvents({ user_name: user_name }));
+        })
+  .catch(err => dispatch(gotEventsError(err)));
+// deleteData(`/api/events/${id}`, res => {
+//     console.log(res.status);
+    // if(res.status ==="success"){
+    //   dispatch(props.showModal)
+    //   dispatch(getEvents());
+    // }
+  // })
+}
