@@ -14,6 +14,7 @@ import { UserMarker } from './UserMarker';
 // import Spiderfy from './Spiderfy/Spiderfy';
 
 const WrappedComponent = props => {
+  console.log("Map View Props", props)
   let centerCoords = { lat: +props.userCoords.lat, lng: +props.userCoords.lng };
   // console.log('maps props', props);
   return (
@@ -37,6 +38,7 @@ const WrappedComponent = props => {
         isMarkerShown={props.isMarkerShown}
         position={props.userCoords}
         handleClick={props.onUserMarkerClick}
+        showModal={props.showModal}
       />
 
       <EventsMarkers

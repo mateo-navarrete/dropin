@@ -23,36 +23,29 @@ import { getTimeAgo } from '../../utils';
 
 export const View = ({
   name,
-  event,
+  event: {
+  address,
+  caption,
+  event_name,
+  latitude,
+  longitude,
+  position,
+  user_name,
+  display_user,
+  created_date,
+  expiration_date,
+  id
+},
   toggleShowCoords,
   showCoords,
   handleClose,
   coords,
-  
   ...props,
 }) => {
   console.log(props);
   let u_name = props.user_name;
-  const {
-    id,
-    address,
-    caption,
-    event_name,
-    latitude,
-    longitude,
-    position,
-    user_name,
-    display_user,
-    created_date,
-    expiration_date,
 
-  },
-  toggleShowCoords,
-  showCoords,
-  handleClose,
-  ...props,
-}) => {
-  console.log("event details view", address)
+  console.log("event details view", props)
 
   let timeAgo = getTimeAgo(created_date);
   // const favoriteStatus = (
