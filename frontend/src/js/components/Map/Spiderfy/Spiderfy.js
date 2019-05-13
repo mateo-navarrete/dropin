@@ -26,7 +26,6 @@ class Spiderfy extends React.Component {
 
   markerRef = () => {
     return React.Children.map(this.props.children, child => {
-      console.log("spiderfy child", child.props.children.props.id);
       return React.cloneElement(child.props.children, {
         ref: this.markerNodeMounted,
         id: child.props.children.props.id
@@ -42,30 +41,21 @@ class Spiderfy extends React.Component {
   // };
 
   markerNodeMounted = (ref, id) => {
-    console.log("@Marker ref", ref);
-    console.log("@Marker id", ref.props.id);
     if (ref) {
-      console.log("ref ref", ref);
       this.tempMarkerFn(ref, ref.props.id);
     } else {
-      console.log("no ref no ref", ref);
     }
   };
 
   tempMarkerFn = (ref, id) => {
     let marker;
     marker = ref.state[MARKER];
-    console.log("Spiderfy Marker", marker);
     this.oms.addMarker(marker);
     window.google.maps.event.addListener(marker, "spider_click", e => {
-      console.log("spiderfy addlistener", this.props);
       if (this.props.onSpiderClick) {
-        console.log("Spidferfy clicked e", e);
         this.props.onSpiderClick(e);
       } else {
         let markerId = marker;
-        console.log("Spidferfy clicked option 2", id);
-        console.log("Spidferfy clicked option 2-2", e);
 
         this.props.onSpiderfyClick(true, id);
       }
@@ -73,7 +63,6 @@ class Spiderfy extends React.Component {
   };
 
   render() {
-    console.log("spiderfy children", this.props.children);
     return (
       <F>
         {this.props.children ? this.markerRef() : null}
