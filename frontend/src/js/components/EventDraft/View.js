@@ -7,6 +7,31 @@ import { EventStepper } from './EventStepper';
 const styles = theme => ({
   main: {},
   paper: {},
+  cssLabel: {
+    color: 'rgba(41, 128, 185, 1)',
+    '&$cssFocused': {
+      color: 'rgba(41, 128, 185, 1)',
+    },
+  },
+  cssFocused: {},
+  cssUnderline: {
+    '&:after': {
+      borderBottomColor: 'rgba(41, 128, 185, 1)',
+    },
+  },
+  button: {
+    backgroundColor: '#2980B9',
+    '&:hover': {
+      backgroundColor: '#1c5981',
+    },
+    '&:active': {
+      boxShadow: 'none',
+      backgroundColor: '#2980B9',
+    },
+    '&:focus': {
+      boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
+    },
+  },
   container: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -21,6 +46,19 @@ const styles = theme => ({
   },
   root: {
     padding: 0,
+    // color: 'rgba(41, 128, 185, 1)',
+  },
+  stepIcon: {
+    color: 'rgba(41, 128, 185, 1)',
+    // '&:active': {
+    //   color: 'rgba(41, 128, 185, 1)',
+    // },
+  },
+  stepLabel: {
+    color: 'rgba(41, 128, 185, 1)',
+    // '&:active': {
+    //   color: 'rgba(41, 128, 185, 1)',
+    // },
   },
   backButton: {
     marginRight: theme.spacing.unit,
@@ -30,7 +68,7 @@ const styles = theme => ({
     marginBottom: theme.spacing.unit,
   },
   icon: {
-    color: theme.primary, //'red !important',
+    color: 'rgba(41, 128, 185, 1)', //'red !important',
   },
   iconed: {
     color: 'rgba(251, 54, 74, 1) !important', //"green !important"

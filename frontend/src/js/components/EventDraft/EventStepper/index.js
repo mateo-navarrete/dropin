@@ -105,17 +105,20 @@ class WrappedComponent extends Component {
       ) : (
         ''
       );
-    console.log(classes.root);
+    console.log('@root', classes.root);
     return (
       <div>
-        <Stepper
-          activeStep={activeStep}
-          alternativeLabel
-          className={classes.root}
-        >
+        <Stepper activeStep={activeStep} alternativeLabel>
           {steps.map(label => (
             <Step key={label}>
-              <StepLabel>{label}</StepLabel>
+              <StepLabel
+                className={classes.stepLabel}
+                StepIconProps={{
+                  classes: { root: classes.icon },
+                }}
+              >
+                {label}
+              </StepLabel>
             </Step>
           ))}
         </Stepper>
