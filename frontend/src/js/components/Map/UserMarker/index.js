@@ -33,7 +33,6 @@ export class UserMarkerComponent extends React.Component {
   // };
 
   render(){
-  console.log("user marker!!", this.props)
   const { lat, lng } = this.props.position;
   // const image = {
   //   url: userMarkerIcon,
