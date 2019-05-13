@@ -30,7 +30,6 @@ export const View = ({
   showCoords,
   ...props,
 }) => {
-  console.log("Event Details View", props)
   let timeAgo = getTimeAgo(props.event.created_date);
   // const favoriteStatus = (
   //   <IconButton>
