@@ -24,7 +24,6 @@ export const UserMarker = ({ isMarkerShown, ...props }) => {
   // };
   const renderView =
     isMarkerShown && props.position.lat ? (
-      <Spiderfy>
       <Marker
         onClick={props.handleClick}
         position={{ lat: lat, lng: lng }}
@@ -36,7 +35,6 @@ export const UserMarker = ({ isMarkerShown, ...props }) => {
         }}
         id="UserMarker"
       />
-      </Spiderfy>
 
     ) : (
       ""
