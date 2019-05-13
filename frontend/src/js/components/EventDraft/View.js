@@ -1,5 +1,5 @@
 //jscs:disable requireShorthandArrowFunctions
-import React, { Component, Fragment as F } from 'react';
+import React from 'react';
 import { withStyles } from '../../containers';
 // import { EventDraftForm } from './EventDraftForm';
 import { EventStepper } from './EventStepper';

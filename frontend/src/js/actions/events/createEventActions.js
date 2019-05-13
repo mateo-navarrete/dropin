@@ -3,8 +3,9 @@ import {
   CREATING_EVENT,
   GOT_CREATE_EVENT_ERROR,
   GOT_CREATE_EVENT_SUCCESS
-} from "../../constants";
-import { postData } from "../../utils";
+} from '../../constants';
+import { postData } from '../../utils';
+import { getEvents, getUserEvents } from '..';
 import Geocode from "react-geocode";
 
 const creatingEvent = () => {
@@ -39,9 +40,18 @@ export const createEvent = eventDetails => dispatch => {
     .then(() => {
       postData(`/api/events`, newEventDetails)
         .then(res => {
+          console.log('@res', res);
           // let userData = res.data.data[0];
           dispatch(gotCreateEventSuccess(res.data));
-          newEventDetails = null;
+        })
+        .then(() => {
+          dispatch(
+            getEvents({
+              latitude: newEventDetails.latitude,
+              longitude: newEventDetails.longitude,
+            })
+          );
+          dispatch(getUserEvents({ user_name: newEventDetails.user_name }));
         })
         .catch(err => dispatch(gotCreateEventError(err)));
     });

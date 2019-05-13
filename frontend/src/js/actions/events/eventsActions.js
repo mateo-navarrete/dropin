@@ -3,10 +3,15 @@ import {
   GETTING_EVENTS,
   GOT_EVENTS_ERROR,
   GOT_EVENTS_SUCCESS,
-  GET_ADDRESS
+  GET_ADDRESS,
+  SET_MARKER_TYPE
 } from '../../constants';
 import { getData } from '../../utils';
 import Geocode from 'react-geocode';
+
+export const setMarkerType = markerType => {
+  return { type: SET_MARKER_TYPE, payload: markerType };
+};
 
 const gettingEvents = () => {
   return { type: GETTING_EVENTS };
