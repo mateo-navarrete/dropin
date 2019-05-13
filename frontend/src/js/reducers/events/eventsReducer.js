@@ -2,14 +2,16 @@ import {
   GETTING_EVENTS,
   GOT_EVENTS_ERROR,
   GOT_EVENTS_SUCCESS,
-  GET_ADDRESS
+  GET_ADDRESS,
+  SET_MARKER_TYPE
 } from "../../constants";
 
 const initState = {
   eventsList: [],
   errMsg: "",
   loading: false,
-  address: ""
+  address: "",
+  markerType: 'eventsList',
 };
 
 export const eventsReducer = (state = initState, action) => {
@@ -32,6 +34,9 @@ export const eventsReducer = (state = initState, action) => {
       return nextState;
     case GET_ADDRESS:
       nextState = { ...state, address: action.payload };
+      return nextState;
+    case SET_MARKER_TYPE:
+      nextState = { markerType: action.payload };
       return nextState;
     default:
       return state;
