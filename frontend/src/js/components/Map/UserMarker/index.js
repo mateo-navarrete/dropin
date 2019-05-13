@@ -35,9 +35,8 @@ export const UserMarker = ({ isMarkerShown, ...props }) => {
         }}
         id="UserMarker"
       />
-
     ) : (
       ""
     );
-  return <F>{renderView}</F>;
+  return <F>{renderView}</F>
 };
