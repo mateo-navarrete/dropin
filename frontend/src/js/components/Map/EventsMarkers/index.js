@@ -37,7 +37,6 @@ class EventsMarkersComponent extends Component {
   };
 
   render() {
-    console.log("Events Markers Index", this.props)
     const { showModal } = this.state;
     const { handleClick, ...props } = this.props;
     const colors = ['cyan', 'green', 'magenta'];
@@ -53,7 +52,6 @@ class EventsMarkersComponent extends Component {
     //     ? 'userHistory'
     //     : null;
     let renderList = props[props.markerType] || null;
-    console.log("Events Markers Render List", renderList)
 
     const renderLogin = this.props.user ? (
       <EventDraft handleClose={() => this.setShowModal(false)} />
