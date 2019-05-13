@@ -9,7 +9,7 @@ import { EventDetails } from "../../EventDetails";
 import { EventDraft } from "../../EventDraft";
 import { LogInForm } from "../../LogIn/LogInForm";
 import { withAuth } from "../../../containers";
-import { Marker } from "react-google-maps";
+import { Marker, MarkerClusterer } from "react-google-maps";
 
 class EventsMarkersComponent extends Component {
   constructor() {
@@ -21,10 +21,11 @@ class EventsMarkersComponent extends Component {
 
   setShowModal = open => {
     this.setState({ showModal: open });
-    console.log("Show modal triggered");
+    console.log("Show modal triggered", this.state.showModal);
   };
 
   render() {
+    console.log("Show Modal State", this.state.showModal)
     const { showModal } = this.state;
     const { handleClick, ...props } = this.props;
     const colors = ["cyan", "green", "magenta"];
@@ -77,7 +78,7 @@ class EventsMarkersComponent extends Component {
               />
               <Modal
               key={"modal" + e.id}
-                showModal={showModal}
+                showModal={this.state.showModal}
                 handleClose={() => this.setShowModal(false)}
               >
                 {this.props.isUserMarker ? (
@@ -93,7 +94,7 @@ class EventsMarkersComponent extends Component {
 
     return (
       <F>
-      <Spiderfy>
+      <Spiderfy onSpiderfyClick={() => this.setShowModal(true)}>
       {renderEvents}
       </Spiderfy>
       </F>
