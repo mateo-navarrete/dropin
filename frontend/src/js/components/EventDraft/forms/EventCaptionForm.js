@@ -9,7 +9,7 @@ export const EventCaptionForm = ({ classes, handleChange, caption }) => {
       onChange={handleChange}
       onSubmit={e => handleChange(e)}
     >
-      <FormControl margin="normal" required fullWidth>
+      <FormControl margin="normal" required fullWidth className={classes.form}>
         <InputLabel htmlFor="caption">Event Caption</InputLabel>
         <Input
           id="caption"

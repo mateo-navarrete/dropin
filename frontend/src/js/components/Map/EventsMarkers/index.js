@@ -1,27 +1,30 @@
 //jscs:disable requireShorthandArrowFunctions
-import React, { Component, Fragment as F } from "react";
+import React, { Component, Fragment as F } from 'react';
 // import { View } from './View';
-import { EventMarker } from "../../EventMarker";
-import Spiderfy from "../Spiderfy/Spiderfy.js";
+// import { EventMarker } from '../../EventMarker';
+import Spiderfy from '../Spiderfy/Spiderfy.js';
 // import { View } from "./../View";
-import { Modal } from "../../Modal";
-import { EventDetails } from "../../EventDetails";
-import { EventDraft } from "../../EventDraft";
-import { LogInForm } from "../../LogIn/LogInForm";
-import { withAuth } from "../../../containers";
-import { Marker, MarkerClusterer } from "react-google-maps";
+import { Modal } from '../../Modal';
+import { EventDetails } from '../../EventDetails';
+import { EventDraft } from '../../EventDraft';
+import { LogInForm } from '../../LogIn/LogInForm';
+import { withAuth } from '../../../containers';
+import {
+  Marker
+  // MarkerClusterer
+} from 'react-google-maps';
 
 class EventsMarkersComponent extends Component {
   constructor() {
     super();
     this.state = {
       showModal: false,
-      clickedEventID: ""
+      clickedEventID: '',
     };
   }
 
   setShowModal = (open, id) => {
-    if(id) {
+    if (id) {
       this.setState({ showModal: open, clickedEventID: id.toString() });
     } else {
       this.setState({ showModal: open });
@@ -36,18 +39,18 @@ class EventsMarkersComponent extends Component {
   render() {
     const { showModal } = this.state;
     const { handleClick, ...props } = this.props;
-    const colors = ["cyan", "green", "magenta"];
+    const colors = ['cyan', 'green', 'magenta'];
     const getRandomNum = n => (Math.random() * n) >> 0;
     const randomMarkerColor = colors[getRandomNum(colors.length)];
 
     let renderList =
       this.props.eventsList && this.props.eventsList.length
-        ? "eventsList"
+        ? 'eventsList'
         : this.props.userEventsList && this.props.userEventsList.length
-          ? "userEventsList" //switch to userEventsList later
-          : this.props.userHistory && this.props.userHistory.length
-            ? "userHistory"
-            : null;
+        ? 'userEventsList' //switch to userEventsList later
+        : this.props.userHistory && this.props.userHistory.length
+        ? 'userHistory'
+        : null;
 
     const renderLogin = this.props.user ? (
       <EventDraft handleClose={() => this.setShowModal(false)} />
@@ -69,9 +72,8 @@ class EventsMarkersComponent extends Component {
           // console.log("Even Markers Map", e);
           // let position = { lat: +e.latitude, lng: +e.longitude };
           return (
-            <F>
+            <F key={'event' + e.id}>
               <Marker
-                key={"event" + e.id}
                 id={e.id.toString()}
                 ref={e.id.toString()}
                 // label={e.id.toString()}
@@ -81,14 +83,14 @@ class EventsMarkersComponent extends Component {
                   url: require(`../../../../assets/marker_${randomMarkerColor}_pin.png`), //'/img/icon.svg',
                   scaledSize: new window.google.maps.Size(64, 64),
                   origin: new window.google.maps.Point(0, 0),
-                  anchor: new window.google.maps.Point(32, 64)
+                  anchor: new window.google.maps.Point(32, 64),
                 }}
                 animation={window.google.maps.Animation.DROP}
               />
             </F>
           );
         })
-      : "";
+      : '';
 
     let renderModal = renderList ? (
       <Modal
@@ -111,14 +113,12 @@ class EventsMarkersComponent extends Component {
             })}
       </Modal>
     ) : (
-      ""
+      ''
     );
 
     return (
       <F>
-        <Spiderfy onSpiderfyClick={this.setShowModal}>
-          {renderEvents}
-        </Spiderfy>
+        <Spiderfy onSpiderfyClick={this.setShowModal}>{renderEvents}</Spiderfy>
         {renderModal}
       </F>
     );

@@ -1,15 +1,15 @@
-import React, { Component, Fragment as F } from "react";
-import { View } from "./view";
-import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import React, { Component, Fragment as F } from 'react';
+import { View } from './view';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import {
   withDimensions,
   withGeolocation,
   withEvents,
   withUser
-} from "../../containers";
-const prepend = "https://maps.googleapis.com/maps/api/js?key=";
-const apiKey = "AIzaSyB5uKfMriNA73mQgW_ZRelAixBLEdqT-Xg"; //process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
-const append = "&v=3.exp&libraries=geometry,drawing,places";
+} from '../../containers';
+const prepend = 'https://maps.googleapis.com/maps/api/js?key=';
+const apiKey = 'AIzaSyB5uKfMriNA73mQgW_ZRelAixBLEdqT-Xg'; //process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+const append = '&v=3.exp&libraries=geometry,drawing,places';
 const mapURL = prepend + apiKey + append;
 
 const LoadingElement = <div style={{ height: `100%` }} />;
@@ -17,7 +17,7 @@ const MapElement = <div style={{ height: `100%` }} />;
 
 class WrappedComponent extends Component {
   state = {
-    isMarkerShown: true
+    isMarkerShown: true,
     // recenter: false,
   };
 
@@ -29,12 +29,12 @@ class WrappedComponent extends Component {
 
   handleUserMarkerClick = () => {
     // this.setState({ isMarkerShown: false });
-    console.log("REDUX props.eventDraft()");
+    console.log('REDUX props.eventDraft()');
   };
 
   handleEventsMarkersClick = el => {
     // this.setState({ isMarkerShown: true });
-    console.log("REDUX props.eventDetails()", el);
+    console.log('REDUX props.eventDetails()', el);
   };
 
   handleCenterClick = e => {
@@ -45,16 +45,19 @@ class WrappedComponent extends Component {
     //TODO => this.props.getGeolocation()
     // this.resetCenter();
   };
-
+  // style={{
+  //   height: this.props.mainHeight + this.props.footerHeight + 21,
+  //   overflow: "hidden"
+  // }}
   render() {
     const {
-      coords: { latitude, longitude }
+      coords: { latitude, longitude },
     } = this.props;
     const ContainerElement = (
       <div
         style={{
-          height: this.props.mainHeight + this.props.footerHeight + 21,
-          overflow: "hidden"
+          height: this.props.mainHeight + this.props.footerHeight,
+          overflow: 'hidden',
         }}
       />
     );
