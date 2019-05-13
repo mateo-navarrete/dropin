@@ -16,10 +16,14 @@ const LoadingElement = <div style={{ height: `100%` }} />;
 const MapElement = <div style={{ height: `100%` }} />;
 
 class WrappedComponent extends Component {
-  state = {
-    isMarkerShown: true,
-    // recenter: false,
-  };
+  constructor() {
+    super()
+    this.state = {
+      isMarkerShown: true,
+      showModal: false
+    }
+  }
+
 
   // resetCenter = () => {
   //   this.timeout2 = setTimeout(() => {
@@ -27,9 +31,12 @@ class WrappedComponent extends Component {
   //   }, 100);
   // };
 
-  handleUserMarkerClick = () => {
+  handleUserMarkerClick = (open) => {
     // this.setState({ isMarkerShown: false });
     console.log('REDUX props.eventDraft()');
+    this.setState({
+      showModal: open
+    });
   };
 
   handleEventsMarkersClick = el => {
@@ -84,6 +91,7 @@ class WrappedComponent extends Component {
             userEventsList={this.props.userEventsList}
             userHistory={this.props.userHistory}
             markerType={this.props.markerType}
+            showModal={this.state.showModal}
             {...this.props}
           />
         ) : (
