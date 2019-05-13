@@ -5,7 +5,7 @@ import {
   loginDemoUser,
   logoutUser
 } from './auth';
-import { createEvent, getEvents, setMarkerType } from './events';
+import { createEvent, getEvents, getAddress, setMarkerType } from './events';
 import { getGeolocation, getUserEvents } from './user';
 import { resizeDimensions } from './utils';
 
@@ -20,5 +20,6 @@ export {
   setMarkerType,
   getGeolocation,
   getUserEvents,
-  resizeDimensions
+  resizeDimensions,
+  getAddress
 };

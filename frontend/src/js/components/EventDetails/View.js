@@ -19,6 +19,7 @@ import { ProgressBar } from '../ProgressBar';
 import { getTimeAgo } from '../../utils';
 
 export const View = ({
+  address,
   name,
   position,
   user_name,
@@ -29,7 +30,7 @@ export const View = ({
   showCoords,
   ...props,
 }) => {
-  let timeAgo = getTimeAgo(created_date);
+  let timeAgo = getTimeAgo(props.event.created_date);
   // const favoriteStatus = (
   //   <IconButton>
   //     <FavoriteIcon fontSize="small" />
@@ -58,7 +59,7 @@ export const View = ({
     );
   const renderCoords = showCoords ? (
     <div>
-      {position.lat}, {position.lng}
+      {props.coords.latitude}, {props.coords.longitude}
     </div>
   ) : (
     ''
@@ -68,7 +69,7 @@ export const View = ({
       <div className="flex space-between align">
         <F>
           <Typography component="h1" variant="h5">
-            {props.event_name.toUpperCase()}
+            {props.event.event_name.toUpperCase()}
           </Typography>
         </F>
         <F>{renderOptions}</F>
@@ -79,10 +80,10 @@ export const View = ({
           <F>dropped {timeAgo} </F>
           <F>{renderCreater}</F>
         </div>
-        <ProgressBar start={created_date} end={expiration_date} />
+        <ProgressBar start={props.event.created_date} end={props.event.expiration_date} />
       </Typography>
       <Typography variant="subtitle1" gutterBottom>
-        Caption: {props.caption}
+        Caption: {props.event.caption}
       </Typography>
       <div className="flex space-around align">
         <Button variant="outlined" onClick={toggleShowCoords}>
@@ -90,7 +91,7 @@ export const View = ({
         </Button>
         {renderCoords}
       </div>
-      <div>TODO: Address</div>
+      <div>Address: {props.event.address}</div>
       <br />
       <Divider />
       <br />

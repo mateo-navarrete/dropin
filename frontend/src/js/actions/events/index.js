@@ -1,4 +1,4 @@
 import { createEvent } from './createEventActions';
-import { getEvents, setMarkerType } from './eventsActions';
+import { getEvents, getAddress, setMarkerType } from './eventsActions';
 
-export { createEvent, getEvents, setMarkerType };
+export { createEvent, getEvents, getAddress, setMarkerType };

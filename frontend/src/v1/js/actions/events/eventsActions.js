@@ -64,7 +64,6 @@ export const getAddress = (latitude, longitude) => dispatch => {
       let address = response.results[0].formatted_address;
       dispatch(get_address(address));
     },
-
     error => {
       console.error(error);
     }
