@@ -46,7 +46,6 @@ export const getEvents = ({url, latitude, longitude}) => dispatch => {
 };
 
 export const getAddress = ({latitude, longitude}) => dispatch => {
-  console.log("get Address - events actions", latitude)
   Geocode.setApiKey('AIzaSyB5uKfMriNA73mQgW_ZRelAixBLEdqT-Xg');
   Geocode.fromLatLng(`${latitude}`, `${longitude}`).then(
     response => {
