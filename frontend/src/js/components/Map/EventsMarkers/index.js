@@ -17,7 +17,9 @@ export const EventsMarkers = props => {
     console.log("render Events", renderEvents)
   return (
     <div>
+    <Spiderfy>
     {renderEvents}
+    </Spiderfy>
     </div>
   )
 };
