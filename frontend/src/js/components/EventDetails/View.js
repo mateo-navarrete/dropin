@@ -45,7 +45,15 @@ export const View = ({
     display_user,
     created_date,
     expiration_date,
-  }=event;
+
+  },
+  toggleShowCoords,
+  showCoords,
+  handleClose,
+  ...props,
+}) => {
+  console.log("event details view", address)
+
   let timeAgo = getTimeAgo(created_date);
   // const favoriteStatus = (
   //   <IconButton>
@@ -81,11 +89,15 @@ export const View = ({
   ) : (
     ''
   );
-  let street = 'address';
-  let zip = 'unavailable';
+
+  let street
+  let zip
   if (address) {
-    let [street, ...zip] = address.split(',');
+     [street, ...zip] = address.split(',');
     zip = zip.join(',');
+  } else {
+     street = 'address';
+     zip = 'unavailable';
   }
 
   return (

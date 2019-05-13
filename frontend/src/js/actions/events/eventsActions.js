@@ -33,12 +33,21 @@ const get_address = address => {
 
 export const getEvents = ({ url, latitude, longitude }) => dispatch => {
   // TODO: byRadius & notPrivate
-  let api = url ? url + '/' : '';
-  dispatch(gettingEvents());
-  getData(`/api/events/${api}?lat=${latitude}&lon=${longitude}`)
-    .then(res => dispatch(gotEventsSuccess(res.data.data)))
-    .catch(err => dispatch(gotEventsError(err)));
-};
+  if(url) {
+    console.log("Events Actions triggered", url)
+    dispatch(gettingEvents());
+    getData(`/api/events` + `/${url}/?lat=${latitude}&lon=${longitude}`)
+      .then(res => dispatch(gotEventsSuccess(res.data.data)))
+      .catch(err => dispatch(gotEventsError(err)));
+  } else {
+    console.log("Events Actions triggered", url)
+
+    dispatch(gettingEvents());
+    getData(`/api/events` + `/?lat=${latitude}&lon=${longitude}`)
+      .then(res => dispatch(gotEventsSuccess(res.data.data)))
+      .catch(err => dispatch(gotEventsError(err)));
+  }
+}
 
 export const getAddress = ({ latitude, longitude }) => dispatch => {
   Geocode.setApiKey('AIzaSyB5uKfMriNA73mQgW_ZRelAixBLEdqT-Xg');

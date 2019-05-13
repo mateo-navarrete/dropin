@@ -37,20 +37,23 @@ class EventsMarkersComponent extends Component {
   };
 
   render() {
+    console.log("Events Markers Index", this.props)
     const { showModal } = this.state;
     const { handleClick, ...props } = this.props;
     const colors = ['cyan', 'green', 'magenta'];
     const getRandomNum = n => (Math.random() * n) >> 0;
     const randomMarkerColor = colors[getRandomNum(colors.length)];
 
-    let renderList =
-      this.props.eventsList && this.props.eventsList.length
-        ? 'eventsList'
-        : this.props.userEventsList && this.props.userEventsList.length
-        ? 'userEventsList' //switch to userEventsList later
-        : this.props.userHistory && this.props.userHistory.length
-        ? 'userHistory'
-        : null;
+    // let renderList =
+    //   this.props.eventsList && this.props.eventsList.length
+    //     ? 'eventsList'
+    //     : this.props.userEventsList && this.props.userEventsList.length
+    //     ? 'userEventsList' //switch to userEventsList later
+    //     : this.props.userHistory && this.props.userHistory.length
+    //     ? 'userHistory'
+    //     : null;
+    let renderList = props[props.markerType] || null;
+    console.log("Events Markers Render List", renderList)
 
     const renderLogin = this.props.user ? (
       <EventDraft handleClose={() => this.setShowModal(false)} />
@@ -68,7 +71,7 @@ class EventsMarkersComponent extends Component {
     );
 
     let renderEvents = renderList
-      ? this.props[renderList].map(e => {
+      ? renderList.map(e => {
           // console.log("Even Markers Map", e);
           // let position = { lat: +e.latitude, lng: +e.longitude };
           return (
@@ -99,7 +102,7 @@ class EventsMarkersComponent extends Component {
       >
         {this.props.isUserMarker
           ? renderLogin
-          : this.props[renderList].map(e => {
+          : renderList.map(e => {
               if (e.id == this.state.clickedEventID) {
                 return (
                   <EventDetails
@@ -118,8 +121,8 @@ class EventsMarkersComponent extends Component {
 
     return (
       <F>
+      {renderModal}
         <Spiderfy onSpiderfyClick={this.setShowModal}>{renderEvents}</Spiderfy>
-        {renderModal}
       </F>
     );
   }
