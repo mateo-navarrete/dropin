@@ -14,6 +14,18 @@ import { withStyles } from '../../../containers';
 const styles = theme => ({
   main: {},
   paper: {},
+  cssLabel: {
+    color: 'rgba(41, 128, 185, 1)',
+    '&$cssFocused': {
+      color: 'rgba(41, 128, 185, 1)',
+    },
+  },
+  cssFocused: {},
+  cssUnderline: {
+    '&:after': {
+      borderBottomColor: 'rgba(41, 128, 185, 1)',
+    },
+  },
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing.unit,
@@ -39,7 +51,9 @@ const WrappedComponent = ({
   return (
     <form className={classes.form} onSubmit={handleSubmit}>
       <FormControl margin="normal" required fullWidth>
-        <InputLabel htmlFor="user_name">User Name</InputLabel>
+        <InputLabel htmlFor="user_name" className={classes.cssLabel}>
+          User Name
+        </InputLabel>
         <Input
           onChange={handleChange}
           id="user_name"
@@ -47,10 +61,13 @@ const WrappedComponent = ({
           value={user_name}
           autoComplete="off"
           autoFocus
+          className={classes.cssUnderline}
         />
       </FormControl>
       <FormControl margin="normal" required fullWidth>
-        <InputLabel htmlFor="adornment-password">Password</InputLabel>
+        <InputLabel htmlFor="adornment-password" className={classes.cssLabel}>
+          Password
+        </InputLabel>
         <Input
           name="password"
           id="password"
@@ -67,16 +84,20 @@ const WrappedComponent = ({
               </IconButton>
             </InputAdornment>
           }
+          className={classes.cssUnderline}
         />
       </FormControl>
       <FormControl margin="normal" required fullWidth>
-        <InputLabel htmlFor="user_name">Email</InputLabel>
+        <InputLabel htmlFor="user_name" className={classes.cssLabel}>
+          Email
+        </InputLabel>
         <Input
           onChange={handleChange}
           id="email"
           name="email"
           value={email}
           autoComplete="on"
+          className={classes.cssUnderline}
         />
       </FormControl>
       <Button

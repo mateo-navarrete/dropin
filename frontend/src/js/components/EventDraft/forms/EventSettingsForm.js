@@ -11,24 +11,40 @@ export const EventSettingsForm = ({
   return (
     <form className={classes.container}>
       <FormControl className={classes.formControl}>
-        <InputLabel htmlFor="display_user">Privacy</InputLabel>
+        <InputLabel htmlFor="display_user" className={classes.cssLabel}>
+          Privacy
+        </InputLabel>
         <Select
           native
           value={display_user}
           onChange={e => handleChange(e)}
-          input={<Input name='display_user' id="display_user" />}
+          input={
+            <Input
+              name="display_user"
+              id="display_user"
+              className={classes.cssUnderline}
+            />
+          }
         >
           <option value={0}>Make Private</option>
           <option value={1}>Make Public</option>
         </Select>
       </FormControl>
       <FormControl className={classes.formControl}>
-        <InputLabel htmlFor="duration">Duration</InputLabel>
+        <InputLabel htmlFor="duration" className={classes.cssLabel}>
+          Duration
+        </InputLabel>
         <Select
           native
           value={duration}
           onChange={handleChange}
-          input={<Input name='duration' id="duration" />}
+          input={
+            <Input
+              name="duration"
+              id="duration"
+              className={classes.cssUnderline}
+            />
+          }
         >
           <option value={1}>15 minutes</option>
           <option value={2}>30 minutes</option>

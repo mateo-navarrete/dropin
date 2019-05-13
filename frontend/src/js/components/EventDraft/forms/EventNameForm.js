@@ -10,7 +10,9 @@ export const EventNameForm = ({ classes, handleChange, event_name }) => {
       onSubmit={e => handleChange(e)}
     >
       <FormControl margin="normal" required fullWidth className={classes.form}>
-        <InputLabel htmlFor="event_name">Event Name</InputLabel>
+        <InputLabel htmlFor="event_name" className={classes.cssLabel}>
+          Event Name
+        </InputLabel>
         <Input
           id="event_name"
           name="event_name"
@@ -18,6 +20,7 @@ export const EventNameForm = ({ classes, handleChange, event_name }) => {
           value={event_name}
           autoFocus
           required
+          className={classes.cssUnderline}
         />
       </FormControl>
     </form>

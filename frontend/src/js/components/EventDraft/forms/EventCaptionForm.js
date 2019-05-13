@@ -10,7 +10,9 @@ export const EventCaptionForm = ({ classes, handleChange, caption }) => {
       onSubmit={e => handleChange(e)}
     >
       <FormControl margin="normal" required fullWidth className={classes.form}>
-        <InputLabel htmlFor="caption">Event Caption</InputLabel>
+        <InputLabel htmlFor="caption" className={classes.cssLabel}>
+          Event Caption
+        </InputLabel>
         <Input
           id="caption"
           name="caption"
@@ -18,6 +20,7 @@ export const EventCaptionForm = ({ classes, handleChange, caption }) => {
           value={caption}
           autoFocus
           required
+          className={classes.cssUnderline}
         />
       </FormControl>
     </form>
