@@ -37,6 +37,7 @@ export const View = ({
   handleClose,
   ...props,
 }) => {
+  console.log("event details view", address)
   let timeAgo = getTimeAgo(created_date);
   // const favoriteStatus = (
   //   <IconButton>
@@ -71,6 +72,7 @@ export const View = ({
   ) : (
     ''
   );
+
   let street = 'address';
   let zip = 'unavailable';
   if (address) {
