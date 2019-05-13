@@ -15,7 +15,8 @@ class EventsMarkersComponent extends Component {
   constructor() {
     super();
     this.state = {
-      showModal: false
+      showModal: false,
+      clickedEventID: ""
     };
   }
 
@@ -24,8 +25,17 @@ class EventsMarkersComponent extends Component {
     console.log("Show modal triggered", this.state.showModal);
   };
 
+  onSpiderfyClick = (open, id) => {
+    console.log("On Spiderfy Click triggered");
+    console.log("On Spiderfy Click ID", id);
+    this.setState({ clickedEventID: id.toString() });
+    this.setShowModal(open);
+
+  };
+
   render() {
-    console.log("Show Modal State", this.state.showModal)
+    console.log("Show Modal State", this.state.showModal);
+    console.log("Clicked Event ID", this.state.clickedEventID);
     const { showModal } = this.state;
     const { handleClick, ...props } = this.props;
     const colors = ["cyan", "green", "magenta"];
@@ -52,9 +62,11 @@ class EventsMarkersComponent extends Component {
     const renderView = this.props.isUserMarker ? (
       renderLogin
     ) : (
-      <EventDetails handleClose={() => this.setShowModal(false)} {...this.props} />
+      <EventDetails
+        handleClose={() => this.setShowModal(false)}
+        {...this.props}
+      />
     );
-
 
     let renderEvents = renderList
       ? this.props[renderList].map(e => {
@@ -64,9 +76,10 @@ class EventsMarkersComponent extends Component {
             <F>
               <Marker
                 key={"event" + e.id}
-                position={
-                  { lat: +e.latitude, lng: +e.longitude }
-                }
+                id={e.id.toString()}
+                ref={e.id.toString()}
+                // label={e.id.toString()}
+                position={{ lat: +e.latitude, lng: +e.longitude }}
                 onDblClick={() => this.setShowModal(true)}
                 icon={{
                   url: require(`../../../../assets/marker_${randomMarkerColor}_pin.png`), //'/img/icon.svg',
@@ -76,29 +89,43 @@ class EventsMarkersComponent extends Component {
                 }}
                 animation={window.google.maps.Animation.DROP}
               />
-              <Modal
-              key={"modal" + e.id}
-                showModal={this.state.showModal}
-                handleClose={() => this.setShowModal(false)}
-              >
-                {this.props.isUserMarker ? (
-                  renderLogin
-                ) : (
-                  <EventDetails handleClose={() => this.setShowModal(false)} event={e} {...this.props} />
-                )}
-              </Modal>
-              </F>
+            </F>
           );
         })
       : "";
 
+    let renderModal = renderList ? (
+      <Modal
+        showModal={this.state.showModal}
+        handleClose={() => this.setShowModal(false)}
+      >
+        {this.props.isUserMarker
+          ? renderLogin
+          : this.props[renderList].map(e => {
+              console.log("render modal e", e);
+              if (e.id == this.state.clickedEventID) {
+                return (
+                  <EventDetails
+                    handleClose={() => this.setShowModal(false)}
+                    event={e}
+                    {...this.props}
+                  />
+                );
+              }
+            })}
+      </Modal>
+    ) : (
+      ""
+    );
+
     return (
       <F>
-      <Spiderfy onSpiderfyClick={() => this.setShowModal(true)}>
-      {renderEvents}
-      </Spiderfy>
+        <Spiderfy onSpiderfyClick={this.onSpiderfyClick}>
+          {renderEvents}
+        </Spiderfy>
+        {renderModal}
       </F>
-    )
+    );
   }
 }
 export const EventsMarkers = withAuth(EventsMarkersComponent);
