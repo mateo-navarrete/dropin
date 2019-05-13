@@ -15,7 +15,6 @@ import  Spiderfy from "../Spiderfy/Spiderfy"
 // };
 
 export const UserMarker = ({ isMarkerShown, ...props }) => {
-  console.log("user marker", props);
   const { lat, lng } = props.position;
   // const image = {
   //   url: userMarkerIcon,
