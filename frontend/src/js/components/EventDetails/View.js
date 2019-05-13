@@ -29,7 +29,7 @@ export const View = ({
   longitude,
   ...props,
 }) => {
-  console.log("event details triggered")
+  console.log("event details triggered", props)
   // let eventCoords = {latitude: position.lat, longitude: position.lng}
   let timeAgo = moment(created_date).fromNow();
   // console.log(props, timeAgo);
