@@ -19,8 +19,7 @@ const styles = theme => ({
   },
 });
 
-const WrappedComponent = ({ classes, name, ...props }) => {
-  // console.log('props', props);
+const WrappedComponent = ({ classes, name, userHistory, ...props }) => {
   return (
     <List className={classes.root}>
       <ListItem>
@@ -29,7 +28,10 @@ const WrappedComponent = ({ classes, name, ...props }) => {
             <PersonIcon />
           </Avatar>
         </IconButton>
-        <ListItemText primary={name.toUpperCase()} secondary={`drops: ${name.length}`} />
+        <ListItemText
+          primary={name.toUpperCase()}
+          secondary={`drops: ${userHistory.length}`}
+        />
       </ListItem>
     </List>
   );
