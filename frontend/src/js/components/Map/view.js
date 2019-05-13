@@ -10,6 +10,7 @@ import Spiderfy from './Spiderfy/Spiderfy'
 
 const WrappedComponent = props => {
   let centerCoords = {lat: +props.userCoords.lat, lng: +props.userCoords.lng}
+  console.log("maps props", props)
   return (
     <GoogleMap
       center={centerCoords}
