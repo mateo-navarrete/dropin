@@ -1,6 +1,6 @@
 -- DROP DATABASE IF EXISTS dropin_data;
 -- CREATE DATABASE dropin_data;
---
+
 -- \c dropin_data;
 
 CREATE TABLE users (

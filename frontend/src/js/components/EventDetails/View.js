@@ -1,6 +1,7 @@
 //jscs:disable requireShorthandArrowFunctions
 import React, { Fragment as F } from 'react';
 import { EventsExit } from '../EventsExit';
+// import { deleteEvent } from '../../actions';
 import {
   Button,
   // Paper,
@@ -18,9 +19,22 @@ import {
 import { ProgressBar } from '../ProgressBar';
 import { getTimeAgo } from '../../utils';
 
+// import { deleteEvent } from '../actions/eventActions'
+
 export const View = ({
   name,
-  event: {
+  event,
+  toggleShowCoords,
+  showCoords,
+  handleClose,
+  coords,
+  
+  ...props,
+}) => {
+  console.log(props);
+  let u_name = props.user_name;
+  const {
+    id,
     address,
     caption,
     event_name,
@@ -31,6 +45,7 @@ export const View = ({
     display_user,
     created_date,
     expiration_date,
+
   },
   toggleShowCoords,
   showCoords,
@@ -38,6 +53,7 @@ export const View = ({
   ...props,
 }) => {
   console.log("event details view", address)
+
   let timeAgo = getTimeAgo(created_date);
   // const favoriteStatus = (
   //   <IconButton>
@@ -48,8 +64,9 @@ export const View = ({
   const renderOptions =
     user_name === name ? (
       <div className="flex align">
-        <IconButton>
-          <DeleteIcon fontSize="small" />
+        <IconButton onClick={() => {props.deleteEvent({id, coords, user_name: u_name});
+        handleClose()}}>
+          <DeleteIcon fontSize="small"/>
         </IconButton>
       </div>
     ) : (

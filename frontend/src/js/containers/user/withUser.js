@@ -1,7 +1,7 @@
 //jscs:disable requireShorthandArrowFunctions
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createEvent, setMarkerType } from '../../actions';
+import { createEvent, setMarkerType, deleteEvent } from '../../actions';
 
 const mapStateToProps = ({ auth, events, user }) => {
   return {
@@ -23,6 +23,7 @@ const mapStateToProps = ({ auth, events, user }) => {
 const mapDispatchToProps = dispatch => {
   return {
     createEvent: eventDetails => dispatch(createEvent(eventDetails)),
+    deleteEvent: userEventsList => dispatch(deleteEvent(userEventsList)),
     setMarkerType: markerType => dispatch(setMarkerType(markerType)),
   };
 };
