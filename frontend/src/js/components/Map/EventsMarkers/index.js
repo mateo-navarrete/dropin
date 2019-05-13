@@ -20,22 +20,20 @@ class EventsMarkersComponent extends Component {
     };
   }
 
-  setShowModal = open => {
-    this.setState({ showModal: open });
-    console.log("Show modal triggered", this.state.showModal);
+  setShowModal = (open, id) => {
+    if(id) {
+      this.setState({ showModal: open, clickedEventID: id.toString() });
+    } else {
+      this.setState({ showModal: open });
+    }
   };
 
   onSpiderfyClick = (open, id) => {
-    console.log("On Spiderfy Click triggered");
-    console.log("On Spiderfy Click ID", id);
-    this.setState({ clickedEventID: id.toString() });
+    // this.setState({ clickedEventID: id.toString() });
     this.setShowModal(open);
-
   };
 
   render() {
-    console.log("Show Modal State", this.state.showModal);
-    console.log("Clicked Event ID", this.state.clickedEventID);
     const { showModal } = this.state;
     const { handleClick, ...props } = this.props;
     const colors = ["cyan", "green", "magenta"];
@@ -50,8 +48,6 @@ class EventsMarkersComponent extends Component {
           : this.props.userHistory && this.props.userHistory.length
             ? "userHistory"
             : null;
-    // console.log(renderList, this.props);
-    // console.log("Event Markers Render List", renderList);
 
     const renderLogin = this.props.user ? (
       <EventDraft handleClose={() => this.setShowModal(false)} />
@@ -102,13 +98,13 @@ class EventsMarkersComponent extends Component {
         {this.props.isUserMarker
           ? renderLogin
           : this.props[renderList].map(e => {
-              console.log("render modal e", e);
               if (e.id == this.state.clickedEventID) {
                 return (
                   <EventDetails
                     handleClose={() => this.setShowModal(false)}
                     event={e}
                     {...this.props}
+                    key={e.id}
                   />
                 );
               }
@@ -120,7 +116,7 @@ class EventsMarkersComponent extends Component {
 
     return (
       <F>
-        <Spiderfy onSpiderfyClick={this.onSpiderfyClick}>
+        <Spiderfy onSpiderfyClick={this.setShowModal}>
           {renderEvents}
         </Spiderfy>
         {renderModal}
