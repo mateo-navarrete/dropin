@@ -61,7 +61,7 @@ CREATE TABLE reports (
 INSERT INTO users (user_name, password_digest, email) VALUES ('pursuit', '$2a$10$9eZBe6FRcdBRlK8pv7lE2.ptT9XiqnUWxVJv.nZx61JNyBWzFrsri', 'pursuit@pursuit.org'), ('demo', '$2a$10$9eZBe6FRcdBRlK8pv7lE2.ptT9XiqnUWxVJv.nZx61JNyBWzFrsri', 'demo@demo.com');
 
 INSERT INTO events (user_id, latitude, longitude, display_user, event_name, caption)
-VALUES ( 1, 40.7622514, -73.92665079999999, 'true', 'My Family Event', 'Fun get together' ),
+VALUES
 ( 1, 40.742431, -73.938770, 'true',  'My Party Event', 'So fun' ),
 ( 2, 40.742431, -73.938770, 'true',  'My Sports Event', 'team squad battle drillz' ),
 ( 1, 40.7622, -73.92665, 'true',  'Family Fun', 'for everyone' ),
@@ -72,6 +72,6 @@ VALUES ( 1, 40.7622514, -73.92665079999999, 'true', 'My Family Event', 'Fun get 
 ( 2, 40.741431, -73.938870, 'true',  'smash tourney 2000', 'big money no hanzo mains' )
 ;
 
--- UPDATE events SET expiration_date = created_date + INTERVAL '15' MINUTE;
+UPDATE events SET expiration_date = created_date + INTERVAL '15' MINUTE;
 
-UPDATE events SET expiration_date = created_date + INTERVAL '2' HOUR;
+-- UPDATE events SET expiration_date = created_date + INTERVAL '2' HOUR;

@@ -3,17 +3,18 @@ import React from 'react';
 import { NewPinIcon } from '../../material';
 import { ChildListItem } from '../../utils';
 
-export const View = ({ getEvents, handleClose, ...props }) => {
+export const View = ({ getEvents, handleClose, setMarkerType, ...props }) => {
   let eventObj = {
-    url: "recent",
+    url: 'recent',
     latitude: props.coords.latitude,
-    longitude: props.coords.longitude
-  }
+    longitude: props.coords.longitude,
+  };
   return (
     <ChildListItem
       primaryText="Just Dropped"
       handleClick={() => {
         getEvents(eventObj);
+        setMarkerType('eventsList');
         handleClose();
       }}
     >

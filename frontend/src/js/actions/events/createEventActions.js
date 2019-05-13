@@ -5,6 +5,7 @@ import {
   GOT_CREATE_EVENT_SUCCESS
 } from '../../constants';
 import { postData } from '../../utils';
+import { getEvents, getUserEvents } from '..';
 
 const creatingEvent = () => {
   return { type: CREATING_EVENT };
@@ -19,7 +20,7 @@ const gotCreateEventSuccess = events => {
   return { type: GOT_CREATE_EVENT_SUCCESS, payload: events };
 };
 
-export const createEvent = (eventDetails) => dispatch => {
+export const createEvent = eventDetails => dispatch => {
   dispatch(creatingEvent());
   // postData(`/api/events/user/${eventDetails.user_name}`)
   console.log('@createEvent', eventDetails);
@@ -28,6 +29,15 @@ export const createEvent = (eventDetails) => dispatch => {
       console.log('@res', res);
       // let userData = res.data.data[0];
       dispatch(gotCreateEventSuccess(res.data));
+    })
+    .then(() => {
+      dispatch(
+        getEvents({
+          latitude: eventDetails.latitude,
+          longitude: eventDetails.longitude,
+        })
+      );
+      dispatch(getUserEvents({ user_name: eventDetails.user_name }));
     })
     .catch(err => dispatch(gotCreateEventError(err)));
 };
