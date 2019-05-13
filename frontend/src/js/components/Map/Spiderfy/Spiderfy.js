@@ -26,31 +26,33 @@ class Spiderfy extends React.Component {
 
   markerRef = () => {
     return React.Children.map(this.props.children, child => {
-      console.log("spiderfy child", child.props.children[0]);
-      return React.cloneElement(child.props.children[0], {
-        ref: this.markerNodeMounted
+      console.log("spiderfy child", child.props.children.props.id);
+      return React.cloneElement(child.props.children, {
+        ref: this.markerNodeMounted,
+        id: child.props.children.props.id
       });
     });
   };
 
-  modalRender = () => {
-    return React.Children.map(this.props.children, child => {
-      console.log("spiderfy child", child.props.children[1]);
-      return React.cloneElement(child.props.children[1]);
-    });
-  };
+  // modalRender = () => {
+  //   return React.Children.map(this.props.children, child => {
+  //     console.log("spiderfy child", child.props.children[1]);
+  //     return React.cloneElement(child.props.children[1]);
+  //   });
+  // };
 
-  markerNodeMounted = ref => {
+  markerNodeMounted = (ref, id) => {
     console.log("@Marker ref", ref);
+    console.log("@Marker id", ref.props.id);
     if (ref) {
       console.log("ref ref", ref);
-      this.tempMarkerFn(ref);
+      this.tempMarkerFn(ref, ref.props.id);
     } else {
       console.log("no ref no ref", ref);
     }
   };
 
-  tempMarkerFn = ref => {
+  tempMarkerFn = (ref, id) => {
     let marker;
     marker = ref.state[MARKER];
     console.log("Spiderfy Marker", marker);
@@ -62,8 +64,10 @@ class Spiderfy extends React.Component {
         this.props.onSpiderClick(e);
       } else {
         let markerId = marker;
-        console.log("Spidferfy clicked option 2", marker);
-        this.props.onSpiderfyClick(true);
+        console.log("Spidferfy clicked option 2", id);
+        console.log("Spidferfy clicked option 2-2", e);
+
+        this.props.onSpiderfyClick(true, id);
       }
     });
   };
@@ -73,7 +77,6 @@ class Spiderfy extends React.Component {
     return (
       <F>
         {this.props.children ? this.markerRef() : null}
-        {this.props.children ? this.modalRender() : null}
       </F>
     );
   }
