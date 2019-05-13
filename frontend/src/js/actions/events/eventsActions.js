@@ -35,16 +35,16 @@ export const getEvents = ({url, latitude, longitude}) => dispatch => {
 
 };
 
-export const deleteEvent  = (id) => dispatch => {
-  console.log('hell2pay');
-  deleteData(`/api/events/${id}`, res => {
-    let handleres = () => {
-      console.log(res);
-    };
-    console.log(handleres);
-    // if(res.status ==="success"){
-    //   console.log(res.status + ' #2');
-    // }
+export const deleteEvent  = (id, url) => dispatch => {
+  console.log('delete');
+  deleteData(`/api/events/${id}`)
+  .then((res) => {
+    if(res.data.status ==="success"){
+      console.log(res.data.message);
+      dispatch(getEvents(url))
+      //hide Modal Box
+      //get all events again
+    }
   })
 // deleteData(`/api/events/${id}`, res => {
 //     console.log(res.status);
