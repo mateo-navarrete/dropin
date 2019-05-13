@@ -45,8 +45,13 @@ class Spiderfy extends React.Component {
   };
 
   render() {
-    return React.Children.map(this.props.children, child =>
+    console.log("Spiderfy children", this.props.children)
+    return React.Children.map(this.props.children, child => {
+      console.log("spiderfy child", child)
+      return (
       React.cloneElement(child, { ref: this.markerNodeMounted })
+    )
+    }
     );
   }
 }
