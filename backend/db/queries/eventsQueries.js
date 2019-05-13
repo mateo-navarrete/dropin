@@ -251,18 +251,18 @@ const updateEvent = (req, res, next) => {
     .then(() => {
       res.send({
         status: 'success',
-        message: `updated event: ${JSON.stringify(eventObj)}`
+        message: `updated event: ${JSON.stringify(eventObj)}`,
       });
     })
     .catch(err => next(err));
 };
 
 const deleteEvent = (req, res, next) => {
-  db.none("DELETE FROM events WHERE id=$1", +req.params.id)
+  db.none('DELETE FROM events WHERE id=$1', +req.params.id)
     .then(() => {
       res.status(200).json({
-        status: "success",
-        message: `deleted event: ${req.params.id}`
+        status: 'success',
+        message: `deleted event: ${req.params.id}`,
       });
     })
     .catch(err => next(err));
@@ -278,7 +278,7 @@ module.exports = {
   updateEvent,
   deleteEvent,
   uploadVideo,
-  getVideo
+  getVideo,
 };
 
 // TODO:
