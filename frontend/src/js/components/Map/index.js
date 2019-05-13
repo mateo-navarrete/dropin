@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment as F } from 'react';
 import { View } from './view';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import {
   withDimensions,
   withGeolocation,
@@ -17,21 +18,21 @@ const MapElement = <div style={{ height: `100%` }} />;
 class WrappedComponent extends Component {
   state = {
     isMarkerShown: true,
-    recenter: false,
+    // recenter: false,
   };
 
-  resetCenter = () => {
-    this.timeout2 = setTimeout(() => {
-      this.setState({ recenter: false });
-    }, 100);
-  };
+  // resetCenter = () => {
+  //   this.timeout2 = setTimeout(() => {
+  //     this.setState({ recenter: false });
+  //   }, 100);
+  // };
 
   handleUserMarkerClick = () => {
     // this.setState({ isMarkerShown: false });
     console.log('REDUX props.eventDraft()');
   };
 
-  handleEventsMarkersClick = (el) => {
+  handleEventsMarkersClick = el => {
     // this.setState({ isMarkerShown: true });
     console.log('REDUX props.eventDetails()', el);
   };
@@ -44,7 +45,10 @@ class WrappedComponent extends Component {
     //TODO => this.props.getGeolocation()
     // this.resetCenter();
   };
-
+  // style={{
+  //   height: this.props.mainHeight + this.props.footerHeight + 21,
+  //   overflow: "hidden"
+  // }}
   render() {
     const {
       coords: { latitude, longitude },
@@ -52,7 +56,7 @@ class WrappedComponent extends Component {
     const ContainerElement = (
       <div
         style={{
-          height: this.props.mainHeight + this.props.footerHeight + 21,
+          height: this.props.mainHeight + this.props.footerHeight,
           overflow: 'hidden',
         }}
       />
@@ -60,27 +64,32 @@ class WrappedComponent extends Component {
     let gotUserCoords = latitude ? true : false;
     let userCoords = { lat: latitude, lng: longitude };
 
-    // console.log('@', this.props.eventsList);
-
+    // recenter={this.state.recenter}
     return (
-      <View
-        gotUserCoords={gotUserCoords}
-        userCoords={userCoords}
-        recenter={this.state.center}
-        center={userCoords}
-        isMarkerShown={this.state.isMarkerShown}
-        onUserMarkerClick={this.handleUserMarkerClick}
-        onEventsMarkersClick={this.handleEventsMarkersClick}
-        onCenterClick={this.handleCenterClick}
-        googleMapURL={mapURL}
-        loadingElement={LoadingElement}
-        containerElement={ContainerElement}
-        mapElement={MapElement}
-        eventsList={this.props.eventsList}
-        userEventsList={this.props.userEventsList}
-        userHistory={this.props.userHistory}
-        {...this.props}
-      />
+      <F>
+        {gotUserCoords ? (
+          <View
+            gotUserCoords={gotUserCoords}
+            userCoords={userCoords}
+            center={userCoords}
+            isMarkerShown={this.state.isMarkerShown}
+            onUserMarkerClick={this.handleUserMarkerClick}
+            onEventsMarkersClick={this.handleEventsMarkersClick}
+            onCenterClick={this.handleCenterClick}
+            googleMapURL={mapURL}
+            loadingElement={LoadingElement}
+            containerElement={ContainerElement}
+            mapElement={MapElement}
+            eventsList={this.props.eventsList}
+            userEventsList={this.props.userEventsList}
+            userHistory={this.props.userHistory}
+            markerType={this.props.markerType}
+            {...this.props}
+          />
+        ) : (
+          <LoadingSpinner />
+        )}
+      </F>
     );
   }
 }

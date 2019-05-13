@@ -40,6 +40,10 @@ class WrappedComponent extends Component {
   handleReset = () => {
     this.setState({
       activeStep: 0,
+      event_name: '',
+      caption: '',
+      duration: 1,
+      display_user: 'true',
     });
   };
 
@@ -101,9 +105,14 @@ class WrappedComponent extends Component {
       ) : (
         ''
       );
+    console.log(classes.root);
     return (
-      <div className={classes.root}>
-        <Stepper activeStep={activeStep} alternativeLabel>
+      <div>
+        <Stepper
+          activeStep={activeStep}
+          alternativeLabel
+          className={classes.root}
+        >
           {steps.map(label => (
             <Step key={label}>
               <StepLabel>{label}</StepLabel>

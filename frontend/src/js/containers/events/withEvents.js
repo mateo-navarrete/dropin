@@ -1,10 +1,17 @@
 //jscs:disable requireShorthandArrowFunctions
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { getAddress } from '../../actions';
 
 const mapStateToProps = ({ events }) => {
   return {
-    eventsList: events.eventsList,
+    eventsList: events.eventsList
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getAddress: eventCoords => dispatch(getAddress(eventCoords)),
   };
 };
 
@@ -16,6 +23,6 @@ export const withEvents = WrappedComponent => {
   }
   return connect(
     mapStateToProps,
-    null
+    mapDispatchToProps
   )(HOC);
 };

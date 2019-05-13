@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { authReducer } from './auth';
-import { createEventReducer, eventsReducer } from './events';
+import { eventsReducer } from './events';
 import { userReducer } from './user';
 import { dimensionsReducer } from './utils';
 

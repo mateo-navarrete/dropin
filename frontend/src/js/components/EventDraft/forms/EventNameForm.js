@@ -9,7 +9,7 @@ export const EventNameForm = ({ classes, handleChange, event_name }) => {
       onChange={handleChange}
       onSubmit={e => handleChange(e)}
     >
-      <FormControl margin="normal" required fullWidth>
+      <FormControl margin="normal" required fullWidth className={classes.form}>
         <InputLabel htmlFor="event_name">Event Name</InputLabel>
         <Input
           id="event_name"

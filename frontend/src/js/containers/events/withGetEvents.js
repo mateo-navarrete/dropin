@@ -1,7 +1,7 @@
 //jscs:disable requireShorthandArrowFunctions
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getEvents, deleteEvent } from '../../actions';
+import { getEvents, deleteEvent, setMarkerType } from '../../actions';
 
 const mapStateToProps = ({ events, user: { geolocation } }) => {
   return {
@@ -13,7 +13,8 @@ const mapStateToProps = ({ events, user: { geolocation } }) => {
 const mapDispatchToProps = dispatch => {
   return {
     getEvents: api => dispatch(getEvents(api)),
-    deleteEvent: userEventsList => dispatch(deleteEvent(userEventsList))
+    deleteEvent: userEventsList => dispatch(deleteEvent(userEventsList)),
+    setMarkerType: markerType => dispatch(setMarkerType(markerType))
   };
 };
 

@@ -25,7 +25,7 @@ export const userEventsReducer = (state = initState, action) => {
       nextState = {
         ...state,
         eventsList: action.payload.active || [],
-        history: action.payload.history,
+        history: action.payload.history || [],
         errMsg: '',
         loading: false,
       };

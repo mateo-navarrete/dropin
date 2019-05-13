@@ -14,7 +14,7 @@ const LoadingSpinner = props => {
     <img
       src={require('../../../assets/dropin-logo-wide.png')}
       alt="dropin"
-      style={{height: '10%', width: '10%', paddingTop: '15%'}}
+      style={{height: "200px", width: "auto", paddingTop: '15%'}}
     />
       <GridLoader
         css={override}
@@ -23,7 +23,7 @@ const LoadingSpinner = props => {
         color={"#FB354A"}
         loading={!props.latitude}
       />
-    <p>Loading Locale Events Around You...</p>
+    <p>Loading Local Events Around You...</p>
     </>
   );
 };
