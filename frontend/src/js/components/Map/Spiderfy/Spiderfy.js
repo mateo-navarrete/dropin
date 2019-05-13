@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { MAP, MARKER } from 'react-google-maps/lib/constants';
+import React from "react";
+import PropTypes from "prop-types";
+import { MAP, MARKER } from "react-google-maps/lib/constants";
 // import { withOverlay } from '../../containers';
 
 class Spiderfy extends React.Component {
   static contextTypes = {
-    [MAP]: PropTypes.object,
+    [MAP]: PropTypes.object
   };
 
   constructor(props, context) {
@@ -20,24 +20,24 @@ class Spiderfy extends React.Component {
     });
   }
 
-  markerNodeMounted = (ref) => {
+  markerNodeMounted = ref => {
     // console.log('@Marker',ref, ref.state)
     if (ref.state) {
-      console.log("ref ref", ref)
+      console.log("ref ref", ref);
       this.tempMarkerFn(ref);
     } else {
-      console.log("no ref no ref", ref)
+      console.log("no ref no ref", ref);
     }
   };
 
   tempMarkerFn = ref => {
     let marker;
     marker = ref.state[MARKER];
-    console.log("Spiderfy Marker", marker)
+    console.log("Spiderfy Marker", marker);
     this.oms.addMarker(marker);
-    window.google.maps.event.addListener(marker, 'spider_click', e => {
+    window.google.maps.event.addListener(marker, "spider_click", e => {
       if (this.props.onSpiderClick) {
-        console.log("Spidferfy clicked e", e)
+        console.log("Spidferfy clicked e", e);
         this.props.onSpiderClick(e);
       } else {
         let markerId = marker.label;
@@ -46,9 +46,12 @@ class Spiderfy extends React.Component {
   };
 
   render() {
-    return React.Children.map(this.props.children, child =>
-      React.cloneElement(child, { ref: this.markerNodeMounted })
-    );
+    console.log("spiderfy children", this.props.children);
+    return React.Children.map(this.props.children, child => {
+      return React.cloneElement(child.props.children[0], {
+        ref: this.markerNodeMounted
+      });
+    });
   }
 }
 
