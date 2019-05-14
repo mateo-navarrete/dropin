@@ -19,7 +19,8 @@ const WrappedComponent = ({ children, classes, height, ...props }) => {
       >
         <Toolbar
           style={{
-            margin: 0,
+            marginRight: 40,
+            marginLeft: 40,
             height: height,
             display: 'flex',
             justifyContent: 'space-around',
