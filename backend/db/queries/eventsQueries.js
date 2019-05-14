@@ -62,7 +62,7 @@ const getUserEvents = (req, res, next) => {
     username: req.params.username,
   };
   db.any(
-    'SELECT a.active, h.history FROM   users u LEFT JOIN LATERAL (SELECT json_agg(a) AS active FROM (SELECT * FROM events e WHERE e.user_id = (SELECT id FROM users u WHERE u.user_name = ${username} AND expiration_date > CURRENT_TIMESTAMP)) a) a ON TRUE LEFT JOIN LATERAL (SELECT json_agg(h) AS history FROM (SELECT * FROM   events e WHERE  e.user_id = (SELECT id FROM users u WHERE u.user_name = ${username} AND expiration_date <= CURRENT_TIMESTAMP)) h) h ON TRUE WHERE u.id = (SELECT id FROM users u WHERE u.user_name = ${username})',
+    'SELECT a.active, h.history FROM   users u LEFT JOIN LATERAL (SELECT json_agg(a) AS active FROM (SELECT *, (SELECT user_name FROM users AS u WHERE u.user_name = ${username}) AS user_name FROM events e WHERE e.user_id = (SELECT id FROM users u WHERE u.user_name = ${username} AND expiration_date > CURRENT_TIMESTAMP)) a) a ON TRUE LEFT JOIN LATERAL (SELECT json_agg(h) AS history FROM (SELECT *, (SELECT user_name FROM users AS u WHERE u.user_name = ${username}) AS user_name FROM events e WHERE  e.user_id = (SELECT id FROM users u WHERE u.user_name = ${username}  AND expiration_date <= CURRENT_TIMESTAMP)) h) h ON TRUE WHERE u.id = (SELECT id FROM users u WHERE u.user_name = ${username})',
     eventObj
   )
     .then(data => {
