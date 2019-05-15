@@ -23,7 +23,7 @@ export const getUserEvents = ({ user_name }) => dispatch => {
   dispatch(gettingUserEvents());
   getData(`/api/events/user/${user_name}`)
     .then(res => {
-      console.log("get user events")
+      console.log("get user events", res.data.data[0])
       let userData = res.data.data[0];
       dispatch(gotUserEventsSuccess(userData));
     })

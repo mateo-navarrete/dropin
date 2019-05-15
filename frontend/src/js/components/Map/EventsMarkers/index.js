@@ -13,6 +13,7 @@ import {
   Marker
   // MarkerClusterer
 } from 'react-google-maps';
+import event_marker_red_png from "../../../../assets/event_marker_red_png.png"
 
 class EventsMarkersComponent extends Component {
   constructor() {
@@ -81,10 +82,8 @@ class EventsMarkersComponent extends Component {
                 position={{ lat: +e.latitude, lng: +e.longitude }}
                 onDblClick={() => this.setShowModal(true)}
                 icon={{
-                  url: require(`../../../../assets/marker_${randomMarkerColor}_pin.png`), //'/img/icon.svg',
-                  scaledSize: new window.google.maps.Size(64, 64),
-                  origin: new window.google.maps.Point(0, 0),
-                  anchor: new window.google.maps.Point(32, 64),
+                  url: require("../../../../assets/event_marker_red_png.png"), //'/img/icon.svg',
+                  scaledSize: new window.google.maps.Size(65, 65),
                 }}
                 animation={window.google.maps.Animation.DROP}
               />
