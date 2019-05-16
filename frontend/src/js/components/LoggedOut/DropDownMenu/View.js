@@ -34,28 +34,29 @@ class NestedList extends React.Component {
   render() {
     const {
       classes,
-      handleClose,
+      // handleClose,
       // showModal,
       handleClick,
       showLogIn,
     } = this.props;
     // TODO: refactor this to own components?
     // then have it closeModal & open new modal
-    const renderView = showLogIn ? (
-      <F>
-        <ListItemIcon>
-          <LogInIcon style={{ color: '#2980B9' }} />
-        </ListItemIcon>
-        <ListItemText inset primary="Log In" />
-      </F>
-    ) : (
-      <F>
-        <ListItemIcon>
-          <SignUpIcon style={{ color: '#FB364A' }} />
-        </ListItemIcon>
-        <ListItemText inset primary="Sign Up" />
-      </F>
-    );
+    // const renderView = showLogIn ? (
+    //   <F>
+    //     <ListItemIcon>
+    //       <LogInIcon style={{ color: '#2980B9' }} />
+    //     </ListItemIcon>
+    //     <ListItemText inset primary="Log In" />
+    //   </F>
+    // ) : (
+    //   <F>
+    //     <ListItemIcon>
+    //       <SignUpIcon style={{ color: '#FB364A' }} />
+    //     </ListItemIcon>
+    //     <ListItemText inset primary="Sign Up" />
+    //   </F>
+    // );
+
     return (
       <List className={classes.root}>
         <ListItem button onClick={this.handleClick}>
