@@ -67,9 +67,7 @@ class NestedList extends React.Component {
         </ListItem>
         <Collapse in={this.state.open} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-            <ListItem button className={classes.nested} onClick={handleClose}>
-              {renderView}
-            </ListItem>
+
             <ListItem button className={classes.nested} onClick={handleClick}>
               <ListItemIcon>
                 <LogInIcon />
@@ -82,5 +80,9 @@ class NestedList extends React.Component {
     );
   }
 }
+
+// <ListItem button className={classes.nested} onClick={handleClose}>
+//   {renderView}
+// </ListItem>
 
 export const View = withStyles(styles)(withDemoUser(NestedList));

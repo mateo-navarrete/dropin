@@ -16,7 +16,7 @@ export const createEventReducer = (state = initState, action) => {
       nextState = { ...state, errMsg: '', creatingEvent: true };
       return nextState;
     case GOT_CREATE_EVENT_ERROR:
-      console.log('@GotCreateEventErr_Reducer');
+      // console.log('@GotCreateEventErr_Reducer');
       nextState = { ...state, errMsg: action.payload, creatingEvent: false };
       return nextState;
     case GOT_CREATE_EVENT_SUCCESS:

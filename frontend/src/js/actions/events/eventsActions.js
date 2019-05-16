@@ -6,7 +6,7 @@ import {
   GET_ADDRESS,
   SET_MARKER_TYPE
 } from '../../constants';
-import { getUserEvents } from '..'
+import { getUserEvents } from '..';
 import { getData, deleteData } from '../../utils';
 import Geocode from 'react-geocode';
 
@@ -19,7 +19,7 @@ const gettingEvents = () => {
 };
 
 const gotEventsError = err => {
-  console.log('@gotEventsError', err);
+  // console.log('@gotEventsError', err);
   return { type: GOT_EVENTS_ERROR, payload: err };
 };
 
@@ -33,19 +33,18 @@ const get_address = address => {
 
 export const getEvents = ({ url, latitude, longitude }) => dispatch => {
   // TODO: byRadius & notPrivate
-  if(url) {
+  if (url) {
     dispatch(gettingEvents());
-    getData(`/api/events` + `/${url}/?lat=${latitude}&lon=${longitude}`)
+    getData(`/api/events/${url}/?lat=${latitude}&lon=${longitude}`)
       .then(res => dispatch(gotEventsSuccess(res.data.data)))
       .catch(err => dispatch(gotEventsError(err)));
   } else {
-
     dispatch(gettingEvents());
-    getData(`/api/events` + `/?lat=${latitude}&lon=${longitude}`)
+    getData(`/api/events/?lat=${latitude}&lon=${longitude}`)
       .then(res => dispatch(gotEventsSuccess(res.data.data)))
       .catch(err => dispatch(gotEventsError(err)));
   }
-}
+};
 
 export const getAddress = ({ latitude, longitude }) => dispatch => {
   Geocode.setApiKey('AIzaSyB5uKfMriNA73mQgW_ZRelAixBLEdqT-Xg');
@@ -56,37 +55,41 @@ export const getAddress = ({ latitude, longitude }) => dispatch => {
     },
 
     error => {
-      console.error(error);
+      // console.error(error);
     }
   );
 };
 
-export const deleteEvent  = ({id, coords:{latitude, longitude}, user_name}) => dispatch => {
-  console.log('delete');
+export const deleteEvent = ({
+  id,
+  coords: { latitude, longitude },
+  user_name,
+}) => dispatch => {
+  // console.log('delete');
   deleteData(`/api/events/${id}`)
-  .then((res) => {
-    if(res.data.status ==="success"){
-      console.log(res.data.message);
-      // console.log(coords);
-      // dispatch(getEvents(url))
-      //get all events again
-    }
-  })
-  .then(() => {
-          dispatch(
-            getEvents({
-              latitude: latitude,
-              longitude: longitude,
-            })
-          );
-          dispatch(getUserEvents({ user_name: user_name }));
+    .then(res => {
+      if (res.data.status === 'success') {
+        // console.log(res.data.message);
+        // console.log(coords);
+        // dispatch(getEvents(url))
+        //get all events again
+      }
+    })
+    .then(() => {
+      dispatch(
+        getEvents({
+          latitude: latitude,
+          longitude: longitude,
         })
-  .catch(err => dispatch(gotEventsError(err)));
-// deleteData(`/api/events/${id}`, res => {
-//     console.log(res.status);
-    // if(res.status ==="success"){
-    //   dispatch(props.showModal)
-    //   dispatch(getEvents());
-    // }
+      );
+      dispatch(getUserEvents({ user_name: user_name }));
+    })
+    .catch(err => dispatch(gotEventsError(err)));
+  // deleteData(`/api/events/${id}`, res => {
+  //     console.log(res.status);
+  // if(res.status ==="success"){
+  //   dispatch(props.showModal)
+  //   dispatch(getEvents());
+  // }
   // })
-}
+};

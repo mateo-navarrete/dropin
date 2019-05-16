@@ -11,7 +11,7 @@ import { postData, deleteData, editData } from '../../utils';
 
 import { getEvents } from './eventsActions';
 
-import { hideTopOverlay, showBottomOverlay } from '../utils'
+import { hideTopOverlay, showBottomOverlay } from '../utils';
 
 export const setCategory = category_id => {
   return { type: SET_CATEGORY, payload: category_id };
@@ -39,7 +39,7 @@ const createEventError = err => {
 
 const eventDelete = () => {
   return { type: DELETE_EVENT };
-}
+};
 
 // const pad = num => ('00' + num).slice(-2);
 
@@ -74,7 +74,7 @@ export const createEvent = eventObj => dispatch => {
       : 'sports';
   //TODO: refactor!
   window.location.assign(`/${page}`);
-  console.log('@@@', eventObj);
+  // console.log('@@@', eventObj);
   dispatch(creatingEvent());
   // console.log(eventObj);
   postData('/api/events/', eventObj, res => {
@@ -94,15 +94,15 @@ export const createEvent = eventObj => dispatch => {
 //   })
 // }
 
-export const editEvent = (id) => dispatch =>{
-  dispatch(showBottomOverlay(id))
-}
+export const editEvent = (id) => dispatch => {
+  dispatch(showBottomOverlay(id));
+};
 
-export const reportEvent = (id) => dispatch =>{
-  dispatch()
+export const reportEvent = (id) => dispatch => {
+  dispatch();
   // editData(`/api/events/${eventObj}`, res =>{
   //   if(res.status ==="successs"){
   //     console.log(res)
   //   }
   // })
-}
+};

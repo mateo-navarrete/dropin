@@ -18,7 +18,7 @@ export const userEventsReducer = (state = initState, action) => {
       nextState = { ...state, errMsg: '', loading: true };
       return nextState;
     case GOT_USER_EVENTS_ERROR:
-      console.log('@GotUserEventsErr_Reducer');
+      // console.log('@GotUserEventsErr_Reducer');
       nextState = { ...state, errMsg: action.payload, loading: false };
       return nextState;
     case GOT_USER_EVENTS_SUCCESS:

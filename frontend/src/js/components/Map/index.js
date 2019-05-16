@@ -17,13 +17,12 @@ const MapElement = <div style={{ height: `100%` }} />;
 
 class WrappedComponent extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       isMarkerShown: true,
-      showModal: false
-    }
+      showModal: false,
+    };
   }
-
 
   // resetCenter = () => {
   //   this.timeout2 = setTimeout(() => {
@@ -31,17 +30,17 @@ class WrappedComponent extends Component {
   //   }, 100);
   // };
 
-  handleUserMarkerClick = (open) => {
+  handleUserMarkerClick = open => {
     // this.setState({ isMarkerShown: false });
-    console.log('REDUX props.eventDraft()');
+    // console.log('REDUX props.eventDraft()');
     this.setState({
-      showModal: open
+      showModal: open,
     });
   };
 
   handleEventsMarkersClick = el => {
     // this.setState({ isMarkerShown: true });
-    console.log('REDUX props.eventDetails()', el);
+    // console.log('REDUX props.eventDetails()', el);
   };
 
   handleCenterClick = e => {
