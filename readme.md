@@ -10,7 +10,7 @@
 
 [Slides][slides]
 
-[slides]: https://prezi.com/p/pvg9whbqs7bz/
+[slides]: https://docs.google.com/presentation/d/1z3-7_veuC7vO7xY_QRV7VnIWlTf4BOYFaaSCDT40t0c/edit?usp=sharing
 
 ---
 
