@@ -13,7 +13,7 @@ import {
   Marker
   // MarkerClusterer
 } from 'react-google-maps';
-import event_marker_red_png from "../../../../assets/event_marker_red_png.png"
+// import event_marker_red_png from "../../../../assets/event_marker_red_png.png"
 
 class EventsMarkersComponent extends Component {
   constructor() {
@@ -38,11 +38,11 @@ class EventsMarkersComponent extends Component {
   };
 
   render() {
-    const { showModal } = this.state;
+    // const { showModal } = this.state;
     const { handleClick, ...props } = this.props;
-    const colors = ['cyan', 'green', 'magenta'];
-    const getRandomNum = n => (Math.random() * n) >> 0;
-    const randomMarkerColor = colors[getRandomNum(colors.length)];
+    // const colors = ['cyan', 'green', 'magenta'];
+    // const getRandomNum = n => (Math.random() * n) >> 0;
+    // const randomMarkerColor = colors[getRandomNum(colors.length)];
 
     // let renderList =
     //   this.props.eventsList && this.props.eventsList.length
@@ -60,14 +60,14 @@ class EventsMarkersComponent extends Component {
       <LogInForm handleClose={() => this.setShowModal(false)} />
     );
 
-    const renderView = this.props.isUserMarker ? (
-      renderLogin
-    ) : (
-      <EventDetails
-        handleClose={() => this.setShowModal(false)}
-        {...this.props}
-      />
-    );
+    // const renderView = this.props.isUserMarker ? (
+    //   renderLogin
+    // ) : (
+    //   <EventDetails
+    //     handleClose={() => this.setShowModal(false)}
+    //     {...this.props}
+    //   />
+    // );
 
     let renderEvents = renderList
       ? renderList.map(e => {
@@ -82,7 +82,7 @@ class EventsMarkersComponent extends Component {
                 position={{ lat: +e.latitude, lng: +e.longitude }}
                 onDblClick={() => this.setShowModal(true)}
                 icon={{
-                  url: require("../../../../assets/event_marker_red_png.png"), //'/img/icon.svg',
+                  url: require('../../../../assets/event_marker_red_png.png'), //'/img/icon.svg',
                   scaledSize: new window.google.maps.Size(65, 65),
                 }}
                 animation={window.google.maps.Animation.DROP}
@@ -100,7 +100,7 @@ class EventsMarkersComponent extends Component {
         {this.props.isUserMarker
           ? renderLogin
           : renderList.map(e => {
-              if (e.id == this.state.clickedEventID) {
+              if (+e.id === +this.state.clickedEventID) {
                 return (
                   <EventDetails
                     handleClose={() => this.setShowModal(false)}
@@ -109,6 +109,8 @@ class EventsMarkersComponent extends Component {
                     key={e.id}
                   />
                 );
+              } else {
+                return null;
               }
             })}
       </Modal>
@@ -118,7 +120,7 @@ class EventsMarkersComponent extends Component {
 
     return (
       <F>
-      {renderModal}
+        {renderModal}
         <Spiderfy onSpiderfyClick={this.setShowModal}>{renderEvents}</Spiderfy>
       </F>
     );

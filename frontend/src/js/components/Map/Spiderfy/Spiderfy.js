@@ -1,11 +1,11 @@
-import React, { Fragment as F } from "react";
-import PropTypes from "prop-types";
-import { MAP, MARKER } from "react-google-maps/lib/constants";
+import React, { Fragment as F } from 'react';
+import PropTypes from 'prop-types';
+import { MAP, MARKER } from 'react-google-maps/lib/constants';
 // import { withOverlay } from '../../containers';
 
 class Spiderfy extends React.Component {
   static contextTypes = {
-    [MAP]: PropTypes.object
+    [MAP]: PropTypes.object,
   };
 
   constructor(props, context) {
@@ -17,7 +17,7 @@ class Spiderfy extends React.Component {
       spiralFootSeparation: 70,
       spiralLengthStart: 70,
       spiralLengthFactor: 4,
-      nearbyDistance: 30
+      nearbyDistance: 30,
     });
   }
 
@@ -29,7 +29,7 @@ class Spiderfy extends React.Component {
     return React.Children.map(this.props.children, child => {
       return React.cloneElement(child.props.children, {
         ref: this.markerNodeMounted,
-        id: child.props.children.props.id
+        id: child.props.children.props.id,
       });
     });
   };
@@ -52,11 +52,11 @@ class Spiderfy extends React.Component {
     let marker;
     marker = ref.state[MARKER];
     this.oms.addMarker(marker);
-    window.google.maps.event.addListener(marker, "spider_click", e => {
+    window.google.maps.event.addListener(marker, 'spider_click', e => {
       if (this.props.onSpiderClick) {
         this.props.onSpiderClick(e);
       } else {
-        let markerId = marker;
+        // let markerId = marker;
 
         this.props.onSpiderfyClick(true, id);
       }
@@ -64,11 +64,7 @@ class Spiderfy extends React.Component {
   };
 
   render() {
-    return (
-      <F>
-        {this.props.children ? this.markerRef() : null}
-      </F>
-    );
+    return <F>{this.props.children ? this.markerRef() : null}</F>;
   }
 }
 

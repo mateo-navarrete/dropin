@@ -34,7 +34,7 @@ export const View = ({
   display_user,
   created_date,
   expiration_date,
-  id
+  id,
 },
   toggleShowCoords,
   showCoords,
@@ -42,10 +42,10 @@ export const View = ({
   coords,
   ...props,
 }) => {
-  console.log(props);
+  // console.log(props);
   let u_name = props.user_name;
 
-  console.log("event details view", props)
+  // console.log("event details view", props)
 
   let timeAgo = getTimeAgo(created_date);
   // const favoriteStatus = (
@@ -56,9 +56,12 @@ export const View = ({
   // console.log(user_name, display_user);
   const renderOptions =
     user_name === name ? (
-      <div className="flex align">
-        <IconButton onClick={() => {props.deleteEvent({id, coords, user_name: u_name});
-        handleClose()}}>
+      
+<div className="flex align">
+        <IconButton onClick={() => {
+    props.deleteEvent({ id, coords, user_name: u_name });
+        handleClose();
+}}>
           <DeleteIcon fontSize="small"/>
         </IconButton>
       </div>
@@ -83,14 +86,14 @@ export const View = ({
     ''
   );
 
-  let street
-  let zip
+  let street;
+  let zip;
   if (address) {
-     [street, ...zip] = address.split(',');
+    [street, ...zip] = address.split(',');
     zip = zip.join(',');
   } else {
-     street = 'address';
-     zip = 'unavailable';
+    street = 'address';
+    zip = 'unavailable';
   }
 
   return (

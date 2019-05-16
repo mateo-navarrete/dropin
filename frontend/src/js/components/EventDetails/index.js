@@ -15,7 +15,7 @@ class WrappedComponent extends Component {
   render() {
     // const { showModal } = this.state;
     // const { handleClick, ...props } = this.props;
-    console.log("EVENT DETAILS INDEX PROPS", this.props);
+    // console.log("EVENT DETAILS INDEX PROPS", this.props);
     return (
       <F>
         <View

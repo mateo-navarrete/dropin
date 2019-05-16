@@ -105,7 +105,7 @@ class WrappedComponent extends Component {
       ) : (
         ''
       );
-    console.log('@root', classes.root);
+    // console.log('@root', classes.root);
     return (
       <div>
         <Stepper activeStep={activeStep} alternativeLabel>

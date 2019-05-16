@@ -11,7 +11,7 @@ const gettingUserEvents = () => {
 };
 
 const gotUserEventsError = err => {
-  console.log('@gotUserEventsError', err);
+  // console.log('@gotUserEventsError', err);
   return { type: GOT_USER_EVENTS_ERROR, payload: err };
 };
 
@@ -23,7 +23,7 @@ export const getUserEvents = ({ user_name }) => dispatch => {
   dispatch(gettingUserEvents());
   getData(`/api/events/user/${user_name}`)
     .then(res => {
-      console.log("get user events", res.data.data[0])
+      // console.log("get user events", res.data.data[0])
       let userData = res.data.data[0];
       dispatch(gotUserEventsSuccess(userData));
     })

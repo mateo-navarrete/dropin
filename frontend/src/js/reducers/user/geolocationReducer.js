@@ -18,7 +18,7 @@ export const geolocationReducer = (state = initState, action) => {
       nextState = { ...state, errMsg: '', loading: true };
       return nextState;
     case GOT_GEOLOCATION_ERROR:
-      console.log('@GotGeolocationErr_Reducer');
+      // console.log('@GotGeolocationErr_Reducer');
       nextState = { ...state, errMsg: action.payload, loading: false };
       return nextState;
     case GOT_GEOLOCATION_SUCCESS:
