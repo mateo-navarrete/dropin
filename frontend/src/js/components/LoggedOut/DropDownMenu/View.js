@@ -1,7 +1,8 @@
-import React, { Fragment as F } from 'react';
+import React from // { Fragment as F }
+'react';
 import { withDemoUser, withStyles } from '../../../containers';
 import LogInIcon from '@material-ui/icons/Lock';
-import SignUpIcon from '@material-ui/icons/VerifiedUser';
+// import SignUpIcon from '@material-ui/icons/VerifiedUser';
 import {
   Collapse,
   ExpandLess,
@@ -37,7 +38,7 @@ class NestedList extends React.Component {
       // handleClose,
       // showModal,
       handleClick,
-      showLogIn,
+      // showLogIn,
     } = this.props;
     // TODO: refactor this to own components?
     // then have it closeModal & open new modal
@@ -68,7 +69,6 @@ class NestedList extends React.Component {
         </ListItem>
         <Collapse in={this.state.open} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-
             <ListItem button className={classes.nested} onClick={handleClick}>
               <ListItemIcon>
                 <LogInIcon />
