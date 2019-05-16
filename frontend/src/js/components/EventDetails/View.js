@@ -42,11 +42,7 @@ export const View = ({
   coords,
   ...props,
 }) => {
-  console.log(props);
   let u_name = props.user_name;
-
-  console.log("event details view", props)
-
   let timeAgo = getTimeAgo(created_date);
   // const favoriteStatus = (
   //   <IconButton>
