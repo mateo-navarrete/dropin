@@ -11,7 +11,7 @@ export const View = ({ getEvents, handleClose, setMarkerType, ...props }) => {
   };
   return (
     <ChildListItem
-      primaryText="Fomo"
+      primaryText="FOMO"
       handleClick={() => {
         getEvents(eventObj);
         setMarkerType('eventsList');
