@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 export const withToggleShowChildren = WrappedComponent => {
   class HOC extends Component {
     state = {
-      showChildren: false,
+      showChildren: true,
     };
     toggleShowChildren = () => {
       this.setState(state => ({ showChildren: !state.showChildren }));
