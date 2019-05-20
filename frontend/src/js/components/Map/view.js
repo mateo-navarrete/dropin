@@ -223,98 +223,102 @@ const WrappedComponent = props => {
       stylers: [
         {
           color: '#db8555',
-        }
-      ]
+        },
+      ],
     },
     {
-      featureType: "road.local",
-      elementType: "labels.text.fill",
+      featureType: 'road.local',
+      elementType: 'labels.text.fill',
       stylers: [
         {
-          color: "#806b63"
-        }
-      ]
+          color: '#806b63',
+        },
+      ],
     },
     {
-      featureType: "transit",
+      featureType: 'transit',
       stylers: [
         {
-          visibility: "off"
-        }
-      ]
+          visibility: 'off',
+        },
+      ],
     },
     {
-      featureType: "transit.line",
-      elementType: "geometry",
+      featureType: 'transit.line',
+      elementType: 'geometry',
       stylers: [
         {
-          color: "#dfd2ae"
-        }
-      ]
+          color: '#dfd2ae',
+        },
+      ],
     },
     {
-      featureType: "transit.line",
-      elementType: "labels.text.fill",
+      featureType: 'transit.line',
+      elementType: 'labels.text.fill',
       stylers: [
         {
-          color: "#8f7d77"
-        }
-      ]
+          color: '#8f7d77',
+        },
+      ],
     },
     {
-      featureType: "transit.line",
-      elementType: "labels.text.stroke",
+      featureType: 'transit.line',
+      elementType: 'labels.text.stroke',
       stylers: [
         {
-          color: "#ebe3cd"
-        }
-      ]
+          color: '#ebe3cd',
+        },
+      ],
     },
     {
-      featureType: "transit.station",
-      elementType: "geometry",
+      featureType: 'transit.station',
+      elementType: 'geometry',
       stylers: [
         {
-          color: "#dfd2ae"
-        }
-      ]
+          color: '#dfd2ae',
+        },
+      ],
     },
     {
-      featureType: "water",
-      elementType: "geometry.fill",
+      featureType: 'water',
+      elementType: 'geometry.fill',
       stylers: [
         {
-          color: "#2980b9"
-        }
-      ]
+          color: '#2980b9',
+        },
+      ],
     },
     {
-      featureType: "water",
-      elementType: "labels.text.fill",
+      featureType: 'water',
+      elementType: 'labels.text.fill',
       stylers: [
         {
-          color: "#523735"
-        }
-      ]
-    }
+          color: '#523735',
+        },
+      ],
+    },
   ];
+  // options={{
+  //   styles: exampleMapStyles,
+  //   mapTypeControl: false,
+  // }}
   return (
     <GoogleMap
       center={centerCoords}
-      defaultZoom={15}
-      options={{
-        styles: exampleMapStyles,
-        mapTypeControl: false
-      }}
+      defaultZoom={16}
+
       defaultOptions={{
+        styles: exampleMapStyles,
+        mapTypeControl: false,
+        //
         // center: props.center,
         clickableIcons: false,
         disableDefaultUI: true,
         // styles: MapStyles.night, //randomMap,
         zoomControl: true,
         zoomControlOptions: {
-          position: google.maps.ControlPosition.TOP_RIGHT
-        }
+          position: google.maps.ControlPosition.TOP_RIGHT,
+        },
       }}
     >
       <CenterMarker onCenterClick={props.onCenterClick} />
