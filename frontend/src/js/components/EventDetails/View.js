@@ -10,7 +10,7 @@ import {
   Typography,
   // FavoriteIcon,
   IconButton,
-  ReportIcon,
+  // ReportIcon,
   // EditIcon,
   DeleteIcon,
   PinIcon
@@ -24,18 +24,18 @@ import { getTimeAgo } from '../../utils';
 export const View = ({
   name,
   event: {
-  address,
-  caption,
-  event_name,
-  latitude,
-  longitude,
-  position,
-  user_name,
-  display_user,
-  created_date,
-  expiration_date,
-  id,
-},
+    address,
+    caption,
+    event_name,
+    latitude,
+    longitude,
+    position,
+    user_name,
+    display_user,
+    created_date,
+    expiration_date,
+    id,
+  },
   toggleShowCoords,
   showCoords,
   handleClose,
@@ -56,20 +56,22 @@ export const View = ({
   // console.log(user_name, display_user);
   const renderOptions =
     user_name === name ? (
-      
-<div className="flex align">
-        <IconButton onClick={() => {
-    props.deleteEvent({ id, coords, user_name: u_name });
-        handleClose();
-}}>
-          <DeleteIcon fontSize="small"/>
+      <div className="flex align">
+        <IconButton
+          onClick={() => {
+            props.deleteEvent({ id, coords, user_name: u_name });
+            handleClose();
+          }}
+        >
+          <DeleteIcon fontSize="small" />
         </IconButton>
       </div>
     ) : (
-      <IconButton>
-        <ReportIcon fontSize="small" />
-      </IconButton>
+      ''
     );
+  // <IconButton>
+  //   <ReportIcon fontSize="small" />
+  // </IconButton>
   const renderCreater =
     display_user === 'true' ? (
       <Typography variant="caption" gutterBottom>

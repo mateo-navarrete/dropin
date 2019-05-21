@@ -31,7 +31,7 @@ const createEvent = (req, res, next) => {
     1: 15,
     2: 30,
     3: 60,
-    4: 120,
+    4: 400,//120
   };
   const eventDetails = {
     // category_id: rb.category_id,
